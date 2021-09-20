@@ -11,21 +11,18 @@ class LoginForm extends React.Component {
       errors: {},
     };
 
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // Once the user has been authenticated, redirect to the Tweets page
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push("/tweets");
+      this.props.history.push("/");
     }
 
-    // Set or clear errors
     this.setState({ errors: nextProps.errors });
   }
 
-  // Handle field updates (called in the render method)
   update(field) {
     return (e) =>
       this.setState({
@@ -33,7 +30,6 @@ class LoginForm extends React.Component {
       });
   }
 
-  // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
 
@@ -45,7 +41,6 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
-  // Render the session errors if there are any
   renderErrors() {
     return (
       <ul>
@@ -59,24 +54,29 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={(e)=>this.handleSubmit(e)}>
+        <h1>Login</h1>
+        <form onSubmit={this.handleSubmit}>
           <div>
+            <label>Email:
             <input
               type="text"
               value={this.state.email}
               onChange={this.update("email")}
               placeholder="Email"
             />
+            </label>
             <br />
+            <label>Password: 
             <input
               type="password"
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
             />
+            </label>
             <br />
             <input type="submit" value="Submit" />
-            {()=>this.renderErrors()}
+            {this.renderErrors()}
           </div>
         </form>
       </div>
