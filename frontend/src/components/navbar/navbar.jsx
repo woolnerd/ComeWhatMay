@@ -5,7 +5,8 @@ import "./navbar.css";
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    
+
+    this.getPlans = this.getPlans.bind(this);
   }
 
   logoutUser(e) {
@@ -17,9 +18,9 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div>
-          <Link to={"/tweets"}>Disaster Plans</Link>
+          <Link to={"/plans"}>Disaster Plans</Link>
           <Link to={"/profile"}>Profile</Link>
-          <Link to={"/new_tweet"}>Make a new plan</Link>
+          <Link to={"/new_plan"}>Make a new plan</Link>
           <button onClick={(e)=>this.logoutUser(e)}>Logout</button>
         </div>
       );
@@ -37,7 +38,7 @@ class NavBar extends React.Component {
     return (
       <div>
         <h1>Disaster Plans</h1>
-        {()=>this.getPlans()}
+        {this.getPlans()}
       </div>
     );
   }
