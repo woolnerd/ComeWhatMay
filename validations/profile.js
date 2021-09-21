@@ -14,9 +14,9 @@ module.exports = function validateProfileInput(data) {
     errors.email = 'Email field is required';
   }
 
-  if (Validator.isEmpty(data.phoneNumber)) {
-    errors.phoneNumber = 'Phone number field is required';
-  }
+  // if (Validator.isEmpty(data.phoneNumber)) {
+  //   errors.phoneNumber = 'Phone number field is required';
+  // }
 
   // if (!Validator.isNumber(data.phoneNumber)) {
   //   errors.phoneNumber = 'Phone number is not a valid number';
