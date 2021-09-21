@@ -19,9 +19,11 @@ class NavBar extends React.Component {
       return (
         <div>
           <Link to={"/plans"}>Disaster Plans</Link>
-          <Link to={"/profile"}>Profile</Link>
-          <Link to={"/new_plan"}>Make a new plan</Link>
-          <button onClick={(e)=>this.logoutUser(e)}>Logout</button>
+          <Link to={`/profile/${this.props.currentUserId}`}>Profile</Link>
+          <Link to={`/profile/new${this.props.currentUserId}`}>New Profile</Link>
+
+          <Link to={"/new-plan"}>Make a new plan</Link>
+          <button onClick={(e) => this.logoutUser(e)}>Logout</button>
         </div>
       );
     } else {
