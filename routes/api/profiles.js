@@ -59,6 +59,7 @@ router.put('/update/:id', (req, res) => {
         .then(profile => Profile.findById(profile.id))
         .then(profile => res.json(profile))
         .catch(err => res.status(404).json({ noProfileFound: 'No profile found with that ID' }))
+
 });
 
 module.exports = router;
