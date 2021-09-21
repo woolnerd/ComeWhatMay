@@ -16,7 +16,6 @@ router.get('/:profile_id', (req, res) => {
 });
 
 router.post('/',
-    // passport.authenticate('jwt', { session: false }),
     (req, res) => {
       const { errors, isValid } = validateRelativeInput(req.body);
         
@@ -25,7 +24,7 @@ router.post('/',
       }
   
       const newRelative = new Relative({
-        profile: req.profile, 
+        profile: req.body.profile, 
         name: req.body.name, 
         age: req.body.age, 
         relationship: req.body.relationship, 

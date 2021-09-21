@@ -5,6 +5,7 @@ const RelativeSchema = new Schema({
     profile: {
       type: Schema.Types.ObjectId,
       ref: 'profiles', 
+      require: true
     },
     name: {
       type: String,
