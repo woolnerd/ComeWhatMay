@@ -25,12 +25,12 @@ export const createUserProfile = (profile) => (dispatch) =>
     .then((profile) => dispatch(receiveUserProfile(profile)))
     .catch((err) => console.log(err));
 
-export const updateUserProfile = (user) => (dispatch) =>
-  APIProfileUtil.updateUserProfile(user)
-    .then((user) => dispatch(receiveUserProfile(user)))
+export const updateUserProfile = (profile) => (dispatch) =>
+  APIProfileUtil.updateUserProfile(profile)
+    .then((profile) => dispatch(receiveUserProfile(profile)))
     .catch((err) => console.log(err));
 
-export const deleteUserProfile = (userId) => (dispatch) =>
-  APIProfileUtil.deleteUserProfile(userId)
-    .then(() => dispatch(removeUserProfile(userId)))
+export const deleteUserProfile = (profileId) => (dispatch) =>
+  APIProfileUtil.deleteUserProfile(profileId)
+    .then(() => dispatch(removeUserProfile(profileId)))
     .catch((err) => console.log(err));

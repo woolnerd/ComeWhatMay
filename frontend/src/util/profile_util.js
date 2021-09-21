@@ -6,16 +6,16 @@ export const createUserProfile = (profile) => {
 }
 
 export const fetchUserProfile = (profileId) => {
-  // debugger
   return axios.get(`/api/profiles/${profileId}`);
 };
 
 export const updateUserProfile = (profile) => {
-  return axios.put("/api/users/", profile);
+  console.log(profile)
+  return axios.put(`/api/profiles/update/${profile._id}`, {params: profile});
 };
 
 export const deleteUserProfile = (profileId) => {
-  return axios.destroy(`/api/users/${profileId}`);
+  return axios.delete(`/api/profiles/${profileId}`);
 };
 
 export const testRoute = () => {
