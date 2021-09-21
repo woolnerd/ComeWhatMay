@@ -6,6 +6,8 @@ import configureStore from "./store/store";
 import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout, login } from "./actions/session_actions";
+import * as ProfileUtils from "./actions/profile_actions";
+import { testRoute } from "./util/profile_util"
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -34,6 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.logout = logout
   window.login = login; 
 
+  window.createUserProfile = ProfileUtils.createUserProfile
+  window.fetchUserProfile = ProfileUtils.fetchUserProfile
+  window.updateUserProfile = ProfileUtils.updateUserProfile
+  window.deleteUserProfile = ProfileUtils.deleteUserProfile
+  window.testRoute = testRoute;
 
   ReactDOM.render(<Root store={store} />, root);
 });

@@ -15,14 +15,14 @@ export const removeUserProfile = (profileId) => ({
 })
 
 
-export const fetchUserProfile = (userId) => (dispatch) =>
-  APIProfileUtil.fetchUserProfile(userId)
-    .then((user) => dispatch(receiveUserProfile(user)))
+export const fetchUserProfile = (profileId) => (dispatch) =>
+  APIProfileUtil.fetchUserProfile(profileId)
+    .then((profile) => dispatch(receiveUserProfile(profile)))
     .catch((err) => console.log(err));
 
-export const createUserProfile = (user) => (dispatch) =>
-  APIProfileUtil.createUserProfile(user)
-    .then((user) => dispatch(receiveUserProfile(user)))
+export const createUserProfile = (profile) => (dispatch) =>
+  APIProfileUtil.createUserProfile(profile)
+    .then((profile) => dispatch(receiveUserProfile(profile)))
     .catch((err) => console.log(err));
 
 export const updateUserProfile = (user) => (dispatch) =>
