@@ -11,7 +11,7 @@ export const fetchUserProfile = (profileId) => {
 
 export const updateUserProfile = (profile) => {
   console.log(profile)
-  return axios.put(`/api/profiles/update/${profile._id}`, profile);
+  return axios.put(`/api/profiles/update/${profile.id}`, profile);
 };
 
 export const deleteUserProfile = (profileId) => {
