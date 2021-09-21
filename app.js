@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require("./routes/api/users");
-const profiles = require("./routes/api/profiles")
+const profiles = require("./routes/api/profiles");
+const relatives = require("./routes/api/relatives")
 
 mongoose
     .connect(db, { useNewUrlParser: true })
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/profiles", profiles);
+app.use("/api/relatives", relatives);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
