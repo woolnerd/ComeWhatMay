@@ -58,12 +58,18 @@ router.delete('/:id', (req, res) => {
 
 router.put('/update/:id', (req, res) => {
     Profile.findByIdAndUpdate(req.params.id, req.body)
-        .then(function(){
-            Profile.find({id: req.params.id})
-            .then(function(profile){
-                res.send(profile)
-            })
-        })
+        .then(profile => Profile.findById(profile.id))
+        .then(profile => res.json(profile))
+           
+          
+        //   function(){
+          
+        //     Profile.find({id: req.params.id})
+        //     .then(function(profile){
+        //         res.json(profile)
+        //     })
+        // })
+        // .then(profile => res.json(profile))
 });
 
 module.exports = router;
