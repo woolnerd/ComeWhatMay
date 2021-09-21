@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const Profile  = require('../../models/Profile');
 const validateProfileInput = require('../../validations/profile');
 
-router.get('/:user_id', (req, res) => {
+router.get('/users/:user_id', (req, res) => {
     Profile.find({user: req.params.user_id})
     .then(profile => res.json(profile))
     .catch(err =>
