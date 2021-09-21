@@ -5,6 +5,7 @@ import {
 
 
 const profileReducer = (state = {}, action) => {
+    // debugger
     Object.freeze(state);
     let newState = {...state}
     switch(action.type) {
