@@ -5,12 +5,13 @@ export const RECEIVE_USER_PROFILE = "RECEIVE_USER_PROFILE";
 export const REMOVE_USER_PROFILE = "REMOVE_USER_PROFILE";
 
 export const receiveUserProfile = (profile) => {
-  // 
+  // debugger
   return (
 
     {
       type: RECEIVE_USER_PROFILE,
-      profile: profile.data[profile.data.length-1]
+      // profile: profile.data[profile.data.length-1]
+      profile: profile.data
     }
   )
 };

@@ -10,7 +10,7 @@ const relatives = require("./routes/api/relatives")
 
 mongoose
     .connect(db, { useNewUrlParser: true })
-    .then(() => console.log("Connected to MongoDB successfully"))
+    .then(() => ("Connected to MongoDB successfully"))
     .catch(err => console.log(err));
 
 app.get("/", (req, res) => {
