@@ -15,6 +15,15 @@ router.get('/:profile_id', (req, res) => {
     );
 });
 
+router.get('/member/:id', (req, res) => {
+    Relative.findById(req.params.id)
+    .then(relative => res.json(relative))
+    .catch(err =>
+            res.status(404).json({ noRelativeFound: 'No household memeber found associated to ID' }
+        )
+    );
+});
+
 router.post('/',
     (req, res) => {
       const { errors, isValid } = validateRelativeInput(req.body);
