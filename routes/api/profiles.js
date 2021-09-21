@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const Profile  = require('../../models/Profile');
 const validateProfileInput = require('../../validations/profile');
 
-router.get('/:user_id', (req, res) => {
+router.get('/users/:user_id', (req, res) => {
     Profile.find({user: req.params.user_id})
     .then(profile => res.json(profile))
     .catch(err =>
@@ -51,19 +51,15 @@ router.delete('/:id', (req, res) => {
     .then(profile => profile.remove()
     .then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ noProfileFound: 'No profile found with that ID' }))
-
-    //Profile.findByIdAndDelete()
 })
 
 
 router.put('/update/:id', (req, res) => {
     Profile.findByIdAndUpdate(req.params.id, req.body)
-        .then(function(){
-            Profile.find({id: req.params.id})
-            .then(function(profile){
-                res.send(profile)
-            })
-        })
+        .then(profile => Profile.findById(profile.id))
+        .then(profile => res.json(profile))
+        .catch(err => res.status(404).json({ noProfileFound: 'No profile found with that ID' }))
+
 });
 
 module.exports = router;

@@ -7,6 +7,8 @@ import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout, login } from "./actions/session_actions";
 import * as ProfileUtils from "./actions/profile_actions";
+import * as RelativeUtils from "./actions/relative_actions";
+
 import { testRoute } from "./util/profile_util"
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -41,6 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
   window.updateUserProfile = ProfileUtils.updateUserProfile
   window.deleteUserProfile = ProfileUtils.deleteUserProfile
   window.testRoute = testRoute;
+
+  window.fetchRelative = RelativeUtils.fetchRelative
+  window.fetchAllRelatives = RelativeUtils.fetchAllRelatives
+  window.createRelative = RelativeUtils.createRelative
+  window.updateRelative = RelativeUtils.updateRelative
+  window.deleteRelative = RelativeUtils.deleteRelative
 
   ReactDOM.render(<Root store={store} />, root);
 });
