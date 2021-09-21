@@ -17,11 +17,13 @@ const ProfileSchema = new Schema({
     },
     phoneNumber: {
         type: Number, 
-        required: true
+        required: true, 
+        unique: true
     },
     email: {
         type: String, 
-        required: true
+        required: true, 
+        unique: true
     },
     date: {
       type: Date,
@@ -29,5 +31,5 @@ const ProfileSchema = new Schema({
     }
   })
 
-  
+
 module.exports = Profile = mongoose.model('profiles', ProfileSchema);

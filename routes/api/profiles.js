@@ -9,7 +9,20 @@ const jwt = require('jsonwebtoken');
 const Profile  = require('../../models/Profile');
 const validateProfileInput = require('../../validations/profile');
 
-router.get('/test', (req, res) => res.json({ msg: "This is the profile route" }));
+router.get('/:user_id', (req, res) => {
+    Profile.find({user: req.params.user_id})
+    .then(profile => res.json(profile))
+    .catch(err =>
+            res.status(404).json({ noProfileFound: 'No profile found associated to user' }
+        )
+    );
+});
+
+router.get('/:id', (req, res) => {
+    Profile.findById(req.params.id)
+        .then(profile => res.json(profile))
+        .catch(err =>res.status(404).json({ noProfileFound: 'No profile found with that ID' }));
+});
 
 router.post('/',
     passport.authenticate('jwt', { session: false }),
@@ -32,39 +45,25 @@ router.post('/',
     }
   );
 
-// router.get('user/:user_id', (req, res) => {
-//     Profile.find({user: req.params.user_id})
-//     .then(profile => res.json(profile))
-//     .catch(err =>
-//             res.status(404).json({ noProfileFound: 'No profile found associated to user' }
-//         )
-//     );
-// });
 
-router.get('/:id', (req, res) => {
-    Profile.findById(req.params.id)
-        .then(profile => res.json(profile))
-        .catch(err =>res.status(404).json({ noProfileFound: 'No profile found with that ID' }));
+router.delete('/:id', (req, res) => {
+  Profile.findById(req.params.id)
+    .then(profile => profile.remove()
+    .then(() => res.json({ success: true })))
+    .catch(err => res.status(404).json({ noProfileFound: 'No profile found with that ID' }))
+
+    //Profile.findByIdAndDelete()
+})
+
+
+router.put('/update/:id', (req, res) => {
+    Profile.findByIdAndUpdate(req.params.id, req.body)
+        .then(function(){
+            Profile.find({id: req.params.id})
+            .then(function(profile){
+                res.send(profile)
+            })
+        })
 });
-
-// router.delete('/:id', (req, res) => {
-//   Profile.findById(req.params.id)
-//     .then(profile => profile.remove()
-//     .then(() => res.json({ success: true })))
-//     .catch(err => res.status(404).json({ noProfileFound: 'No profile found with that ID' }))
-
-//     //Profile.findByIdAndDelete()
-// })
-
-
-// router.put('/:id', (req, res) => {
-//     Profile.findByIdAndUpdate({id: req.params.id}, req.body)
-//         .then(function(){
-//             Profile.findOne({id: req.params.id})
-//             .then(function(profile){
-//                 res.send(profile)
-//             })
-//         })
-// });
 
 module.exports = router;
