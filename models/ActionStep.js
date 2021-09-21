@@ -10,9 +10,6 @@ const ActionStepSchema = new Schema({
       type: String,
       required: true
     },
-    disasterId: {
-        type: Schema.Types.Object,
-        required: true
-    }
 })
+
 module.exports = ActionStepSchema
