@@ -10,7 +10,11 @@ const relativeReducer = (state = {}, action) => {
     let newState = {...state}
     switch(action.type) {
         case RECEIVE_ALL_RELATIVES:
-            return action.relatives.data
+            action.relatives.data.forEach((relative) => {
+                newState[relative._id] = relative
+            })
+            return newState;
+            // return action.relatives.data
         case RECEIVE_RELATIVE:
             // debugger
             // newState = {...state, [action.relative.data._id]: action.relative.data}

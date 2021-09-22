@@ -93,10 +93,11 @@ router.delete('/:disasterId/action/delete/:actionId', (req, res) => {
                 disaster.actions.pull({"_id": actionId })
             }
             disaster.save()
-        }).then(success => res.json({success: "Action deleted"}))
+            .then(updatedDisaster => res.json(updatedDisaster))
             .catch(err =>
-                res.status(400).json({ error: 'Unable to create new Action Step' })
+                res.status(400).json({ error: 'Unable to delete action step' })
             );
+        })
 })
 
 module.exports = router;

@@ -3,13 +3,17 @@ import { connect } from 'react-redux'
 import { fetchUserProfile, updateUserProfile, deleteUserProfile } from "../../actions/profile_actions"
 import Profile from './profile';
 import { openModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router';
 
-const mSTP = ({entities, session}) => {
+
+const mSTP = ({entities, session}, ownProps) => {
     // debugger
     return {
-      profileId: Object.keys(entities.profile)[0],
+      // profileId: Object.keys(entities.profile)[0],
+      profileId: ownProps.match.params.profileId, 
       profile: entities.profile,
       currentUserId: session.user.id,
+
       // household: Object.values()
     };
     
@@ -25,4 +29,4 @@ const mDTP = dispatch => ({
     openModal: (modal, id) => dispatch(openModal(modal, id))
 })
 
-export default connect(mSTP, mDTP)(Profile)
+export default withRouter(connect(mSTP, mDTP)(Profile))

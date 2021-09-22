@@ -10,7 +10,8 @@ import { setAuthToken } from "./util/session_api_util";
 import { logout, login } from "./actions/session_actions";
 import * as ProfileUtils from "./actions/profile_actions";
 import * as RelativeUtils from "./actions/relative_actions";
-import * as DisasterPlanUtils from "./actions/disaster_plan_actions"
+import * as DisasterPlanUtils from "./actions/disaster_plan_actions";
+import * as ActionStepUtils from "./actions/action_steps";
 
 import { testRoute } from "./util/profile_util"
 
@@ -60,6 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.createDisasterPlan = DisasterPlanUtils.createDisasterPlan
   window.updateDisasterPlan = DisasterPlanUtils.updateDisasterPlan
   window.deleteDisasterPlan = DisasterPlanUtils.deleteDisasterPlan
+
+  //action step actions
+  window.createActionStep = ActionStepUtils.createActionStep
+  window.updateActionStep = ActionStepUtils.updateActionStep
+  window.deleteActionStep = ActionStepUtils.deleteActionStep
 
   ReactDOM.render(<Root store={store} />, root);
 });

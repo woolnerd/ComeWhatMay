@@ -71,8 +71,8 @@ class CreateRelative extends React.Component{
     }
 }
 
-const mSTP = state => ({
-    // profileId: Object.keys(entities.profile)[0]
+const mSTP = (stat, ownProps) => ({
+    profileId: ownProps.profileId
 });
 
 const mDTP = dispatch => ({
