@@ -2,6 +2,8 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import CreateRelativeContainer from './create_relative';
+import "./modal.css";
+
 
 function Modal({modal, closeModal, id}){
   // debugger

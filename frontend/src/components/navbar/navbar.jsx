@@ -43,22 +43,33 @@ class NavBar extends React.Component {
   getPlans() {
     if (this.props.loggedIn) {
       return (
-        <div>
-          <div>
-            <Link to={"/plans"}>Disaster Plans</Link>
-          </div>
-          <div>
-            <div onClick={(e)=>this.handleClick(e)}>
-              Profile
+        <div className="navbar">
+          <div className="flex-container">
+            {/* <div>
+              <Link to={"/plans"}>Disaster Plans</Link>
+            </div> */}
+            {/* <div> */}
+            {/* <div onClick={(e)=>this.handleClick(e)}> */}
+            {/* <a href="#">
+                  Profile
+                </a> */}
+            {/* </div> */}
+            {/* </div> */}
+                <h1>The Smith Household</h1>
+              <div className="nav-item-container">
+                <div className="nav-item">
+                  <Link to={`/profile/edit`}>Update Profile</Link>
+                </div>
+                <div className="nav-item">
+                  <Link to={"/new-plan"}>Make a new plan</Link>
+                </div>
+                <div className="nav-item">
+                <a href="#" onClick={this.logoutUser}>
+                  Logout
+                </a>
+              </div>
             </div>
           </div>
-          <div>
-             <Link to={`/profile/edit`}>Update Profile</Link>
-          </div>
-          <div>
-             <Link to={"/new-plan"}>Make a new plan</Link>
-          </div>
-          <button onClick={this.logoutUser}>Logout</button>
         </div>
       );
     } else {
@@ -78,7 +89,6 @@ class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <h1>Disaster Plans</h1>
         {this.getPlans()}
       </div>
     );
