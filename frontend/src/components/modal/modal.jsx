@@ -2,8 +2,10 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import CreateRelativeContainer from './create_relative';
+import "./modal.css";
 import EditRelativeContainer from './edit_relative';
 import UpdateProfileContainer from './edit_profile_form';
+
 
 function Modal({modal, closeModal, id}){
   // debugger

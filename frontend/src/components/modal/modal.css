@@ -1,0 +1,61 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.40);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(148, 132, 255, 0.413);
+  padding: 50px 50px;
+  border-radius: 20px;
+}
+
+.create-relative {
+    background-color: rgb(121, 192, 255);
+    padding: 40% 20%;
+    border: 3px rgb(111, 220, 111) solid;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35);
+
+}
+
+.create-relative h2 {
+      font-size: 20px;
+    font-weight: 600;
+}
+
+.create-relative > div {
+    padding: 5px;
+}
+
+.create-relative-header {
+    display: flex;
+    justify-content:space-between;
+}
+
+.create-relative close-x {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.save-button {
+    color: rgb(72, 72, 72);
+    font-size: 20px;
+    font-weight: 600;
+    width: 100% ;
+    background-color: rgb(111, 220, 111);
+    border: 1px solid rgb(252, 252, 252);
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+}
+
+.modal-form-btn {
+
+}

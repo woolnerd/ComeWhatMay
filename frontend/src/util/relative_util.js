@@ -14,7 +14,7 @@ export const fetchAllRelatives = (profileId) => {
 };
 
 export const updateRelative = (relative) => {
-  debugger
+  // debugger
   return axios.put(`/api/relatives/update/${relative._id}`, relative);
 };
 
