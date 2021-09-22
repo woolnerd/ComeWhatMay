@@ -34,7 +34,6 @@ APIDisasterPlanUtil.updateDisasterPlan(plan)
     .then((recPlan) => dispatch(receivePlan(recPlan)))
     .catch((err) => console.log(err));
 
-    
 export const deleteDisasterPlan = (id) => (dispatch) =>
 APIDisasterPlanUtil.deleteDisasterPlan(id)
   .then(() => dispatch(removePlan(id)))
