@@ -7,7 +7,7 @@ import NavBar from "./navbar";
 const mSTP = ({ entities, session }) => {
   return {
     loggedIn: session.isAuthenticated,
-    currentUserId: session.user.id,
+    currentUserId: session.user,
     // profile: Object.values(entities.profile).filter(
     //   (profile) => profile.user === session.user.id
     // )[0],
