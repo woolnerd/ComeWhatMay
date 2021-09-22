@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import EditProfileFormContainer from "./edit_profile_form";
+// import EditProfileFormContainer from "./edit_profile_form";
 import RelativeIndexContainer from "./relative_index";
 
 export class Profile extends Component {

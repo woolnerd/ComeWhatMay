@@ -1,13 +1,28 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateUserProfile, fetchUserProfile } from "../../actions/profile_actions";
-import "./profile.css";
+import { closeModal } from '../../actions/modal_actions';
+import { AiOutlineClose } from 'react-icons/ai'
+
+
+// import "./profile.css";
 
 class EditProfileForm extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      _id: this.props.profile._id,
+      user: this.props.profile.user, 
+      email: this.props.profile.email, 
+      householdName: this.props.profile.householdName,
+      householdSize: this.props.profile.householdSize,
+      phoneNumber: this.props.profile.phoneNumber
+    }
+    // this.state = this.props.profile;
+    this.handleModal = this.handleModal.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
 
-    this.state = this.props.profile;
+
   }
 
   componentWillMount(){
@@ -20,7 +35,13 @@ class EditProfileForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateUserProfile(this.state).then((res) => console.log(res));
+    this.props.updateUserProfile(this.state)
+      .then(() => this.props.closeModal());
+  }
+
+  handleModal(e) {
+    e.preventDefault();
+    this.props.closeModal();
   }
 
   update(field) {
@@ -40,7 +61,8 @@ class EditProfileForm extends React.Component {
   render() {
     return (
       <div className="edit-form">
-          Edit Your Profile
+        Edit Your Profile
+        <p className="exit_edit" onClick={this.handleModal}><AiOutlineClose /></p>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <label>
             Household Name:
@@ -77,7 +99,7 @@ class EditProfileForm extends React.Component {
               value={this.state.householdSize}
             />
           </label>
-          <button>Edit Profile</button>
+          <button onClick={this.handleSubmit}>Edit Profile</button>
         </form>
       </div>
     );
@@ -104,6 +126,7 @@ const mDTP = (dispatch) => {
   return {
     updateUserProfile: (profile) => dispatch(updateUserProfile(profile)),
     fetchUserProfile: (userId) => dispatch(fetchUserProfile(userId)),
+    closeModal: () => dispatch(closeModal())
   };
 };
 
