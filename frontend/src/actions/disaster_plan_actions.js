@@ -4,17 +4,17 @@ export const RECEIVE_ALL_PLANS = 'RECEIVE_ALL_PLANS';
 export const RECEIVE_PLAN = 'RECEIVE_PLAN';
 export const REMOVE_PLAN = 'REMOVE_PLAN';
 
-const receiveAllPlans = (plans) =>({
+export const receiveAllPlans = (plans) =>({
     type: RECEIVE_ALL_PLANS,
     plans
 })
 
-const receivePlan = (plan) =>({
+export const receivePlan = (plan) =>({
     type: RECEIVE_PLAN,
     plan
 })
 
-const removePlan = (id) =>({
+export const removePlan = (id) =>({
     type: REMOVE_PLAN,
     id
 })
