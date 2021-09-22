@@ -15,6 +15,21 @@ export class Profile extends Component {
       .then((res) => this.setState({ profile: res }));
   }
 
+//         if (!this.state.profile) {
+//             return null
+//         } 
+//         const profile = this.props.profile[this.props.profileId]
+//         return (
+//           <div>
+//             <h3>{profile.email}</h3>
+//             <h3>{profile.householdName}</h3>
+//             <h3>{profile.householdSize}</h3>
+//             <h3>{profile.phoneNumber}</h3>
+//             <button onClick={() => this.props.openModal('createRelative', this.props.profileId)}>Test Add Relative</button>
+//             <RelativeIndexContainer profileId={this.props.profileId}/>
+//             {/* <EditProfileFormContainer /> */}
+//           </div>
+//         );
   render() {
     if (!this.state.profile) {
       return null;

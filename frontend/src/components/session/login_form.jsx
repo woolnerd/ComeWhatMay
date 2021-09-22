@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { openModal } from '../../actions/modal_actions';
 import "./session.css";
 
 
@@ -15,11 +16,14 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+
   }
+
+ 
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push("/profile");
+      this.props.history.push("/profile/new");
     }
 
     this.setState({ errors: nextProps.errors });
