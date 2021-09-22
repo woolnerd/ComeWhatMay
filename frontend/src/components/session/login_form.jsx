@@ -17,7 +17,7 @@ class LoginForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push("/");
+      this.props.history.push("/profile");
     }
 
     this.setState({ errors: nextProps.errors });
@@ -43,9 +43,9 @@ class LoginForm extends React.Component {
       // console.log(this.props.userId)
   }
 
-  componentDidUpdate(){
-    this.props.fetchUserProfile(this.props.userId);
-  }
+  // componentDidUpdate(){
+  //   this.props.fetchUserProfile(this.props.userId);
+  // }
 
   renderErrors() {
     return (

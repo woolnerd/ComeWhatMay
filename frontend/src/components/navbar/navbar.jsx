@@ -7,20 +7,32 @@ class NavBar extends React.Component {
     super(props);
 
     this.getPlans = this.getPlans.bind(this);
-    this.state = {profileId: {}};
+    // this.state = {profileId: null};
+    this.logoutUser = this.logoutUser.bind(this)
   }
 
   handleClick(e){
-    e.preventDefault()
-    this.props.fetchUserProfile(this.props.currentUserId)
-    .then(res=>this.setState({profileId: res.profile._id}))
-    .then(this.props.history.push(`/profile/${this.state.profileId}`))
-    console.log(this.props)
+    // e.preventDefault()
+    // this.props.fetchUserProfile(this.props.currentUserId.id)
+    // .then(res=>this.setState({profileId: res.profile._id}))
+    // .then(this.props.history.push(`/profile/${this.state.profileId}`))
+    // .then(this.setState({}))
+    // console.log(this.props)
+
+      e.preventDefault()
+      this.props.fetchUserProfile(this.props.currentUserId.id)
+      .then(res => {
+        let profileId = res.profile._id
+        this.props.history.push(`/profile/${profileId}`)
+      })
+    //   .then(this.props.history.push(`/profile/${this.state.profileId}`))
+    //   .then(this.setState({}))
+    // console.log(this.props)
   }
 
   logoutUser(e) {
     e.preventDefault();
-    this.props.logout();
+    this.props.logout()
   }
 
   getPlans() {
@@ -41,7 +53,7 @@ class NavBar extends React.Component {
           <div>
              <Link to={"/new-plan"}>Make a new plan</Link>
           </div>
-          <button onClick={(e) => this.logoutUser(e)}>Logout</button>
+          <button onClick={this.logoutUser}>Logout</button>
         </div>
       );
     } else {
