@@ -16,7 +16,6 @@ class RelativeIndex extends React.Component {
         this.state = {
             household: this.props.household
         };
-        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {

@@ -53,7 +53,8 @@ class NavBar extends React.Component {
             </div>
           </div>
           <div>
-             <Link to={`/profile/edit`}>Update Profile</Link>
+             <button onClick={() => this.props.openModal('updateProfile', this.props.profileId)}>Edit Profile</button>
+             {/* <Link to={`/profile/edit`}>Update Profile</Link> */}
           </div>
           <div>
              <Link to={"/new-plan"}>Make a new plan</Link>
