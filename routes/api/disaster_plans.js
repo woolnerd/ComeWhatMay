@@ -28,12 +28,6 @@ router.get('/index/:profileId', (req, res) => {
         .then(plans => res.json(plans))
 })
 
-router.get('/:disaster_id', (req, res) => {
-    DisasterPlan.findById(req.params.disaster_id)
-        .then(disaster => res.json(disaster))
-})
-
-
 router.put('/update/:disasterId', (req, res) => {
     DisasterPlan.findByIdAndUpdate(req.params.disasterId, req.body)
      .then(disaster => DisasterPlan.findById(disaster.id))

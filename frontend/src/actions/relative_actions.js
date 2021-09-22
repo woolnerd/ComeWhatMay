@@ -20,7 +20,6 @@ export const removeRelative = (relativeId) => ({
     relativeId
 })
 
-
 export const fetchRelative = (relativeId) => (dispatch) =>
   APIRelativeUtil.fetchRelative(relativeId)
     .then((relative) => dispatch(receiveRelative(relative)))
