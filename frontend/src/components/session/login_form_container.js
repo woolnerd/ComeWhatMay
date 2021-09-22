@@ -6,7 +6,6 @@ import LoginForm from "./login_form";
 const mSTP = (state) => {
   return {
     errors: state.errors.session,
-    userId: state.session.user.id
   };
 };
 
