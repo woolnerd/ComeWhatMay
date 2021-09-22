@@ -21,8 +21,8 @@ export const removeUserProfile = (profileId) => ({
 })
 
 
-export const fetchUserProfile = (profileId) => (dispatch) =>
-  APIProfileUtil.fetchUserProfile(profileId)
+export const fetchUserProfile = (userId) => (dispatch) =>
+  APIProfileUtil.fetchUserProfile(userId)
     .then((profile) => dispatch(receiveUserProfile(profile)))
     .catch((err) => console.log(err));
 

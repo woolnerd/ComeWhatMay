@@ -24,7 +24,7 @@ class EditProfileForm extends React.Component {
   }
 
   update(field) {
-      console.log(this.state)
+    //   console.log(this.state)
     return (e) => {
       let value = e.target.value;
     //   if (
