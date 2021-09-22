@@ -8,6 +8,7 @@ import { setAuthToken } from "./util/session_api_util";
 import { logout, login } from "./actions/session_actions";
 import * as ProfileUtils from "./actions/profile_actions";
 import * as RelativeUtils from "./actions/relative_actions";
+import * as DisasterPlanUtils from "./actions/disaster_plan_actions"
 
 import { testRoute } from "./util/profile_util"
 
@@ -38,17 +39,25 @@ document.addEventListener("DOMContentLoaded", () => {
   window.logout = logout
   window.login = login; 
 
+  // profile actions
   window.createUserProfile = ProfileUtils.createUserProfile
   window.fetchUserProfile = ProfileUtils.fetchUserProfile
   window.updateUserProfile = ProfileUtils.updateUserProfile
   window.deleteUserProfile = ProfileUtils.deleteUserProfile
   window.testRoute = testRoute;
 
+  //relative actions
   window.fetchRelative = RelativeUtils.fetchRelative
   window.fetchAllRelatives = RelativeUtils.fetchAllRelatives
   window.createRelative = RelativeUtils.createRelative
   window.updateRelative = RelativeUtils.updateRelative
   window.deleteRelative = RelativeUtils.deleteRelative
+
+  //disaster plan actions
+  window.fetchDisasterPlans = DisasterPlanUtils.fetchDisasterPlans
+  window.createDisasterPlan = DisasterPlanUtils.createDisasterPlan
+  window.updateDisasterPlan = DisasterPlanUtils.updateDisasterPlan
+  window.deleteDisasterPlan = DisasterPlanUtils.deleteDisasterPlan
 
   ReactDOM.render(<Root store={store} />, root);
 });
