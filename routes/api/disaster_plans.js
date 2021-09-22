@@ -2,7 +2,7 @@ const { response } = require("express");
 const express = require("express");
 const router = express.Router();
 const DisasterPlan = require('../../models/DisasterPlan')
-const {errors, isValid} = validateDisasterPlanInput = require('../../validations/disaster_plan');
+const validateDisasterPlanInput = require('../../validations/disaster_plan');
 
 router.post('/create/:profileId', (req, res) => {
     const {errors, isValid} = validateDisasterPlanInput(req.body);
