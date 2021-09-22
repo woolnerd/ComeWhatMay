@@ -10,6 +10,10 @@ class EditProfileForm extends React.Component {
     this.state = this.props.profile;
   }
 
+  componentWillMount(){
+      
+  }
+
   componentDidMount(){
       this.props.fetchUserProfile(this.props.currentUser).then(res => this.setState({profile: res}))
   }
@@ -20,6 +24,7 @@ class EditProfileForm extends React.Component {
   }
 
   update(field) {
+      console.log(this.state)
     return (e) => {
       let value = e.target.value;
     //   if (
@@ -80,16 +85,18 @@ class EditProfileForm extends React.Component {
 }
 
 const mSTP = ({ entities, session }) => {
-    
+    // debugger
   return {
     currentUser: session.user.id,
-    profile: {
-      user: session.user.id,
-      email: entities.profile.email,
-      householdName: entities.profile.householdName,
-      householdSize: entities.profile.householdSize,
-      phoneNumber: entities.profile.phoneNumber,
-    },
+    // profileId: Object.keys(entities.profile)[0],
+    profile: Object.values(entities.profile).filter(profile => profile.user === session.user.id)[0]
+    // profile: {
+    //   user: session.user.id,
+    //   email: entities.profile.email,
+    //   householdName: entities.profile.householdName,
+    //   householdSize: entities.profile.householdSize,
+    //   phoneNumber: entities.profile.phoneNumber,
+    // },
   };
 };
 

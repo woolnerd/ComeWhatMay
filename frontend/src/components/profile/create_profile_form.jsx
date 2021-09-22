@@ -15,7 +15,7 @@ class CreateProfileForm extends React.Component {
         e.preventDefault()
         this.props
           .createUserProfile(this.state)
-          .then((res) => console.log(res));
+        //   .then((res) => console.log(res));
         // .then((res) => this.props.history.push(`/profile${res.profile._id}`))
         
     }
