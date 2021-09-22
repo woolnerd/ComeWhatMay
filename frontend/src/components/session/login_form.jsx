@@ -37,15 +37,10 @@ class LoginForm extends React.Component {
       email: this.state.email,
       password: this.state.password,
     };
-    this.props
-      .login(user)
-      // .then((res) => 
-      // console.log(this.props.userId)
+    this.props.login(user)
   }
 
-  // componentDidUpdate(){
-  //   this.props.fetchUserProfile(this.props.userId);
-  // }
+
 
   renderErrors() {
     return (

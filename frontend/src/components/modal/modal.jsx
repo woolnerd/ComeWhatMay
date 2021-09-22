@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import CreateRelativeContainer from './create_relative';
 
 function Modal({modal, closeModal, id}){
-  debugger
+  // debugger
     if(!modal){
         return null
     }
@@ -12,7 +12,7 @@ function Modal({modal, closeModal, id}){
 
     switch(modal.modal){
       case 'createRelative':
-        debugger
+        // debugger
         component = <CreateRelativeContainer />
         break;
       default: 

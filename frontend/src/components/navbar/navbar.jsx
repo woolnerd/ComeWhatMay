@@ -9,9 +9,13 @@ class NavBar extends React.Component {
     this.getPlans = this.getPlans.bind(this);
     // this.state = {profileId: null};
     this.logoutUser = this.logoutUser.bind(this)
+
   }
 
+  
+
   handleClick(e){
+
     // e.preventDefault()
     // this.props.fetchUserProfile(this.props.currentUserId.id)
     // .then(res=>this.setState({profileId: res.profile._id}))
@@ -28,6 +32,7 @@ class NavBar extends React.Component {
     //   .then(this.props.history.push(`/profile/${this.state.profileId}`))
     //   .then(this.setState({}))
     // console.log(this.props)
+
   }
 
   logoutUser(e) {
@@ -48,7 +53,7 @@ class NavBar extends React.Component {
             </div>
           </div>
           <div>
-             <Link to={`/profile/new`}>New Profile</Link>
+             <Link to={`/profile/edit`}>Update Profile</Link>
           </div>
           <div>
              <Link to={"/new-plan"}>Make a new plan</Link>
@@ -65,6 +70,10 @@ class NavBar extends React.Component {
       );
     }
   }
+
+// componentDidUnmount(){
+//   this.setState({currentUserId: null})
+// }
 
   render() {
     return (

@@ -29,7 +29,7 @@ export class Profile extends Component {
             <h1>{profile.phoneNumber}</h1>
             <button onClick={() => this.props.openModal('createRelative')}>Test Add Relative</button>
           
-            <EditProfileFormContainer />
+            {/* <EditProfileFormContainer /> */}
           </div>
         );
     }
