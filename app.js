@@ -9,6 +9,8 @@ const profiles = require("./routes/api/profiles")
 const disasterPlans = require("./routes/api/disaster_plans")
 const actionSteps = require("./routes/api/action_steps")
 const relatives = require("./routes/api/relatives")
+const path = require("path");
+
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
