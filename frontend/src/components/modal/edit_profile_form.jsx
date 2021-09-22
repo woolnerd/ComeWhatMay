@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { updateUserProfile, fetchUserProfile } from "../../actions/profile_actions";
 import { closeModal } from '../../actions/modal_actions';
 import { AiOutlineClose } from 'react-icons/ai'
-
+import '../profile/profile.css';
 
 // import "./profile.css";
 
@@ -61,8 +61,11 @@ class EditProfileForm extends React.Component {
   render() {
     return (
       <div className="edit-form">
-        Edit Your Profile
-        <p className="exit_edit" onClick={this.handleModal}><AiOutlineClose /></p>
+        <div></div>
+        <h2>Edit Your Profile</h2>
+        <p className="exit-edit" onClick={this.handleModal}>
+          <AiOutlineClose />
+        </p>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <label>
             Household Name:

@@ -12,6 +12,7 @@ import * as ProfileUtils from "./actions/profile_actions";
 import * as RelativeUtils from "./actions/relative_actions";
 import * as DisasterPlanUtils from "./actions/disaster_plan_actions";
 import * as ActionStepUtils from "./actions/action_steps";
+import * as DisasterDrillUtils from "./actions/disaster_drill_actions";
 
 import { testRoute } from "./util/profile_util"
 
@@ -66,6 +67,12 @@ document.addEventListener("DOMContentLoaded", () => {
   window.createActionStep = ActionStepUtils.createActionStep
   window.updateActionStep = ActionStepUtils.updateActionStep
   window.deleteActionStep = ActionStepUtils.deleteActionStep
+
+  //disaster drill actions
+  window.fetchDisasterDrills = DisasterDrillUtils.fetchDisasterDrills
+  window.createDisasterDrill = DisasterDrillUtils.createDisasterDrill
+  window.updateDisasterDrill = DisasterDrillUtils.updateDisasterDrill
+  window.deleteDisasterDrill = DisasterDrillUtils.deleteDisasterDrill
 
   ReactDOM.render(<Root store={store} />, root);
 });
