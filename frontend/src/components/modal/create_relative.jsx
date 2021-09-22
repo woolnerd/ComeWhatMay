@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions'; 
-import { AiOutlineClose } from "react-icons/ai"
+import { AiOutlineClose } from 'react-icons/ai'
 import { createRelative } from '../../actions/relative_actions';
 
 
@@ -72,7 +72,7 @@ class CreateRelative extends React.Component{
 }
 
 const mSTP = state => ({
-    profileId: Object.keys(entities.profile)[0]
+    // profileId: Object.keys(entities.profile)[0]
 });
 
 const mDTP = dispatch => ({

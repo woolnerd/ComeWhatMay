@@ -10,12 +10,15 @@ const mSTP = ({entities, session}, ownProps) => {
       profileId: Object.keys(entities.profile)[0],
       profile: entities.profile,
       currentUserId: session.user.id,
+      // household: Object.values()
     };
     
 }
 
 
 const mDTP = dispatch => ({
+
+    // fetchAllRelatives: (relatives) => dispatch
     fetchUserProfile: (userId) => dispatch(fetchUserProfile(userId)),
     updateUserProfile: (profile) => dispatch(profile),
     deleteUserProfile: (profileId) => dispatch(profileId),
