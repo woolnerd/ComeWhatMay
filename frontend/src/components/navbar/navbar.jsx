@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./navbar.css";
 
 class NavBar extends React.Component {
@@ -7,6 +7,15 @@ class NavBar extends React.Component {
     super(props);
 
     this.getPlans = this.getPlans.bind(this);
+    this.state = {profileId: {}};
+  }
+
+  handleClick(e){
+    e.preventDefault()
+    this.props.fetchUserProfile(this.props.currentUserId)
+    .then(res=>this.setState({profileId: res.profile._id}))
+    .then(this.props.history.push(`/profile/${this.state.profileId}`))
+    console.log(this.props)
   }
 
   logoutUser(e) {
@@ -22,7 +31,9 @@ class NavBar extends React.Component {
             <Link to={"/plans"}>Disaster Plans</Link>
           </div>
           <div>
-            <Link to={`/profile/${this.props.currentUserId}`}>Profile</Link>
+            <div onClick={(e)=>this.handleClick(e)}>
+              Profile
+            </div>
           </div>
           <div>
              <Link to={`/profile/new`}>New Profile</Link>
@@ -53,4 +64,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

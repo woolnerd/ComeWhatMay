@@ -17,7 +17,7 @@ const App = () => (
       <NavBarContainer />
       <Switch>
         <Route exact path ="/profile/new" component={CreateProfileFormContainer} />
-        <ProtectedRoute exact path="/profile/:userId" component={ProfileContainer} />
+        <ProtectedRoute exact path="/profile/:profileId" component={ProfileContainer} />
         <AuthRoute exact path="/" component={LandingPage} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />

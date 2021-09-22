@@ -4,7 +4,7 @@ import { fetchUserProfile, updateUserProfile, deleteUserProfile } from "../../ac
 import Profile from './profile';
 import { openModal } from '../../actions/modal_actions';
 
-const mSTP = ({entities, session}, ownProps) => {
+const mSTP = ({entities, session}) => {
     // debugger
     return {
       profileId: Object.keys(entities.profile)[0],
