@@ -26,6 +26,7 @@ export class Profile extends Component {
             <h1>{profile.householdName}</h1>
             <h1>{profile.householdSize}</h1>
             <h1>{profile.phoneNumber}</h1>
+            <button onClick={() => this.props.openModal('createRelative')}>Test Add Relative</button>
           </div>
         );
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { fetchUserProfile, updateUserProfile, deleteUserProfile } from "../../actions/profile_actions"
 import Profile from './profile';
+import { openModal } from '../../actions/modal_actions';
 
 const mSTP = ({entities, session}, ownProps) => {
     // debugger
@@ -17,7 +18,8 @@ const mSTP = ({entities, session}, ownProps) => {
 const mDTP = dispatch => ({
     fetchUserProfile: (userId) => dispatch(fetchUserProfile(userId)),
     updateUserProfile: (profile) => dispatch(profile),
-    deleteUserProfile: (profileId) => dispatch(profileId)
+    deleteUserProfile: (profileId) => dispatch(profileId),
+    openModal: (modal, id) => dispatch(openModal(modal, id))
 })
 
 export default connect(mSTP, mDTP)(Profile)
