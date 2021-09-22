@@ -48,13 +48,13 @@ class NavBar extends React.Component {
             {/* <div>
               <Link to={"/plans"}>Disaster Plans</Link>
             </div> */}
-            {/* <div> */}
-            {/* <div onClick={(e)=>this.handleClick(e)}> */}
-            {/* <a href="#">
+             <div> 
+                <div onClick={(e)=>this.handleClick(e)}>
+                <a href="#">
                   Profile
-                </a> */}
-            {/* </div> */}
-            {/* </div> */}
+                </a>
+            </div> 
+             </div> 
                 <h1>The Smith Household</h1>
               <div className="nav-item-container">
                 <div className="nav-item">

@@ -1,5 +1,58 @@
-body {
-    font-size: 24px;
-    margin-top: 8px;
-    margin-bottom: 8px;
+.profile-container {
+    width: 600px;
+    /* height: 400px; */
+    margin: 0 auto;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4%;
+    padding-bottom: 2%;
+}
+
+.profile-container-main {
+    display: flex;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    margin-top: 4%;
+    padding-bottom: 2%;
+}
+
+.profile-details {
+    padding: 10px;
+}
+
+.profile-details h3 {
+    font-size: 2rem;
+    padding: 10px;
+}
+
+.profile-details span {
+    color: black;
+}
+
+.profile-btn {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.dist-plan-container {
+    height: 40.5rem;
+    width: 350px;
+    background-color: rgba(137, 43, 226, 0.44);
+}
+
+.dist-plans {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.plan-item {
+    width: 150px;
+    height: 50px;
+    background-color: antiquewhite;
+    margin: 10px auto;
+    padding: 4px;
+    
 }
