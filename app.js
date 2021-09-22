@@ -9,6 +9,7 @@ const profiles = require("./routes/api/profiles")
 const disasterPlans = require("./routes/api/disaster_plans")
 const actionSteps = require("./routes/api/action_steps")
 const relatives = require("./routes/api/relatives")
+const disasterDrills = require("./routes/api/disaster_drills")
 const path = require("path");
 
 
@@ -38,11 +39,10 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/profiles", profiles);
-
 app.use("/api/disaster_plans", disasterPlans)
 app.use("/api/action_steps", actionSteps)
-
 app.use("/api/relatives", relatives);
+app.use("/api/disaster_drills", disasterDrills)
 
 
 const port = process.env.PORT || 4000;
