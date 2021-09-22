@@ -5,6 +5,8 @@ import CreateRelativeContainer from './create_relative';
 import "./modal.css";
 import EditRelativeContainer from './edit_relative';
 import UpdateProfileContainer from './edit_profile_form';
+// import SignUpFormContainer from '../session/signup_form_container';
+// import LoginFormContainer from '../session/login_form_container';
 
 
 function Modal({modal, closeModal, id}){
@@ -24,6 +26,12 @@ function Modal({modal, closeModal, id}){
       case 'updateProfile':
         component = <UpdateProfileContainer profileId={modal.id} />
         break;
+      // case 'signup':
+      //   component = <SignUpFormContainer profileId={modal.id} />
+      //   break;
+      // case 'login':
+      //   component = <LoginFormContainer profileId={modal.id} />
+      //   break;
       default: 
         return null;
     }
