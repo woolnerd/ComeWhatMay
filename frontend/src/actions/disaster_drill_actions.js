@@ -1,4 +1,3 @@
-import { receivePlan } from './disaster_plan_actions'
 import * as APIDisasterDrillUtil from '../util/disaster_drill_util'
 
 export const RECEIVE_ALL_DRILLS = 'RECEIVE_ALL_DRILLS'
@@ -37,5 +36,5 @@ APIDisasterDrillUtil.updateDisasterDrill(drillId, disasterDrill)
 
 export const deleteDisasterDrill = (drillId) => (dispatch) =>
 APIDisasterDrillUtil.deleteDisasterDrill(drillId)
-  .then((recDrill) => dispatch(removeDrill(recDrill)))
+  .then(() => dispatch(removeDrill(drillId)))
   .catch((err) => console.log(err));
