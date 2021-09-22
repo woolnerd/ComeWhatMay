@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import EditProfileFormContainer from "./edit_profile_form";
+import RelativeIndexContainer from "./relative_index";
 
 export class Profile extends Component {
     constructor(props) {
@@ -27,8 +28,8 @@ export class Profile extends Component {
             <h1>{profile.householdName}</h1>
             <h1>{profile.householdSize}</h1>
             <h1>{profile.phoneNumber}</h1>
-            <button onClick={() => this.props.openModal('createRelative')}>Test Add Relative</button>
-          
+            <button onClick={() => this.props.openModal('createRelative', this.props.profileId)}>Test Add Relative</button>
+            <RelativeIndexContainer profileId={this.props.profileId}/>
             {/* <EditProfileFormContainer /> */}
           </div>
         );

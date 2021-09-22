@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import CreateRelativeContainer from './create_relative';
+import EditRelativeContainer from './edit_relative';
 
 function Modal({modal, closeModal, id}){
   // debugger
@@ -12,8 +13,10 @@ function Modal({modal, closeModal, id}){
 
     switch(modal.modal){
       case 'createRelative':
-        // debugger
-        component = <CreateRelativeContainer />
+        component = <CreateRelativeContainer profileId={modal.id}/>
+        break;
+      case 'editRelative':
+        component = <EditRelativeContainer relativeId={modal.id} />
         break;
       default: 
         return null;

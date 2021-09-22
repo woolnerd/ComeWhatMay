@@ -1,20 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { closeModal } from '../../actions/modal_actions'; 
+import { closeModal } from '../../actions/modal_actions';
 import { AiOutlineClose } from 'react-icons/ai'
-import { createRelative } from '../../actions/relative_actions';
+import { updateRelative } from '../../actions/relative_actions';
 
 
 
-class CreateRelative extends React.Component{
-    constructor(props){
+class CreateRelative extends React.Component {
+    constructor(props) {
         super(props)
         this.state = {
-            profile: this.props.profileId,
-            name: '',
-            age: '',
-            relationship: '',
-            phoneNumber: '',
+            _id: this.props.relative._id,
+            profile: this.props.relative.profile,
+            name: this.props.relative.name,
+            age: this.props.relative.age,
+            relationship: this.props.relative.relationship,
+            phoneNumber: this.props.relative.phoneNumber,
         }
         this.handleInput = this.handleInput.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -22,29 +23,29 @@ class CreateRelative extends React.Component{
 
     }
 
-    handleModal(e){
+    handleModal(e) {
         e.preventDefault();
         this.props.closeModal();
     }
 
-    handleInput(type){
+    handleInput(type) {
         return (e) => {
             this.setState({ [type]: e.target.value })
         };
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault();
-        this.props.createRelative(this.state)
+        this.props.updateRelative(this.state)
             .then(() => this.props.closeModal())
     }
 
-    render(){
+    render() {
         return (
             <div className="create_relative">
                 <div className="relative_header">
-                    <h2>Add Household Member</h2>
-                    <p className="exit_edit" onClick={this.handleModal}><AiOutlineClose/></p>
+                    <h2>Edit Household Member</h2>
+                    <p className="exit_edit" onClick={this.handleModal}><AiOutlineClose /></p>
                 </div>
                 <div className="name">
                     <label>Name</label>
@@ -52,31 +53,32 @@ class CreateRelative extends React.Component{
                 </div>
                 <div className="age">
                     <label>Age </label>
-                    <input value={this.state.age} onChange={this.handleInput('age')} type="text"/>
+                    <input value={this.state.age} onChange={this.handleInput('age')} type="text" />
                 </div>
                 <div className="Relationship">
                     <label>Relationship</label>
-                    <input value={this.state.relationship} onChange={this.handleInput('relationship')}type="text" />
+                    <input value={this.state.relationship} onChange={this.handleInput('relationship')} type="text" />
                 </div>
                 <div className="phone_number">
                     <label>Phone Number</label>
                     <input value={this.state.phoneNumber} onChange={this.handleInput('phoneNumber')} type="text" />
                 </div >
                 <div className="btn_container">
-                    <button className="save_button" onClick={this.handleSubmit}>Add</button>  
+                    <button className="save_button" onClick={this.handleSubmit}>Update</button>
                 </div>
-                       
+
             </div>
         )
     }
 }
 
-const mSTP = (stat, ownProps) => ({
-    profileId: ownProps.profileId
+const mSTP = (state, ownProps) => ({
+    relativeId: ownProps.profileId,
+    relative: state.entities.relative[ownProps.relativeId]
 });
 
 const mDTP = dispatch => ({
-    createRelative: relative => dispatch(createRelative(relative)),
+    updateRelative: relative => dispatch(updateRelative(relative)),
     closeModal: () => dispatch(closeModal())
 })
 
