@@ -1,24 +1,22 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import CreateRelativeContainer from './create_relative'
+import CreateRelativeContainer from './create_relative';
 
 function Modal({modal, closeModal, id}){
-  
+  debugger
     if(!modal){
         return null
     }
     let component; 
-    switch(modal.modal){
-        case 'createRelative':
-            component = <CreateRelativeContainer />
-            break;
-        // case 'editRelative':
-        //     component = <EditRelativeContainer />
-        //     break;
-        default: 
-            return null;
 
+    switch(modal.modal){
+      case 'createRelative':
+        debugger
+        component = <CreateRelativeContainer />
+        break;
+      default: 
+        return null;
     }
 
     return (
@@ -30,10 +28,16 @@ function Modal({modal, closeModal, id}){
   );
 }
 
+const mSTP = state => {
+  return {
+    modal: state.modal 
+  };
+};
+
 const mDTP = dispatch => {
   return {
     closeModal: () => dispatch(closeModal()),
   };
 };
 
-export default connect(null, mDTP)(Modal);
+export default connect(mSTP, mDTP)(Modal);

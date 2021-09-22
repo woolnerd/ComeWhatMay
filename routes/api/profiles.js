@@ -32,16 +32,24 @@ router.post('/',
       if (!isValid) {
         return res.status(400).json(errors);
       }
+      
+      Profile.findOne({user: req.user.id})
+      .then(profile => {
+        if(profile){
+          return res.status(400).json({email: "A user is registered with that email"})
+        }
+        else{
+          const newProfile = new Profile({
+          user: req.user.id, 
+          householdSize: req.body.householdSize, 
+          householdName: req.body.householdName, 
+          phoneNumber: req.body.phoneNumber, 
+          email: req.body.email
+          });
+          newProfile.save().then(profile => res.json(profile));
+        }
+      })
   
-      const newProfile = new Profile({
-        user: req.user.id, 
-        householdSize: req.body.householdSize, 
-        householdName: req.body.householdName, 
-        phoneNumber: req.body.phoneNumber, 
-        email: req.body.email
-      });
-  
-      newProfile.save().then(profile => res.json(profile));
     }
   );
 
