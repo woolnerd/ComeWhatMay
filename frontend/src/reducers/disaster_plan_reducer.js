@@ -10,11 +10,11 @@ const disasterPlanReducer = (state = {}, action) => {
     let newState = {...state}
     switch(action.type) {
         case RECEIVE_ALL_PLANS:
-            return action.plans.data
+            action.plans.data.forEach((plan) => {
+                newState[plan._id] = plan
+            })
+            return newState
         case RECEIVE_PLAN:
-            // debugger
-            // newState = {...state, [action.relative.data._id]: action.relative.data}
-            // return Object.values(newState).filter(element => element._id == action.relative.data._id);
             return {...state, [action.plan.data._id]: action.plan.data}
         case REMOVE_PLAN:
             delete newState[action.id]

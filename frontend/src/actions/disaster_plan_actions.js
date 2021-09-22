@@ -2,7 +2,7 @@ import * as APIDisasterPlanUtil from '../util/disaster_plan_util'
 
 export const RECEIVE_ALL_PLANS = 'RECEIVE_ALL_PLANS';
 export const RECEIVE_PLAN = 'RECEIVE_PLAN';
-export const REMOVE_PLAN = 'RECEIVE_ALL_PLANS';
+export const REMOVE_PLAN = 'REMOVE_PLAN';
 
 const receiveAllPlans = (plans) =>({
     type: RECEIVE_ALL_PLANS,

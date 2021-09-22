@@ -11,7 +11,7 @@ module.exports = function validateDisasterPlanInput(data) {
     errors.name = 'Name field is required';
   }
 
-  if (Validator.isEmpty(data.targetTime)) {
+  if (Validator.isEmpty(data.targetTime.toString())) {
     errors.targetTime = 'Target time field is required';
   }
 
