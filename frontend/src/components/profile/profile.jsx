@@ -10,7 +10,7 @@ export class Profile extends Component {
     componentDidMount(){
         this.props.fetchUserProfile(this.props.currentUserId)
             .then(res=>this.setState({profile: res}))
-        this.props.fetchAllRelatives(this.props.profileId)
+//         this.props.fetchAllRelatives(this.props.profileId)
     }
 
 
