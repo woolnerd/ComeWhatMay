@@ -23,7 +23,7 @@ export class Profile extends Component {
     return (
       <div className="profile-container-main">
         <div className="dist-plan-container">
-        <button className="plan-btn nav-item">Make a New Plan</button>
+        <button className="plan-btn btn-style-1">Make a New Plan</button>
           <div className="dist-plans">
             <div className="plan-item">Plan1</div>
             <div className="plan-item">Plan2</div>
@@ -46,12 +46,12 @@ export class Profile extends Component {
             </h3>
           </div>
           <button
-            className="nav-item profile-btn"
+            className="btn-style-1 profile-btn"
             onClick={() =>
               this.props.openModal("createRelative", this.props.profileId)
             }
           >
-            Test Add Relative
+            Add Relative
           </button>
           <RelativeIndexContainer profileId={this.props.profileId} />
           {/* <EditProfileFormContainer /> */}

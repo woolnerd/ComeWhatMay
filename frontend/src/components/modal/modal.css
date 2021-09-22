@@ -13,12 +13,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(148, 132, 255, 0.413);
+  background-color: rgba(148, 132, 255, 0.81);
   padding: 50px 50px;
   border-radius: 20px;
 }
 
-.create-relative {
+.create-relative, .edit-form {
     background-color: rgb(121, 192, 255);
     padding: 40% 20%;
     border: 3px rgb(111, 220, 111) solid;

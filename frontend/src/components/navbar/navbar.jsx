@@ -56,14 +56,14 @@ class NavBar extends React.Component {
             </div> 
              </div> 
                 <h1>The Smith Household</h1>
-              <div className="nav-item-container">
-                <div className="nav-item">
+              <div className="btn-style-1-container">
+                <div className="btn-style-1">
                   <Link to={`/profile/edit`}>Update Profile</Link>
                 </div>
-                <div className="nav-item">
+                <div className="btn-style-1">
                   <Link to={"/new-plan"}>Make a new plan</Link>
                 </div>
-                <div className="nav-item">
+                <div className="btn-style-1">
                 <a href="#" onClick={this.logoutUser}>
                   Logout
                 </a>

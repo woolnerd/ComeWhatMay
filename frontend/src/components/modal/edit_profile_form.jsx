@@ -61,8 +61,11 @@ class EditProfileForm extends React.Component {
   render() {
     return (
       <div className="edit-form">
-        Edit Your Profile
-        <p className="exit-edit" onClick={this.handleModal}><AiOutlineClose /></p>
+        <div></div>
+        <h2>Edit Your Profile</h2>
+        <p className="exit-edit" onClick={this.handleModal}>
+          <AiOutlineClose />
+        </p>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <label>
             Household Name:
