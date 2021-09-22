@@ -23,11 +23,10 @@ export class Profile extends Component {
         const profile = this.props.profile[this.props.profileId]
         return (
           <div>
-            <h1>test</h1>
-            <h1>{profile.email}</h1>
-            <h1>{profile.householdName}</h1>
-            <h1>{profile.householdSize}</h1>
-            <h1>{profile.phoneNumber}</h1>
+            <h3>{profile.email}</h3>
+            <h3>{profile.householdName}</h3>
+            <h3>{profile.householdSize}</h3>
+            <h3>{profile.phoneNumber}</h3>
             <button onClick={() => this.props.openModal('createRelative', this.props.profileId)}>Test Add Relative</button>
             <RelativeIndexContainer profileId={this.props.profileId}/>
             {/* <EditProfileFormContainer /> */}

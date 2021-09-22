@@ -1,11 +1,15 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import CreateProfileFormContainer from "../../components/profile/create_profile_form";
+
 import "./navbar.css";
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      modalOpem: false
+    }
     this.getPlans = this.getPlans.bind(this);
     // this.state = {profileId: null};
     this.logoutUser = this.logoutUser.bind(this)
@@ -70,14 +74,18 @@ class NavBar extends React.Component {
               </div>
             </div>
           </div>
+
           <div>
+
+          </div>
+          {/* <div>
              <button onClick={() => this.props.openModal('updateProfile', this.props.profileId)}>Edit Profile</button>
-             {/* <Link to={`/profile/edit`}>Update Profile</Link> */}
           </div>
           <div>
              <Link to={"/new-plan"}>Make a new plan</Link>
           </div>
-          <button onClick={this.logoutUser}>Logout</button>
+          <button onClick={this.logoutUser}>Logout</button> */}
+
         </div>
       );
     } else {
