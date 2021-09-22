@@ -12,7 +12,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
         <Component {...props} />
       ) : (
           //what is the route here? 
-        <Redirect to="/" />
+        <Redirect to="/profile" />
       )
     }
   />
