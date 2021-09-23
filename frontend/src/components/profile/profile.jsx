@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 // import EditProfileFormContainer from "./edit_profile_form";
 import RelativeIndexContainer from "./relative_index";
+import DisasterPlansIndexContainer from "../disaster_plans/disaster_plans_index_container";
 import "./profile.css";
+import Stopwatch from '../../components/stopwatch/stopwatch';
 
 export class Profile extends Component {
   constructor(props) {
@@ -40,14 +42,17 @@ export class Profile extends Component {
 
     return (
       <div className="profile-container-main">
+
         <div className="dist-plan-container">
           <button className="plan-btn btn-style-1">Make a New Plan</button>
+
           <div className="dist-plans">
             <div className="plan-item">Plan1</div>
             <div className="plan-item">Plan2</div>
             <div className="plan-item">Plan3</div>
           </div>
-        </div>
+        </div> */}
+        <DisasterPlansIndexContainer/>
         <div className="profile-container">
           <button
             className="update-profile-btn"
@@ -82,6 +87,7 @@ export class Profile extends Component {
           </button>
           <RelativeIndexContainer profileId={this.props.profileId} />
           {/* <EditProfileFormContainer /> */}
+          <Stopwatch />
         </div>
       </div>
     );

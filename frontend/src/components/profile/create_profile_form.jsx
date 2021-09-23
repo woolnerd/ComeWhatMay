@@ -40,8 +40,8 @@ class CreateProfileForm extends React.Component {
     }
 
     render(){
-      console.log(this.props.profile)
-      console.log(this.props.currentUser)
+      // console.log(this.props.profile)
+      // console.log(this.props.currentUser)
 
       const show = this.props.profileId ? <Redirect to= {`/profile/${this.props.profileId._id}`}/> :
         <div className="create-form">
