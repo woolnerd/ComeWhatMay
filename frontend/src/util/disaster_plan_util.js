@@ -1,5 +1,9 @@
 import axios from "axios";
 
+export const fetchDisasterPlan = (disasterPlanId) => {
+  return axios.get(`/api/disaster_plans/show/${disasterPlanId}`);
+};
+
 export const fetchDisasterPlans = (profileId) => {
   return axios.get(`/api/disaster_plans/index/${profileId}`);
 };

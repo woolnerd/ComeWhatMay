@@ -28,7 +28,6 @@ class DisasterPlans extends React.Component {
         if (this.state.modal === 'false'){
             return null
         } else {
-            debugger
             return (
                 <div className='create-disaster-plan-modal-layout'>
                     <form onSubmit={() =>

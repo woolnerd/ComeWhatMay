@@ -11,7 +11,7 @@ import { logout, login } from "./actions/session_actions";
 import * as ProfileUtils from "./actions/profile_actions";
 import * as RelativeUtils from "./actions/relative_actions";
 import * as DisasterPlanUtils from "./actions/disaster_plan_actions";
-import * as ActionStepUtils from "./actions/action_steps";
+import * as ActionStepUtils from "./actions/action_step_actions";
 import * as DisasterDrillUtils from "./actions/disaster_drill_actions";
 
 import { testRoute } from "./util/profile_util"
