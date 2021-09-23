@@ -61,12 +61,12 @@ class NavBar extends React.Component {
              </div> 
                 <h1>The Smith Household</h1>
               <div className="btn-style-1-container">
-                <div className="btn-style-1">
+                {/* <div className="btn-style-1">
                   <Link to={`/profile/edit`}>Update Profile</Link>
                 </div>
                 <div className="btn-style-1">
                   <Link to={"/new-plan"}>Make a new plan</Link>
-                </div>
+                </div> */}
                 <div className="btn-style-1">
                 <a href="#" onClick={this.logoutUser}>
                   Logout
@@ -78,10 +78,9 @@ class NavBar extends React.Component {
           <div>
 
           </div>
-          {/* <div>
-             <button onClick={() => this.props.openModal('updateProfile', this.props.profileId)}>Edit Profile</button>
-          </div>
           <div>
+          </div>
+          {/* <div>
              <Link to={"/new-plan"}>Make a new plan</Link>
           </div>
           <button onClick={this.logoutUser}>Logout</button> */}
