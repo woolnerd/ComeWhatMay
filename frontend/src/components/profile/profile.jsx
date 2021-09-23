@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import EditProfileFormContainer from "./edit_profile_form";
 import RelativeIndexContainer from "./relative_index";
 import "./profile.css";
+import Stopwatch from '../../components/stopwatch/stopwatch';
 
 export class Profile extends Component {
   constructor(props) {
@@ -70,6 +71,7 @@ export class Profile extends Component {
           </button>
           <RelativeIndexContainer profileId={this.props.profileId} />
           {/* <EditProfileFormContainer /> */}
+          <Stopwatch />
         </div>
       </div>
     );
