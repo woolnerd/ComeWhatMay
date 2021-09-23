@@ -60,12 +60,15 @@ body {
 }
 
 .dist-plan-container {
-    height: 40.5rem;
+    height: fit-content;
+    min-height: 500px;
     width: 350px;
     background-color: hsla(194, 66%, 77%, 0.44);
     border-radius: 30px;
-    margin-left:20px;
+    margin-left: 20px;
+    padding-bottom: 30px;
 }
+
 
 .dist-plans {
     margin: 0 auto;

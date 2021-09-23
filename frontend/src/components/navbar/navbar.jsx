@@ -13,10 +13,14 @@ class NavBar extends React.Component {
     this.getPlans = this.getPlans.bind(this);
     // this.state = {profileId: null};
     this.logoutUser = this.logoutUser.bind(this)
-
+    this.profile = undefined;
   }
 
-  
+  componentDidMount(){
+    // this.props.fetchUserProfile(this.props.currentUserId.id)
+    // .then(res=>this.setState({profile: res}))
+  }
+
 
   handleClick(e){
 
@@ -39,6 +43,7 @@ class NavBar extends React.Component {
 
   }
 
+
   logoutUser(e) {
     e.preventDefault();
     this.props.logout()
@@ -49,57 +54,34 @@ class NavBar extends React.Component {
       return (
         <div className="navbar">
           <div className="flex-container">
-            {/* <div>
-              <Link to={"/plans"}>Disaster Plans</Link>
-            </div> */}
-             <div> 
-                <div onClick={(e)=>this.handleClick(e)}>
-                <a href="#">
-                  Profile
-                </a>
-            </div> 
-             </div> 
-                <h1>The Smith Household</h1>
-              <div className="btn-style-1-container">
-                {/* <div className="btn-style-1">
-                  <Link to={`/profile/edit`}>Update Profile</Link>
-                </div>
-                <div className="btn-style-1">
-                  <Link to={"/new-plan"}>Make a new plan</Link>
-                </div> */}
-                <div className="btn-style-1">
+            {/* {this.state.profile ? (
+              <h1> The {this.state.profile.householdName} Household Profile</h1>
+            ) : ( */}
+              <h1>Your Profile</h1>
+            {/* )} */}
+            <div className="btn-style-1-container">
+              <div className="btn-style-1">
                 <a href="#" onClick={this.logoutUser}>
                   Logout
                 </a>
               </div>
             </div>
           </div>
-
-          <div>
-
-          </div>
-          <div>
-          </div>
-          {/* <div>
-             <Link to={"/new-plan"}>Make a new plan</Link>
-          </div>
-          <button onClick={this.logoutUser}>Logout</button> */}
-
         </div>
       );
     } else {
       return (
-        <div>
-          <Link to={"/signup"}>Signup</Link>
-          <Link to={"/login"}>Login</Link>
+        <div className="navbar">
+          <Link to={"/signup"} className="btn-style-1">
+            Signup
+          </Link>
+          <Link to={"/login"} className="btn-style-1">
+            Login
+          </Link>
         </div>
       );
     }
   }
-
-// componentDidUnmount(){
-//   this.setState({currentUserId: null})
-// }
 
   render() {
     return (
