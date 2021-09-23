@@ -15,7 +15,7 @@ const DisasterDrillSchema = new Schema ({
         type: String, 
     },
     timeToComplete: {
-        type: Number
+        type: String
     }
 })
 

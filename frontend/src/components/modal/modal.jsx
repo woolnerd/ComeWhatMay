@@ -5,6 +5,10 @@ import CreateRelativeContainer from './create_relative';
 import "./modal.css";
 import EditRelativeContainer from './edit_relative';
 import UpdateProfileContainer from './edit_profile_form';
+import UpdateDrillContainer from './edit_drill';
+import CreateDrillContainer from './create_drill';
+import StartDrillContainer from './start_drill';
+
 // import SignUpFormContainer from '../session/signup_form_container';
 // import LoginFormContainer from '../session/login_form_container';
 
@@ -25,6 +29,15 @@ function Modal({modal, closeModal, id}){
         break;
       case 'updateProfile':
         component = <UpdateProfileContainer profileId={modal.id} />
+        break;
+      case 'editDrill':
+        component = <UpdateDrillContainer drillId={modal.id} />
+        break;
+      case 'createDrill':
+        component = <CreateDrillContainer planId={modal.id} />
+        break;
+      case 'startDrill':
+        component = <StartDrillContainer drillId={modal.id} />
         break;
       // case 'signup':
       //   component = <SignUpFormContainer profileId={modal.id} />
