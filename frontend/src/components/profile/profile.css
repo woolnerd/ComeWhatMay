@@ -1,16 +1,25 @@
+/* https://come-what-may.s3.amazonaws.com/confectionary.png
+https://come-what-may.s3.amazonaws.com/pixel_weave.png
+https://come-what-may.s3.amazonaws.com/topography.png */
+
 body {
     min-width: 735px;
+    /* background-image: url("https://come-what-may.s3.amazonaws.com/doodles.png"); */
+    /* background-image: url("https://come-what-may.s3.amazonaws.com/topography.png"); */
+    /* background-image: url("https://come-what-may.s3.amazonaws.com/pixel_weave.png"); */
+    background-image: url("https://come-what-may.s3.amazonaws.com/confectionary.png");
 }
 .profile-container {
     width: 600px;
     /* height: 400px; */
     margin: 0 auto;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     margin-top: 4%;
     padding-bottom: 2%;
+
 }
 
 .profile-container-main {
@@ -47,7 +56,6 @@ body {
     width: 350px;
     background-color: rgba(137, 43, 226, 0.44);
     border-radius: 30px;
-
 }
 
 .dist-plans {

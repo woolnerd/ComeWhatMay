@@ -132,7 +132,7 @@ class CreateProfileForm extends React.Component {
 }
 
 const mSTP = ({session, entities}) => {
-    debugger
+    // debugger
     return {
       currentUser: session.user.id,
       profile: {
