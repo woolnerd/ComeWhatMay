@@ -34,11 +34,18 @@ class RelativeIndex extends React.Component {
     render() {
         if (!this.props.household) return null
 
-        console.log(this.props.currentUserId)
-        console.log(this.props.household)
+        // console.log(this.props.currentUserId)
+        // console.log(this.props.household)
 
+       
 
         const showHousehold = this.props.household.map((member, i) => {
+
+           const phone = `(${member.phoneNumber.toString().slice(0, 3)}) 
+                    ${member.phoneNumber
+                      .toString()
+                      .slice(3, 6)}-${member.phoneNumber.toString().slice(6)}`;
+
             return (
               <div key={`${i}`} className="single-member">
                 <div className="icon-box">
@@ -66,7 +73,7 @@ class RelativeIndex extends React.Component {
                   <p>Relationship: {member.relationship}</p>
                 </div>
                 <div>
-                  <p>Phone Number: {member.phoneNumber}</p>
+                  <p>Phone Number: {phone}</p>
                 </div>
               </div>
             );

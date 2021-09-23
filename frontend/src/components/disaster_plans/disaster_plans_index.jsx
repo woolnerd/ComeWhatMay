@@ -77,7 +77,7 @@ class DisasterPlans extends React.Component {
 
               <label>
                 How fast can you do it?
-                <h5>please select in minutes</h5>
+                <h5>(please select in minutes)</h5>
                 <input
                   type="number"
                   min={5}

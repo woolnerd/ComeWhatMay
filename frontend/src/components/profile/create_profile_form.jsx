@@ -43,12 +43,14 @@ class CreateProfileForm extends React.Component {
       // console.log(this.props.profile)
       // console.log(this.props.currentUser)
 
-      const show = this.props.profileId ? <Redirect to= {`/profile/${this.props.profileId._id}`}/> :
-        <div className="create-form">
-          <form onSubmit={(e) => this.handleSubmit(e)}>
+      const show = this.props.profileId ? (
+        <Redirect to={`/profile/${this.props.profileId._id}`} />
+      ) : (
+        <div className="create-form-container">
+          <form className="create-form" onSubmit={(e) => this.handleSubmit(e)}>
             <label>
               Household Name:
-                <input
+              <input
                 onChange={this.update("householdName")}
                 type="text"
                 value={this.state.householdName}
@@ -57,7 +59,7 @@ class CreateProfileForm extends React.Component {
             <br />
             <label>
               Email:
-                <input
+              <input
                 onChange={this.update("email")}
                 type="text"
                 value={this.state.email}
@@ -66,23 +68,25 @@ class CreateProfileForm extends React.Component {
             <br />
             <label>
               Phone Number:
-                <input
+              <input
                 onChange={this.update("phoneNumber")}
                 type="text"
                 value={this.state.phoneNumber}
               />
             </label>
             <br />
-            <label>Household Size:
-                <input
+            <label>
+              Household Size:
+              <input
                 onChange={this.update("householdSize")}
                 type="text"
                 value={this.state.householdSize}
               />
             </label>
-            <button>Create Profile</button>
+            <button className="login-btn btn-style-1">Create Profile</button>
           </form>
         </div>
+      );
         return (
           <div>{show}</div>
           // <div className="create-form">

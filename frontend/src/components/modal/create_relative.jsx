@@ -41,33 +41,57 @@ class CreateRelative extends React.Component{
 
     render(){
         return (
-            <div className="create-relative">
-                <div className="relative-header">
-                    <h2>Add Household Member</h2>
-                    <p className="exit_edit" onClick={this.handleModal}><AiOutlineClose className="close-x"/></p>
-                </div>
-                <div className="name">
-                    <label>Name</label>
-                    <input value={this.state.name} onChange={this.handleInput('name')} type="text" />
-                </div>
-                <div className="age">
-                    <label>Age </label>
-                    <input value={this.state.age} onChange={this.handleInput('age')} type="text"/>
-                </div>
-                <div className="Relationship">
-                    <label>Relationship</label>
-                    <input value={this.state.relationship} onChange={this.handleInput('relationship')}type="text" />
-                </div>
-                <div className="phone-number">
-                    <label>Phone Number</label>
-                    <input value={this.state.phoneNumber} onChange={this.handleInput('phoneNumber')} type="text" />
-                </div >
-                <div className="btn-container">
-                    <button className="save-button" onClick={this.handleSubmit}>Add</button>  
-                </div>
-                       
+          <div className="create-relative">
+            <div className="relative-header">
+              <h2>Add Household Member</h2>
+              <p className="exit_edit" onClick={this.handleModal}>
+                <AiOutlineClose className="close-x" />
+              </p>
             </div>
-        )
+            <div className="create-relative-details">
+              <div className="name">
+                <label>Name</label>
+                <input
+                  value={this.state.name}
+                  onChange={this.handleInput("name")}
+                  type="text"
+                />
+              </div>
+              <div className="age">
+                <label>Age </label>
+                <input
+                  value={this.state.age}
+                  onChange={this.handleInput("age")}
+                  type="text"
+                />
+              </div>
+              <div className="Relationship">
+                <label>Relationship</label>
+                <input
+                  value={this.state.relationship}
+                  onChange={this.handleInput("relationship")}
+                  type="text"
+                />
+              </div>
+              <div className="phone-number">
+                <label>Phone Number</label>
+                <input
+                  value={this.state.phoneNumber}
+                  onChange={this.handleInput("phoneNumber")}
+                  type="text"
+                />
+              </div>
+              <div className="btn-container">
+                <button
+                  className="save-button btn-style-1"
+                  onClick={this.handleSubmit}
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        );
     }
 }
 

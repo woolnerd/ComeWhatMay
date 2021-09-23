@@ -1,0 +1,32 @@
+.landing-container {
+    width: 50rem;
+    height: 60rem;
+    background-color: hsla(194, 66%, 77%, 0.44);
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+
+.errors {
+    color: rgb(191, 0, 0);
+}
+
+.landing-banner h1 {
+    font-size: 6rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.landing-banner h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+.landing-info {
+    width: 50%;
+    /* text-align: center; */
+    margin: 0 auto;
+    padding: 20px 0;
+    font-weight: 200;
+}

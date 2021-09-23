@@ -102,7 +102,7 @@ class EditProfileForm extends React.Component {
               value={this.state.householdSize}
             />
           </label>
-          <button onClick={this.handleSubmit}>Edit Profile</button>
+          <button>Edit Profile</button>
         </form>
       </div>
     );
