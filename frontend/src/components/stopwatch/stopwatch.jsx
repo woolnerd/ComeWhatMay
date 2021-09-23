@@ -1,5 +1,8 @@
 import React from "react";
 import { RiExchangeFundsFill } from "react-icons/ri";
+import { connect } from 'react-redux';
+import { openModal } from '../../actions/modal_actions'
+
 
 
 class Stopwatch extends React.Component{
@@ -15,6 +18,7 @@ class Stopwatch extends React.Component{
 
         this.start = this.start.bind(this);
         this.stop = this.stop.bind(this);
+        this.save = this.save.bind(this);
     }
 
     start(){
@@ -42,6 +46,10 @@ class Stopwatch extends React.Component{
         clearInterval(this.state.start)
     }
 
+    save(e){
+        e.preventDefault();
+    }
+
     render(){
         let milliseconds = this.state.milliseconds < 10 ? <div>0{this.state.milliseconds}</div> : <div>{this.state.milliseconds}</div>
         let seconds = this.state.seconds < 10 ? <div>0{this.state.seconds}</div> : <div>{this.state.seconds}</div>
@@ -57,6 +65,7 @@ class Stopwatch extends React.Component{
                 <div>
                     <button onClick={() => this.start()}>Start</button>
                     <button onClick={() => this.stop()}>Stop</button>
+                    <button onClick={() => this.openModa('editDrill', this.props.planId)}>Save</button>
                 </div>
             </div>
 
@@ -64,4 +73,12 @@ class Stopwatch extends React.Component{
     }
 }
 
-export default Stopwatch;
+const mSTP = (state, ownProps) => ({
+    planId: ownProps.planId
+});
+
+const mDTP = dispatch => ({
+    openModal: (modal, id) => dispatch(openModal(modal, id))
+})
+
+export default connect(mSTP, mDTP)(Stopwatch);
