@@ -7,12 +7,11 @@ import {
 } from '../../actions/disaster_plan_actions'
 
 const mSTP = (state, ownProps) => {
-    // debugger
-    if (ownProps.location.currentPlan){
-        return {plan: ownProps.location.currentPlan.plan}
-    } else {
-        return {plan: state.entities.plans[ownProps.match.params.disasterId]}
+
+    return {
+        plan: state.entities.plans[ownProps.match.params.disasterId]
     }
+
 }
 
 const mDTP = (dispatch, ownProps) => ({
@@ -21,8 +20,7 @@ const mDTP = (dispatch, ownProps) => ({
     updateDisasterPlan: (plan) => 
         dispatch(updateDisasterPlan(plan)),
     deleteDisasterPlan: () => 
-        dispatch(deleteDisasterPlan(ownProps.match.params.disasterId)),
-
+        dispatch(deleteDisasterPlan(ownProps.match.params.disasterId)) // try updating to pass in variables in the redered component
 })
 
 export default connect(mSTP, mDTP)(DisasterPlanShow)

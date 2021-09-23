@@ -87,7 +87,7 @@ class DisasterPlans extends React.Component {
                 <Link 
                     to={{
                         pathname: `/disaster/${plan._id}`,
-                        currentPlan:{plan: plan}
+                        currentPlan: {plan: plan}
                     }}>
                     {plan.name}
                 </Link>

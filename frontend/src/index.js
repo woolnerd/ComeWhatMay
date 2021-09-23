@@ -57,18 +57,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.updateRelative = RelativeUtils.updateRelative
   // window.deleteRelative = RelativeUtils.deleteRelative
 
-  // //disaster plan actions
-  // window.fetchDisasterPlans = DisasterPlanUtils.fetchDisasterPlans
-  // window.createDisasterPlan = DisasterPlanUtils.createDisasterPlan
-  // window.updateDisasterPlan = DisasterPlanUtils.updateDisasterPlan
-  // window.deleteDisasterPlan = DisasterPlanUtils.deleteDisasterPlan
+  //disaster plan actions
+  window.fetchDisasterPlans = DisasterPlanUtils.fetchDisasterPlans
+  window.fetchDisasterPlan = DisasterPlanUtils.fetchDisasterPlan
+  window.createDisasterPlan = DisasterPlanUtils.createDisasterPlan
+  window.updateDisasterPlan = DisasterPlanUtils.updateDisasterPlan
+  window.deleteDisasterPlan = DisasterPlanUtils.deleteDisasterPlan
 
   // //action step actions
   // window.createActionStep = ActionStepUtils.createActionStep
   // window.updateActionStep = ActionStepUtils.updateActionStep
   // window.deleteActionStep = ActionStepUtils.deleteActionStep
 
-  // //disaster drill actions
+  //disaster drill actions
   // window.fetchDisasterDrills = DisasterDrillUtils.fetchDisasterDrills
   // window.createDisasterDrill = DisasterDrillUtils.createDisasterDrill
   // window.updateDisasterDrill = DisasterDrillUtils.updateDisasterDrill

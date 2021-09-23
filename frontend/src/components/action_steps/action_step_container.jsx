@@ -24,7 +24,6 @@ class ActionStep extends React.Component {
         switch (this.state.modal) {
             case 0:
                 return null
-                break;
             case 1:
                 return (
                     <div className='action-step-form-frame'>
@@ -51,10 +50,10 @@ class ActionStep extends React.Component {
                         </form>
                     </div>
                 )
-                break;
             case 2:
                 return (
                     <div className='delete-action-frame'>
+                        <h5>Are you sure you want to delte this action</h5>
                         <button 
                             onClick={()=> this.setState({modal: 0})}>
                             Cancel
@@ -63,11 +62,10 @@ class ActionStep extends React.Component {
                             onClick={()=> this.props.deleteActionStep(
                                 this.props.planId, this.props.action._id)
                                 .then(() => this.setState({modal: 0}))}>
-                            Delete Action
+                            Confirm
                         </button>
                     </div>
                 )
-                break;
             default:
                 break;
         }

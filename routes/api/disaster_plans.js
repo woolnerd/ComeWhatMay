@@ -43,9 +43,9 @@ router.put('/update/:disasterId', (req, res) => {
     DisasterPlan.findByIdAndUpdate(req.params.disasterId, req.body)
      .then(disaster => DisasterPlan.findById(disaster.id))
         .then(updatedDis => res.json(updatedDis))
-     .catch(err =>
-      res.status(400).json({ error: 'Unable to update disaster plan' })
-     );
+    //  .catch(err =>
+    //   res.status(400).json({ error: 'Unable to update disaster plan' })
+    //  );
 });
 
 router.delete('/delete/:disasterId', (req, res) => {
