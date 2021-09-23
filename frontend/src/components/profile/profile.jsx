@@ -43,15 +43,15 @@ export class Profile extends Component {
     return (
       <div className="profile-container-main">
 
-        <div className="dist-plan-container">
-          <button className="plan-btn btn-style-1">Make a New Plan</button>
+        {/* <div className="dist-plan-container"> */}
+          {/* <button className="plan-btn btn-style-1">Make a New Plan</button>
 
           <div className="dist-plans">
             <div className="plan-item">Plan1</div>
             <div className="plan-item">Plan2</div>
             <div className="plan-item">Plan3</div>
           </div>
-        </div> */}
+        </div>  */}
         <DisasterPlansIndexContainer/>
         <div className="profile-container">
           <button
