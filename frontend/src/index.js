@@ -39,40 +39,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   const root = document.getElementById("root");
 
-  window.store = store;
-  window.logout = logout
-  window.login = login; 
+  // window.store = store;
+  // window.logout = logout
+  // window.login = login; 
 
-  // profile actions
-  window.createUserProfile = ProfileUtils.createUserProfile
-  window.fetchUserProfile = ProfileUtils.fetchUserProfile
-  window.updateUserProfile = ProfileUtils.updateUserProfile
-  window.deleteUserProfile = ProfileUtils.deleteUserProfile
-  window.testRoute = testRoute;
+  // // profile actions
+  // window.createUserProfile = ProfileUtils.createUserProfile
+  // window.fetchUserProfile = ProfileUtils.fetchUserProfile
+  // window.updateUserProfile = ProfileUtils.updateUserProfile
+  // window.deleteUserProfile = ProfileUtils.deleteUserProfile
+  // window.testRoute = testRoute;
 
-  //relative actions
-  window.fetchRelative = RelativeUtils.fetchRelative
-  window.fetchAllRelatives = RelativeUtils.fetchAllRelatives
-  window.createRelative = RelativeUtils.createRelative
-  window.updateRelative = RelativeUtils.updateRelative
-  window.deleteRelative = RelativeUtils.deleteRelative
+  // //relative actions
+  // window.fetchRelative = RelativeUtils.fetchRelative
+  // window.fetchAllRelatives = RelativeUtils.fetchAllRelatives
+  // window.createRelative = RelativeUtils.createRelative
+  // window.updateRelative = RelativeUtils.updateRelative
+  // window.deleteRelative = RelativeUtils.deleteRelative
 
-  //disaster plan actions
-  window.fetchDisasterPlans = DisasterPlanUtils.fetchDisasterPlans
-  window.createDisasterPlan = DisasterPlanUtils.createDisasterPlan
-  window.updateDisasterPlan = DisasterPlanUtils.updateDisasterPlan
-  window.deleteDisasterPlan = DisasterPlanUtils.deleteDisasterPlan
+  // //disaster plan actions
+  // window.fetchDisasterPlans = DisasterPlanUtils.fetchDisasterPlans
+  // window.createDisasterPlan = DisasterPlanUtils.createDisasterPlan
+  // window.updateDisasterPlan = DisasterPlanUtils.updateDisasterPlan
+  // window.deleteDisasterPlan = DisasterPlanUtils.deleteDisasterPlan
 
-  //action step actions
-  window.createActionStep = ActionStepUtils.createActionStep
-  window.updateActionStep = ActionStepUtils.updateActionStep
-  window.deleteActionStep = ActionStepUtils.deleteActionStep
+  // //action step actions
+  // window.createActionStep = ActionStepUtils.createActionStep
+  // window.updateActionStep = ActionStepUtils.updateActionStep
+  // window.deleteActionStep = ActionStepUtils.deleteActionStep
 
-  //disaster drill actions
-  window.fetchDisasterDrills = DisasterDrillUtils.fetchDisasterDrills
-  window.createDisasterDrill = DisasterDrillUtils.createDisasterDrill
-  window.updateDisasterDrill = DisasterDrillUtils.updateDisasterDrill
-  window.deleteDisasterDrill = DisasterDrillUtils.deleteDisasterDrill
+  // //disaster drill actions
+  // window.fetchDisasterDrills = DisasterDrillUtils.fetchDisasterDrills
+  // window.createDisasterDrill = DisasterDrillUtils.createDisasterDrill
+  // window.updateDisasterDrill = DisasterDrillUtils.updateDisasterDrill
+  // window.deleteDisasterDrill = DisasterDrillUtils.deleteDisasterDrill
 
   ReactDOM.render(<Root store={store} />, root);
 });

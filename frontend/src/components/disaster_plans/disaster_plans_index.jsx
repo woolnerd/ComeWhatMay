@@ -60,6 +60,7 @@ class DisasterPlans extends React.Component {
                                 <option value="Tsunami">Tsunami</option>
                                 <option value="Blizzard">Blizzard</option>
                                 <option value="Volcano">Volcano</option>
+                                <option value="Other">Other</option>
                             </select>
                         </label>
 
