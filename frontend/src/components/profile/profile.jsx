@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import RelativeIndexContainer from "./relative_index";
 import DisasterPlansIndexContainer from "../disaster_plans/disaster_plans_index_container";
 import "./profile.css";
+import Stopwatch from '../../components/stopwatch/stopwatch';
 
 export class Profile extends Component {
   constructor(props) {
@@ -72,6 +73,7 @@ export class Profile extends Component {
           </button>
           <RelativeIndexContainer profileId={this.props.profileId} />
           {/* <EditProfileFormContainer /> */}
+          <Stopwatch />
         </div>
       </div>
     );
