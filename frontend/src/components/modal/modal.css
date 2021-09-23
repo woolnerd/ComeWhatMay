@@ -13,15 +13,22 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(148, 132, 255, 0.81);
+  /* background-color: rgba(148, 132, 255, 0.81); */
+    background: #4CA1AF; 
+    background: -webkit-linear-gradient(to top, #C4E0E5, #4CA1AF);  
+    background: linear-gradient(to bottom, #C4E0E5, #4CA1AF); 
   padding: 50px 50px;
   border-radius: 20px;
 }
 
 .create-relative, .edit-form {
-    background-color: rgb(121, 192, 255);
+    background: #4CA1AF; 
+    background: -webkit-linear-gradient(to top, #C4E0E5, #4CA1AF);  
+    background: linear-gradient(to bottom, #C4E0E5, #4CA1AF); 
+
+    /* background-color: rgb(121, 192, 255); */
     padding: 40% 20%;
-    border: 3px rgb(111, 220, 111) solid;
+    border: 3px rgb(255, 255, 255) solid;
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35);
 
 }
