@@ -1,20 +1,21 @@
 import React from 'react'
+import ActionStepContainer from '../action_steps/action_step_container'
 
 class DisasterPlanShow extends React.Component {
     constructor(props){
         super(props)
-        let plan = this.props.plan
         this.state = {
-            name: plan.name,
-            targetTime: plan.targetTime,
-            disasterType: plan.disasterType,
-            profileId: plan.profileId,
+            name: '',
+            targetTime: '',
+            disasterType:'',
+            profileId: '',
             modal: 0
         }
         this.handleChange = this.handleChange.bind(this)
     }
 
     componentDidMount(){
+        debugger
         this.props.fetchDisasterPlan()
     }
 

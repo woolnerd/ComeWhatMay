@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
-import ActionStep from './action_step'
 import { withRouter } from "react-router";
 import {updateActionStep, deleteActionStep} from '../../actions/action_step_actions'
+import React from 'react'
 
 class ActionStep extends React.Component {
     constructor(props){
@@ -97,7 +97,7 @@ class ActionStep extends React.Component {
 }
 
 const mSTP = (state, ownProps) => ({
-    planId = ownProps.match.params.disasterId,
+    planId: ownProps.match.params.disasterId,
 })
 
 const mDTP = (dispatch) => ({
@@ -105,4 +105,4 @@ const mDTP = (dispatch) => ({
     deleteActionStep: (planId, actionStep) => dispatch(deleteActionStep(planId, actionStep))
 })
 
-export default withRouter(connect(mSTP, mDTP)(ActionStep))
+export default withRouter(connect(mSTP, mDTP)(ActionStep));

@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   const root = document.getElementById("root");
 
-  // window.store = store;
+  window.store = store;
   // window.logout = logout
   // window.login = login; 
 
