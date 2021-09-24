@@ -44,8 +44,7 @@ class EditDrillForm extends React.Component {
     }
 
     render() {
-        console.log(this.props.drillId)
-        console.log(this.props.drill)
+     
         // console.log(this.props.drill._id)
         // console.log(this.props.drill._disPlan)
         return (

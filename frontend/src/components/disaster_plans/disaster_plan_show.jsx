@@ -137,10 +137,10 @@ class DisasterPlanShow extends React.Component {
             <div className='disaster-show-frame'>
                 <div className='plan-info-and-actions'>
                     <div className='plan-info'>
-                        <h4>{plan.name}</h4>
-                        <h4>{plan.targetTime}</h4>
-                        <h4>{plan.disasterType}</h4>
                         <CreateActionContainer />
+                        <h4>Plan Name: {plan.name}</h4>
+                        <h4>Drill Target: {plan.targetTime}</h4>
+                        <h4>In the case of: {plan.disasterType}</h4>
                     </div>
                     <div className='plan-crud-buttons'>
                         <button 

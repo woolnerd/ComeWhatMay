@@ -1,0 +1,15 @@
+.plan-item-box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 0 4px;
+}
+
+
+.alarm {
+    font-size: 20px;
+}
+
+.plan-btn {
+    margin-top: 10px !important;
+}
