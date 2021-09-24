@@ -95,13 +95,13 @@ class DisasterPlans extends React.Component {
   }
 
   render() {
-    const plans = this.props.disasterPlans.map((plan, i) => (
-      <Link to={`/disaster-plan/${plan._id}`}>
-        <div key={i} className="plan-item">
-          {plan.name}
-        </div>
-      </Link>
-    ));
+    // const plans = this.props.disasterPlans.map((plan, i) => (
+    //   <Link to={`/disaster-plan/${plan._id}`}>
+    //     <div key={i} className="plan-item">
+    //       {plan.name}
+    //     </div>
+    //   </Link>
+    // ));
 
         const plans = this.props.disasterPlans.map(
             (plan, i) => 

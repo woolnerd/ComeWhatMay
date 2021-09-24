@@ -79,7 +79,7 @@ class EditDrillForm extends React.Component {
 }
 
 const mSTP = ({ entities, session }, ownProps) => {
-    debugger
+    //debugger
     return {
         drillId: ownProps.drillId,
         currentUser: session.user.id,  

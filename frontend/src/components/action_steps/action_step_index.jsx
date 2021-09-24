@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { fetchDisasterDrills, deleteDisasterDrill } from '../../actions/disaster_drill_actions'
+import { withRouter } from 'react-router-dom';
 
 class PlanIndex extends React.Component{
     constructor(props){
@@ -31,9 +32,9 @@ class PlanIndex extends React.Component{
 }
 
 const mSTP = (state, ownProps) => ({
-    planId: ownProps.match.params.planId,
+    planId: ownProps.match.params.disasterId,
     drill: Object.values(state.entities.drills).filter(
-        drill => drill.disPlan === ownProps.match.params.planId
+        drill => drill.disPlan === ownProps.match.params.disasterId
     )[0]
 
 })
@@ -44,5 +45,5 @@ const mDTP = dispatch => ({
     deleteDisasterDrill: planId => dispatch(deleteDisasterDrill(planId))
 })
 
-export default connect(mSTP, mDTP)(PlanIndex)
+export default withRouter(connect(mSTP, mDTP)(PlanIndex))
 
