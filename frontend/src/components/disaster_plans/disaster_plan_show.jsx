@@ -3,6 +3,7 @@ import ActionStepContainer from '../action_steps/action_step_container'
 import CreateActionContainer from '../action_steps/create_action_step';
 import DrillComponent from '../action_steps/action_step_index';
 import DrillHistoryComponent from './drill_history'
+import { AiOutlineClose } from 'react-icons/ai'
 
 class DisasterPlanShow extends React.Component {
     constructor(props){
@@ -75,6 +76,11 @@ class DisasterPlanShow extends React.Component {
                                     value={this.state.name}
                                     onChange={this.handleChange('name')}/>
                             </label>
+
+                            <p  className="exit_edit" 
+                                onClick={() => this.setState({modal: 0})}>
+                                <AiOutlineClose className="close-x" />
+                            </p>
 
                             <label>Disaster Type
                                 <select value={this.state.disasterType} onChange={this.handleChange('disasterType')}>

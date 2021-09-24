@@ -9,7 +9,7 @@ const ActionStepSchema = new Schema({
     task: {
       type: String,
       required: true
-    },
+    }
 })
 
 module.exports = ActionStepSchema

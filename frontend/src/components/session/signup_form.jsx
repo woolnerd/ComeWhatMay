@@ -37,7 +37,15 @@ class SignupForm extends React.Component {
       password: this.state.password,
     };
 
-    this.props.signup(user, this.props.history);
+    this.props.signup(user, this.props.history)
+  }
+
+  demoLogin(){
+    let user = {
+      email: "demo@demo.demo",
+      password: "password",
+    };
+    this.props.login(user)
   }
 
   renderErrors() {
@@ -83,8 +91,14 @@ class SignupForm extends React.Component {
                type="submit"
               value="Submit"
             />
+            <input
+              className="btn-style-1 login-btn"
+              type="submit"
+              value="Demo User"
+              onClick={() => this.demoLogin()}/>
           </div>
         </form>
+
       </div>
             {this.renderErrors()}
       </div>
