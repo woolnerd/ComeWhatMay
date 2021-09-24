@@ -26,6 +26,8 @@
     text-align: center;
     box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
     cursor: pointer;
+    height: 20px;
+    
 }
 
 a {
@@ -37,4 +39,27 @@ a {
     padding: 0 4px;
     padding-top: 6px;
     cursor: pointer;
+}
+
+.btn-container-homepage{
+    z-index: 1;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translate(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background-color: rgba(199, 222, 250, 0.694);;
+    padding: 30px;
+    opacity: 0.9;
+    border-radius: 20px;
+}
+
+.btn-inner-container{
+    width: 300px;
+}
+
+#btn-signup{
+    margin-bottom: 20px;
 }

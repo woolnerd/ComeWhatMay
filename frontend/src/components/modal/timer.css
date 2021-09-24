@@ -1,0 +1,64 @@
+#time-container{
+    background-color: rgb(232, 57, 57);
+    padding: 20px;
+    border-radius: 20px;
+    height: 420px;
+    width: 700px;
+    margin-left: -100px;
+    position: absolute;
+    z-index: 1;
+    transform: translateY(-50%);
+    box-shadow: 10px 5px 5px rgb(94, 94, 94);
+    border: 2px solid black;
+
+}
+
+.timer-header > h2{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+.timer-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+#close-x{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.clock{
+    display: flex;
+    justify-content: center;
+    font-size: 130px;
+    padding-top: 70px;
+    padding-bottom: 40px;
+    font-weight: bold;
+    letter-spacing: 10px;
+
+}
+
+.clock-unit{
+    text-align: center;
+    font-size: 30px;
+}
+
+.clock-button{
+    margin-left: 40%;
+    display: flex;
+    padding-top: 50px;
+    width: 400px;
+    justify-content: space-between;
+}
+
+.clock-btn{
+    border-radius: 20px;
+    padding: 15px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.81);
+    border: 3px solid black;
+    
+}

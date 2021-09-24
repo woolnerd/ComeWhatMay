@@ -1,9 +1,11 @@
 .footer {
     width: 100%;
-    height: 18.75rem;
-    background-color: aliceblue;
-    position: relative;
+    height: 14.75rem;
+    /* background-color: aliceblue; */
+    background-color: hsla(194, 66%, 77%, 0.44);
+    /* position: relative; */
     top: 500px;
+    margin: 0;
 }
 
 .footer-container {
