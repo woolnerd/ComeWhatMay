@@ -93,6 +93,11 @@
     font-size: 19px;
 }
 
+.task-owner p{
+    padding-left: 2rem;
+    font-weight: 200;
+}
+
 .action-step-form-frame {
     display: flex;
     text-align: center;
@@ -129,3 +134,7 @@
     border-bottom: 1px solid black;
 }
 
+.task-btn {
+    display: flex;
+    align-items: center; 
+}
