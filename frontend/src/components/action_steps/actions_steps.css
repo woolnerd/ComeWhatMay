@@ -94,14 +94,14 @@
 }
 
 .action-step-form-frame {
-    width: 500px;
-    height: 100px;
     display: flex;
-    justify-content: space-around;
-    align-content: flex-start;
-    align-items: center;
+    text-align: center;
+    /* border: 1px solid black; */
     background: aliceblue;
-    width: auto;
+    border-radius: 135px;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    padding-top: 10px;
 }
 
 .modal-child-task{  
@@ -115,3 +115,17 @@
     border-radius: 20px;
     width: 500px;
 }
+
+.create-drill{
+    margin-bottom:10px;
+    width: 150px;
+}
+
+.drill-container-flex {
+    margin-left: 2rem;
+    font-size: 1.5rem;
+}
+.drill-hist-container h2 {
+    border-bottom: 1px solid black;
+}
+

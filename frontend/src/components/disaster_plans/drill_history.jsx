@@ -21,7 +21,7 @@ class DrillHistory extends React.Component {
             if(drill.timeToComplete){
                 var date = new Date(drill.timeToStart);
             return (
-                <div key={`${i}`}>
+                <div key={`${i}`} className="drill-hist">
                     <div>Drill Date: {date.toDateString()} </div>
                     <div>Completed In: {drill.timeToComplete} (m/s/ms)</div>
                     <div>Notes: {drill.reviewNote} </div>
@@ -32,7 +32,7 @@ class DrillHistory extends React.Component {
 
 
         return (
-            <div>
+            <div className="drill-hist-container">
                 <h2>Drill History</h2>
                 <br/>
                 {showDrills}

@@ -4,6 +4,7 @@ import CreateActionContainer from '../action_steps/create_action_step';
 import DrillComponent from '../action_steps/action_step_index';
 import DrillHistoryComponent from './drill_history'
 import { AiOutlineClose } from 'react-icons/ai'
+import "./drill.css"
 
 class DisasterPlanShow extends React.Component {
     constructor(props){
@@ -77,10 +78,10 @@ class DisasterPlanShow extends React.Component {
                                     onChange={this.handleChange('name')}/>
                             </label>
 
-                            <p  className="exit_edit" 
+                            {/* <p  className="exit_edit" 
                                 onClick={() => this.setState({modal: 0})}>
                                 <AiOutlineClose className="close-x" />
-                            </p>
+                            </p> */}
 
                             <label>Disaster Type
                                 <select value={this.state.disasterType} onChange={this.handleChange('disasterType')}>
@@ -120,7 +121,9 @@ class DisasterPlanShow extends React.Component {
                         </button>
                         <button 
                             onClick={()=> this.props.deleteDisasterPlan()
-                                .then(() => this.setState({modal: 0}))}>
+                                .then(() => this.setState({modal: 0}))
+                                // .then(this.props.history.push(`/profile/${this.props.match.params.profileId}`))
+                                }>
                             Confirm
                         </button>
                     </div>
@@ -134,6 +137,7 @@ class DisasterPlanShow extends React.Component {
         if(!this.props.plan){
             return null
         }
+        
         const actions = this.props.plan.actions.map(
             (action, id) =>
                 <ActionStepContainer key={id} action={action}/>
