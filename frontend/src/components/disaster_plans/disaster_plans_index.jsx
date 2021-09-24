@@ -96,9 +96,11 @@ class DisasterPlans extends React.Component {
 
   render() {
     const plans = this.props.disasterPlans.map((plan, i) => (
-      <div key={i} className="plan-item">
-        <Link to={`/disaster-plan/${plan._id}`}>{plan.name}</Link>
-      </div>
+      <Link to={`/disaster-plan/${plan._id}`}>
+        <div key={i} className="plan-item">
+          {plan.name}
+        </div>
+      </Link>
     ));
 
     return (

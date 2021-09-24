@@ -97,6 +97,7 @@ body {
 svg {
     font-size: 40px;
     padding: 0 4px;
+    cursor: pointer;
 }
 
 .single-member {
@@ -114,4 +115,5 @@ svg {
     background-color: rgb(175, 211, 255);
     text-align: center;
     box-shadow: 4px 4px 4px rgb(0 0 0 / 33%);
+    cursor: pointer;
 }

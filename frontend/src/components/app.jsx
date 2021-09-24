@@ -12,6 +12,7 @@ import ProfileContainer from "./profile/profile_container";
 import CreateProfileFormContainer from "./profile/create_profile_form";
 // import EditProfileFormContainer from "./profile/edit_profile_form";
 import Modal from "./modal/modal"
+import { Footer } from "../components/footer/footer"
 
 const App = () => (
     <div>
@@ -28,6 +29,7 @@ const App = () => (
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
         <AuthRoute exact path="/" component={LandingPage} />
       </Switch>
+      <Footer />
     </div>
 );
 
