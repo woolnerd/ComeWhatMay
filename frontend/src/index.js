@@ -11,7 +11,7 @@ import { logout, login } from "./actions/session_actions";
 import * as ProfileUtils from "./actions/profile_actions";
 import * as RelativeUtils from "./actions/relative_actions";
 import * as DisasterPlanUtils from "./actions/disaster_plan_actions";
-import * as ActionStepUtils from "./actions/action_steps";
+import * as ActionStepUtils from "./actions/action_step_actions";
 import * as DisasterDrillUtils from "./actions/disaster_drill_actions";
 
 import { testRoute } from "./util/profile_util"
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   const root = document.getElementById("root");
 
-  // window.store = store;
+  window.store = store;
   // window.logout = logout
   // window.login = login; 
 
@@ -57,18 +57,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.updateRelative = RelativeUtils.updateRelative
   // window.deleteRelative = RelativeUtils.deleteRelative
 
-  // //disaster plan actions
-  // window.fetchDisasterPlans = DisasterPlanUtils.fetchDisasterPlans
-  // window.createDisasterPlan = DisasterPlanUtils.createDisasterPlan
-  // window.updateDisasterPlan = DisasterPlanUtils.updateDisasterPlan
-  // window.deleteDisasterPlan = DisasterPlanUtils.deleteDisasterPlan
+  //disaster plan actions
+  window.fetchDisasterPlans = DisasterPlanUtils.fetchDisasterPlans
+  window.fetchDisasterPlan = DisasterPlanUtils.fetchDisasterPlan
+  window.createDisasterPlan = DisasterPlanUtils.createDisasterPlan
+  window.updateDisasterPlan = DisasterPlanUtils.updateDisasterPlan
+  window.deleteDisasterPlan = DisasterPlanUtils.deleteDisasterPlan
 
   // //action step actions
   // window.createActionStep = ActionStepUtils.createActionStep
   // window.updateActionStep = ActionStepUtils.updateActionStep
   // window.deleteActionStep = ActionStepUtils.deleteActionStep
 
-  // //disaster drill actions
+  //disaster drill actions
   // window.fetchDisasterDrills = DisasterDrillUtils.fetchDisasterDrills
   // window.createDisasterDrill = DisasterDrillUtils.createDisasterDrill
   // window.updateDisasterDrill = DisasterDrillUtils.updateDisasterDrill

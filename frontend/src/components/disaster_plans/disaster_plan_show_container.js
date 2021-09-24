@@ -1,0 +1,30 @@
+import { connect } from "react-redux";
+import DisasterPlanShow from './disaster_plan_show'
+import {
+    fetchDisasterPlan, 
+    updateDisasterPlan,
+    deleteDisasterPlan
+} from '../../actions/disaster_plan_actions'
+import { createActionStep } from "../../util/action_step_util";
+
+const mSTP = (state, ownProps) => {
+
+    return {
+        planId: ownProps.match.params.disasterId,
+        plan: state.entities.plans[ownProps.match.params.disasterId]
+    }
+
+}
+
+const mDTP = (dispatch, ownProps) => ({
+    fetchDisasterPlan: () => 
+        dispatch(fetchDisasterPlan(ownProps.match.params.disasterId)),
+    updateDisasterPlan: (plan) => 
+        dispatch(updateDisasterPlan(plan)),
+    deleteDisasterPlan: () => 
+        dispatch(deleteDisasterPlan(ownProps.match.params.disasterId)),
+    createActionStep: (planId, actionStep) => 
+        dispatch(createActionStep(planId, actionStep)) // try updating to pass in variables in the redered component
+})
+
+export default connect(mSTP, mDTP)(DisasterPlanShow)

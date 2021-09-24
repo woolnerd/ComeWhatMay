@@ -25,6 +25,7 @@ class DisasterPlans extends React.Component {
     };
   }
 
+
   createPlanModal() {
     if (this.state.modal === "false") {
       return null;
@@ -53,7 +54,6 @@ class DisasterPlans extends React.Component {
                   onChange={this.handleChange("name")}
                 />
               </label>
-
               <label>
                 Disaster Type
                 <select
@@ -103,21 +103,36 @@ class DisasterPlans extends React.Component {
       </Link>
     ));
 
-    return (
-      <div>
-        <div className="dist-plan-container">
-          <button
-            className="plan-btn btn-style-1"
-            onClick={() => this.setState({ modal: "true" })}
-          >
-            Make a New Plan
-          </button>
-          <div className="dist-plans">{plans}</div>
-        </div>
-        {this.createPlanModal()}
-      </div>
-    );
-  }
+        const plans = this.props.disasterPlans.map(
+            (plan, i) => 
+            <div key={i}className="plan-item">
+                <Link 
+                    to={{
+                        pathname: `/disaster/${plan._id}`,
+                        currentPlan: {plan: plan}
+                    }}>
+                    {plan.name}
+                </Link>
+            </div>
+        )
+
+        return (
+            <div>
+                <div className="dist-plan-container">
+                <button 
+                    className="plan-btn btn-style-1"
+                    onClick={() => this.setState({ modal: "true"})}>
+                    Make a New Plan
+                </button>
+                    <div className="dist-plans">
+                        {plans}
+                    </div>
+                </div>
+                {this.createPlanModal()}
+            </div>
+        )
+    }
+
 }
 
 export default DisasterPlans;

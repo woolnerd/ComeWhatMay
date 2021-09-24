@@ -19,6 +19,11 @@ export const removePlan = (id) =>({
     id
 })
 
+export const fetchDisasterPlan = (disasterId) => (dispatch) =>
+APIDisasterPlanUtil.fetchDisasterPlan(disasterId)
+    .then((plan) => dispatch(receivePlan(plan)))
+    .catch((err) => console.log(err));
+
 export const fetchDisasterPlans = (profileId) => (dispatch) =>
 APIDisasterPlanUtil.fetchDisasterPlans(profileId)
     .then((plans) => dispatch(receiveAllPlans(plans)))

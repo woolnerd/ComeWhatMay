@@ -23,9 +23,20 @@ router.post('/create/:profileId', (req, res) => {
         .catch(err => console.log(err));
 })
 
+router.get('/show/:disasterId', (req, res) => {
+    DisasterPlan.findById(req.params.disasterId)
+        .then(plan => res.json(plan))
+        .catch(err =>
+            res.status(404).json({ error: 'Sorry plan wasn\'t found' })
+           );
+})
+
 router.get('/index/:profileId', (req, res) => {
     DisasterPlan.find({profileId: req.params.profileId })
         .then(plans => res.json(plans))
+        .catch(err =>
+            res.status(400).json({ error: 'Sorry plans wern\'t found' })
+           );
 })
 
 router.put('/update/:disasterId', (req, res) => {
