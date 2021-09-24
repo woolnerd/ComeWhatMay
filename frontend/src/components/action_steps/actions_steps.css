@@ -8,13 +8,110 @@
     margin-top: 30px;
     border-radius: 15px;
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
+
+.plan-crud-buttons button {
+    margin: 16px;
+    height: 37px;
+
+    border: 1px rgb(255, 255, 255) solid;
+    border-radius: 20px;
+    padding: 4px 10px;
+    background-color: rgb(175, 211, 255);
+    text-align: center;
+    box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
+    cursor: pointer;
+}
+
 
 .plan-info-and-actions {
     border: 1px solid black;
-
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+}
 
+.plan-info-and-actions h4 {
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+.create-action-button button{
+    margin: 16px;
+    height: 37px;
+
+    border: 1px rgb(255, 255, 255) solid;
+    border-radius: 20px;
+    padding: 4px 10px;
+    background-color: rgb(175, 211, 255);
+    text-align: center;
+    box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
+    cursor: pointer;
+    width: 90%
+}
+.image-action {
+    /* background-image: url('https://come-what-may.s3.amazonaws.com/images/roberto-nickson-smJ6XsYy8gA-unsplash.jpg');
+    position: absolute;
+    width:600px;
+    height: 600px;
+    top:50%;
+    bottom: 50%;
+    z-index: 1; */
+}
+
+.action-step-frame button{
+    margin: 16px;
+    height: 37px;
+
+    border: 1px rgb(255, 255, 255) solid;
+    border-radius: 20px;
+    padding: 4px 10px;
+    background-color: rgb(175, 211, 255);
+    text-align: center;
+    box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
+    cursor: pointer;
+}
+
+.action-step-frame {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    width: 75%;
+    margin-left: 10.9%;
+}
+
+.task-owner {
+    display: flex;
+    align-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 13px;
+    font-size: 19px;
+}
+
+.action-step-form-frame {
+    width: 500px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: center;
+    background: aliceblue;
+    width: auto;
+}
+
+.modal-child-task{  
+        position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #4CA1AF;
+    background-color: hsla(193, 100%, 97%, 0.934);
+    padding: 50px 50px;
+    border-radius: 20px;
+    width: 500px;
 }

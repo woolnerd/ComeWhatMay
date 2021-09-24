@@ -2,6 +2,10 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import {updateActionStep, deleteActionStep} from '../../actions/action_step_actions'
 import React from 'react'
+import { AiOutlineEdit } from "react-icons/ai";
+import { RiDeleteBin2Line } from "react-icons/ri";
+import "./actions_steps.css";
+
 
 class ActionStep extends React.Component {
     constructor(props){
@@ -26,7 +30,8 @@ class ActionStep extends React.Component {
                 return null
             case 1:
                 return (
-                    <div className='action-step-form-frame'>
+                <div className="modal-background">
+                    <div className='action-step-form-frame modal-child-task'>
                         <form onSubmit={
                             ()=> this.props.updateActionStep(
                                 this.props.planId, {   
@@ -50,6 +55,7 @@ class ActionStep extends React.Component {
                             <button>Update Action</button>
                         </form>
                     </div>
+                </div>
                 )
             case 2:
                 return (
@@ -74,24 +80,22 @@ class ActionStep extends React.Component {
 
     render(){
         return (
-            <div className="action-step-frame">
-                <div className='owner-of-taks'>
-                    <h6>{this.state.owner}</h6>
-                </div>
-                <div className="task-information">
-                    <p>{this.state.task}</p>
-                </div>
-                {this.ActionStepModal()}
-                <button 
-                    onClick={()=> this.setState({modal: 1})}>
-                    Update Task
-                </button>
-                <button 
-                    onClick={()=> this.setState({modal: 2})}>
-                    Delete Task
-                </button>
+          <div className="action-step-frame">
+            <div className="task-owner">
+              {/* <div className='owner-of-taks'> */}
+              <h6>Person: {this.state.owner}</h6>
+              {/* </div> */}
+              {/* <div className="task-information"> */}
+              <p>Task: {this.state.task}</p>
+              {/* </div> */}
             </div>
-        )
+            {this.ActionStepModal()}
+            <div className="task-btn">
+              <AiOutlineEdit onClick={() => this.setState({ modal: 1 })} />
+              <RiDeleteBin2Line onClick={() => this.setState({ modal: 2 })} />
+            </div>
+          </div>
+        );
     }
 }
 
