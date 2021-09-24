@@ -9,10 +9,10 @@ const receiveAllDrills = (drills) => ({
     drills
 })
 
-const receiveDrill = (drill) => ({
-    type: RECEIVE_DRILL,
-    drill
-})
+const receiveDrill = (drill) => {
+    return {type: RECEIVE_DRILL,
+    drill}
+}
 
 const removeDrill = (id) => ({
     type: REMOVE_DRILL,

@@ -1,6 +1,9 @@
 import React from 'react'
+import { withRouter } from 'react-router'
+import { connect } from 'react-redux'
+import { createActionStep } from '../../actions/action_step_actions'
 
-class CreateActionStep extends React.Component {
+class CreateActionContainer extends React.Component {
     constructor(props){
         super(props)
 
@@ -23,10 +26,11 @@ class CreateActionStep extends React.Component {
         if (!this.state.modal){
             return null
         } else {
+
             return(
                 <div className='action-step-form-frame'>
-                    <form onSubmit={
-                        ()=> this.props.createActionStep(
+                    <form onSubmit={()=> 
+                        this.props.createActionStep(
                             this.props.planId, {   
                                 owner: this.state.owner, 
                                 task: this.state.task, 
@@ -46,7 +50,7 @@ class CreateActionStep extends React.Component {
                                 value={this.state.task}
                                 placeholder="What's the task"
                                 onChange={this.handleChange('task')} />
-                        <button>Create Action</button>
+                        <button>Confirm</button>
                     </form>
                 </div>
             )}  
@@ -58,11 +62,20 @@ class CreateActionStep extends React.Component {
                 {this.ActionStepModal()}
                 <button 
                     onClick={()=> this.setState({modal: true})}>
-                    Create Task
+                    Create New Task
                 </button>
             </div>
         )
     }
 }
 
-export default CreateActionStep;
+const mSTP = (state, ownProps) => ({
+    planId: ownProps.match.params.disasterId
+})
+
+const mDTP = (dispatch) => ({
+    createActionStep: (planId, actionStep) => 
+        dispatch(createActionStep(planId, actionStep))
+})
+
+export default withRouter(connect(mSTP, mDTP)(CreateActionContainer))

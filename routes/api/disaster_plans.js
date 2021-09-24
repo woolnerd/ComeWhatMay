@@ -57,7 +57,6 @@ router.delete('/delete/:disasterId', (req, res) => {
 })
 
 router.post('/:disasterId/action/create', (req, res) => {
-
     const disasterId = req.params.disasterId
     let newActionDetails = req.body
     DisasterPlan.findByIdAndUpdate(disasterId, 

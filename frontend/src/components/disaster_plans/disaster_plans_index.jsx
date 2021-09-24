@@ -30,6 +30,7 @@ class DisasterPlans extends React.Component {
     if (this.state.modal === "false") {
       return null;
     } else {
+
       return (
         <div className="create-disaster-plan-modal-layout">
           <div className="modal-child">
