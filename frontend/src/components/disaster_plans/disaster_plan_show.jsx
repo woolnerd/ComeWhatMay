@@ -58,7 +58,7 @@ class DisasterPlanShow extends React.Component {
             case 1:
                 return (
                     <div className='create-disaster-plan-modal-layout'>
-                        <form onSubmit={() =>         
+                        <form class-name="modal-child" onSubmit={() =>         
                             this.props.updateDisasterPlan({
                                 disasterType: this.state.disasterType,
                                 name: this.state.name,
@@ -133,38 +133,40 @@ class DisasterPlanShow extends React.Component {
                 <ActionStepContainer key={id} action={action}/>
         )
         let plan = this.props.plan
-        return(
-            <div className='disaster-show-frame'>
-                <div className='plan-info-and-actions'>
-                    <div className='plan-info'>
-                        <CreateActionContainer />
-                        <h4>Plan Name: {plan.name}</h4>
-                        <h4>Drill Target: {plan.targetTime}</h4>
-                        <h4>In the case of: {plan.disasterType}</h4>
-                    </div>
-                    <div className='plan-crud-buttons'>
-                        <button 
-                            onClick={()=> this.setState({modal: 1})}>
-                            Update Plan
-                        </button>
-                        <button 
-                            onClick={()=> this.setState({modal: 2})}>
-                            Delete Plan
-                        </button>
-                    </div>
-                </div>
-                {actions}
-                {this.DisasterPlanModal()}
-                <div>
-                    <div className="drill-container">
-                        <DrillComponent />
-                    </div>
-                    <div>
-                        <DrillHistoryComponent />
-                    </div>
-                </div>
+        return (
+          <div className="disaster-show-frame">
+
+            <div className="plan-info-and-actions">
+              <div className="plan-info">
+                <h4>Plan Name: {plan.name}</h4>
+                <h4>Drill Target: {plan.targetTime}min</h4>
+                <h4>In the case of: {plan.disasterType}</h4>
+              </div>
+              <div className="plan-crud-buttons">
+                <button onClick={() => this.setState({ modal: 1 })}>
+                  Update Plan
+                </button>
+                <button onClick={() => this.setState({ modal: 2 })}>
+                  Delete Plan
+                </button>
+
+              </div>
+            {/* <div className="image-action"></div> */}
             </div>
-        )
+           
+            <CreateActionContainer />
+            {actions}
+            {this.DisasterPlanModal()}
+            <div className="drill-container-flex" >
+              <div className="drill-container">
+                <DrillComponent />
+              </div>
+              <div>
+                <DrillHistoryComponent />
+              </div>
+            </div>
+          </div>
+        );
     }
 }
 
