@@ -110,7 +110,6 @@ class EditProfileForm extends React.Component {
 }
 
 const mSTP = ({ entities, session }) => {
-    // debugger
   return {
     currentUser: session.user.id,
     // profileId: Object.keys(entities.profile)[0],

@@ -14,7 +14,6 @@ import StartDrillContainer from './start_drill';
 
 
 function Modal({modal, closeModal, id}){
-  // debugger
     if(!modal){
         return null
     }
