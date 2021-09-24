@@ -16,16 +16,28 @@ class PlanIndex extends React.Component{
     render(){
         console.log(this.props.drill)
         // console.log(this.props.drill._id)
-        const createDrill = !this.props.drill ? <button onClick={() => this.props.openModal('createDrill', this.props.planId)}>Create Drill</button> : <></>
-        const startDrill = !this.props.drill ? <></> : <button onClick={() => this.props.openModal('startDrill', this.props.drill._id)}>Start Drill</button> 
-        const deleteDrill = !this.props.drill ? <></> : <button onClick={() => this.props.deleteDisasterDrill(this.props.drill._id)}>Delete Drill</button> 
+        // const createDrill = !this.props.drill ? <button onClick={() => this.props.openModal('createDrill', this.props.planId)}>Create Drill</button> : <></>
+        // const startDrill = !this.props.drill ? <></> : <button onClick={() => this.props.openModal('startDrill', this.props.drill._id)}>Start Drill</button> 
+        // const deleteDrill = !this.props.drill ? <></> : <button onClick={() => this.props.deleteDisasterDrill(this.props.drill._id)}>Delete Drill</button> 
 
+        const showDrills = this.props.drills ? 
+                this.props.drills.map((drill, i) => {
+                    var date = new Date(drill.timeToStart);
+                    return(
+                        <div key={`${i}`} className="single_drill">
+                            <div>
+                                <div>{date.toDateString()}</div>
+                                <button onClick={() => this.props.openModal('startDrill', drill._id)}>Start Drill</button>
+                                <button onClick={() => this.props.deleteDisasterDrill(drill._id)}>Delete Drill</button>
+                            </div>
+                        </div>
+                    )
+                }) : null
         return(
             <div>
-                {createDrill}
-                {startDrill}
-                {/* {editDrill} */}
-                {deleteDrill}
+                <button onClick={() => this.props.openModal('createDrill', this.props.planId)}>Create Drill</button>
+                {showDrills}
+
             </div>
         )
     }
@@ -35,7 +47,10 @@ const mSTP = (state, ownProps) => ({
     planId: ownProps.match.params.disasterId,
     drill: Object.values(state.entities.drills).filter(
         drill => drill.disPlan === ownProps.match.params.disasterId
-    )[0]
+    )[0],
+    drills: Object.values(state.entities.drills).filter(
+        drill => drill.disPlan === ownProps.match.params.disasterId
+    )
 
 })
 
