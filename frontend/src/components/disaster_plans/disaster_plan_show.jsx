@@ -1,6 +1,6 @@
 import React from 'react'
 import ActionStepContainer from '../action_steps/action_step_container'
-import CreateActionStep from '../action_steps/create_action_step';
+import CreateActionContainer from '../action_steps/create_action_step';
 import DrillComponent from '../action_steps/action_step_index';
 
 class DisasterPlanShow extends React.Component {
@@ -139,9 +139,7 @@ class DisasterPlanShow extends React.Component {
                         <h4>{plan.name}</h4>
                         <h4>{plan.targetTime}</h4>
                         <h4>{plan.disasterType}</h4>
-                        <CreateActionStep 
-                            planId={this.props.planId} 
-                            createActionStep={this.props.createActionStep}/>
+                        <CreateActionContainer />
                     </div>
                     <div className='plan-crud-buttons'>
                         <button 

@@ -16,7 +16,6 @@ const relativeReducer = (state = {}, action) => {
             return newState;
             // return action.relatives.data
         case RECEIVE_RELATIVE:
-            // debugger
             // newState = {...state, [action.relative.data._id]: action.relative.data}
             // return Object.values(newState).filter(element => element._id == action.relative.data._id);
             return {...state, [action.relative.data._id]: action.relative.data}
