@@ -31,7 +31,8 @@ class ActionStep extends React.Component {
                             ()=> this.props.updateActionStep(
                                 this.props.planId, {   
                                     owner: this.state.owner, 
-                                    task: this.state.task
+                                    task: this.state.task, 
+                                    _id: this.props.action._id
                                     })
                                     .then(()=> this.setState({modal: 0}))}>
 
@@ -53,7 +54,7 @@ class ActionStep extends React.Component {
             case 2:
                 return (
                     <div className='delete-action-frame'>
-                        <h5>Are you sure you want to delte this action</h5>
+                        <h5>Are you sure you want to delete this action</h5>
                         <button 
                             onClick={()=> this.setState({modal: 0})}>
                             Cancel

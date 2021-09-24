@@ -1,5 +1,6 @@
 import React from 'react'
 import ActionStepContainer from '../action_steps/action_step_container'
+import CreateActionStep from '../action_steps/create_action_step'
 
 class DisasterPlanShow extends React.Component {
     constructor(props){
@@ -137,6 +138,9 @@ class DisasterPlanShow extends React.Component {
                         <h4>{plan.name}</h4>
                         <h4>{plan.targetTime}</h4>
                         <h4>{plan.disasterType}</h4>
+                        <CreateActionStep 
+                            planId={this.props.planId} 
+                            createActionStep={this.props.createActionStep}/>
                     </div>
                     <div className='plan-crud-buttons'>
                         <button 

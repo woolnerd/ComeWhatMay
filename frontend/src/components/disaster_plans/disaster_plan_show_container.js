@@ -5,10 +5,12 @@ import {
     updateDisasterPlan,
     deleteDisasterPlan
 } from '../../actions/disaster_plan_actions'
+import { createActionStep } from "../../util/action_step_util";
 
 const mSTP = (state, ownProps) => {
 
     return {
+        planId: ownProps.match.params.disasterId,
         plan: state.entities.plans[ownProps.match.params.disasterId]
     }
 
@@ -20,7 +22,9 @@ const mDTP = (dispatch, ownProps) => ({
     updateDisasterPlan: (plan) => 
         dispatch(updateDisasterPlan(plan)),
     deleteDisasterPlan: () => 
-        dispatch(deleteDisasterPlan(ownProps.match.params.disasterId)) // try updating to pass in variables in the redered component
+        dispatch(deleteDisasterPlan(ownProps.match.params.disasterId)),
+    createActionStep: (planId, actionStep) => 
+        dispatch(createActionStep(planId, actionStep)) // try updating to pass in variables in the redered component
 })
 
 export default connect(mSTP, mDTP)(DisasterPlanShow)
