@@ -7,7 +7,6 @@ import { withRouter } from 'react-router';
 
 
 const mSTP = ({entities, session}, ownProps) => {
-    // debugger
     return {
       // profileId: Object.keys(entities.profile)[0],
       profileId: ownProps.match.params.profileId, 

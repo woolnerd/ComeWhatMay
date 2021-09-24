@@ -6,7 +6,6 @@ import {
 import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
 
 const profileReducer = (state = {}, action) => {
-    // debugger
     Object.freeze(state);
     let newState = {...state}
     switch(action.type) {

@@ -23,8 +23,6 @@ const mDTP = (dispatch, ownProps) => ({
         dispatch(updateDisasterPlan(plan)),
     deleteDisasterPlan: () => 
         dispatch(deleteDisasterPlan(ownProps.match.params.disasterId)),
-    createActionStep: (planId, actionStep) => 
-        dispatch(createActionStep(planId, actionStep)) // try updating to pass in variables in the redered component
 })
 
 export default connect(mSTP, mDTP)(DisasterPlanShow)

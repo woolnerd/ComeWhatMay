@@ -9,7 +9,6 @@ import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
 const disasterDrillReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = {...state}
-    //debugger
     switch(action.type) {
         case RECEIVE_ALL_DRILLS:
             action.drills.data.forEach((drill) => {
