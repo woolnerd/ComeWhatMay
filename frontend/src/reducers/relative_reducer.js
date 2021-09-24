@@ -3,7 +3,7 @@ import {
     RECEIVE_RELATIVE,
     REMOVE_RELATIVE
 } from "../actions/relative_actions";
-
+import { RECEIVE_USER_LOGOUT } from '../actions/session_actions';
 
 const relativeReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -23,6 +23,8 @@ const relativeReducer = (state = {}, action) => {
         case REMOVE_RELATIVE:
             delete newState[action.relativeId]
             return newState;
+        case RECEIVE_USER_LOGOUT:
+            return {};
         default:
             return state;
     }

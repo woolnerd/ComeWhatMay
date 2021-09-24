@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import EditProfileFormContainer from "./edit_profile_form";
 import RelativeIndexContainer from "./relative_index";
 import DisasterPlansIndexContainer from "../disaster_plans/disaster_plans_index_container";
 import "./profile.css";
@@ -36,18 +35,32 @@ export class Profile extends Component {
       return null;
     }
     const profile = this.props.profile[this.props.profileId];
+    const phone = `(${profile.phoneNumber.toString().slice(0, 3)}) 
+                    ${profile.phoneNumber.toString().slice(3, 6)}-${profile.phoneNumber.toString().slice(6)}`;
+
     return (
       <div className="profile-container-main">
-        {/* <div className="dist-plan-container">
-        <button className="plan-btn btn-style-1">Make a New Plan</button>
+
+        {/* <div className="dist-plan-container"> */}
+          {/* <button className="plan-btn btn-style-1">Make a New Plan</button>
+
           <div className="dist-plans">
             <div className="plan-item">Plan1</div>
             <div className="plan-item">Plan2</div>
             <div className="plan-item">Plan3</div>
           </div>
-        </div> */}
+        </div>  */}
         <DisasterPlansIndexContainer/>
         <div className="profile-container">
+          <button
+            className="update-profile-btn"
+            onClick={() =>
+              this.props.openModal("updateProfile", this.props.profileId)
+            }
+          >
+            Edit Profile
+          </button>
+
           <div className="profile-details">
             <h3>
               Email: <span>{profile.email}</span>
@@ -59,7 +72,7 @@ export class Profile extends Component {
               Size of Household: <span>{profile.householdSize}</span>
             </h3>
             <h3>
-              Contact Phone Number: <span>{profile.phoneNumber}</span>
+              Contact Phone Number: <span>{phone}</span>
             </h3>
           </div>
           <button

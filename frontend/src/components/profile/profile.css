@@ -1,36 +1,52 @@
+/* https://come-what-may.s3.amazonaws.com/confectionary.png
+https://come-what-may.s3.amazonaws.com/pixel_weave.png
+https://come-what-may.s3.amazonaws.com/topography.png */
+
 body {
     min-width: 735px;
+    /* background-image: url("https://come-what-may.s3.amazonaws.com/doodles.png"); */
+    /* background-image: url("https://come-what-may.s3.amazonaws.com/topography.png"); */
+    /* background-image: url("https://come-what-may.s3.amazonaws.com/pixel_weave.png"); */
+    background-image: url("https://come-what-may.s3.amazonaws.com/confectionary.png");
+    /* background-color: white; */
 }
 .profile-container {
     width: 600px;
     /* height: 400px; */
     margin: 0 auto;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     margin-top: 4%;
     padding-bottom: 2%;
+
 }
 
 .profile-container-main {
     display: flex;
     margin: 0 auto;
-    background-color: antiquewhite;
-    border-radius: 20px;
+    /* background-color: antiquewhite; */
+    /* border-radius: 20px; */
     margin-top: 4%;
     padding-bottom: 2%;
-    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35);
+    /* box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35); */
     justify-content: space-between;
 }
 
 .profile-details {
     padding: 10px;
+    border: 1px black solid;
+    /* background-image: url("https://come-what-may.s3.amazonaws.com/confectionary.png"); */
+    background-color: aliceblue;
+    box-shadow:  4px 4px 4px rgba(0,0,0,0.33)
 }
 
 .profile-details h3 {
-    font-size: 2rem;
+    font-size: 1rem;
     padding: 10px;
+    margin: 2px 0;
+    text-align: right;
 }
 
 .profile-details span {
@@ -39,16 +55,20 @@ body {
 
 .profile-btn {
     width: 50%;
-    margin: 0 auto;
+    margin: 0 auto  !important;
+    margin-top: 20px !important;
 }
 
 .dist-plan-container {
-    height: 40.5rem;
+    height: fit-content;
+    min-height: 500px;
     width: 350px;
-    background-color: rgba(137, 43, 226, 0.44);
+    background-color: hsla(194, 66%, 77%, 0.44);
     border-radius: 30px;
-
+    margin-left: 20px;
+    padding-bottom: 30px;
 }
+
 
 .dist-plans {
     margin: 0 auto;
@@ -58,13 +78,16 @@ body {
 .plan-item {
     width: 250px;
     height: 50px;
-    background-color: antiquewhite;
+    background-color: white;
     margin: 10px auto;
     padding: 4px;
 }
 
 .plan-btn {
-    margin: 30%;
+    margin-top: 10px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 20px !important;
 }
 
 .edit-form {
@@ -74,4 +97,23 @@ body {
 svg {
     font-size: 40px;
     padding: 0 4px;
+    cursor: pointer;
+}
+
+.single-member {
+    border: 1px black solid;
+    box-shadow:  4px 4px 4px rgba(0,0,0,0.33)
+
+}
+
+.update-profile-btn {
+    display: block;
+    border: 1px rgb(255, 255, 255) solid;
+    border-radius: 5px;
+    padding: 4px 10px;
+    margin: 2px 0;
+    background-color: rgb(175, 211, 255);
+    text-align: center;
+    box-shadow: 4px 4px 4px rgb(0 0 0 / 33%);
+    cursor: pointer;
 }

@@ -6,9 +6,9 @@ module.exports = function validateDisasterDrillInput(data) {
 
   data.reviewNote = validText(data.reviewNote) ? data.reviewNote : '';
 
-  if (!Validator.isNumeric(data.timeToComplete)) {
-    errors.phoneNumber = 'Phone number is not a valid number';
-  }
+  // if (!Validator.isNumeric(data.timeToComplete)) {
+  //   errors.phoneNumber = 'Date is not a valid number';
+  // }
 
   return {
     errors,

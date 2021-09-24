@@ -60,33 +60,47 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <h3>Welcome Back to Come What May!</h3>
-        <form onSubmit={this.handleSubmit} className="login-form">
-        <h1>Login</h1>
-          <div>
-            <label>Email:
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
-            </label>
-            <br />
-            <label>Password: 
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
-            </label>
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
-          </div>
-        </form>
+      <div>
+        <h3 className="banner-login">
+          <span>Welcome Back</span>
+          <span>to</span>
+          <span>Come What May</span>
+        </h3>
+        <div className="login-form-container">
+          <h2>Login</h2>
+          <form onSubmit={this.handleSubmit} className="login-form">
+            <div className="input-div">
+              <div>
+                <label>
+                  Email:
+                  <input
+                    type="text"
+                    value={this.state.email}
+                    onChange={this.update("email")}
+                    placeholder="Email"
+                  />
+                </label>
+                <br />
+                <label>
+                  Password:
+                  <input
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.update("password")}
+                    placeholder="Password"
+                  />
+                </label>
+                <br />
+                <input
+                  className="btn-style-1 login-btn"
+                  type="submit"
+                  value="Submit"
+                />
+                {this.renderErrors()}
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

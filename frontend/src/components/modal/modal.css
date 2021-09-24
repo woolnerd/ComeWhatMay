@@ -1,4 +1,4 @@
-.modal-background {
+.modal-background, .create-disaster-plan-modal-layout {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -13,18 +13,55 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(148, 132, 255, 0.81);
+  /* background-color: rgba(148, 132, 255, 0.81); */
+  background: #4CA1AF; 
+  /* background: -webkit-linear-gradient(to top, #C4E0E5, #4CA1AF);   */
+  /* background: linear-gradient(to bottom, #C4E0E5, #4CA1AF);  */
+  background-color: hsla(194, 66%, 77%, 0.44);
+
   padding: 50px 50px;
   border-radius: 20px;
+  width: 500px;
 }
 
-.create-relative, .edit-form {
-    background-color: rgb(121, 192, 255);
-    padding: 40% 20%;
-    border: 3px rgb(111, 220, 111) solid;
-    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35);
+.create-relative, 
+.edit-form, 
+.dis-plan-form {
+    /* background: -webkit-linear-gradient(to top, #C4E0E5, #4CA1AF);  
+    background: linear-gradient(to bottom, #C4E0E5, #4CA1AF); 
+    border: 3px rgb(255, 255, 255) solid;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35); */
+
+    background: #EAF7FF;
+    background: -webkit-linear-gradient(bottom, #EAF7FF, #85D2FF);
+    background: -moz-linear-gradient(bottom, #EAF7FF, #85D2FF);
+    background: linear-gradient(to top, #EAF7FF, #85D2FF);
 
 }
+
+.dis-plan-form {
+    display: grid;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.dis-plan-form h5{
+  font-size:20px;
+}
+
+.dis-plan-form button {
+   display: block;
+    border: 1px rgb(255, 255, 255) solid;
+    border-radius: 5px;
+    padding: 4px 10px;
+    margin: 2px 0;
+    background-color: rgb(175, 211, 255);
+    text-align: center;
+    box-shadow: 4px 4px 4px rgb(0 0 0 / 33%);
+}
+
+
 
 .create-relative h2 {
       font-size: 20px;
@@ -35,10 +72,16 @@
     padding: 5px;
 }
 
-.create-relative-header {
+.create-relative-header, .relative-header {
     display: flex;
     justify-content:space-between;
 }
+
+.create-relative-header svg, .relative-header svg{
+   font-size: 20px;
+   border: 1px solid black;
+}
+
 
 .create-relative close-x {
     font-size: 30px;
@@ -46,16 +89,24 @@
 }
 
 .save-button {
-    color: rgb(72, 72, 72);
-    font-size: 20px;
+    /* color: rgb(72, 72, 72);
+    /* font-size: 20px; */
     font-weight: 600;
     width: 100% ;
-    background-color: rgb(111, 220, 111);
     border: 1px solid rgb(252, 252, 252);
     border-radius: 20px;
-    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15); 
+
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 20px;
+    /* border-color: azure; */
+
 }
 
-.modal-form-btn {
-
+.create-relative-details {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    text-align: end;
 }

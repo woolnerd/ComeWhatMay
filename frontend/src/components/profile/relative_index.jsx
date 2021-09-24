@@ -6,6 +6,7 @@ import { withRouter } from 'react-router';
 import { fetchAllRelatives } from '../../actions/relative_actions';
 import { AiOutlineEdit } from 'react-icons/ai'; 
 import { RiDeleteBin2Line } from 'react-icons/ri';
+import { FaRegUser } from 'react-icons/fa';
 import { deleteRelative } from '../../actions/relative_actions';
 import './relative.css';
 
@@ -36,31 +37,46 @@ class RelativeIndex extends React.Component {
         // console.log(this.props.currentUserId)
         // console.log(this.props.household)
 
+       
 
         const showHousehold = this.props.household.map((member, i) => {
+
+           const phone = `(${member.phoneNumber.toString().slice(0, 3)}) 
+                    ${member.phoneNumber
+                      .toString()
+                      .slice(3, 6)}-${member.phoneNumber.toString().slice(6)}`;
+
             return (
-                <div key={`${i}`} className="single-member">
-                    <div className="icon-box">
-                        <div className="icon"></div>
-                        <div className="icon-btn">
-                            <div onClick={() => this.props.openModal('editRelative', member._id)}><AiOutlineEdit/></div>
-                            <div onClick={() => this.props.deleteRelative(member._id)}><RiDeleteBin2Line/></div>
-                        </div>
+              <div key={`${i}`} className="single-member">
+                <div className="icon-box">
+                  <div className="icon"><FaRegUser/></div>
+                  <div className="icon-btn">
+                    <div
+                      onClick={() =>
+                        this.props.openModal("editRelative", member._id)
+                      }
+                    >
+                      <AiOutlineEdit />
                     </div>
-                    <div>
-                        <p>Name: {member.name}</p>
+                    <div onClick={() => this.props.deleteRelative(member._id)}>
+                      <RiDeleteBin2Line />
                     </div>
-                    <div>
-                        <p>Age: {member.age}</p>
-                    </div>
-                    <div>
-                        <p>Relationship: {member.relationship}</p>
-                    </div>
-                    <div>
-                        <p>Phone Number: {member.phoneNumber}</p>
-                    </div>
+                  </div>
                 </div>
-            )
+                <div>
+                  <p>Name: {member.name}</p>
+                </div>
+                <div>
+                  <p>Age: {member.age}</p>
+                </div>
+                <div>
+                  <p>Relationship: {member.relationship}</p>
+                </div>
+                <div>
+                  <p>Phone Number: {phone}</p>
+                </div>
+              </div>
+            );
         });
 
         return (
