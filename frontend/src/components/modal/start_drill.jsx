@@ -4,7 +4,7 @@ import { updateDisasterDrill, fetchDisasterDrills } from '../../actions/disaster
 import { closeModal, openModal } from '../../actions/modal_actions';
 import { AiOutlineClose } from 'react-icons/ai'
 import '../profile/profile.css';
-
+import './timer.css'
 // import "./profile.css";
 
 class StartDrill extends React.Component {
@@ -33,7 +33,7 @@ class StartDrill extends React.Component {
     start() {
         this.state.start = setInterval(() => {
             this.setState({ milliseconds: this.state.milliseconds + 1 })
-            if (this.state.milliseconds > 250) {
+            if (this.state.milliseconds > 100) {
                 this.setState({
                     seconds: this.state.seconds + 1,
                     milliseconds: 0
@@ -46,7 +46,7 @@ class StartDrill extends React.Component {
                 })
             }
 
-        }, 1);
+        }, 10);
     }
 
     handleTime(e){
@@ -67,18 +67,21 @@ class StartDrill extends React.Component {
         let minutes = this.state.minutes < 10 ? <div>0{this.state.minutes}</div> : <div>{this.state.minutes}</div>
 
         return (
-            <div>
+            <div id="time-container">
                 <div className="timer">
-                    <h2>Stopwatch</h2>
-                    <p onClick={this.handleModal}><AiOutlineClose className="close-x" /></p>
-                    <div>{minutes} : {seconds} : {milliseconds}</div>
+                    <div className="timer-header">
+                        <h2>Stopwatch</h2>
+                        <p onClick={this.handleModal}><AiOutlineClose id="close-x" /></p>
+                    </div>
+                    <div className="clock" >{minutes} : {seconds} : {milliseconds}</div>
+                    <p className="clock-unit"> MINUTES : SECONDS : MILLISECONDS</p>
                     {/* <div>{this.state.seconds}</div>
                     <div>{this.state.minutes}</div> */}
                 </div>
-                <div>
-                    <button onClick={() => this.start()}>Start</button>
-                    <button onClick={() => this.stop()}>Stop</button>
-                    <button onClick={this.handleTime}>Save</button>
+                <div className="clock-button">
+                    <button className="clock-btn" onClick={() => this.start()}>Start</button>
+                    <button className="clock-btn" onClick={() => this.stop()}>Stop</button>
+                    <button className="clock-btn" onClick={this.handleTime}>Save</button>
                 </div>
             </div>
 

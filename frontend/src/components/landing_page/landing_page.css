@@ -30,3 +30,62 @@
     padding: 20px 0;
     font-weight: 200;
 }
+
+
+.image-container > img{
+    max-width: 100%;
+    opacity: 0.8;
+}
+
+.hero-image{
+    flex-basis: 100%;
+    margin: 20px;
+    padding: 20px;
+    width: 500px;
+    border-radius: 15px;
+}
+
+.signin_banner{
+    display: flex;
+    height: 700px;
+    font-family: sans-serif;
+    padding-left: 200px;
+    padding-right: 200px;
+    /* flex-direction: row; */
+}
+
+
+.main-banner > img{
+    width: 100%;
+}
+
+#banner-pic{
+    opacity: 0.9;
+    z-index: 0;
+}
+
+.banner-info{
+    margin-top: -180px;
+    z-index: 2;
+    padding: 60px;
+    font-family: sans-serif;
+}
+
+.banner-info > h2{
+    font-size: 80px;
+    font-weight: 400;
+}
+
+.banner-info > h4{
+    padding-top: 20px;
+    padding-left: 70px;
+    font-size: 20px;
+}
+
+.main-section{
+    margin-top: 100px;
+    background-image: url(https://come-what-may.s3.amazonaws.com/images/roberto-nickson-smJ6XsYy8gA-unsplash.jpg);
+    background-size: cover;
+    height: 100vh;
+    opacity: 0.9;
+}

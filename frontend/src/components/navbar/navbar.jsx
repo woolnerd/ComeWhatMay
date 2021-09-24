@@ -75,15 +75,10 @@ class NavBar extends React.Component {
           </div>
         </div>
       );
-    } else {
+    } else{
       return (
         <div className="navbar">
-          <Link to={"/signup"} className="btn-style-1">
-            Signup
-          </Link>
-          <Link to={"/login"} className="btn-style-1">
-            Login
-          </Link>
+          
         </div>
       );
     }
