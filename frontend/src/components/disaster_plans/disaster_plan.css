@@ -13,3 +13,28 @@
 .plan-btn {
     margin-top: 10px !important;
 }
+
+.plan-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#dis-btn{
+    margin-top: 10px;
+    width: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.dis-select{
+    margin-left: 10px;
+}
+
+.dis-info{
+    margin-bottom: 5px;
+}
+
+.btn-cont{
+    margin: 0 auto;
+}

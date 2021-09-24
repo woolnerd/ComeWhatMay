@@ -60,7 +60,7 @@ class NavBar extends React.Component {
             {/* {this.state.profile ? (
               <h1> The {this.state.profile.householdName} Household Profile</h1>
             ) : ( */}
-            <h1>Your Profile</h1>
+            {/* <h1>Your Profile</h1> */}
             {/* )} */}
             <div className="btn-style-1-container">
               <div className="btn-style-1">

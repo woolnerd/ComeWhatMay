@@ -46,12 +46,14 @@ class DisasterPlans extends React.Component {
                 .then(() => this.setState({ modal: "false" }))
               }>
               <div className='create-plan-modal-title-close'>
-                <h2 className="make-plan">Make a Plan</h2>
+                <div className="plan-header">
+                  <h2 className="make-plan">Make a Plan</h2>
 
-                <p  className="exit_edit" 
-                    onClick={() => this.setState({modal:"false"})}>
-                    <AiOutlineClose className="close-x" />
-                </p>
+                  <p className="exit_edit"
+                    onClick={() => this.setState({ modal: "false" })}>
+                    <AiOutlineClose id="close-x" /></p>
+                </div>
+                
               </div>
 
               <label>
@@ -65,7 +67,7 @@ class DisasterPlans extends React.Component {
               </label>
               <div className="dis-type">
               <label>
-                Disaster Type
+                Disaster Type   
                 <select
                   className="dis-select"
                   value={this.state.disasterType}
@@ -89,7 +91,7 @@ class DisasterPlans extends React.Component {
               <br />
               <label>
                 How fast can you do it?
-                <h5>(please select in minutes)</h5>
+                <h5 className="dis-info">(please select in minutes)</h5>
                 <input
                   type="number"
                   min={5}
@@ -98,7 +100,9 @@ class DisasterPlans extends React.Component {
                   onChange={this.handleChange("targetTime")}
                 />
               </label>
-              <button>Submit New Plan</button>
+              <div className="btn-cont">
+                <button id="dis-btn">Submit New Plan</button>
+              </div>
             </form>
           </div>
         </div>

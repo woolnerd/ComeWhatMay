@@ -68,9 +68,9 @@ class LoginForm extends React.Component {
     return (
       <div>
         <h3 className="banner-login">
-          <span>Welcome Back</span>
+          {/* <span>Welcome Back</span>
           <span>to</span>
-          <span>Come What May</span>
+          <span>Come What May</span> */}
         </h3>
         <div className="login-form-container">
           <h2>Login</h2>
