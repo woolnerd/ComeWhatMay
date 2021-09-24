@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import CreateProfileFormContainer from "../../components/profile/create_profile_form";
+import { AiOutlineHome } from 'react-icons/ai';
+import { FaRegUser } from "react-icons/fa";
+
 
 import "./navbar.css";
 
@@ -8,7 +11,7 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalOpem: false
+      modalOpen: false
     }
     this.getPlans = this.getPlans.bind(this);
     // this.state = {profileId: null};
@@ -57,13 +60,16 @@ class NavBar extends React.Component {
             {/* {this.state.profile ? (
               <h1> The {this.state.profile.householdName} Household Profile</h1>
             ) : ( */}
-              <h1>Your Profile</h1>
+            <h1>Your Profile</h1>
             {/* )} */}
             <div className="btn-style-1-container">
               <div className="btn-style-1">
                 <a href="#" onClick={this.logoutUser}>
                   Logout
                 </a>
+              </div>
+              <div>
+                  <AiOutlineHome className="home-btn" onClick={(e)=> this.handleClick(e)}/>
               </div>
             </div>
           </div>

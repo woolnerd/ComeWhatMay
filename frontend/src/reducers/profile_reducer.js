@@ -3,6 +3,7 @@ import {
     REMOVE_USER_PROFILE
 } from "../actions/profile_actions";
 
+import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
 
 const profileReducer = (state = {}, action) => {
     // debugger
@@ -14,6 +15,8 @@ const profileReducer = (state = {}, action) => {
         case REMOVE_USER_PROFILE:
             delete newState[action.profileId]
             return newState;
+        case RECEIVE_USER_LOGOUT: 
+            return {};
         default:
             return state;
     }
