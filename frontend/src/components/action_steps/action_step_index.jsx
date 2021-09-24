@@ -22,21 +22,20 @@ class PlanIndex extends React.Component{
 
         const showDrills = this.props.drills ? 
                 this.props.drills.map((drill, i) => {
-                    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    var date = new Date(drill.timeToStart);
                     return(
                         <div key={`${i}`} className="single_drill">
-                            <div>{drill.timeToStart}</div>
-                            <button onClick={() => this.props.openModal('startDrill', drill._id)}>Start Drill</button> 
-                            <button onClick={() => this.props.deleteDisasterDrill(drill._id)}>Delete Drill</button> 
+                            <div>
+                                <div>{date.toDateString()}</div>
+                                <button onClick={() => this.props.openModal('startDrill', drill._id)}>Start Drill</button>
+                                <button onClick={() => this.props.deleteDisasterDrill(drill._id)}>Delete Drill</button>
+                            </div>
                         </div>
                     )
                 }) : null
         return(
             <div>
-                <button onClick={() => this.props.openModal('createDrill', this.props.planId)}>Create Drill</button> : <></>
-                {/* {startDrill} */}
-                {/* {editDrill} */}
-                {/* {deleteDrill} */}
+                <button onClick={() => this.props.openModal('createDrill', this.props.planId)}>Create Drill</button>
                 {showDrills}
 
             </div>

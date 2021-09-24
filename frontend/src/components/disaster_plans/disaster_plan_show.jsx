@@ -2,6 +2,7 @@ import React from 'react'
 import ActionStepContainer from '../action_steps/action_step_container'
 import CreateActionStep from '../action_steps/create_action_step';
 import DrillComponent from '../action_steps/action_step_index';
+import DrillHistoryComponent from './drill_history'
 
 class DisasterPlanShow extends React.Component {
     constructor(props){
@@ -156,8 +157,13 @@ class DisasterPlanShow extends React.Component {
                 </div>
                 {actions}
                 {this.DisasterPlanModal()}
-                <div className="drill-container">
-                    <DrillComponent />
+                <div>
+                    <div className="drill-container">
+                        <DrillComponent />
+                    </div>
+                    <div>
+                        <DrillHistoryComponent />
+                    </div>
                 </div>
             </div>
         )
