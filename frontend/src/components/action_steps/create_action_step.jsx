@@ -28,37 +28,43 @@ class CreateActionContainer extends React.Component {
             return null
         } else {
 
-            return(
-                <div className='action-step-form-frame'>
-                    <form onSubmit={()=> 
-                        this.props.createActionStep(
-                            this.props.planId, {   
-                                owner: this.state.owner, 
-                                task: this.state.task, 
-                                })
-                                .then(()=> this.setState({modal: false}))}>
+            return (
+              <div className="action-step-form-frame">
+                <p
+                  className="exit_edit"
+                  onClick={() => this.setState({ modal: 0 })}
+                >
+                  <AiOutlineClose className="close-x" />
+                </p>
+                <form
+                  onSubmit={() =>
+                    this.props
+                      .createActionStep(this.props.planId, {
+                        owner: this.state.owner,
+                        task: this.state.task,
+                      })
+                      .then(() => this.setState({ modal: false }))
+                  }
+                >
+                  <label>Action Owner</label>
+                  <input
+                    type="text"
+                    value={this.state.owner}
+                    placeholder="Who's job is this?"
+                    onChange={this.handleChange("owner")}
+                  />
 
-                        <label>Action Owner</label>
-                            <input 
-                                type="text"
-                                value={this.state.owner}
-                                placeholder="Who's job is this?"
-                                onChange={this.handleChange('owner')} />
-                        
-                        <label>Action Task</label>
-                            <input 
-                                type="text"
-                                value={this.state.task}
-                                placeholder="What's the task"
-                                onChange={this.handleChange('task')} />
-                        <button>Confirm</button>
-                        <p  className="exit_edit" 
-                            onClick={() => this.setState({modal: 0})}>
-                            <AiOutlineClose className="close-x" />
-                        </p>
-                    </form>
-                </div>
-            )}  
+                  <label>Action Task</label>
+                  <input
+                    type="text"
+                    value={this.state.task}
+                    placeholder="What's the task"
+                    onChange={this.handleChange("task")}
+                  />
+                  <button>Confirm</button>
+                </form>
+              </div>
+            );}  
     }
 
     render(){
