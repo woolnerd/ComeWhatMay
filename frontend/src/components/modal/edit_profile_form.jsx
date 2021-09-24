@@ -61,49 +61,52 @@ class EditProfileForm extends React.Component {
   render() {
     return (
       <div className="edit-form">
-        <div></div>
-        <h2>Edit Your Profile</h2>
-        <p className="exit-edit" onClick={this.handleModal}>
-          <AiOutlineClose />
-        </p>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label>
-            Household Name:
-            <input
-              onChange={this.update("householdName")}
-              type="text"
-              value={this.state.householdName}
-            />
-          </label>
-          <br />
-          <label>
-            Email:
-            <input
-              onChange={this.update("email")}
-              type="text"
-              value={this.state.email}
-            />
-          </label>
-          <br />
-          <label>
-            Phone Number:
-            <input
-              onChange={this.update("phoneNumber")}
-              type="text"
-              value={this.state.phoneNumber}
-            />
-          </label>
-          <br />
-          <label>
-            Household Size:
-            <input
-              onChange={this.update("householdSize")}
-              type="text"
-              value={this.state.householdSize}
-            />
-          </label>
+        <div className="edit-form-header">
+          <h2>Edit Your Profile</h2>
+          <p onClick={this.handleModal}>
+            <AiOutlineClose className="exit-edit" />
+          </p>
+        </div>
+        <div className="edit-form-container">
+          <form onSubmit={(e) => this.handleSubmit(e)}>
+            <label>
+              Household Name:
+              <input
+                onChange={this.update("householdName")}
+                type="text"
+                value={this.state.householdName}
+              />
+            </label>
+            <br />
+            <label>
+              Email:
+              <input
+                onChange={this.update("email")}
+                type="text"
+                value={this.state.email}
+              />
+            </label>
+            <br />
+            <label>
+              Phone Number:
+              <input
+                onChange={this.update("phoneNumber")}
+                type="text"
+                value={this.state.phoneNumber}
+              />
+            </label>
+            <br />
+            <label>
+              Household Size:
+              <input
+                onChange={this.update("householdSize")}
+                type="text"
+                value={this.state.householdSize}
+              />
+            </label>
           <button>Edit Profile</button>
-        </form>
+          </form>
+        </div>
       </div>
     );
   }

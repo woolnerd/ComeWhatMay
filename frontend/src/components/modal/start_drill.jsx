@@ -56,12 +56,10 @@ class StartDrill extends React.Component {
     }
 
     stop() {
-        console.log("in stop")
         clearInterval(this.state.start)
     }
 
     render() {
-        console.log(this.props.drillId)
         let milliseconds = this.state.milliseconds < 10 ? <div>0{this.state.milliseconds}</div> : <div>{this.state.milliseconds}</div>
         let seconds = this.state.seconds < 10 ? <div>0{this.state.seconds}</div> : <div>{this.state.seconds}</div>
         let minutes = this.state.minutes < 10 ? <div>0{this.state.minutes}</div> : <div>{this.state.minutes}</div>

@@ -22,7 +22,6 @@ class Stopwatch extends React.Component{
     }
 
     start(){
-        console.log("in start")
         this.state.start = setInterval(() => {
             this.setState({milliseconds: this.state.milliseconds + 1})
             if(this.state.milliseconds > 999){
@@ -42,7 +41,6 @@ class Stopwatch extends React.Component{
     }
 
     stop(){
-        console.log("in stop")
         clearInterval(this.state.start)
     }
 

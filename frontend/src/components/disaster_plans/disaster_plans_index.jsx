@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./disaster_plan.css";
+import {BsAlarm} from 'react-icons/bs'
 
 class DisasterPlans extends React.Component {
   constructor(props) {
@@ -37,14 +38,15 @@ class DisasterPlans extends React.Component {
             <form className="dis-plan-form"
               onSubmit={() =>
                 this.props
-                  .createDisasterPlan(this.props.profileId, {
-                    name: this.state.name,
-                    targetTime: this.state.targetTime,
-                    disasterType: this.state.disasterType,
-                  })
-                  .then(() => this.setState({ modal: "false" }))
+                .createDisasterPlan(this.props.profileId, {
+                  name: this.state.name,
+                  targetTime: this.state.targetTime,
+                  disasterType: this.state.disasterType,
+                })
+                .then(() => this.setState({ modal: "false" }))
               }
-            >
+              >
+              <h2 className="make-plan">Make a Plan</h2>
               <label>
                 Plan Name
                 <input
@@ -54,9 +56,11 @@ class DisasterPlans extends React.Component {
                   onChange={this.handleChange("name")}
                 />
               </label>
+              <div className="dis-type">
               <label>
                 Disaster Type
                 <select
+                  className="dis-select"
                   value={this.state.disasterType}
                   onChange={this.handleChange("disasterType")}
                 >
@@ -74,7 +78,8 @@ class DisasterPlans extends React.Component {
                   <option value="Other">Other</option>
                 </select>
               </label>
-
+              </div>
+              <br />
               <label>
                 How fast can you do it?
                 <h5>(please select in minutes)</h5>
@@ -103,18 +108,21 @@ class DisasterPlans extends React.Component {
     //   </Link>
     // ));
 
-        const plans = this.props.disasterPlans.map(
-            (plan, i) => 
-            <div key={i}className="plan-item">
-                <Link 
-                    to={{
-                        pathname: `/disaster/${plan._id}`,
-                        currentPlan: {plan: plan}
-                    }}>
-                    {plan.name}
-                </Link>
+        const plans = this.props.disasterPlans.map((plan, i) => (
+          <div key={i} className="plan-item">
+            <Link
+              to={{
+                pathname: `/disaster/${plan._id}`,
+                currentPlan: { plan: plan },
+              }}
+            > 
+            <div className="plan-item-box">
+            <BsAlarm className="alarm"/>
+              <h4 className="plan-title">Plan #{i +1}: {plan.name}</h4>
             </div>
-        )
+            </Link>
+          </div>
+        ));
 
         return (
             <div>

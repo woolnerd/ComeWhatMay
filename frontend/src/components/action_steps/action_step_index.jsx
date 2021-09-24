@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { fetchDisasterDrills, deleteDisasterDrill } from '../../actions/disaster_drill_actions'
 import { withRouter } from 'react-router-dom';
+import './actions_steps.css';
 
 class PlanIndex extends React.Component{
     constructor(props){

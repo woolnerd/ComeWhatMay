@@ -61,7 +61,23 @@
     box-shadow: 4px 4px 4px rgb(0 0 0 / 33%);
 }
 
+.dis-type {
+    display: flex;
+    justify-content: center;
+}
 
+.dist-select{
+    padding-left:20px
+}
+
+
+
+.dis-plan-form > h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
 
 .create-relative h2 {
       font-size: 20px;
