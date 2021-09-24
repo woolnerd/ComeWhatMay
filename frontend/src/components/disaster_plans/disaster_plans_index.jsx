@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./disaster_plan.css";
 import {BsAlarm} from 'react-icons/bs'
+import { AiOutlineClose } from 'react-icons/ai'
 
 class DisasterPlans extends React.Component {
   constructor(props) {
@@ -26,7 +27,6 @@ class DisasterPlans extends React.Component {
     };
   }
 
-
   createPlanModal() {
     if (this.state.modal === "false") {
       return null;
@@ -44,9 +44,16 @@ class DisasterPlans extends React.Component {
                   disasterType: this.state.disasterType,
                 })
                 .then(() => this.setState({ modal: "false" }))
-              }
-              >
-              <h2 className="make-plan">Make a Plan</h2>
+              }>
+              <div className='create-plan-modal-title-close'>
+                <h2 className="make-plan">Make a Plan</h2>
+
+                <p  className="exit_edit" 
+                    onClick={() => this.setState({modal:"false"})}>
+                    <AiOutlineClose className="close-x" />
+                </p>
+              </div>
+
               <label>
                 Plan Name
                 <input

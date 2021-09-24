@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import { createActionStep } from '../../actions/action_step_actions'
+import { AiOutlineClose } from 'react-icons/ai'
 
 class CreateActionContainer extends React.Component {
     constructor(props){
@@ -51,6 +52,10 @@ class CreateActionContainer extends React.Component {
                                 placeholder="What's the task"
                                 onChange={this.handleChange('task')} />
                         <button>Confirm</button>
+                        <p  className="exit_edit" 
+                            onClick={() => this.setState({modal: 0})}>
+                            <AiOutlineClose className="close-x" />
+                        </p>
                     </form>
                 </div>
             )}  
