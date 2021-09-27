@@ -41,7 +41,7 @@ app.use("/api/profiles", profiles);
 app.use("/api/disaster_plans", disasterPlans)
 app.use("/api/relatives", relatives);
 app.use("/api/disaster_drills", disasterDrills)
-app.use('/favicon.ico', express.static('Logo/favicon.png'));
+
 
 
 const port = process.env.PORT || 4000;
