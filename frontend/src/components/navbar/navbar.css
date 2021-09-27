@@ -1,3 +1,7 @@
+button {
+    border-radius: 5px;
+}
+
 .navbar {
     font-size: 1rem;
     width: 100%;
@@ -19,7 +23,7 @@
 .btn-style-1 {
     display: block;
     border: 1px rgb(255, 255, 255) solid;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 4px 10px;
     margin: 2px 0;
     background-color: rgb(175, 211, 255);

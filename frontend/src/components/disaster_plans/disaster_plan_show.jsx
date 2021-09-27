@@ -59,58 +59,88 @@ class DisasterPlanShow extends React.Component {
                 return null
             case 1:
                 return (
-                    <div className='create-disaster-plan-modal-layout'>
-                        <form class-name="modal-child" onSubmit={() =>         
-                            this.props.updateDisasterPlan({
-                                disasterType: this.state.disasterType,
-                                name: this.state.name,
-                                profileId: this.state.profileId,
-                                targetTime: this.state.targetTime,
-                                _id: this.state._id,
+                  <div className="create-disaster-plan-modal-layout">
+                    <div className="modal-child">
+                      <form
+                        className="dis-plan-form"
+                        onSubmit={() =>
+                          this.props
+                            .updateDisasterPlan({
+                              disasterType: this.state.disasterType,
+                              name: this.state.name,
+                              profileId: this.state.profileId,
+                              targetTime: this.state.targetTime,
+                              _id: this.state._id,
                             })
-                            .then(() => this.setState({modal: 0}))}>
+                            .then(() => this.setState({ modal: 0 }))
+                        }
+                      >
+                        <div className="create-plan-modal-title-close">
+                          <div className="plan-header">
+                            <h2 className="make-plan">Update Your Plan</h2>
 
-                            <label>Plan Name
-                                <input
-                                    type="text" 
-                                    placeholder="Name your plan"
-                                    value={this.state.name}
-                                    onChange={this.handleChange('name')}/>
-                            </label>
+                            <p
+                              className="exit_edit"
+                              onClick={() => this.setState({ modal: "false" })}
+                            >
+                              <AiOutlineClose id="close-x" />
+                            </p>
+                          </div>
+                        </div>
+                        <label>
+                          Plan Name
+                          <input
+                            type="text"
+                            placeholder="Name your plan"
+                            value={this.state.name}
+                            onChange={this.handleChange("name")}
+                          />
+                        </label>
 
-                            {/* <p  className="exit_edit" 
+                        {/* <p  className="exit_edit" 
                                 onClick={() => this.setState({modal: 0})}>
                                 <AiOutlineClose className="close-x" />
                             </p> */}
-
-                            <label>Disaster Type
-                                <select value={this.state.disasterType} onChange={this.handleChange('disasterType')}>
-                                    <option disabled value="" >-Please select-</option>
-                                    <option value="Tornado">Tornado</option>
-                                    <option value="Hurricane">Hurricane</option>
-                                    <option value="Flood">Flood</option>
-                                    <option value="Fire">Fire</option>
-                                    <option value="Earthquake">Earthquake</option>
-                                    <option value="Tsunami">Tsunami</option>
-                                    <option value="Blizzard">Blizzard</option>
-                                    <option value="Volcano">Volcano</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </label>
-
-                            <label>How fast can you do it?
-                                <h5>please select in minutes</h5>
-                                <input 
-                                    type="number" 
-                                    min={5} 
-                                    max={60} 
-                                    value={this.state.targetTime}
-                                    onChange={this.handleChange(('targetTime'))}/>
-                            </label>
-                            <button>Update Plan</button>
-                        </form>
+                        <div className="dis-type">
+                          <label>
+                            Disaster Type
+                            <select
+                              value={this.state.disasterType}
+                              onChange={this.handleChange("disasterType")}
+                            >
+                              <option disabled value="">
+                                -Please select-
+                              </option>
+                              <option value="Tornado">Tornado</option>
+                              <option value="Hurricane">Hurricane</option>
+                              <option value="Flood">Flood</option>
+                              <option value="Fire">Fire</option>
+                              <option value="Earthquake">Earthquake</option>
+                              <option value="Tsunami">Tsunami</option>
+                              <option value="Blizzard">Blizzard</option>
+                              <option value="Volcano">Volcano</option>
+                              <option value="Other">Other</option>
+                            </select>
+                          </label>
+                        </div>
+                        <label>
+                          How fast can you do it?
+                          <h5 className="dis-info">please select in minutes</h5>
+                          <input
+                            type="number"
+                            min={5}
+                            max={60}
+                            value={this.state.targetTime}
+                            onChange={this.handleChange("targetTime")}
+                          />
+                        </label>
+                        <div className="btn-cont">
+                            <button id="dis-btn">Update Plan</button>
+                        </div>
+                      </form>
                     </div>
-                )
+                  </div>
+                );
             case 2:
                 return (
                     <div className='delete-action-modal'>
