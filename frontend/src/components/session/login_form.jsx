@@ -66,7 +66,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-signup-main">
         <h3 className="banner-login">
           {/* <span>Welcome Back</span>
           <span>to</span>
