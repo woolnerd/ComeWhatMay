@@ -110,7 +110,7 @@
 }
 
 .modal-child-task{  
-        position: absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -137,4 +137,18 @@
 .task-btn {
     display: flex;
     align-items: center; 
+}
+
+.drill-hist {
+    background: white;
+    border: 1px solid black;
+    padding-left: 14px;
+    padding-top: 10px;
+    width: 94%;
+    margin-bottom: 10px;
+}
+
+.drill-hist p {
+    font-weight: 200;
+    padding-top: 6px;
 }

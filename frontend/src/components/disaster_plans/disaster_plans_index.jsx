@@ -139,7 +139,7 @@ class DisasterPlans extends React.Component {
             <div>
                 <div className="dist-plan-container">
                 <button 
-                    className="plan-btn btn-style-1"
+                    className="plan-btn"
                     onClick={() => this.setState({ modal: "true"})}>
                     Make a New Plan
                 </button>

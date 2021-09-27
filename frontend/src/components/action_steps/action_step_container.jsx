@@ -59,7 +59,9 @@ class ActionStep extends React.Component {
                 )
             case 2:
                 return (
-                    <div className='delete-action-frame'>
+                    <div className="modal-background">
+                        <div className="modal-child">
+                   <div className='delete-action-frame'>
                         <h5>Are you sure you want to delete this action</h5>
                         <button 
                             onClick={()=> this.setState({modal: 0})}>
@@ -71,6 +73,8 @@ class ActionStep extends React.Component {
                                 .then(() => this.setState({modal: 0}))}>
                             Confirm
                         </button>
+                    </div>
+                        </div> 
                     </div>
                 )
             default:
