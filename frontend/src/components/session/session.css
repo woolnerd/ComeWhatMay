@@ -8,6 +8,7 @@
     background-color: hsla(194, 66%, 77%, 0.44);
     padding: 50px 50px;
     border-radius: 20px;
+    z-index: 1;
 }
 
 .signup-form-container h3, 
@@ -78,3 +79,8 @@ input[type="text"] {
     box-shadow: 5px 5px 15px 5px rgb(0 0 0 / 35%);
 }
 
+.login-signup-main{
+    height: 80vh;
+    /* opacity: 0;
+    z-index: 0; */
+}

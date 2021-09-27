@@ -62,6 +62,9 @@ class NavBar extends React.Component {
             ) : ( */}
             {/* <h1>Your Profile</h1> */}
             {/* )} */}
+            <div className="logo">
+              <img src="https://come-what-may.s3.amazonaws.com/cwm-logo2.png" alt="logo" />
+            </div>
             <div className="btn-style-1-container">
               <div className="btn-style-1">
                 <a href="#" onClick={this.logoutUser}>
@@ -78,7 +81,9 @@ class NavBar extends React.Component {
     } else{
       return (
         <div className="navbar">
-          
+          <div className="logo" id="home-logo">
+              <img src="https://come-what-may.s3.amazonaws.com/cwm-logo2.png" alt="logo" />
+            </div>
         </div>
       );
     }
