@@ -39,6 +39,8 @@
     margin: 0 auto;
     margin-top: 20px;
     /* border-color: azure; */
+    height: 30px;
+
 }
 
 .login-form-container h2, 
@@ -83,4 +85,12 @@ input[type="text"] {
     height: 80vh;
     /* opacity: 0;
     z-index: 0; */
+}
+
+.or-submit {
+    text-align: center;
+}
+
+.or-submit span {
+    text-decoration: underline;
 }
