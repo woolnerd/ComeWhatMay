@@ -81,7 +81,7 @@ class RelativeIndex extends React.Component {
 
         return (
 
-            <div>
+            <div className="relative-container">
                 {!this.props.household ? null : showHousehold}
             </div>
         )

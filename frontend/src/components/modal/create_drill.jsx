@@ -38,6 +38,12 @@ class CreateDrill extends React.Component {
     }
 
     render() {
+        let date = new Date();
+        let dd = String(date.getDate()).padStart(2, "0");
+        let mm = String(date.getMonth() + 1).padStart(2, "0");
+        let yyyy = date.getFullYear();
+        date = yyyy + "-" + mm + "-" + dd;
+
         return (
             <div className="create-relative">
                 <div className="relative-header">
@@ -46,7 +52,7 @@ class CreateDrill extends React.Component {
                 </div>
                 <div className="start-drill">
                     <label>Start On:</label>
-                    <input value={this.state.timeToStart} onChange={this.handleInput('timeToStart')} type="date" />
+                    <input value={this.state.timeToStart} onChange={this.handleInput('timeToStart')} type="date" min={date} />
                 </div>
                 <button onClick={this.handleSubmit}>Save</button>  
             </div>

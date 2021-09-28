@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { openModal } from '../../actions/modal_actions';
 import "./session.css";
 
@@ -103,13 +103,20 @@ class LoginForm extends React.Component {
                   value="Submit"
                 />
                 <input
-                    className="btn-style-1 login-btn"
-                    type="submit"
-                    value="Demo User"
-                    onClick={() => this.demoLogin()}
-                  />
+                  className="btn-style-1 login-btn"
+                  type="submit"
+                  value="Demo User"
+                  onClick={() => this.demoLogin()}
+                />
                 {this.renderErrors()}
               </div>
+              <br />
+              <p className="or-submit">
+                or{" "}
+                <Link to="/signup">
+                  <span>Signup</span>
+                </Link>
+              </p>
             </div>
           </form>
         </div>

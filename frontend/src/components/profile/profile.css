@@ -53,12 +53,12 @@ body {
     color: black;
 }
 
-.profile-btn {
+#profile-btn {
     width: 50%;
     margin: 0 auto  !important;
     margin-top: 20px !important;
-
-    
+    padding: 2px 10px;
+    height: 29px;
 }
 
 
@@ -77,9 +77,6 @@ body {
     padding: 4px;
 }
 
-.plan-btn {
-
-}
 
 .edit-form-header {
     display: flex;
@@ -92,7 +89,7 @@ body {
 .edit-form-container button {
     display: block;
     border: 1px rgb(255, 255, 255) solid;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 4px 10px;
     margin: 0 auto;
     background-color: rgb(175, 211, 255);
@@ -136,4 +133,5 @@ svg {
     height: 70vh;
     margin: 20px;
 }
+
 
