@@ -14,11 +14,12 @@ class CreateProfileForm extends React.Component {
     }
 
     componentDidMount(){
-      this.props.fetchUserProfile(this.props.currentUser);
+      this.props.fetchUserProfile(this.props.currentUser.id);
     }
 
     handleSubmit(e){
         e.preventDefault()
+        this.setState({user: this.props.currentUser.id})
         this.props
           .createUserProfile(this.state)
         //   .then((res) => console.log(res));
@@ -88,7 +89,9 @@ class CreateProfileForm extends React.Component {
         </div>
       );
         return (
-          <div>{show}</div>
+          <div className="profile-container">
+            {show}
+          </div>
           // <div className="create-form">
           //   <form onSubmit={(e)=>this.handleSubmit(e)}>
           //     <label>
@@ -137,9 +140,9 @@ class CreateProfileForm extends React.Component {
 
 const mSTP = ({session, entities}) => {
     return {
-      currentUser: session.user.id,
+      currentUser: session.user,
       profile: {
-        user: session.user.id,
+        // user: session.user.id,
         email: "",
         householdName: "",
         householdSize: "",
