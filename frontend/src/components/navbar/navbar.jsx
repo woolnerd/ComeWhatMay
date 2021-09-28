@@ -5,6 +5,7 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { FaRegUser } from "react-icons/fa";
 
 
+
 import "./navbar.css";
 
 class NavBar extends React.Component {
@@ -50,6 +51,7 @@ class NavBar extends React.Component {
   logoutUser(e) {
     e.preventDefault();
     this.props.logout()
+    
   }
 
   getPlans() {
@@ -77,6 +79,7 @@ class NavBar extends React.Component {
             </div>
           </div>
         </div>
+
       );
     } else{
       return (
