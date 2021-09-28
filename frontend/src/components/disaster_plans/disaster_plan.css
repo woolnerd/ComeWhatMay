@@ -22,24 +22,22 @@
     flex-direction: column;
 }
 
-.plan-btn {
+#plan-btn {
     /* margin-top: 10px !important; */
     display: block;
     border: 1px rgb(255, 255, 255) solid;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 2px 20px;
-
     margin: 2px 0;
     background-color: rgb(175, 211, 255);
     text-align: center;
-    box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
+    box-shadow: 4px 4px 4px rgb(0 0 0 / 33%);
     cursor: pointer;
-    height: 20px;
-
-    margin-top: 10px !important;
+    height: 26px;
     margin-left: auto !important;
     margin-right: auto !important;
     margin-bottom: 20px !important;
+    margin-top: 14px;
 }
 
 .plan-header{

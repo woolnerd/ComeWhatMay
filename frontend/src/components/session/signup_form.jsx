@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import './session.css';
 
 class SignupForm extends React.Component {
@@ -61,46 +61,53 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="login-signup-main">
-      <div className="signup-form-container">
-        <h2>Signup Form</h2>
-        <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
-            <br />
-            <label>
-              Email
+        <div className="signup-form-container">
+          <h2>Signup Form</h2>
+          <form onSubmit={this.handleSubmit}>
+            <div className="signup-form">
+              <br />
+              <label>
+                Email
+                <input
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.update("email")}
+                  placeholder="Email"
+                />
+              </label>
+              <br />
+              <label>
+                Password
+                <input
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  placeholder="Password"
+                />
+              </label>
+              <br />
               <input
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                placeholder="Email"
+                className="btn-style-1 login-btn"
+                type="submit"
+                value="Submit"
               />
-            </label>
-            <br />
-            <label>
-              Password
               <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                placeholder="Password"
+                className="btn-style-1 login-btn"
+                type="submit"
+                value="Demo User"
+                onClick={() => this.demoLogin()}
               />
-            </label>
-            <br />
-            <input
-              className="btn-style-1 login-btn"
-               type="submit"
-              value="Submit"
-            />
-            <input
-              className="btn-style-1 login-btn"
-              type="submit"
-              value="Demo User"
-              onClick={() => this.demoLogin()}/>
-          </div>
-        </form>
-
-      </div>
-            {this.renderErrors()}
+              <br />
+              <p className="or-submit">
+                or{" "}
+                <Link to="/login">
+                  <span>Login</span>
+                </Link>
+              </p>
+            </div>
+          </form>
+        </div>
+        {this.renderErrors()}
       </div>
     );
   }
