@@ -18,6 +18,16 @@ class ActionStep extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps){
+        if (this.props.action._id !== prevProps.action._id){
+            this.setState({
+                owner: this.props.action.owner, 
+                task: this.props.action.task, 
+                modal: 0
+            })
+        }
+    }
+
     handleChange(field){
         return e => (
             this.setState({[field]: e.currentTarget.value})
@@ -83,6 +93,7 @@ class ActionStep extends React.Component {
     }
 
     render(){
+        debugger
         return (
           <div className="action-step-frame">
             <div className="task-owner">

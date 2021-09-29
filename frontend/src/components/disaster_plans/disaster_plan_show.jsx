@@ -168,9 +168,12 @@ class DisasterPlanShow extends React.Component {
             return null
         }
         
+        debugger
         const actions = this.props.plan.actions.map(
-            (action, id) =>
-                <ActionStepContainer key={id} action={action}/>
+            (action, id) => {
+                console.log(action)
+                return <ActionStepContainer key={id} action={action}/>
+              }
         )
         let plan = this.props.plan
         return (
