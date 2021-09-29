@@ -93,7 +93,6 @@ class ActionStep extends React.Component {
     }
 
     render(){
-        debugger
         return (
           <div className="action-step-frame">
             <div className="task-owner">

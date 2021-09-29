@@ -167,8 +167,6 @@ class DisasterPlanShow extends React.Component {
         if(!this.props.plan){
             return null
         }
-        
-        debugger
         const actions = this.props.plan.actions.map(
             (action, id) => {
                 console.log(action)
