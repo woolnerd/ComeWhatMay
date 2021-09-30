@@ -1,5 +1,6 @@
 import * as APIUtil from "../util/session_api_util";
 import jwt_decode from "jwt-decode";
+import { deleteUserProfile } from "../util/profile_util";
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
@@ -25,11 +26,15 @@ export const logoutUser = () => ({
 });
 
 export const signup = user => dispatch => (
-    APIUtil.signup(user).then(() => (
+    APIUtil.signup(user).then(() => {
         dispatch(receiveUserSignIn())
-    ), err => (
-        dispatch(receiveErrors(err.response.data))
-    ))
+    })
+    .catch(err => {
+        dispatch(receiveErrors(err.response.data));
+    })
+    // , err => (
+    //     dispatch(receiveErrors(err.response.data))
+    // ))
 );
 
 export const login = user => dispatch => (
@@ -50,3 +55,8 @@ export const logout = () => dispatch => {
     APIUtil.setAuthToken(false)
     dispatch(logoutUser())
 };
+
+export const fetchUser = userId => dispatch => 
+    APIUtil.fetchUser(userId)
+    .then(user => dispatch(receiveCurrentUser(user)))
+    .catch((err) => console.log(err));
