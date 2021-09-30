@@ -98,11 +98,10 @@ class LoginForm extends React.Component {
                   type="submit"
                   value="Submit"
                 />
-                <input
+                <div
                   className="btn-style-1 login-btn"
-                  value="Demo User"
                   onClick={(e) => this.demoLogin(e)}
-                />
+                  >Demo User</div>
               </div>
               <br />
               <p className="or-submit">
