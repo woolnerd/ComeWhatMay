@@ -38,7 +38,7 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user)
-    .then(!this.state.errors ? () => this.props.login(user) : null)
+    .then( this.state.errors === {} ? () => this.props.login(user) : null )
   }
 
   demoLogin(){
@@ -62,7 +62,6 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="login-signup-main">
-        {this.renderErrors()}
         <div className="signup-form-container">
           <h2>Signup</h2>
           <form onSubmit={this.handleSubmit}>
@@ -109,6 +108,7 @@ class SignupForm extends React.Component {
             </div>
           </form>
         </div>
+        {this.renderErrors()}
       </div>
     );
   }
