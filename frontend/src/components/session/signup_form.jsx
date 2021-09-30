@@ -15,6 +15,10 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
+  // componentDidMount(){
+    
+  // }
+
   componentWillReceiveProps(nextProps) {
     // if (nextProps.signedIn === true) {
     //   this.props.history.push("/login");
@@ -48,6 +52,12 @@ class SignupForm extends React.Component {
     };
     this.props.login(user)
   }
+
+  // componentDidUpdate(prevProps){
+  //   if (prevProps && prevProps.errors.session.length !== this.state.errors.session.length) {
+  //     this.setState({ errors: this.state.errors.session });
+  //   }
+  // }
 
   renderErrors() {
     return (
@@ -93,7 +103,7 @@ class SignupForm extends React.Component {
                 value="Submit"
               />
               <div
-                className="btn-style-1 login-btn"
+                id="demo-user-btn"
                 onClick={() => this.demoLogin()}
                 > Demo User </div>
               
