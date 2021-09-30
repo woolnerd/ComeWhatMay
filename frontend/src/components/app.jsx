@@ -21,7 +21,7 @@ const App = () => (
       <Modal />
       <NavBarContainer />
       <Switch>
-        <Route exact path ="/profile/new" component={CreateProfileFormContainer} />
+        <ProtectedRoute exact path ="/profile/new" component={CreateProfileFormContainer} />
         {/* <ProtectedRoute exact path ="/profile/edit" component={EditProfileFormContainer} /> */}
         <ProtectedRoute exact path="/profile/:profileId" component={ProfileContainer} />
         <ProtectedRoute exact path="/disaster/:disasterId" component={DisasterPlanShowContainer} />
