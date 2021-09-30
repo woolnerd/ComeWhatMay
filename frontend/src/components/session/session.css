@@ -76,7 +76,7 @@ input[type="text"] {
     background: -webkit-linear-gradient(bottom, #EAF7FF, #85D2FF);
     background: -moz-linear-gradient(bottom, #EAF7FF, #85D2FF);
     background: linear-gradient(to top, #EAF7FF, #85D2FF);
-    padding: 40% 20%;
+    padding: 13% 20%;
     border: 3px rgb(255, 255, 255) solid;
     box-shadow: 5px 5px 15px 5px rgb(0 0 0 / 35%);
     /* display: flex;

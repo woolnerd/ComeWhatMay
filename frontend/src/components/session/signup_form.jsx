@@ -105,10 +105,10 @@ class SignupForm extends React.Component {
                   <span>Login</span>
                 </Link>
               </p>
+              <div className="error-container">{this.renderErrors()}</div>
             </div>
           </form>
         </div>
-        {this.renderErrors()}
       </div>
     );
   }
