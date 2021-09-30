@@ -143,19 +143,26 @@ class DisasterPlanShow extends React.Component {
                 );
             case 2:
                 return (
-                    <div className='delete-action-modal'>
-                        <h2>Are you sure you want to delete this plan?</h2>
-                        <button 
-                            onClick={()=> this.setState({modal: 0})}>
-                            Cancel
-                        </button>
-                        <button 
-                            onClick={()=> this.props.deleteDisasterPlan()
-                                .then(() => this.setState({modal: 0}))
-                                // .then(this.props.history.push(`/profile/${this.props.match.params.profileId}`))
-                                }>
-                            Confirm
-                        </button>
+                    <div className='create-disaster-plan-modal-layout'>
+                      <div className='modal-child' >
+                        <div className="delete-plan">
+                        <h5>Are you sure you want to delete this plan?</h5>
+                        <div className="delete-plan-buttons">
+                          <button 
+                              id="dis-btn"
+                              onClick={()=> this.setState({modal: 0})}>
+                              Cancel
+                          </button>
+                          <button 
+                              id="dis-btn"
+                              onClick={()=> this.props.deleteDisasterPlan()
+                                  .then(this.props.history.push(`/profile/${this.props.plan.profileId}`))
+                                  .then(() => this.setState({modal: 0}))}>
+                              Confirm
+                          </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                 )
             default:
