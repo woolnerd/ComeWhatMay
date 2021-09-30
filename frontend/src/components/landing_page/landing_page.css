@@ -17,6 +17,10 @@
     padding: 10px 0;
 }
 
+.error-container {
+    height: 50px;
+}
+
 .landing-banner h1 {
     font-size: 6rem;
     text-align: center;

@@ -38,7 +38,7 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    console.log("handle hit")
     let user = {
       email: this.state.email,
       password: this.state.password,
@@ -46,12 +46,13 @@ class LoginForm extends React.Component {
     this.props.login(user)
   }
 
-  demoLogin(){
-    let user = {
+  demoLogin(e){
+    e.stopPropagation();
+    e.preventDefault();
+    this.props.login({
       email: "demo@demo.demo",
-      password: "password"
-    };
-    this.props.login(user)
+      password: "password",
+    });
   }
 
   renderErrors() {
@@ -99,9 +100,8 @@ class LoginForm extends React.Component {
                 />
                 <input
                   className="btn-style-1 login-btn"
-                  type="submit"
                   value="Demo User"
-                  onClick={() => this.demoLogin()}
+                  onClick={(e) => this.demoLogin(e)}
                 />
               </div>
               <br />
@@ -111,7 +111,7 @@ class LoginForm extends React.Component {
                   <span>Signup</span>
                 </Link>
               </p>
-                {this.renderErrors()}
+              <div className="error-container">{this.renderErrors()}</div>
             </div>
           </form>
         </div>
