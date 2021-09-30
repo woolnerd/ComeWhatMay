@@ -145,16 +145,16 @@ class DisasterPlanShow extends React.Component {
                 return (
                     <div className='create-disaster-plan-modal-layout'>
                       <div className='modal-child' >
-                        <div className="delete-plan">
+                        <div className="dis-plan-form">
                         <h5>Are you sure you want to delete this plan?</h5>
                         <div className="delete-plan-buttons">
                           <button 
-                              id="dis-btn"
+                              id="plan-btn"
                               onClick={()=> this.setState({modal: 0})}>
                               Cancel
                           </button>
                           <button 
-                              id="dis-btn"
+                              id="plan-btn"
                               onClick={()=> this.props.deleteDisasterPlan()
                                   .then(this.props.history.push(`/profile/${this.props.plan.profileId}`))
                                   .then(() => this.setState({modal: 0}))}>
