@@ -17,6 +17,7 @@ class NavBar extends React.Component {
     this.getPlans = this.getPlans.bind(this);
     // this.state = {profileId: null};
     this.logoutUser = this.logoutUser.bind(this)
+    this.handleClickHome = this.handleClickHome.bind(this)
     this.profile = undefined;
   }
 
@@ -27,26 +28,17 @@ class NavBar extends React.Component {
 
 
   handleClick(e){
-
-    // e.preventDefault()
-    // this.props.fetchUserProfile(this.props.currentUserId.id)
-    // .then(res=>this.setState({profileId: res.profile._id}))
-    // .then(this.props.history.push(`/profile/${this.state.profileId}`))
-    // .then(this.setState({}))
-    // console.log(this.props)
-
       e.preventDefault()
       this.props.fetchUserProfile(this.props.currentUserId.id)
       .then(res => {
         let profileId = res.profile._id
         this.props.history.push(`/profile/${profileId}`)
       })
-    //   .then(this.props.history.push(`/profile/${this.state.profileId}`))
-    //   .then(this.setState({}))
-    // console.log(this.props)
-
   }
 
+  handleClickHome(e){
+    this.props.history.push(`/`)
+  }
 
   logoutUser(e) {
     e.preventDefault();
@@ -65,7 +57,7 @@ class NavBar extends React.Component {
             {/* <h1>Your Profile</h1> */}
             {/* )} */}
             <div className="logo">
-              <img src="https://come-what-may.s3.amazonaws.com/cwm-logo2.png" alt="logo" />
+              <img src="https://come-what-may.s3.amazonaws.com/cwm-logo2.png" alt="logo" onClick={(e)=> this.handleClick(e)}/>
             </div>
             <div className="btn-style-1-container">
               <div className="btn-style-1">
@@ -73,9 +65,9 @@ class NavBar extends React.Component {
                   Logout
                 </a>
               </div>
-              <div>
+              {/* <div>
                   <AiOutlineHome className="home-btn" onClick={(e)=> this.handleClick(e)}/>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -85,7 +77,7 @@ class NavBar extends React.Component {
       return (
         <div className="navbar">
           <div className="logo" id="home-logo">
-              <img src="https://come-what-may.s3.amazonaws.com/cwm-logo2.png" alt="logo" />
+              <img className="logo2" src="https://come-what-may.s3.amazonaws.com/cwm-logo2.png" alt="logo" onClick={(e)=> this.handleClickHome(e)}/>
             </div>
         </div>
       );
