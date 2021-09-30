@@ -92,45 +92,6 @@ class CreateProfileForm extends React.Component {
           <div className="profile-container">
             {show}
           </div>
-          // <div className="create-form">
-          //   <form onSubmit={(e)=>this.handleSubmit(e)}>
-          //     <label>
-          //       Household Name:
-          //       <input
-          //         onChange={this.update("householdName")}
-          //         type="text"
-          //         value={this.state.householdName}
-          //       />
-          //     </label>
-          //     <br />
-          //     <label>
-          //       Email:
-          //       <input
-          //         onChange={this.update("email")}
-          //         type="text"
-          //         value={this.state.email}
-          //       />
-          //     </label>
-          //     <br />
-          //     <label>
-          //       Phone Number:
-          //       <input
-          //         onChange={this.update("phoneNumber")}
-          //         type="text"
-          //         value={this.state.phoneNumber}
-          //       />
-          //     </label>
-          //     <br />
-          //     <label>Household Size:
-          //       <input
-          //         onChange={this.update("householdSize")}
-          //         type="text"
-          //         value={this.state.householdSize}
-          //       />
-          //     </label>
-          //     <button>Create Profile</button>
-          //   </form>
-          // </div>
         );
         
     }
