@@ -38,7 +38,7 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user)
-    .then( this.state.errors === {} ? () => this.props.login(user) : null )
+    .then( () => ( !this.state.errors.length ? this.props.login(user) : null ))
   }
 
   demoLogin(){
@@ -92,12 +92,11 @@ class SignupForm extends React.Component {
                 type="submit"
                 value="Submit"
               />
-              <input
+              <div
                 className="btn-style-1 login-btn"
-                type="submit"
-                value="Demo User"
                 onClick={() => this.demoLogin()}
-              />
+                > Demo User </div>
+              
               <br />
               <p className="or-submit">
                 or{" "}
