@@ -56,7 +56,7 @@ class LoginForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="errors">
         {Object.keys(this.state.errors).map((error, i) => (
           <li key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
@@ -67,11 +67,6 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-signup-main">
-        <h3 className="banner-login">
-          {/* <span>Welcome Back</span>
-          <span>to</span>
-          <span>Come What May</span> */}
-        </h3>
         <div className="login-form-container">
           <h2>Login</h2>
           <form onSubmit={this.handleSubmit} className="login-form">
@@ -108,7 +103,6 @@ class LoginForm extends React.Component {
                   value="Demo User"
                   onClick={() => this.demoLogin()}
                 />
-                {this.renderErrors()}
               </div>
               <br />
               <p className="or-submit">
@@ -117,6 +111,7 @@ class LoginForm extends React.Component {
                   <span>Signup</span>
                 </Link>
               </p>
+                {this.renderErrors()}
             </div>
           </form>
         </div>

@@ -1,16 +1,27 @@
+.relative-container {
+    min-height: 600px;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
 .single-member {
     width: 300px;
     height: fit-content;
     background-color: whitesmoke;
     padding: 8px;
     border-radius: 20px;;
-    margin: 12px auto;
+    margin: 12px 12px;
     display: flex;
     flex-direction: column;
 }
 
 .single-member > div > p{
     font-size: 1rem;
+    padding: 3px 0;
 }
 
 .icon {

@@ -13,14 +13,15 @@ body {
 .profile-container {
     width: 600px;
     /* height: 400px; */
-    margin: 0 auto;
+    /* margin: 0 auto; */
     /* background-color: antiquewhite; */
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    margin-top: 4%;
+    /* margin-top: 4%; */
     padding-bottom: 2%;
-
+    height: 70vh;
+    margin: 0 20px 20px 20px;
 }
 
 .profile-container-main {
@@ -28,10 +29,10 @@ body {
     margin: 0 auto;
     /* background-color: antiquewhite; */
     /* border-radius: 20px; */
-    margin-top: 4%;
+    margin-top: 2rem;
     padding-bottom: 2%;
     /* box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35); */
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .profile-details {
@@ -130,8 +131,7 @@ svg {
 }
 
 .profile-container{
-    height: 70vh;
-    margin: 20px;
+  
 }
 
 

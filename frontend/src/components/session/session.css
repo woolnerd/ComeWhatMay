@@ -6,7 +6,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: hsla(194, 66%, 77%, 0.44);
-    padding: 50px 50px;
+    padding: 2% 4%;
     border-radius: 20px;
     z-index: 1;
 }
@@ -47,7 +47,7 @@
 .signup-form-container h2 {
     text-align: center;
     font-size: 1.75rem;
-    margin: 30px;
+    margin-bottom: 1rem;
 }
 
 input[type="text"] {
@@ -79,6 +79,8 @@ input[type="text"] {
     padding: 40% 20%;
     border: 3px rgb(255, 255, 255) solid;
     box-shadow: 5px 5px 15px 5px rgb(0 0 0 / 35%);
+    /* display: flex;
+    justify-content: center; */
 }
 
 .login-signup-main{

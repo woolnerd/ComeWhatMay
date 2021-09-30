@@ -11,6 +11,12 @@
     color: rgb(191, 0, 0);
 }
 
+.errors li {
+    width: 200px;
+    list-style-type: disc;
+    padding: 10px 0;
+}
+
 .landing-banner h1 {
     font-size: 6rem;
     text-align: center;
