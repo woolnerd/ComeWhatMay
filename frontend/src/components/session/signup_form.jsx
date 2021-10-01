@@ -8,16 +8,20 @@ class SignupForm extends React.Component {
     this.state = {
       email: "",
       password: "",
-      errors: {},
+      errors: [],
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
+    // this.clearedErrors = false;
   }
 
+  // componentDidMount(){
+    
+  // }
+
   componentWillReceiveProps(nextProps) {
-    // if (nextProps.signedIn === true) {
-    //   this.props.history.push("/login");
+    // if(this.state.errors.length !== prevProps.errors.length){
+    //   this.setState({ errors: this.state.errors });
     // }
 
     this.setState({ errors: nextProps.errors });
@@ -38,7 +42,11 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user)
-    .then( this.state.errors === {} ? () => this.props.login(user) : null )
+    .then( () => this.state.errors.length === 0 ? this.props.login({
+      email: this.state.email,
+      password: this.state.password,
+    }) : null )
+    // .then(this.setState({errors: {}}))
   }
 
   demoLogin(){
@@ -48,6 +56,12 @@ class SignupForm extends React.Component {
     };
     this.props.login(user)
   }
+
+  // componentDidUpdate(prevProps){
+  //   if (prevProps && prevProps.errors.session.length !== this.state.errors.session.length) {
+  //     this.setState({ errors: this.state.errors.session });
+  //   }
+  // }
 
   renderErrors() {
     return (
@@ -92,12 +106,11 @@ class SignupForm extends React.Component {
                 type="submit"
                 value="Submit"
               />
-              <input
-                className="btn-style-1 login-btn"
-                type="submit"
-                value="Demo User"
+              <div
+                id="demo-user-btn"
                 onClick={() => this.demoLogin()}
-              />
+                > Demo User </div>
+              
               <br />
               <p className="or-submit">
                 or{" "}
@@ -105,10 +118,10 @@ class SignupForm extends React.Component {
                   <span>Login</span>
                 </Link>
               </p>
+              <div className="error-container">{this.renderErrors()}</div>
             </div>
           </form>
         </div>
-        {this.renderErrors()}
       </div>
     );
   }
