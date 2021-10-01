@@ -26,42 +26,59 @@ class Profile extends React.Component {
     return (
       <div className="profile-container-main">
         <DisasterPlansIndexContainer />
-        <div className="profile-container">
-          <button
-            className="update-profile-btn"
-            onClick={() =>
-              this.props.openModal("updateProfile", this.props.profileId)
-            }
-          >
-            Edit Profile
-          </button>
+          <div className="profile-container">
+            <div className='profile-info-format'>
+              <button
+                className="update-profile-btn"
+                onClick={() =>
+                  this.props.openModal("updateProfile", this.props.profileId)
+                }
+              >
+                Edit Profile
+              </button>
 
-          <div className="profile-details">
-            <h3>
-              Email: <span>{profile.email}</span>
-            </h3>
-            <h3>
-              Household: <span>{profile.householdName}</span>
-            </h3>
-            <h3>
-              Size of Household: <span>{profile.householdSize}</span>
-            </h3>
-            <h3>
-              Contact Phone Number: <span>{phone}</span>
-            </h3>
+              <div className="profile-details">
+                <div className='profile-details-field-names'>
+                  <h3>
+                    Household:
+                  </h3>
+                  <h3>
+                    Email:
+                  </h3>
+                  <h3>
+                    Contact Phone Number:
+                  </h3>
+                  <h3>
+                    Size of Household:
+                  </h3>
+                </div>
+                <div className='profile-details-info'>
+                  <h3>
+                    <span>{profile.householdName}</span>
+                  </h3>
+                  <h3>
+                    <span>{profile.email}</span>
+                  </h3>
+                  <h3>
+                    <span>{phone}</span>
+                  </h3>
+                  <h3>
+                    <span>{profile.householdSize}</span>
+                  </h3>
+                </div>
+              </div>
+              <button
+                className="btn-style-1"
+                id="profile-btn"
+                onClick={() =>
+                  this.props.openModal("createRelative", this.props.profileId)}>
+                Add Relative
+              </button>
+            </div>
+            <div className="relative-card-frame">
+              <RelativeIndexContainer profileId={this.props.profileId} />
+            </div>
           </div>
-          <button
-            className="btn-style-1"
-            id="profile-btn"
-            onClick={() =>
-              this.props.openModal("createRelative", this.props.profileId)
-            }
-          >
-            Add Relative
-          </button>
-          <RelativeIndexContainer profileId={this.props.profileId} />
-          {/* <EditProfileFormContainer /> */}
-        </div>
       </div>
     );
   }

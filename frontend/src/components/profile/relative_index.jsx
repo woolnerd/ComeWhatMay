@@ -33,12 +33,7 @@ class RelativeIndex extends React.Component {
 
     render() {
         if (!this.props.household) return null
-
-        // console.log(this.props.currentUserId)
-        // console.log(this.props.household)
-
-       
-
+        
         const showHousehold = this.props.household.map((member, i) => {
 
            const phone = `(${member.phoneNumber.toString().slice(0, 3)}) 

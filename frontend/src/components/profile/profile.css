@@ -11,29 +11,36 @@ body {
     /* background-color: white; */
 }
 .profile-container {
-    width: 600px;
+    width: 100%;
+    max-width: 1030px;
+    height: fit-content;
     /* height: 400px; */
     /* margin: 0 auto; */
     /* background-color: antiquewhite; */
     border-radius: 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     /* margin-top: 4%; */
-    padding-bottom: 2%;
-    height: 70vh;
-    margin: 0 20px 20px 20px;
+    /* padding-bottom: 2%; */
+    height: fit-content;
+    /* margin: 0px 20px 20px 20px; */
+    /* border: thick solid blue; */
 }
 
 .profile-container-main {
     display: flex;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    width: 100%;
+    max-width: 1400px;
+    height: fit-content;
     /* background-color: antiquewhite; */
     /* border-radius: 20px; */
-    margin-top: 2rem;
-    padding-bottom: 2%;
+    margin: 2rem auto;
+    /* padding-bottom: 2%; */
     /* box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35); */
     justify-content: space-evenly;
-    margin-bottom: 20%;
+    /* border: thick solid purple; */
 }
 
 .profile-details {
@@ -41,15 +48,30 @@ body {
     border: 1px black solid;
     /* background-image: url("https://come-what-may.s3.amazonaws.com/confectionary.png"); */
     background-color: aliceblue;
-    box-shadow:  4px 4px 4px rgba(0,0,0,0.33)
+    box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
+    display: flex;
+    justify-content: center;
 }
 
+.profile-details-field-names{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.profile-details-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 .profile-details h3 {
     font-size: 1rem;
     padding: 10px;
     margin: 2px 0;
-    text-align: right;
+    /* text-align: right; */
+    font-weight: 700;
 }
+
 
 .profile-details span {
     color: black;
@@ -102,6 +124,22 @@ body {
     width: 50%;
 }
 
+.profile-info-format{
+    width: 100%;
+    max-width: 67%;
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* border: thin solid green; */
+}
+
+.relative-card-frame{
+    width: 100%;
+    height: 100%;
+    /* border: medium solid yellowgreen; */
+}
+
 .exit-edit {
     border: 1px solid black;
     padding: 3px;
@@ -121,7 +159,7 @@ svg {
 }
 
 .update-profile-btn {
-    display: block;
+    width: 100%;
     border: 1px rgb(255, 255, 255) solid;
     border-radius: 5px;
     padding: 4px 10px;
