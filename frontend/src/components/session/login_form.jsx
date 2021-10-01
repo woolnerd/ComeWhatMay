@@ -38,12 +38,15 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("handle hit")
     let user = {
       email: this.state.email,
       password: this.state.password,
     };
-    this.props.login(user)
+    this.props
+      .login(user)
+      .then(
+        localStorage.setItem("userEmail", JSON.stringify(user.email))
+      );
   }
 
   demoLogin(e){
