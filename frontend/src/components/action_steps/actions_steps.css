@@ -9,9 +9,13 @@
     margin-bottom: 30px;
     border-radius: 15px;
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35);
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    /* border-top-left-radius: 0;
+    border-top-right-radius: 0; */
     padding-bottom: 50px;
+}
+
+.plan-crud-buttons {
+        margin: auto 0;
 }
 
 .plan-crud-buttons button {
@@ -29,6 +33,7 @@
 
 .plan-info h2 {
     font-size: 2rem;
+    font-weight: 400;
 }
 
 .plan-info span {
@@ -174,4 +179,28 @@
 
 textarea {
     font-family: sans-serif;
+}
+
+.plan-header-info {
+    display: flex;
+}
+
+.plan-header-info h4 {
+    display: flex;
+}
+
+.plan-header-info span {
+    text-align: center;
+    font-size: 15px;
+    padding: 4px 10px;
+}
+
+.plan-info h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    padding-left: 10px;
+}
+
+h4#left-padding {
+    padding: 10px;
 }
