@@ -43,8 +43,11 @@ class DisasterPlans extends React.Component {
                   targetTime: this.state.targetTime,
                   disasterType: this.state.disasterType,
                 })
-                .then(() => this.setState({ modal: "false" }))
-              }>
+                .then(() => this.setState({ 
+                  name: "",
+                  targetTime: 5,
+                  disasterType: "",
+                  modal: "false", }))}>
               <div className='create-plan-modal-title-close'>
                 <div className="plan-header">
                   <h2 className="make-plan">Make a Plan</h2>
@@ -111,13 +114,6 @@ class DisasterPlans extends React.Component {
   }
 
   render() {
-    // const plans = this.props.disasterPlans.map((plan, i) => (
-    //   <Link to={`/disaster-plan/${plan._id}`}>
-    //     <div key={i} className="plan-item">
-    //       {plan.name}
-    //     </div>
-    //   </Link>
-    // ));
 
         const plans = this.props.disasterPlans.map((plan, i) => (
           <div key={i} className="plan-item">
