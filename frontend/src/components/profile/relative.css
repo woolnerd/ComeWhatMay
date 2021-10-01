@@ -6,6 +6,20 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+
+
+    /* new card style */
+    /* min-height: 262px;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    overflow-x: scroll;
+    justify-content: flex-start;
+    height: 200px; */
+
+
 }
 
 .single-member {
@@ -17,6 +31,18 @@
     margin: 12px 12px;
     display: flex;
     flex-direction: column;
+
+    /* new card style */
+    /* width: 300px;
+    height: -moz-fit-content;
+    height: fit-content;
+    background-color: whitesmoke;
+    padding: 8px;
+    border-radius: 20px;
+    margin: 12px 12px;
+    display: flex;
+    flex-direction: column; */
+
 }
 
 .single-member > div > p{

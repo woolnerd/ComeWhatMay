@@ -48,7 +48,7 @@ class EditDrillForm extends React.Component {
         // console.log(this.props.drill._id)
         // console.log(this.props.drill._disPlan)
         return (
-          <div className="edit-form">
+          <div className="edit-form drill">
             <div className="edit-form-header">
               <h2>Submit Drill</h2>
               <p onClick={this.handleModal}>
@@ -56,13 +56,17 @@ class EditDrillForm extends React.Component {
               </p>
             </div>
             <form onSubmit={(e) => this.handleSubmit(e)}>
+              <div className="review">
               <label>
                 Review:
+             </label>
                 <textarea
                   onChange={this.update("reviewNote")}
                   value={this.state.reviewNote}
+                  rows="2"
+                  cols="50"
                 ></textarea>
-              </label>
+              </div>
               <br />
               <label>
                 Completed In:

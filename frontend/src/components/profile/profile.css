@@ -33,6 +33,7 @@ body {
     padding-bottom: 2%;
     /* box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35); */
     justify-content: space-evenly;
+    margin-bottom: 20%;
 }
 
 .profile-details {
@@ -83,6 +84,7 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
 .edit-form-container {
         text-align: right;
 }

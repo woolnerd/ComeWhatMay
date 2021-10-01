@@ -27,6 +27,18 @@
     cursor: pointer;
 }
 
+.plan-info h2 {
+    font-size: 2rem;
+}
+
+.plan-info span {
+    font-weight: 400;
+}
+
+.plan-info {
+    font-weight: 200;
+    padding: 6px 0;
+}
 
 .plan-info-and-actions {
     border: 1px solid black;
@@ -153,4 +165,13 @@
 .drill-hist p {
     font-weight: 200;
     padding-top: 6px;
+}
+
+.review label{
+    display: flex;
+
+}
+
+textarea {
+    font-family: sans-serif;
 }

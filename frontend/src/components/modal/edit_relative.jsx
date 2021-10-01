@@ -42,8 +42,8 @@ class CreateRelative extends React.Component {
 
     render() {
         return (
-            <div className="create_relative">
-                <div className="relative_header">
+            <div className="create-relative">
+                <div className="relative-header">
                     <h2>Edit Household Member</h2>
                     <p className="exit_edit" onClick={this.handleModal}><AiOutlineClose /></p>
                 </div>
@@ -59,12 +59,12 @@ class CreateRelative extends React.Component {
                     <label>Relationship</label>
                     <input value={this.state.relationship} onChange={this.handleInput('relationship')} type="text" />
                 </div>
-                <div className="phone_number">
+                <div className="phone-number">
                     <label>Phone Number</label>
                     <input value={this.state.phoneNumber} onChange={this.handleInput('phoneNumber')} type="text" />
                 </div >
-                <div className="btn_container">
-                    <button className="save_button" onClick={this.handleSubmit}>Update</button>
+                <div className="btn-container">
+                    <button className="save-button" onClick={this.handleSubmit}>Update</button>
                 </div>
 
             </div>

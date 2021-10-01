@@ -183,12 +183,20 @@ class DisasterPlanShow extends React.Component {
         let plan = this.props.plan
         return (
           <div className="disaster-show-frame">
-
             <div className="plan-info-and-actions">
               <div className="plan-info">
-                <h4>Plan Name: {plan.name}</h4>
-                <h4>Drill Target: {plan.targetTime}min</h4>
-                <h4>In the case of: {plan.disasterType}</h4>
+                <h2>
+                  <span>Plan Name: </span>
+                  {plan.name}
+                </h2>
+                <h4>
+                  <span>Drill Target: </span>
+                  {plan.targetTime}min
+                </h4>
+                <h4>
+                  <span>In the case of: </span>
+                  {plan.disasterType}
+                </h4>
               </div>
               <div className="plan-crud-buttons">
                 <button onClick={() => this.setState({ modal: 1 })}>
@@ -197,15 +205,14 @@ class DisasterPlanShow extends React.Component {
                 <button onClick={() => this.setState({ modal: 2 })}>
                   Delete Plan
                 </button>
-
               </div>
-            {/* <div className="image-action"></div> */}
+              {/* <div className="image-action"></div> */}
             </div>
-           
+
             <CreateActionContainer />
             {actions}
             {this.DisasterPlanModal()}
-            <div className="drill-container-flex" >
+            <div className="drill-container-flex">
               <div className="drill-container">
                 <DrillComponent />
               </div>
