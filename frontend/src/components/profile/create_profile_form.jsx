@@ -9,7 +9,10 @@ class CreateProfileForm extends React.Component {
     constructor(props){
         super(props);
 
-        this.state = this.props.profile;
+        this.state = {
+          ...this.props.profile,
+          email: JSON.parse(localStorage.getItem("userEmail")),
+        };
 
     }
 

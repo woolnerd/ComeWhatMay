@@ -48,31 +48,34 @@ class EditDrillForm extends React.Component {
         // console.log(this.props.drill._id)
         // console.log(this.props.drill._disPlan)
         return (
-            <div className="edit-form">
-                <div></div>
-                <h2>Submit Drill</h2>
-                <p className="exit-edit" onClick={this.handleModal}>
-                    <AiOutlineClose />
-                </p>
-                <form onSubmit={(e) => this.handleSubmit(e)}>
-                    <label>Review:
-                        <textarea
-                            onChange={this.update("reviewNote")}
-                            value={this.state.reviewNote}>
-                        </textarea>
-                    </label>
-                    <br />
-                    <label>Completed In:
-                        <input
-                            onChange={this.update("timeToComplete")}
-                            type="text"
-                            value={this.state.timeToComplete}
-                        />
-                    </label>
-                    
-                    <button onClick={this.handleSubmit}>Submit</button>
-                </form>
+          <div className="edit-form">
+            <div className="edit-form-header">
+              <h2>Submit Drill</h2>
+              <p onClick={this.handleModal}>
+                <AiOutlineClose className="exit-edit" />
+              </p>
             </div>
+            <form onSubmit={(e) => this.handleSubmit(e)}>
+              <label>
+                Review:
+                <textarea
+                  onChange={this.update("reviewNote")}
+                  value={this.state.reviewNote}
+                ></textarea>
+              </label>
+              <br />
+              <label>
+                Completed In:
+                <input
+                  onChange={this.update("timeToComplete")}
+                  type="text"
+                  value={this.state.timeToComplete}
+                />
+              </label>
+
+              <button onClick={this.handleSubmit}>Submit</button>
+            </form>
+          </div>
         );
     }
 }

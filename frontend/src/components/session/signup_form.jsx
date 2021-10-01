@@ -45,7 +45,10 @@ class SignupForm extends React.Component {
     .then( () => this.state.errors.length === 0 ? this.props.login({
       email: this.state.email,
       password: this.state.password,
-    }) : null )
+    })
+    .then(localStorage.setItem("userEmail", JSON.stringify(this.state.email)))
+    
+    : null )
     // .then(this.setState({errors: {}}))
   }
 
