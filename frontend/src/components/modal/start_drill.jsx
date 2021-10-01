@@ -33,7 +33,7 @@ class StartDrill extends React.Component {
     start() {
         this.state.start = setInterval(() => {
             this.setState({ milliseconds: this.state.milliseconds + 1 })
-            if (this.state.milliseconds > 100) {
+            if (this.state.milliseconds > 99) {
                 this.setState({
                     seconds: this.state.seconds + 1,
                     milliseconds: 0

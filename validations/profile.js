@@ -23,6 +23,10 @@ module.exports = function validateProfileInput(data) {
     errors.phoneNumber = 'Phone number is not a valid number';
   }
 
+  if (!Validator.isLength(data.phoneNumber.toString(), 10, 10)){
+    errors.phoneNumber = 'Phone number is not a valid number'
+  }
+
   return {
     errors,
     isValid: Object.keys(errors).length === 0
