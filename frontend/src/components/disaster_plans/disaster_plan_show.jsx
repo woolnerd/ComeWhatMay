@@ -186,17 +186,19 @@ class DisasterPlanShow extends React.Component {
             <div className="plan-info-and-actions">
               <div className="plan-info">
                 <h2>
-                  <span>Plan Name: </span>
+                  {/* <span>Plan Name: </span> */}
                   {plan.name}
                 </h2>
-                <h4>
-                  <span>Drill Target: </span>
-                  {plan.targetTime}min
-                </h4>
-                <h4>
-                  <span>In the case of: </span>
-                  {plan.disasterType}
-                </h4>
+                <div className="plan-header-info">
+                  <h4>
+                    <span>Drill Target </span>
+                    {plan.targetTime}min
+                  </h4>
+                  <h4 id="left-padding">
+                    <span>In the case of </span>
+                    {plan.disasterType}
+                  </h4>
+                </div>
               </div>
               <div className="plan-crud-buttons">
                 <button onClick={() => this.setState({ modal: 1 })}>
@@ -208,6 +210,7 @@ class DisasterPlanShow extends React.Component {
               </div>
               {/* <div className="image-action"></div> */}
             </div>
+            <div className="div-for-line"></div>
 
             <CreateActionContainer />
             {actions}

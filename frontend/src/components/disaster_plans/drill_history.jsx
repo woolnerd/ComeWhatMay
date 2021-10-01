@@ -33,7 +33,9 @@ class DrillHistory extends React.Component {
 
         return (
             <div className="drill-hist-container">
-                <h2>Drill History</h2>
+                <div className="drill-title-container">
+                    <h2>Drill History</h2>
+                </div>
                 <br/>
                 {showDrills}
 
