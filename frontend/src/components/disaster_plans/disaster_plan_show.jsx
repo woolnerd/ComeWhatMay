@@ -145,7 +145,7 @@ class DisasterPlanShow extends React.Component {
                 return (
                     <div className='create-disaster-plan-modal-layout'>
                       <div className='modal-child' >
-                        <div className="dis-plan-form">
+                        <div className="dis-plan-form min-height">
                         <h5>Are you sure you want to delete this plan?</h5>
                         <div className="delete-plan-buttons">
                           <button 
@@ -176,7 +176,6 @@ class DisasterPlanShow extends React.Component {
         }
         const actions = this.props.plan.actions.map(
             (action, id) => {
-                console.log(action)
                 return <ActionStepContainer key={id} action={action}/>
               }
         )
