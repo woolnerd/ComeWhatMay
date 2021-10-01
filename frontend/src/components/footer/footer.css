@@ -9,6 +9,7 @@
     margin: 0;
     display: flex;
     flex-direction: row;
+    /* border: thick solid pink; */
     /* position: absolute; */
     /* position: relative; */
 }

@@ -59,16 +59,17 @@ class NavBar extends React.Component {
             <div className="logo">
               <img src="https://come-what-may.s3.amazonaws.com/cwm-logo2.png" alt="logo" onClick={(e)=> this.handleClick(e)}/>
             </div>
-            <div className="btn-style-1-container">
-              <div className="btn-style-1">
-                <a href="#" onClick={this.logoutUser}>
-                  Logout
-                </a>
-              </div>
+            <label 
+              className="btn-style-1-container">
+              <button 
+                className="btn-style-1"
+                onClick={this.logoutUser}>
+                <p>Logout</p>
+              </button>
               {/* <div>
                   <AiOutlineHome className="home-btn" onClick={(e)=> this.handleClick(e)}/>
               </div> */}
-            </div>
+            </label>
           </div>
         </div>
 
