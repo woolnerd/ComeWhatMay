@@ -70,6 +70,7 @@ a {
 
 .logo{
     margin-top: -10px;
+    cursor: pointer;
 }
 
 .home-logo{

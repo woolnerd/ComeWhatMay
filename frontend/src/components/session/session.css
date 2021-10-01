@@ -9,6 +9,7 @@
     padding: 2% 4%;
     border-radius: 20px;
     z-index: 1;
+    min-width: 250px;
 }
 
 .signup-form-container h3, 
@@ -40,7 +41,28 @@
     margin-top: 20px;
     /* border-color: azure; */
     height: 30px;
+}
 
+#demo-user-btn {
+    height: 30px;
+    display: block;
+    border: 1px rgb(255, 255, 255) solid;
+    border-radius: 5px;
+    padding: 4px 10px;
+    margin: 2px 0;
+    background-color: rgb(175, 211, 255);
+    text-align: center;
+    box-shadow: 4px 4px 4px rgb(0 0 0 / 33%);
+    cursor: pointer;
+    height: 30px;
+    width: 7rem;
+    margin: 0 auto;
+    margin-top: 20px;
+    /* border-color: azure; */
+    font-size: 13px;
+    /* display: flex; */
+    box-sizing: border-box;
+    padding-top: 7px;
 }
 
 .login-form-container h2, 
@@ -76,11 +98,10 @@ input[type="text"] {
     background: -webkit-linear-gradient(bottom, #EAF7FF, #85D2FF);
     background: -moz-linear-gradient(bottom, #EAF7FF, #85D2FF);
     background: linear-gradient(to top, #EAF7FF, #85D2FF);
-    padding: 40% 20%;
+    padding: 13% 20%;
     border: 3px rgb(255, 255, 255) solid;
     box-shadow: 5px 5px 15px 5px rgb(0 0 0 / 35%);
-    /* display: flex;
-    justify-content: center; */
+    min-width: 140px;
 }
 
 .login-signup-main{

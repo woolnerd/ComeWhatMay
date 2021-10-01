@@ -72,7 +72,7 @@ class ActionStep extends React.Component {
                     <div className="modal-background">
                         <div className="modal-child">
                    <div className='delete-action-frame'>
-                        <h5>Are you sure you want to delete this action</h5>
+                        <h5>Are you sure you want to delete this action?</h5>
                         <button 
                             onClick={()=> this.setState({modal: 0})}>
                             Cancel
