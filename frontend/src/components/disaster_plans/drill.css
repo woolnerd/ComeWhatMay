@@ -22,6 +22,14 @@
     cursor: pointer;
 }
 
+.start-drill {
+    margin: 30px;
+}
+
+.start-drill label {
+    margin-right: 20px;
+}
+
 .single-drill {
     margin: 20px;
     display: inline-block;

@@ -37,6 +37,7 @@
     background: -moz-linear-gradient(bottom, #EAF7FF, #85D2FF);
     background: linear-gradient(to top, #EAF7FF, #85D2FF);
     padding: 10px;
+    text-align: right;
 }
 
 .dis-plan-form {
@@ -125,4 +126,17 @@
     margin: 0 auto;
     flex-direction: column;
     text-align: end;
+}
+
+.save-button {
+     display: block;
+    border: 1px rgb(255, 255, 255) solid;
+    border-radius: 5px;
+    padding: 4px 10px;
+    margin: 0 auto;
+    background-color: rgb(175, 211, 255);
+    text-align: center;
+    box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
+    cursor: pointer;
+    height: 30px;
 }
