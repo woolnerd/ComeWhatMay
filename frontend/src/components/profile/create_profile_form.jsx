@@ -73,6 +73,8 @@ class CreateProfileForm extends React.Component {
                 onChange={this.update("phoneNumber")}
                 type="text"
                 value={this.state.phoneNumber}
+                // minLength="10"
+                // maxLength="10"
               />
             </label>
             <br />
