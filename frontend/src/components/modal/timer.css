@@ -1,5 +1,6 @@
 #time-container{
-    background-color: rgb(232, 57, 57);
+    /* background-color: rgb(232, 57, 57); */
+    background-color: rgb(189, 13, 1);
     padding: 20px;
     border-radius: 20px;
     height: 420px;
@@ -8,8 +9,9 @@
     position: absolute;
     z-index: 1;
     transform: translateY(-50%);
-    box-shadow: 10px 5px 5px rgb(94, 94, 94);
-    border: 2px solid black;
+    /* box-shadow: 10px 5px 5px lightgray; */
+    box-shadow: white 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;    /* border: 2px solid black; */
+    border: 4px solid white;
 
 }
 
@@ -21,6 +23,7 @@
 .timer-header{
     display: flex;
     justify-content: space-between;
+    color: white;
 }
 
 #close-x{
@@ -30,18 +33,21 @@
 
 .clock{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     font-size: 130px;
     padding-top: 70px;
     padding-bottom: 40px;
     font-weight: bold;
     letter-spacing: 10px;
+    color: white;
+    margin-left: 45px;
 
 }
 
 .clock-unit{
     text-align: center;
     font-size: 30px;
+    color: white;
 }
 
 .clock-button{
@@ -58,7 +64,11 @@
     font-size: 20px;
     font-weight: bold;
     color: white;
-    background-color: rgba(0, 0, 0, 0.81);
-    border: 3px solid black;
-    
+    background-color: rgb(189, 13, 1);
+    border: 3px solid white;
+    cursor: pointer;
+}
+
+.clock-btn:hover{
+    background-color: rgba(26, 26, 26, 0.365);
 }
