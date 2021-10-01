@@ -51,6 +51,7 @@ body {
     box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
     display: flex;
     justify-content: center;
+    border-radius: 3px;
 }
 
 .profile-details-field-names{
@@ -72,7 +73,6 @@ body {
     font-weight: 700;
 }
 
-
 .profile-details span {
     color: black;
 }
@@ -85,9 +85,6 @@ body {
     height: 29px;
 }
 
-
-
-
 .dist-plans {
     margin: 0 auto;
     text-align: center;
@@ -99,8 +96,8 @@ body {
     background-color: white;
     margin: 10px auto;
     padding: 4px;
+    border-radius: 3px;
 }
-
 
 .edit-form-header {
     display: flex;
@@ -169,9 +166,3 @@ svg {
     box-shadow: 4px 4px 4px rgb(0 0 0 / 33%);
     cursor: pointer;
 }
-
-.profile-container{
-  
-}
-
-
