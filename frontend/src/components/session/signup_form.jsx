@@ -12,17 +12,10 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.clearedErrors = false;
   }
 
-  // componentDidMount(){
-    
-  // }
 
   componentWillReceiveProps(nextProps) {
-    // if(this.state.errors.length !== prevProps.errors.length){
-    //   this.setState({ errors: this.state.errors });
-    // }
 
     this.setState({ errors: nextProps.errors });
   }
@@ -49,7 +42,6 @@ class SignupForm extends React.Component {
     .then(localStorage.setItem("userEmail", JSON.stringify(this.state.email)))
     
     : null )
-    // .then(this.setState({errors: {}}))
   }
 
   demoLogin(){
@@ -59,12 +51,6 @@ class SignupForm extends React.Component {
     };
     this.props.login(user)
   }
-
-  // componentDidUpdate(prevProps){
-  //   if (prevProps && prevProps.errors.session.length !== this.state.errors.session.length) {
-  //     this.setState({ errors: this.state.errors.session });
-  //   }
-  // }
 
   renderErrors() {
     return (

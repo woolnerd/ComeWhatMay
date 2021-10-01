@@ -43,7 +43,10 @@ class CreateActionContainer extends React.Component {
                         owner: this.state.owner,
                         task: this.state.task,
                       })
-                      .then(() => this.setState({ modal: false }))
+                      .then(() => this.setState({ 
+                        owner: '',
+                        task: '',
+                        modal: false }))
                   }
                 >
                   <label>Action Owner</label>

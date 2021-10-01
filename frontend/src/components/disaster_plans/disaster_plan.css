@@ -22,6 +22,10 @@
     flex-direction: column;
 }
 
+.min-height{
+    height: 150px;
+}
+
 .delete-plan{
     display: flex;
     flex-direction: column;
