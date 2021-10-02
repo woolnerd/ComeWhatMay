@@ -12,6 +12,7 @@
     min-width: 250px;
 }
 
+
 .signup-form-container h3, 
 .login-form-container h3 {
     display: flex;
@@ -116,4 +117,9 @@ input[type="text"] {
 
 .or-submit span {
     text-decoration: underline;
+}
+
+#profile-form-container{
+    height: 70vh;
+    
 }
