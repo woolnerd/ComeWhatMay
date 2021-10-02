@@ -1,10 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import CreateProfileFormContainer from "../../components/profile/create_profile_form";
-import { AiOutlineHome } from 'react-icons/ai';
-import { FaRegUser } from "react-icons/fa";
-
-
+import { withRouter } from "react-router-dom";
 
 import "./navbar.css";
 
@@ -15,17 +10,10 @@ class NavBar extends React.Component {
       modalOpen: false
     }
     this.getPlans = this.getPlans.bind(this);
-    // this.state = {profileId: null};
     this.logoutUser = this.logoutUser.bind(this)
     this.handleClickHome = this.handleClickHome.bind(this)
     this.profile = undefined;
   }
-
-  componentDidMount(){
-    // this.props.fetchUserProfile(this.props.currentUserId.id)
-    // .then(res=>this.setState({profile: res}))
-  }
-
 
   handleClick(e){
       e.preventDefault()
@@ -51,11 +39,6 @@ class NavBar extends React.Component {
       return (
         <div className="navbar">
           <div className="flex-container">
-            {/* {this.state.profile ? (
-              <h1> The {this.state.profile.householdName} Household Profile</h1>
-            ) : ( */}
-            {/* <h1>Your Profile</h1> */}
-            {/* )} */}
             <div className="logo">
               <img src="https://come-what-may.s3.amazonaws.com/cwm-logo2.png" alt="logo" onClick={(e)=> this.handleClick(e)}/>
             </div>
@@ -66,9 +49,6 @@ class NavBar extends React.Component {
                 onClick={this.logoutUser}>
                 <p>Logout</p>
               </button>
-              {/* <div>
-                  <AiOutlineHome className="home-btn" onClick={(e)=> this.handleClick(e)}/>
-              </div> */}
             </label>
           </div>
         </div>

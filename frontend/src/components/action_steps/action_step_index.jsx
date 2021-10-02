@@ -6,21 +6,12 @@ import { withRouter } from 'react-router-dom';
 import './actions_steps.css';
 
 class PlanIndex extends React.Component{
-    constructor(props){
-        super(props)
-    }
 
     componentDidMount(){
         this.props.fetchDisasterDrills(this.props.planId)
     }
 
     render(){
-        console.log(this.props.drill)
-        // console.log(this.props.drill._id)
-        // const createDrill = !this.props.drill ? <button onClick={() => this.props.openModal('createDrill', this.props.planId)}>Create Drill</button> : <></>
-        // const startDrill = !this.props.drill ? <></> : <button onClick={() => this.props.openModal('startDrill', this.props.drill._id)}>Start Drill</button> 
-        // const deleteDrill = !this.props.drill ? <></> : <button onClick={() => this.props.deleteDisasterDrill(this.props.drill._id)}>Delete Drill</button> 
-
         const showDrills = this.props.drills ? 
                 this.props.drills.map((drill, i) => {
                     var date = new Date(drill.timeToStart);

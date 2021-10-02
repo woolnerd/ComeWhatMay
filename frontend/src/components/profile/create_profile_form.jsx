@@ -25,28 +25,16 @@ class CreateProfileForm extends React.Component {
         this.setState({user: this.props.currentUser.id})
         this.props
           .createUserProfile(this.state)
-        //   .then((res) => console.log(res));
-        // .then((res) => this.props.history.push(`/profile${res.profile._id}`))
-        
     }
 
     update(field){
         return e => { 
         let value = e.target.value 
-        // if (
-        //     field === "phoneNumber" ||
-        //     field === "householdSize"
-        // ) {
-        //     value = parseInt(e.target.value);
-        // }
         this.setState({[field]: value})
         }
     }
 
     render(){
-      // console.log(this.props.profile)
-      // console.log(this.props.currentUser)
-
       const show = this.props.profileId ? (
         <Redirect to={`/profile/${this.props.profileId._id}`} />
       ) : (
@@ -108,7 +96,6 @@ const mSTP = ({session, entities}) => {
     return {
       currentUser: session.user,
       profile: {
-        // user: session.user.id,
         email: "",
         householdName: "",
         householdSize: "",

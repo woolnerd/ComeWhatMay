@@ -41,12 +41,4 @@ router.delete('/delete/:drillId', (req, res) => {
     );
 }) 
 
-// router.delete('/delete/:disasterId', (req, res) => {
-//     DisasterPlan.findOneAndDelete({ _id: req.params.disasterId})
-//     .then(() => res.json({success: true}))
-//     .catch(err =>
-//     res.status(400).json({ error: 'Unable to delete disaster plan' })
-//     );
-// })
-
 module.exports = router;

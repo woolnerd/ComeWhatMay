@@ -1,11 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateDisasterDrill, fetchDisasterDrills } from '../../actions/disaster_drill_actions';
+import { updateDisasterDrill } from '../../actions/disaster_drill_actions';
 import { closeModal, openModal } from '../../actions/modal_actions';
 import { AiOutlineClose } from 'react-icons/ai'
 import '../profile/profile.css';
 import './timer.css'
-// import "./profile.css";
 
 class StartDrill extends React.Component {
     constructor(props) {

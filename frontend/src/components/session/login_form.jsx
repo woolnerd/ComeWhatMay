@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
-import { openModal } from '../../actions/modal_actions';
 import "./session.css";
 
 
