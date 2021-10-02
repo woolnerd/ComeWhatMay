@@ -45,15 +45,8 @@ class EditProfileForm extends React.Component {
   }
 
   update(field) {
-    //   console.log(this.state)
     return (e) => {
       let value = e.target.value;
-    //   if (
-    //       field === "phoneNumber" ||
-    //       field === "householdSize"
-    //   ) {
-    //       value = parseInt(e.target.value);
-    //   }
       this.setState({ [field]: value });
     };
   }
@@ -115,15 +108,7 @@ class EditProfileForm extends React.Component {
 const mSTP = ({ entities, session }) => {
   return {
     currentUser: session.user.id,
-    // profileId: Object.keys(entities.profile)[0],
     profile: Object.values(entities.profile).filter(profile => profile.user === session.user.id)[0]
-    // profile: {
-    //   user: session.user.id,
-    //   email: entities.profile.email,
-    //   householdName: entities.profile.householdName,
-    //   householdSize: entities.profile.householdSize,
-    //   phoneNumber: entities.profile.phoneNumber,
-    // },
   };
 };
 

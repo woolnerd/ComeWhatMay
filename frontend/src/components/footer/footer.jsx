@@ -1,8 +1,5 @@
 import React from "react";
 import "./footer.css";
-import { SiMongodb } from 'react-icons/si';
-import { GrReactjs } from 'react-icons/gr';
-import { FaNodeJs } from 'react-icons/fa'
 import { GrLinkedin } from 'react-icons/gr'; 
 import { GoMarkGithub } from 'react-icons/go';
 

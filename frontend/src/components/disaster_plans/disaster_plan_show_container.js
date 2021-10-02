@@ -5,7 +5,6 @@ import {
     updateDisasterPlan,
     deleteDisasterPlan
 } from '../../actions/disaster_plan_actions'
-import { createActionStep } from "../../util/action_step_util";
 
 const mSTP = (state, ownProps) => {
 

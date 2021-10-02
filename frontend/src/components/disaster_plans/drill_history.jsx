@@ -6,9 +6,6 @@ import { fetchDisasterDrills } from '../../actions/disaster_drill_actions'
 
 
 class DrillHistory extends React.Component {
-    constructor(props) {
-        super(props)
-    }
 
     componentDidMount() {
         this.props.fetchDisasterDrills(this.props.planId)

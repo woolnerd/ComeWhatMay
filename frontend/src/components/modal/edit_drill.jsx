@@ -5,8 +5,6 @@ import { closeModal } from '../../actions/modal_actions';
 import { AiOutlineClose } from 'react-icons/ai'
 import '../profile/profile.css';
 
-// import "./profile.css";
-
 class EditDrillForm extends React.Component {
     constructor(props) {
         super(props);
@@ -44,9 +42,6 @@ class EditDrillForm extends React.Component {
     }
 
     render() {
-     
-        // console.log(this.props.drill._id)
-        // console.log(this.props.drill._disPlan)
         return (
           <div className="edit-form drill">
             <div className="edit-form-header">
@@ -88,7 +83,6 @@ const mSTP = ({ entities, session }, ownProps) => {
     return {
         drillId: ownProps.drillId,
         currentUser: session.user.id,  
-        // drill: entities.drills[ownProps.drillId],
         drill: Object.values(entities.drills).filter(
             drill => drill._id === ownProps.drillId
         )[0]
