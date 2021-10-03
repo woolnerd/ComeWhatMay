@@ -13,11 +13,26 @@ class CreateProfileForm extends React.Component {
           ...this.props.profile,
           email: JSON.parse(localStorage.getItem("userEmail")),
         };
+      this.renderErrors = this.renderErrors.bind(this);
+    }
 
+    componentWillReceiveProps(nextProps) {
+      this.setState({ errors: nextProps.errors });
     }
 
     componentDidMount(){
       this.props.fetchUserProfile(this.props.currentUser.id);
+    }
+
+    renderErrors() {
+      debugger
+      return (
+        <ul className="errors">
+          {Object.keys(this.state.errors).map((error, i) => (
+            <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          ))}
+        </ul>
+      );
     }
 
     handleSubmit(e){
@@ -35,6 +50,7 @@ class CreateProfileForm extends React.Component {
     }
 
     render(){
+      console.log(this.state.errors)
       const show = this.props.profileId ? (
         <Redirect to={`/profile/${this.props.profileId._id}`} />
       ) : (
@@ -71,11 +87,13 @@ class CreateProfileForm extends React.Component {
               Household Size:
               <input
                 onChange={this.update("householdSize")}
-                type="text"
+                type="number"
                 value={this.state.householdSize}
+                min="1"
               />
             </label>
             <button className="login-btn btn-style-1">Create Profile</button>
+            <div className="error-container">{this.renderErrors()}</div>
           </form>
         </div>
       );
@@ -90,17 +108,19 @@ class CreateProfileForm extends React.Component {
 
 }
 
-const mSTP = ({session, entities}) => {
+const mSTP = (state) => {
     return {
-      currentUser: session.user,
+      currentUser: state.session.user,
       profile: {
         email: "",
         householdName: "",
-        householdSize: "",
+        householdSize: 1,
         phoneNumber: "",
+        errors: {}
       },
-      profileId: Object.values(entities.profile).filter(profile =>
-        profile.user == session.user.id)[0]
+      errors: state.errors.profile,
+      profileId: Object.values(state.entities.profile).filter(profile =>
+        profile.user == state.session.user.id)[0]
     };
 }
 
