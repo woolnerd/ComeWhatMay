@@ -25,7 +25,6 @@ class CreateProfileForm extends React.Component {
     }
 
     renderErrors() {
-      debugger
       return (
         <ul className="errors">
           {Object.keys(this.state.errors).map((error, i) => (

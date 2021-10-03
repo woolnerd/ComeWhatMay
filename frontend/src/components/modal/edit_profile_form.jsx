@@ -15,18 +15,16 @@ class EditProfileForm extends React.Component {
       householdName: this.props.profile.householdName,
       householdSize: this.props.profile.householdSize,
       phoneNumber: this.props.profile.phoneNumber,
-      // errors: []
+      errors: []
     }
     this.handleModal = this.handleModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.renderErrors = this.renderErrors.bind(this);
-
-
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({ errors: nextProps.errors });
-  // }
+  componentWillReceiveProps(nextProps) {
+    this.setState({ errors: nextProps.errors });
+  }
 
   componentDidMount(){
       this.props.fetchUserProfile(this.props.currentUser).then(res => this.setState({profile: res}))
@@ -35,7 +33,7 @@ class EditProfileForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateUserProfile(this.state)
-      .then(() => this.props.closeModal());
+      .then(() => this.state.errors.length === 0 ? this.props.closeModal() : null)
   }
 
   handleModal(e) {
@@ -50,16 +48,15 @@ class EditProfileForm extends React.Component {
     };
   }
 
-  // renderErrors() {
-  //   debugger
-  //   return (
-  //     <ul className="errors">
-  //       {Object.keys(this.state.errors).map((error, i) => (
-  //         <li key={`error-${i}`}>{this.state.errors[error]}</li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
+  renderErrors() {
+    return (
+      <ul className="errors">
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
     return (
@@ -109,7 +106,7 @@ class EditProfileForm extends React.Component {
               />
             </label>
           <button>Edit Profile</button>
-          {/* <div className="error-container">{this.renderErrors()}</div> */}
+          <div className="error-container">{this.renderErrors()}</div>
           </form>
         </div>
       </div>
