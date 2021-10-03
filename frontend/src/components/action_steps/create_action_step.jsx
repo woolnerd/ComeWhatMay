@@ -43,10 +43,13 @@ class CreateActionContainer extends React.Component {
                         owner: this.state.owner,
                         task: this.state.task,
                       })
-                      .then(() => this.setState({ 
-                        owner: '',
-                        task: '',
-                        modal: false }))
+                      .then(() =>
+                        this.setState({
+                          owner: "",
+                          task: "",
+                          modal: false,
+                        })
+                      )
                   }
                 >
                   <label>Action Owner</label>
@@ -61,10 +64,10 @@ class CreateActionContainer extends React.Component {
                   <input
                     type="text"
                     value={this.state.task}
-                    placeholder="What's the task"
+                    placeholder="What's the task?"
                     onChange={this.handleChange("task")}
                   />
-                  <button>Confirm</button>
+                  <button id="new-action-btn">Confirm</button>
                 </form>
               </div>
             );}  
