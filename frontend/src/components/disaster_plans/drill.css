@@ -24,6 +24,12 @@
 
 .start-drill {
     margin: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input[type="date"] {
+    font-family: 'Prompt', sans-serif; 
 }
 
 .start-drill label {

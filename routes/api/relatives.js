@@ -52,6 +52,11 @@ router.post('/',
 })
 
 router.put('/update/:id', (req, res) => {
+    const { errors, isValid } = validateRelativeInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
     Relative.findByIdAndUpdate(req.params.id, req.body)
         .then(relative => Relative.findById(relative.id))
         .then(relative => res.json(relative))

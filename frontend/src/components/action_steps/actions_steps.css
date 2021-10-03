@@ -1,7 +1,8 @@
 .disaster-show-frame {
     width: 900px;
     height: 500px;
-    background-color: hsla(194, 66%, 77%, 0.44);
+    background-color: hsla(194, 66%, 77%, 0.85);
+                                    /* was 44% ^^ */
     min-height: 600px;
     height: fit-content;
     margin: 0 auto;
@@ -43,10 +44,10 @@
 .plan-info {
     font-weight: 200;
     padding: 6px 0;
+    margin-right: 228px;
 }
 
 .plan-info-and-actions {
-    border: 1px solid black;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -57,28 +58,25 @@
     font-weight: 200;
 }
 
-.create-action-button button{
+#create-action-btn {
+    width: 6.25rem;
+}
+
+.create-action-button  button{
     margin: 16px;
     height: 37px;
 
     border: 1px rgb(255, 255, 255) solid;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 4px 10px;
     background-color: rgb(175, 211, 255);
     text-align: center;
     box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
     cursor: pointer;
-    width: 90%
+    width: 90%;
+    margin-left: 32px;
 }
-.image-action {
-    /* background-image: url('https://come-what-may.s3.amazonaws.com/images/roberto-nickson-smJ6XsYy8gA-unsplash.jpg');
-    position: absolute;
-    width:600px;
-    height: 600px;
-    top:50%;
-    bottom: 50%;
-    z-index: 1; */
-}
+
 
 .action-step-frame button{
     margin: 16px;
@@ -120,12 +118,14 @@
 .action-step-form-frame {
     display: flex;
     text-align: center;
-    /* border: 1px solid black; */
     background: aliceblue;
-    border-radius: 135px;
+    border-radius: 5px;
     justify-content: space-evenly;
     margin-top: 20px;
     padding-top: 10px;
+    width: 90%;
+    margin: 12px auto;
+    flex-direction: row-reverse;
 }
 
 .modal-child-task{  
@@ -183,6 +183,10 @@ textarea {
 
 .plan-header-info {
     display: flex;
+    align-content: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
 }
 
 .plan-header-info h4 {
@@ -203,4 +207,10 @@ textarea {
 
 h4#left-padding {
     padding: 10px;
+}
+
+.div-for-line {
+    border-bottom: 1px solid black;
+    width: 868px;
+    margin-left: 32px;
 }
