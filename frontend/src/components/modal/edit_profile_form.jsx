@@ -58,6 +58,7 @@ class EditProfileForm extends React.Component {
     );
   }
 
+  
   render() {
     return (
       <div className="edit-form">
