@@ -16,11 +16,17 @@ class CreateRelative extends React.Component {
             age: this.props.relative.age,
             relationship: this.props.relative.relationship,
             phoneNumber: this.props.relative.phoneNumber,
+            errors: []
         }
-        this.handleInput = this.handleInput.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleModal = this.handleModal.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
 
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({ errors: nextProps.errors });
     }
 
     handleModal(e) {
@@ -37,7 +43,17 @@ class CreateRelative extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.updateRelative(this.state)
-            .then(() => this.props.closeModal())
+            .then(() => this.state.errors.length === 0 ? this.props.closeModal() : null)
+    }
+
+    renderErrors() {
+        return (
+            <ul className="errors">
+                {Object.keys(this.state.errors).map((error, i) => (
+                    <li key={`error-${i}`}>{this.state.errors[error]}</li>
+                ))}
+            </ul>
+        );
     }
 
     render() {
@@ -66,13 +82,14 @@ class CreateRelative extends React.Component {
                 <div className="btn-container">
                     <button className="save-button" onClick={this.handleSubmit}>Update</button>
                 </div>
-
+                <div className="error-container">{this.renderErrors()}</div>
             </div>
         )
     }
 }
 
 const mSTP = (state, ownProps) => ({
+    errors: state.errors.relative,
     relativeId: ownProps.profileId,
     relative: state.entities.relative[ownProps.relativeId]
 });
