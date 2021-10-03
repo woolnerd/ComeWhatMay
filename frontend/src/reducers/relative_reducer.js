@@ -14,10 +14,7 @@ const relativeReducer = (state = {}, action) => {
                 newState[relative._id] = relative
             })
             return newState;
-            // return action.relatives.data
         case RECEIVE_RELATIVE:
-            // newState = {...state, [action.relative.data._id]: action.relative.data}
-            // return Object.values(newState).filter(element => element._id == action.relative.data._id);
             return {...state, [action.relative.data._id]: action.relative.data}
         case REMOVE_RELATIVE:
             delete newState[action.relativeId]
