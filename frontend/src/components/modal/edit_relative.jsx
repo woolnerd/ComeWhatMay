@@ -7,72 +7,127 @@ import { updateRelative } from '../../actions/relative_actions';
 
 
 class CreateRelative extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            _id: this.props.relative._id,
-            profile: this.props.relative.profile,
-            name: this.props.relative.name,
-            age: this.props.relative.age,
-            relationship: this.props.relative.relationship,
-            phoneNumber: this.props.relative.phoneNumber,
-        }
-        this.handleInput = this.handleInput.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleModal = this.handleModal.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {
+      _id: this.props.relative._id,
+      profile: this.props.relative.profile,
+      name: this.props.relative.name,
+      age: this.props.relative.age,
+      relationship: this.props.relative.relationship,
+      phoneNumber: this.props.relative.phoneNumber,
+      errors: [],
+    };
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleModal = this.handleModal.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
+  }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.errors !== prevState.errors) {
+      return { errors: nextProps.errors };
+    } else {
+      return null;
     }
+  }
 
-    handleModal(e) {
-        e.preventDefault();
-        this.props.closeModal();
+  componentDidUpdate(prevProps) {
+    if (prevProps.errors !== this.props.errors) {
+      this.setState({ errors: this.props.errors });
     }
+  }
 
-    handleInput(type) {
-        return (e) => {
-            this.setState({ [type]: e.target.value })
-        };
-    }
+  // componentWillReceiveProps(nextProps) {
+  //     this.setState({ errors: nextProps.errors });
+  // }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.updateRelative(this.state)
-            .then(() => this.props.closeModal())
-    }
+  handleModal(e) {
+    e.preventDefault();
+    this.props.closeModal();
+  }
 
-    render() {
-        return (
-            <div className="create-relative">
-                <div className="relative-header">
-                    <h2>Edit Household Member</h2>
-                    <p className="exit_edit" onClick={this.handleModal}><AiOutlineClose /></p>
-                </div>
-                <div className="name">
-                    <label>Name</label>
-                    <input value={this.state.name} onChange={this.handleInput('name')} type="text" />
-                </div>
-                <div className="age">
-                    <label>Age </label>
-                    <input value={this.state.age} onChange={this.handleInput('age')} type="text" />
-                </div>
-                <div className="Relationship">
-                    <label>Relationship</label>
-                    <input value={this.state.relationship} onChange={this.handleInput('relationship')} type="text" />
-                </div>
-                <div className="phone-number">
-                    <label>Phone Number</label>
-                    <input value={this.state.phoneNumber} onChange={this.handleInput('phoneNumber')} type="text" />
-                </div >
-                <div className="btn-container">
-                    <button className="save-button" onClick={this.handleSubmit}>Update</button>
-                </div>
+  handleInput(type) {
+    return (e) => {
+      this.setState({ [type]: e.target.value });
+    };
+  }
 
-            </div>
-        )
-    }
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props
+      .updateRelative(this.state)
+      .then(() =>
+        this.state.errors.length === 0 ? this.props.closeModal() : null
+      );
+  }
+
+  renderErrors() {
+    return (
+      <ul className="errors" id="edit-relative-errors">
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li id="relative-errors-edit" key={`error-${i}`}>
+            {this.state.errors[error]}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  render() {
+    return (
+      <div className="create-relative">
+        <div className="relative-header">
+          <h2>Edit Household Member</h2>
+          <p className="exit_edit" onClick={this.handleModal}>
+            <AiOutlineClose />
+          </p>
+        </div>
+        <div className="name">
+          <label>Name</label>
+          <input
+            value={this.state.name}
+            onChange={this.handleInput("name")}
+            type="text"
+          />
+        </div>
+        <div className="age">
+          <label>Age </label>
+          <input
+            value={this.state.age}
+            onChange={this.handleInput("age")}
+            type="text"
+          />
+        </div>
+        <div className="Relationship">
+          <label>Relationship</label>
+          <input
+            value={this.state.relationship}
+            onChange={this.handleInput("relationship")}
+            type="text"
+          />
+        </div>
+        <div className="phone-number">
+          <label>Phone Number</label>
+          <input
+            value={this.state.phoneNumber}
+            onChange={this.handleInput("phoneNumber")}
+            type="text"
+          />
+        </div>
+        <div className="btn-container">
+          <button className="save-button" onClick={this.handleSubmit}>
+            Update
+          </button>
+        </div>
+        <div className="error-container">{this.renderErrors()}</div>
+      </div>
+    );
+  }
 }
 
 const mSTP = (state, ownProps) => ({
+    errors: state.errors.relative,
     relativeId: ownProps.profileId,
     relative: state.entities.relative[ownProps.relativeId]
 });

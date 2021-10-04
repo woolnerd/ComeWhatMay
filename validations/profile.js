@@ -15,6 +15,10 @@ module.exports = function validateProfileInput(data) {
     errors.email = 'Email field is required';
   }
 
+  if (Validator.isEmpty(data.householdName)) {
+    errors.email = 'Household Name field is required';
+  }
+
   if (Validator.isEmpty(data.phoneNumber.toString())) {
     errors.phoneNumber = 'Phone number field is required';
   }

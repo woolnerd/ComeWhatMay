@@ -54,7 +54,7 @@ class CreateDrill extends React.Component {
                     <label>Start On:</label>
                     <input value={this.state.timeToStart} onChange={this.handleInput('timeToStart')} type="date" min={date} />
                 </div>
-                <button onClick={this.handleSubmit}>Save</button>  
+                <button className="save-button" onClick={this.handleSubmit}>Save</button>  
             </div>
         )
     }

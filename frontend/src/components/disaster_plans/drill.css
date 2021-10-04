@@ -22,8 +22,19 @@
     cursor: pointer;
 }
 
+.create-drill:hover {
+    color: black;
+    transition: all 0.25s;
+}
+
 .start-drill {
     margin: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input[type="date"] {
+    font-family: 'Prompt', sans-serif; 
 }
 
 .start-drill label {
@@ -40,7 +51,7 @@
 }
 
 .drill-btn {
-      margin: 16px;
+    margin: 16px;
     height: 37px;
 
     border: 1px rgb(255, 255, 255) solid;
@@ -50,4 +61,20 @@
     text-align: center;
     box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
     cursor: pointer;
+}
+
+#review-submit-btn {
+    display: block;
+    border: 1px rgb(255, 255, 255) solid;
+    border-radius: 5px;
+    padding: 4px 10px;
+    margin: 2px 0;
+    background-color: rgb(175, 211, 255);
+    text-align: center;
+    box-shadow: 4px 4px 4px rgb(0 0 0 / 33%);
+    cursor: pointer;
+    height: 26px;
+    margin: 0 auto;
+    width: 60%;
+    margin-bottom: 8px;
 }

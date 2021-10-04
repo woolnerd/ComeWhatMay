@@ -70,4 +70,6 @@
 
 .clock-btn:hover{
     background-color: rgba(26, 26, 26, 0.365);
+    transition: all .25;
+    border: 3px solid white;
 }

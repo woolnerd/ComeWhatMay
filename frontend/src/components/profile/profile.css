@@ -37,21 +37,18 @@ body {
     /* background-color: antiquewhite; */
     /* border-radius: 20px; */
     margin: 2rem auto;
-    /* padding-bottom: 2%; */
-    /* box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.35); */
     justify-content: space-evenly;
-    /* border: thick solid purple; */
 }
 
 .profile-details {
     padding: 10px;
     border: 1px black solid;
-    /* background-image: url("https://come-what-may.s3.amazonaws.com/confectionary.png"); */
     background-color: aliceblue;
     box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
     display: flex;
     justify-content: center;
     border-radius: 3px;
+    margin-top: 10px;
 }
 
 .profile-details-field-names{
@@ -69,7 +66,6 @@ body {
     font-size: 1rem;
     padding: 10px;
     margin: 2px 0;
-    /* text-align: right; */
     font-weight: 700;
 }
 
@@ -97,6 +93,8 @@ body {
     margin: 10px auto;
     padding: 4px;
     border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid hsla(194, 66%, 77%);
 }
 
 .edit-form-header {
@@ -128,19 +126,17 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* border: thin solid green; */
 }
 
 .relative-card-frame{
     width: 100%;
     height: 100%;
-    /* border: medium solid yellowgreen; */
 }
 
 .exit-edit {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 3px;
-    font-size: 20px;
+    /* font-size: 20px; */
 }
 
 svg {
@@ -165,4 +161,14 @@ svg {
     text-align: center;
     box-shadow: 4px 4px 4px rgb(0 0 0 / 33%);
     cursor: pointer;
+}
+
+#create-profile-errors{
+    margin-left: -30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#create-profile-error{
+    width: 280px;
 }

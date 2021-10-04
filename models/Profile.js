@@ -13,7 +13,7 @@ const ProfileSchema = new Schema({
     },
     householdName: {
         type: String, 
-        required: false
+        required: true
     },
     phoneNumber: {
         type: Number, 

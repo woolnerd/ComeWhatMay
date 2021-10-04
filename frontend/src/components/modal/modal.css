@@ -114,8 +114,8 @@
 }
 
 .create-relative-header svg, .relative-header svg{
-   font-size: 20px;
-   border: 1px solid black;
+   /* font-size: 20px;
+   border: 1px solid black; */
 }
 
 
@@ -127,15 +127,7 @@
 .save-button {
     /* color: rgb(72, 72, 72);
     /* font-size: 20px; */
-    font-weight: 600;
-    width: 100% ;
-    border: 1px solid rgb(252, 252, 252);
-    border-radius: 20px;
-    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15); 
-
-    width: 75%;
-    margin: 0 auto;
-    margin-top: 20px;
+   
     /* border-color: azure; */
 
 }
@@ -148,6 +140,17 @@
 }
 
 .save-button {
+    font-weight: 600;
+    /* width: 100% ; */
+    /* border: 1px solid rgb(252, 252, 252); */
+    /* border-radius: 20px; */
+    /* box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);  */
+
+    width: 75%;
+    /* margin: 0 auto; */
+    margin-top: 20px;
+
+
      display: block;
     border: 1px rgb(255, 255, 255) solid;
     border-radius: 5px;
@@ -158,4 +161,32 @@
     box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
     cursor: pointer;
     height: 30px;
+}
+
+#edit-profile-errors{
+    margin-top: 15px;
+    margin-left: 40px;
+
+}
+
+#edit-profile-btn{
+    margin-top: 20px;
+}
+
+#profile-edit-error{
+    width: 300px;
+}
+
+#create-relative-errors,
+#edit-relative-errors{
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#relative-errors-create,
+#relative-errors-edit{
+    width: 300px;
+    padding: 5px 0;
+    text-align: left;
 }

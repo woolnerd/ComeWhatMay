@@ -142,8 +142,14 @@ class ActionStep extends React.Component {
             </div>
             {this.ActionStepModal()}
             <div className="task-btn">
-              <AiOutlineEdit onClick={() => this.setState({ modal: 1 })} />
-              <RiDeleteBin2Line onClick={() => this.setState({ modal: 2 })} />
+              <AiOutlineEdit
+                id="edit-icon"
+                onClick={() => this.setState({ modal: 1 })}
+              />
+              <RiDeleteBin2Line
+                id="delete-icon"
+                onClick={() => this.setState({ modal: 2 })}
+              />
             </div>
           </div>
         );

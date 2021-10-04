@@ -15,18 +15,30 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-
   }
 
- 
-
-  componentWillReceiveProps(nextProps) {
+  static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.currentUser === true) {
       this.props.history.push("/profile/new");
+      return { errors: nextProps.errors };
+    } else {
+      return null;
     }
-
-    this.setState({ errors: nextProps.errors });
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.errors !== this.props.errors) {
+      this.setState({ errors: this.props.errors });
+    }
+  }
+
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.currentUser === true) {
+  //     this.props.history.push("/profile/new");
+  //   }
+
+  //   this.setState({ errors: nextProps.errors });
+  // }
 
   update(field) {
     return (e) =>
@@ -43,12 +55,10 @@ class LoginForm extends React.Component {
     };
     this.props
       .login(user)
-      .then(
-        localStorage.setItem("userEmail", JSON.stringify(user.email))
-      );
+      .then(localStorage.setItem("userEmail", JSON.stringify(user.email)));
   }
 
-  demoLogin(e){
+  demoLogin(e) {
     e.stopPropagation();
     e.preventDefault();
     this.props.login({

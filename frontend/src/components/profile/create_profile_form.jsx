@@ -6,103 +6,132 @@ import { Redirect } from "react-router-dom";
 import "./profile.css";
 
 class CreateProfileForm extends React.Component {
-    constructor(props){
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-          ...this.props.profile,
-          email: JSON.parse(localStorage.getItem("userEmail")),
-        };
+    this.state = {
+      ...this.props.profile,
+      email: JSON.parse(localStorage.getItem("userEmail")),
+    };
+    this.renderErrors = this.renderErrors.bind(this);
+  }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.errors !== prevState.errors) {
+      return { errors: nextProps.errors };
+    } else {
+      return null;
     }
+  }
 
-    componentDidMount(){
-      this.props.fetchUserProfile(this.props.currentUser.id);
+  componentDidUpdate(prevProps) {
+    if (prevProps.errors !== this.props.errors) {
+      this.setState({ errors: this.props.errors });
     }
+  }
 
-    handleSubmit(e){
-        e.preventDefault()
-        this.setState({user: this.props.currentUser.id})
-        this.props
-          .createUserProfile(this.state)
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({ errors: nextProps.errors });
+  // }
 
-    update(field){
-        return e => { 
-        let value = e.target.value 
-        this.setState({[field]: value})
-        }
-    }
+  componentDidMount() {
+    this.props.fetchUserProfile(this.props.currentUser.id);
+  }
 
-    render(){
-      const show = this.props.profileId ? (
-        <Redirect to={`/profile/${this.props.profileId._id}`} />
-      ) : (
-        <div className="create-form-container">
-          <form className="create-form" onSubmit={(e) => this.handleSubmit(e)}>
-            <label>
-              Household Name:
-              <input
-                onChange={this.update("householdName")}
-                type="text"
-                value={this.state.householdName}
-              />
-            </label>
-            <br />
-            <label>
-              Email:
-              <input
-                onChange={this.update("email")}
-                type="text"
-                value={this.state.email}
-              />
-            </label>
-            <br />
-            <label>
-              Phone Number:
-              <input
-                onChange={this.update("phoneNumber")}
-                type="text"
-                value={this.state.phoneNumber}
-                // minLength="10"
-                // maxLength="10"
-              />
-            </label>
-            <br />
-            <label>
-              Household Size:
-              <input
-                onChange={this.update("householdSize")}
-                type="text"
-                value={this.state.householdSize}
-              />
-            </label>
-            <button className="login-btn btn-style-1">Create Profile</button>
-          </form>
-        </div>
-      );
-        return (
-          <div className="profile-container">
-            {show}
-          </div>
-        );
-        
-    }
+  renderErrors() {
+    return (
+      <ul className="errors" id="create-profile-errors">
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li id="create-profile-error" key={`error-${i}`}>
+            {this.state.errors[error]}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.setState({ user: this.props.currentUser.id });
+    this.props.createUserProfile(this.state);
+  }
 
+  update(field) {
+    return (e) => {
+      let value = e.target.value;
+      this.setState({ [field]: value });
+    };
+  }
+
+  render() {
+    console.log(this.state.errors);
+    const show = this.props.profileId ? (
+      <Redirect to={`/profile/${this.props.profileId._id}`} />
+    ) : (
+      <div className="create-form-container">
+        <form className="create-form" onSubmit={(e) => this.handleSubmit(e)}>
+          <label>
+            Household Name:
+            <input
+              onChange={this.update("householdName")}
+              type="text"
+              value={this.state.householdName}
+            />
+          </label>
+          <br />
+          <label>
+            Email:
+            <input
+              onChange={this.update("email")}
+              type="text"
+              value={this.state.email}
+            />
+          </label>
+          <br />
+          <label>
+            Phone Number:
+            <input
+              onChange={this.update("phoneNumber")}
+              type="text"
+              value={this.state.phoneNumber}
+            />
+          </label>
+          <br />
+          <label>
+            Household Size:
+            <input
+              onChange={this.update("householdSize")}
+              type="number"
+              value={this.state.householdSize}
+              min="1"
+            />
+          </label>
+          <button className="login-btn btn-style-1">Create Profile</button>
+          <div className="error-container">{this.renderErrors()}</div>
+        </form>
+      </div>
+    );
+    return (
+      <div className="profile-container" id="profile-form-container">
+        {show}
+      </div>
+    );
+  }
 }
 
-const mSTP = ({session, entities}) => {
+const mSTP = (state) => {
     return {
-      currentUser: session.user,
+      currentUser: state.session.user,
       profile: {
         email: "",
         householdName: "",
-        householdSize: "",
+        householdSize: 1,
         phoneNumber: "",
+        errors: {}
       },
-      profileId: Object.values(entities.profile).filter(profile =>
-        profile.user == session.user.id)[0]
+      errors: state.errors.profile,
+      profileId: Object.values(state.entities.profile).filter(profile =>
+        profile.user == state.session.user.id)[0]
     };
 }
 

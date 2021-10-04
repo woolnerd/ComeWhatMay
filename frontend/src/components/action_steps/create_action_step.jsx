@@ -54,6 +54,7 @@ class CreateActionContainer extends React.Component {
                         owner: this.state.owner,
                         task: this.state.task,
                       })
+
                       .then(() => this.setState({ 
                         owner: !this.state.errors.length ?  "" : this.state.owner ,
                         task: !this.state.errors.length ?  "" : this.state.task,
@@ -85,7 +86,34 @@ class CreateActionContainer extends React.Component {
                     </textarea>
                   </div>
                   <div className="plan-error-container">{this.renderErrors()}</div>
-                  <button>Confirm</button>
+                  <button id="new-action-btn">Confirm</button>
+//                   begin-old
+//                       .then(() =>
+//                         this.setState({
+//                           owner: "",
+//                           task: "",
+//                           modal: false,
+//                         })
+//                       )
+//                   }
+//                 >
+//                   <label>Action Owner</label>
+//                   <input
+//                     type="text"
+//                     value={this.state.owner}
+//                     placeholder="Who's job is this?"
+//                     onChange={this.handleChange("owner")}
+//                   />
+
+//                   <label>Action Task</label>
+//                   <input
+//                     type="text"
+//                     value={this.state.task}
+//                     placeholder="What's the task?"
+//                     onChange={this.handleChange("task")}
+//                   />
+//                   <button id="new-action-btn">Confirm</button>
+//             end-old
                 </form>
               </div>
             );}  

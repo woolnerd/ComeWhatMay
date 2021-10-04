@@ -152,7 +152,7 @@ class DisasterPlanShow extends React.Component {
                           />
                         </label>
                         <div className="btn-cont">
-                            <button id="dis-btn">Update Plan</button>
+                          <button id="dis-btn">Update Plan</button>
                         </div>
                         <div className="plan-error-container">{this.renderErrors()}</div>
                       </form>

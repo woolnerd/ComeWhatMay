@@ -44,17 +44,17 @@ class RelativeIndex extends React.Component {
             return (
               <div key={`${i}`} className="single-member">
                 <div className="icon-box">
-                  <div className="icon"><FaRegUser/></div>
+                  <div className="icon"><FaRegUser id="user-icon"/></div>
                   <div className="icon-btn">
                     <div
                       onClick={() =>
                         this.props.openModal("editRelative", member._id)
                       }
                     >
-                      <AiOutlineEdit />
+                      <AiOutlineEdit id="edit-icon"/>
                     </div>
                     <div onClick={() => this.props.deleteRelative(member._id)}>
-                      <RiDeleteBin2Line />
+                      <RiDeleteBin2Line id="delete-icon"/>
                     </div>
                   </div>
                 </div>

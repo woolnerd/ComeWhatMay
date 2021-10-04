@@ -1,7 +1,25 @@
 
 body {
-    /* color: rgb(159, 105, 155); */
-    /* background-color: rgb(233, 218, 218); */
     font-family: 'Prompt', sans-serif;
 }
 
+#plan-btn:hover, button:hover, .btn-style-1:hover, #demo-user-btn:hover{
+    color: rgb(220, 244, 244);
+    transition: all .25s;
+    border: 1px solid black;
+}
+
+.btn-style-1-container{
+    height: 1rem;  
+}
+
+.plan-item:hover {
+    background-color: rgb(232, 245, 245);
+    color: rgb(204, 240, 240);
+    transition: all .25s;
+    border: 1px solid black;  
+ }
+
+.plan-title, .alarm{
+    color: black;
+}
