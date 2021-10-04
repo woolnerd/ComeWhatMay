@@ -203,3 +203,11 @@
     border-radius: 5px;
     box-shadow: 5px 5px 10px -3px rgb(0 0 0 / 35%);
 }
+
+#edit-relative-error-space{
+    padding-bottom: 40px;
+}
+
+#create-relative-error-space{
+    padding-bottom: 40px;
+}

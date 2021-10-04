@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import { AiOutlineClose } from 'react-icons/ai'
-import { updateRelative } from '../../actions/relative_actions';
+import { updateRelative, clearRelativeErrors } from '../../actions/relative_actions';
 
 
 
@@ -44,7 +44,8 @@ class CreateRelative extends React.Component {
 
   handleModal(e) {
     e.preventDefault();
-    this.props.closeModal();
+    this.props.clearRelativeErrors();
+    setTimeout(() => this.props.closeModal(), 0)
   }
 
   handleInput(type) {
@@ -76,7 +77,7 @@ class CreateRelative extends React.Component {
 
   render() {
     return (
-      <div className="create-relative">
+      <div className="create-relative" id="edit-relative-error-space">
         <div className="relative-header">
           <h2>Edit Household Member</h2>
           <p className="exit_edit" onClick={this.handleModal}>
@@ -134,7 +135,8 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = dispatch => ({
     updateRelative: relative => dispatch(updateRelative(relative)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    clearRelativeErrors: () => dispatch(clearRelativeErrors())
 })
 
 export default connect(mSTP, mDTP)(CreateRelative);
