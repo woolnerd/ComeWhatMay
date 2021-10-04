@@ -136,17 +136,59 @@
     padding-left: 2rem;
     font-weight: 200;
 } */
+.create-task-top{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* border: thin solid fuchsia; */
+}
+
+.action-step-form{
+    width: 100%;
+}
+
+.action-step-form h6{
+    font-weight: 600;
+    width: 150px;
+    margin-top: 10px;
+}
+
+.action-owner{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.action-task-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.create-task-info-input{
+    height: 100%;
+    width: 60%;
+    border-radius: 5px;
+    margin-left: 7px;
+}
+
+.create-action-step-modal-information{
+    display: flex;
+    justify-self: flex-start;
+}
 
 .action-step-form-frame {
     display: flex;
     text-align: center;
     /* border: 1px solid black; */
     background: aliceblue;
-    border-radius: 135px;
+    border-radius: 15px;
     justify-content: space-evenly;
     margin-top: 20px;
     padding-top: 10px;
+    /* border: medium solid yellow; */
 }
+
 
 .modal-child-task{  
     position: absolute;

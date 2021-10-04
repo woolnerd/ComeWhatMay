@@ -46,13 +46,8 @@ class CreateActionContainer extends React.Component {
 
             return (
               <div className="action-step-form-frame">
-                <p
-                  className="exit_edit"
-                  onClick={() => this.setState({ modal: 0 })}
-                >
-                  <AiOutlineClose className="close-x" />
-                </p>
                 <form
+                  className="action-step-form"
                   onSubmit={() =>
                     this.props
                       .createActionStep(this.props.planId, {
@@ -65,20 +60,30 @@ class CreateActionContainer extends React.Component {
                         modal: !this.state.errors.length ? false : true 
                         })
                       )}>
-                  <label>Action Owner</label>
-                  <input
-                    type="text"
-                    value={this.state.owner}
-                    placeholder="Who's job is this?"
-                    onChange={this.handleChange("owner")}
-                  />
-
-                  <label>Action Task</label>
-                  <input
-                    type="text"
-                    value={this.state.task}
-                    placeholder="What's the task"
-                    onChange={this.handleChange("task")}/>
+                  <div className='create-task-top'>
+                    <div className='action-owner'>
+                      <h6>Action Owner</h6>
+                      <input
+                        type="text"
+                        value={this.state.owner}
+                        placeholder="Who's job is this?"
+                        onChange={this.handleChange("owner")}/>
+                    </div>
+                    <p
+                      className="exit_edit"
+                      onClick={() => this.setState({ modal: 0 })}>
+                      <AiOutlineClose className="close-x" />
+                    </p>
+                  </div>
+                  <div className='action-task-details'>
+                    <h6>Action Task</h6>
+                    <textarea
+                      className="create-task-info-input"
+                      value={this.state.task}
+                      placeholder="What's the task"
+                      onChange={this.handleChange("task")}>
+                    </textarea>
+                  </div>
                   <div className="plan-error-container">{this.renderErrors()}</div>
                   <button>Confirm</button>
                 </form>

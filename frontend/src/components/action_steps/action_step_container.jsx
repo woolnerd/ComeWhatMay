@@ -5,6 +5,7 @@ import React from 'react'
 import { AiOutlineEdit } from "react-icons/ai";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import "./actions_steps.css";
+import { AiOutlineClose } from 'react-icons/ai'
 
 
 class ActionStep extends React.Component {
@@ -57,8 +58,10 @@ class ActionStep extends React.Component {
             case 1:
                 return (
                 <div className="modal-background">
-                    <div className='action-step-form-frame modal-child-task'>
-                        <form onSubmit={
+                    <div className='modal-child-task'>
+                        <form
+                            className="action-step-update-modal" 
+                            onSubmit={
                             ()=> this.props.updateActionStep(
                                 this.props.planId, {   
                                     owner: this.state.owner, 
@@ -69,17 +72,30 @@ class ActionStep extends React.Component {
                                     this.setState({
                                         modal: !this.state.errors.length ? 0 : 1}))}>
 
-                            <label>Action Owner</label>
-                                <input 
+                            <div className='create-task-top'>
+                                <div className='action-owner'>
+                                <h6>Action Owner</h6>
+                                <input
                                     type="text"
                                     value={this.state.owner}
-                                    onChange={this.handleChange('owner')} />
-                            
-                            <label>Action Task</label>
-                                <input 
-                                    type="text"
-                                    value={this.state.task}
-                                    onChange={this.handleChange('task')} />
+                                    placeholder="Who's job is this?"
+                                    onChange={this.handleChange("owner")}/>
+                                </div>
+                                <p
+                                className="exit_edit"
+                                onClick={() => this.setState({ modal: 0 })}>
+                                <AiOutlineClose className="close-x" />
+                                </p>
+                            </div>
+                            <div className='action-task-details'>
+                                <h6>Action Task</h6>
+                                <textarea
+                                className="create-task-info-input"
+                                value={this.state.task}
+                                placeholder="What's the task"
+                                onChange={this.handleChange("task")}>
+                                </textarea>
+                            </div>
                             <button>Update Action</button>
                             <div className="plan-error-container">{this.renderErrors()}</div>
                         </form>
