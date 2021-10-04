@@ -156,3 +156,17 @@
 #profile-edit-error{
     width: 300px;
 }
+
+#create-relative-errors,
+#edit-relative-errors{
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#relative-errors-create,
+#relative-errors-edit{
+    width: 300px;
+    padding: 5px 0;
+    text-align: left;
+}
