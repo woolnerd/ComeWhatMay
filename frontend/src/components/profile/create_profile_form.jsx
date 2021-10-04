@@ -100,6 +100,7 @@ class CreateProfileForm extends React.Component {
           <label>
             Household Size:
             <input
+              id="household-size-input"
               onChange={this.update("householdSize")}
               type="number"
               value={this.state.householdSize}

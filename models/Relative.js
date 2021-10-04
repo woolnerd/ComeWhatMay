@@ -13,7 +13,7 @@ const RelativeSchema = new Schema({
     },
     age: {
       type: Number,
-      required: false
+      required: true
     }, 
     relationship: {
         type: String,

@@ -10,7 +10,7 @@ router.get('/:profile_id', (req, res) => {
     Relative.find({profile: req.params.profile_id})
     .then(relative => res.json(relative))
     .catch(err =>
-            res.status(404).json({ noRelativeFound: 'No household memebers found associated to profile' }
+            res.status(404).json({ noRelativeFound: 'No household members found associated to profile' }
         )
     );
 });
@@ -19,7 +19,7 @@ router.get('/member/:id', (req, res) => {
     Relative.findById(req.params.id)
     .then(relative => res.json(relative))
     .catch(err =>
-            res.status(404).json({ noRelativeFound: 'No household memeber found associated to ID' }
+            res.status(404).json({ noRelativeFound: 'No household member found associated to ID' }
         )
     );
 });
