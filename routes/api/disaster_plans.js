@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const DisasterPlan = require('../../models/DisasterPlan')
 const validateDisasterPlanInput = require('../../validations/disaster_plan');
+const validateActionStepInput = require('../../validations/action_steps')
 
 router.post('/create/:profileId', (req, res) => {
     const {errors, isValid} = validateDisasterPlanInput(req.body);
@@ -61,6 +62,12 @@ router.delete('/delete/:disasterId', (req, res) => {
 })
 
 router.post('/:disasterId/action/create', (req, res) => {
+    const {errors, isValid} = validateActionStepInput(req.body);
+
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
+
     const disasterId = req.params.disasterId
     let newActionDetails = req.body
     DisasterPlan.findByIdAndUpdate(disasterId, 
@@ -75,6 +82,12 @@ router.post('/:disasterId/action/create', (req, res) => {
 })
 
 router.put('/:disasterId/action/update/:actionId', (req, res) => {
+
+    const {errors, isValid} = validateActionStepInput(req.body);
+
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
 
     const disasterId = req.params.disasterId
     const actionId = req.params.actionId
