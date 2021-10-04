@@ -12,7 +12,7 @@ module.exports = function validateActionStepInput(data) {
     errors.owner = 'Action Owner cannot be blank';
   }
 
-  if (!Validator.isLength(data.owner, {max: 16})) {
+  if (!Validator.isLength(data.owner, {max: 12})) {
     errors.owner = 'Action owner length must be less than 16 chars';
   }
 

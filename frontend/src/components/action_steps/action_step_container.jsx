@@ -114,13 +114,15 @@ class ActionStep extends React.Component {
     render(){
         return (
           <div className="action-step-frame">
-            <div className="task-owner">
-              {/* <div className='owner-of-taks'> */}
-              <h6>Person: {this.state.owner}</h6>
-              {/* </div> */}
-              {/* <div className="task-information"> */}
-              <p>Task: {this.state.task}</p>
-              {/* </div> */}
+            <div className="task">
+              <div className='owner-of-task'>
+                <h6>Owner</h6> 
+                <p>{this.state.owner}</p> 
+              </div>
+              <div className="task-information">
+                <h6>Task</h6> 
+                <p>{this.state.task}</p>
+              </div>
             </div>
             {this.ActionStepModal()}
             <div className="task-btn">
