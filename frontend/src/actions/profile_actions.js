@@ -4,6 +4,7 @@ import * as APIProfileUtil from "../util/profile_util";
 export const RECEIVE_USER_PROFILE = "RECEIVE_USER_PROFILE";
 export const REMOVE_USER_PROFILE = "REMOVE_USER_PROFILE";
 export const RECEIVE_PROFILE_ERRORS = "RECEIVE_PROFILE_ERRORS";
+export const CLEAR_PROFILE_ERRORS = "CLEAR_PROFILE_ERRORS";
 
 
 export const receiveUserProfile = (profile) => {
@@ -19,6 +20,10 @@ export const receiveUserProfile = (profile) => {
 export const removeUserProfile = (profileId) => ({
     type: REMOVE_USER_PROFILE,
     profileId
+})
+
+export const clearProfileErrors = () => ({
+  type: CLEAR_PROFILE_ERRORS
 })
 
 export const receiveErrors = errors => ({
