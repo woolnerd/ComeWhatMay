@@ -14,11 +14,24 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
-  componentWillReceiveProps(nextProps) {
-
-    this.setState({ errors: nextProps.errors });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.errors !== prevState.errors) {
+      return { errors: nextProps.errors };
+    } else {
+      return null;
+    }
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.errors !== this.props.errors) {
+      this.setState({ errors: this.props.errors });
+    }
+  }
+
+  // componentWillReceiveProps(nextProps) {
+
+  //   this.setState({ errors: nextProps.errors });
+  // }
 
   update(field) {
     return (e) =>
@@ -34,22 +47,29 @@ class SignupForm extends React.Component {
       password: this.state.password,
     };
 
-    this.props.signup(user)
-    .then( () => this.state.errors.length === 0 ? this.props.login({
-      email: this.state.email,
-      password: this.state.password,
-    })
-    .then(localStorage.setItem("userEmail", JSON.stringify(this.state.email)))
-    
-    : null )
+    this.props.signup(user).then(() =>
+      this.state.errors.length === 0
+        ? this.props
+            .login({
+              email: this.state.email,
+              password: this.state.password,
+            })
+            .then(
+              localStorage.setItem(
+                "userEmail",
+                JSON.stringify(this.state.email)
+              )
+            )
+        : null
+    );
   }
 
-  demoLogin(){
+  demoLogin() {
     let user = {
       email: "demo@demo.demo",
       password: "password",
     };
-    this.props.login(user)
+    this.props.login(user);
   }
 
   renderErrors() {
@@ -95,11 +115,11 @@ class SignupForm extends React.Component {
                 type="submit"
                 value="Submit"
               />
-              <div
-                id="demo-user-btn"
-                onClick={() => this.demoLogin()}
-                > Demo User </div>
-              
+              <div id="demo-user-btn" onClick={() => this.demoLogin()}>
+                {" "}
+                Demo User{" "}
+              </div>
+
               <br />
               <p className="or-submit">
                 or{" "}
