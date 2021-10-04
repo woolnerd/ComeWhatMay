@@ -6,7 +6,8 @@ import { fetchDisasterPlans, createDisasterPlan } from '../../actions/disaster_p
 const mSTP = (state, ownProps) =>{
     return {
         disasterPlans: Object.values(state.entities.plans), 
-        profileId: ownProps.match.params.profileId
+        profileId: ownProps.match.params.profileId, 
+        errors: Object.values(state.errors.plans),
     }   
 }
 

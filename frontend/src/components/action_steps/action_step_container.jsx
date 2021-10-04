@@ -5,6 +5,7 @@ import React from 'react'
 import { AiOutlineEdit } from "react-icons/ai";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import "./actions_steps.css";
+import { AiOutlineClose } from 'react-icons/ai'
 
 
 class ActionStep extends React.Component {
@@ -14,7 +15,8 @@ class ActionStep extends React.Component {
         this.state = {
             owner: this.props.action.owner, 
             task: this.props.action.task, 
-            modal: 0
+            modal: 0, 
+            errors: this.props.errors
         }
     }
 
@@ -34,6 +36,21 @@ class ActionStep extends React.Component {
         )
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({ errors: nextProps.errors });
+      }
+  
+      renderErrors() {
+        const errors = this.state.errors.map(
+            (error, i) => <li key={`error-${i}`}>{error}</li>
+          )
+        return (
+          <ul className="plan-errors">
+            {errors}
+          </ul>
+        );
+      }
+
     ActionStepModal(){
         switch (this.state.modal) {
             case 0:
@@ -41,28 +58,46 @@ class ActionStep extends React.Component {
             case 1:
                 return (
                 <div className="modal-background">
-                    <div className='action-step-form-frame modal-child-task'>
-                        <form onSubmit={
+                    <div className='modal-child-task'>
+                        <form
+                            className="action-step-update-modal" 
+                            onSubmit={
                             ()=> this.props.updateActionStep(
                                 this.props.planId, {   
                                     owner: this.state.owner, 
                                     task: this.state.task, 
                                     _id: this.props.action._id
                                     })
-                                    .then(()=> this.setState({modal: 0}))}>
+                                    .then(()=> 
+                                    this.setState({
+                                        modal: !this.state.errors.length ? 0 : 1}))}>
 
-                            <label>Action Owner</label>
-                                <input 
+                            <div className='create-task-top'>
+                                <div className='action-owner'>
+                                <h6>Action Owner</h6>
+                                <input
                                     type="text"
                                     value={this.state.owner}
-                                    onChange={this.handleChange('owner')} />
-                            
-                            <label>Action Task</label>
-                                <input 
-                                    type="text"
-                                    value={this.state.task}
-                                    onChange={this.handleChange('task')} />
+                                    placeholder="Who's job is this?"
+                                    onChange={this.handleChange("owner")}/>
+                                </div>
+                                <p
+                                className="exit_edit"
+                                onClick={() => this.setState({ modal: 0 })}>
+                                <AiOutlineClose className="close-x" />
+                                </p>
+                            </div>
+                            <div className='action-task-details'>
+                                <h6>Action Task</h6>
+                                <textarea
+                                className="create-task-info-input"
+                                value={this.state.task}
+                                placeholder="What's the task"
+                                onChange={this.handleChange("task")}>
+                                </textarea>
+                            </div>
                             <button>Update Action</button>
+                            <div className="plan-error-container">{this.renderErrors()}</div>
                         </form>
                     </div>
                 </div>
@@ -95,13 +130,15 @@ class ActionStep extends React.Component {
     render(){
         return (
           <div className="action-step-frame">
-            <div className="task-owner">
-              {/* <div className='owner-of-taks'> */}
-              <h6>Person: {this.state.owner}</h6>
-              {/* </div> */}
-              {/* <div className="task-information"> */}
-              <p>Task: {this.state.task}</p>
-              {/* </div> */}
+            <div className="task">
+              <div className='owner-of-task'>
+                <h6>Owner</h6> 
+                <p>{this.state.owner}</p> 
+              </div>
+              <div className="task-information">
+                <h6>Task</h6> 
+                <p>{this.state.task}</p>
+              </div>
             </div>
             {this.ActionStepModal()}
             <div className="task-btn">
@@ -121,6 +158,7 @@ class ActionStep extends React.Component {
 
 const mSTP = (state, ownProps) => ({
     planId: ownProps.match.params.disasterId,
+    errors: Object.values(state.errors.actionSteps)
 })
 
 const mDTP = (dispatch) => ({

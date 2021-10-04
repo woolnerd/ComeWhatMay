@@ -1,8 +1,9 @@
-const { response } = require("express");
+// const { response } = require("express");
 const express = require("express");
 const router = express.Router();
 const DisasterPlan = require('../../models/DisasterPlan')
 const validateDisasterPlanInput = require('../../validations/disaster_plan');
+const validateActionStepInput = require('../../validations/action_steps')
 
 router.post('/create/:profileId', (req, res) => {
     const {errors, isValid} = validateDisasterPlanInput(req.body);
@@ -40,12 +41,16 @@ router.get('/index/:profileId', (req, res) => {
 })
 
 router.put('/update/:disasterId', (req, res) => {
+    const {errors, isValid} = validateDisasterPlanInput(req.body);
+
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
+    
     DisasterPlan.findByIdAndUpdate(req.params.disasterId, req.body)
      .then(disaster => DisasterPlan.findById(disaster.id))
         .then(updatedDis => res.json(updatedDis))
-     .catch(err =>
-      res.status(400).json({ error: 'Unable to update disaster plan' })
-     );
+        .catch(err => console.log(err));
 });
 
 router.delete('/delete/:disasterId', (req, res) => {
@@ -57,6 +62,12 @@ router.delete('/delete/:disasterId', (req, res) => {
 })
 
 router.post('/:disasterId/action/create', (req, res) => {
+    const {errors, isValid} = validateActionStepInput(req.body);
+
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
+
     const disasterId = req.params.disasterId
     let newActionDetails = req.body
     DisasterPlan.findByIdAndUpdate(disasterId, 
@@ -71,6 +82,11 @@ router.post('/:disasterId/action/create', (req, res) => {
 })
 
 router.put('/:disasterId/action/update/:actionId', (req, res) => {
+    const {errors, isValid} = validateActionStepInput(req.body);
+
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
 
     const disasterId = req.params.disasterId
     const actionId = req.params.actionId

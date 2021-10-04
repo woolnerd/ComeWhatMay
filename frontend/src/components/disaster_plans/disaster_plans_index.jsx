@@ -13,8 +13,13 @@ class DisasterPlans extends React.Component {
       targetTime: 5,
       disasterType: "",
       modal: "false",
+      errors: [],
     };
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ errors: nextProps.errors });
   }
 
   componentDidMount() {
@@ -27,6 +32,17 @@ class DisasterPlans extends React.Component {
     };
   }
 
+  renderErrors() {
+    const errors = this.state.errors.map(
+        (error, i) => <li key={`error-${i}`}>{error}</li>
+      )
+    return (
+      <ul className="plan-errors">
+        {errors}
+      </ul>
+    );
+  }
+
   createPlanModal() {
     if (this.state.modal === "false") {
       return null;
@@ -36,7 +52,7 @@ class DisasterPlans extends React.Component {
         <div className="create-disaster-plan-modal-layout">
           <div className="modal-child">
             <form className="dis-plan-form"
-              onSubmit={() =>
+              onSubmit={() => 
                 this.props
                 .createDisasterPlan(this.props.profileId, {
                   name: this.state.name,
@@ -44,10 +60,12 @@ class DisasterPlans extends React.Component {
                   disasterType: this.state.disasterType,
                 })
                 .then(() => this.setState({ 
-                  name: "",
-                  targetTime: 5,
-                  disasterType: "",
-                  modal: "false", }))}>
+                  name: !this.state.errors.length ? "" : this.state.name,
+                  targetTime: !this.state.errors.length ? 5 : this.state.targetTime,
+                  disasterType: !this.state.errors.length ? "" : this.state.disasterType,
+                  modal: !this.state.errors.length ? "false" : "true" 
+                  })
+                )}>
               <div className='create-plan-modal-title-close'>
                 <div className="plan-header">
                   <h2 className="make-plan">Make a Plan</h2>
@@ -87,6 +105,7 @@ class DisasterPlans extends React.Component {
                   <option value="Tsunami">Tsunami</option>
                   <option value="Blizzard">Blizzard</option>
                   <option value="Volcano">Volcano</option>
+                  <option value="Pandemic">Pandemic</option>
                   <option value="Other">Other</option>
                 </select>
               </label>
@@ -106,6 +125,7 @@ class DisasterPlans extends React.Component {
               <div className="btn-cont">
                 <button id="dis-btn">Submit New Plan</button>
               </div>
+              <div className="plan-error-container">{this.renderErrors()}</div>
             </form>
           </div>
         </div>

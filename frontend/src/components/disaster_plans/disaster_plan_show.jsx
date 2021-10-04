@@ -42,15 +42,30 @@ class DisasterPlanShow extends React.Component {
             profileId: res.plan.data.profileId,
             targetTime: res.plan.data.targetTime,
             _id: res.plan.data._id,
-            modal: 0
+            modal: 0, 
+            errors: this.props.errors
         }))
     }
-
 
     handleChange(field){
         return e => (
             this.setState({[field]: e.currentTarget.value})
         )
+    }
+
+    componentWillReceiveProps(nextProps) {
+      this.setState({ errors: nextProps.errors });
+    }
+
+    renderErrors() {
+      const errors = this.state.errors.map(
+          (error, i) => <li key={`error-${i}`}>{error}</li>
+        )
+      return (
+        <ul className="plan-errors">
+          {errors}
+        </ul>
+      );
     }
 
     DisasterPlanModal(){
@@ -72,7 +87,8 @@ class DisasterPlanShow extends React.Component {
                               targetTime: this.state.targetTime,
                               _id: this.state._id,
                             })
-                            .then(() => this.setState({ modal: 0 }))
+                            .then(() => this.setState({ 
+                              modal: !this.state.errors.length ? 0 : 1}))
                         }
                       >
                         <div className="create-plan-modal-title-close">
@@ -138,6 +154,7 @@ class DisasterPlanShow extends React.Component {
                         <div className="btn-cont">
                           <button id="dis-btn">Update Plan</button>
                         </div>
+                        <div className="plan-error-container">{this.renderErrors()}</div>
                       </form>
                     </div>
                   </div>

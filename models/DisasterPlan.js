@@ -15,7 +15,9 @@ const DisasterPlanSchema = new Schema({
     },
     disasterType: {
       type: String,
-      required: true
+      required: true,
+      enum: ["Tornado", "Hurricane", "Flood", "Fire", "Earthquake", "Tsunami", 
+        "Blizzard", "Volcano", "Pandemic", "Other"]
     },
     profileId: {
         type: Schema.Types.Object,

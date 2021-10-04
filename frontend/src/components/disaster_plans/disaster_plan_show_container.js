@@ -10,7 +10,8 @@ const mSTP = (state, ownProps) => {
 
     return {
         planId: ownProps.match.params.disasterId,
-        plan: state.entities.plans[ownProps.match.params.disasterId]
+        plan: state.entities.plans[ownProps.match.params.disasterId],
+        errors: Object.values(state.errors.plans),
     }
 
 }

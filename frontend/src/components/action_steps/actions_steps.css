@@ -100,25 +100,94 @@
     margin-left: 10.9%;
 }
 
-.task-owner {
+.task {
     display: flex;
-    align-content: space-around;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
+    justify-content: flex-start;
     padding: 13px;
     font-size: 19px;
+    width: 100%;
+    /* border: medium solid teal; */
 }
 
-.task-owner p{
+.owner-of-task{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: flex-start;
+    width: 180px;
+    border-right: thin solid black;
+    margin-right: 10px;
+    /* border: thin solid fuchsia; */
+}
+.task h6 {
+    text-decoration: underline;
+    font-weight: 550;
+}
+
+.task-information{
+    width: 100%;
+    margin-left: 8px;
+    /* border: thin solid fuchsia; */
+}
+
+/* .task-owner p{
     padding-left: 2rem;
     font-weight: 200;
+} */
+.create-task-top{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* border: thin solid fuchsia; */
+}
+
+.action-step-form{
+    width: 100%;
+}
+
+.action-step-form h6{
+    font-weight: 600;
+    width: 150px;
+    margin-top: 10px;
+}
+
+.action-owner{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.action-task-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.create-task-info-input{
+    height: 100%;
+    width: 60%;
+    border-radius: 5px;
+    margin-left: 7px;
+}
+
+.create-action-step-modal-information{
+    display: flex;
+    justify-self: flex-start;
 }
 
 .action-step-form-frame {
     display: flex;
     text-align: center;
     background: aliceblue;
+
+/*   new start */
+/*     border-radius: 15px; */
+/*     justify-content: space-evenly; */
+/*     margin-top: 20px; */
+/*     padding-top: 10px; */
+/*   new-end */
+/*     border: medium solid yellow; */
+
     border-radius: 5px;
     justify-content: space-evenly;
     margin-top: 20px;
@@ -127,7 +196,9 @@
     margin: 12px auto;
     flex-direction: row-reverse;
     margin-bottom: -2px;
+
 }
+
 
 .modal-child-task{  
     position: absolute;
