@@ -11,6 +11,10 @@ module.exports = function validateDisasterPlanInput(data) {
     errors.name = 'Name field is required';
   }
 
+  if (!Validator.isLength(data.name, {max: 16})) {
+    errors.name = 'Name must be shorter than 16 chars';
+  }
+
   if (Validator.isEmpty(data.targetTime.toString())) {
     errors.targetTime = 'Target time field is required';
   }
@@ -22,10 +26,6 @@ module.exports = function validateDisasterPlanInput(data) {
   if (Validator.isEmpty(data.disasterType)) {
     errors.disasterType = 'Disaster type selection is required.';
   }
-
-  // if (Validator.match(data.disasterType)) {
-  //   errors.disasterType = 'Disaster type selection is required.';
-  // }
 
   return {
     errors,
