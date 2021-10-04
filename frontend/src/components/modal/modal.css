@@ -86,6 +86,10 @@
     justify-content: center;
 }
 
+.how-fast-label {
+    margin-top:10px;
+}
+
 .dist-select{
     padding-left:20px
 }

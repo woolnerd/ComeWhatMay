@@ -111,7 +111,7 @@ class DisasterPlans extends React.Component {
               </label>
               </div>
               <br />
-              <label>
+              <label className="how-fast-label">
                 How fast can you do it?
                 <h5 className="dis-info">(please select in minutes)</h5>
                 <input
