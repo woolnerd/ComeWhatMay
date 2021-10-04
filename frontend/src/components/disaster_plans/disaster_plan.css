@@ -92,3 +92,8 @@
     justify-content: center;
     flex-wrap: nowrap;
 }
+
+.delete-action-frame button{
+    border-radius: 5px;
+    width: 6rem;
+}
