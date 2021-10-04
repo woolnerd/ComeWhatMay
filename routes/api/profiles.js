@@ -3,9 +3,6 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-
-// const jwt = require('jsonwebtoken');
-
 const Profile  = require('../../models/Profile');
 const validateProfileInput = require('../../validations/profile');
 
@@ -63,6 +60,12 @@ router.delete('/:id', (req, res) => {
 
 
 router.put('/update/:id', (req, res) => {
+    const { errors, isValid } = validateProfileInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+    
     Profile.findByIdAndUpdate(req.params.id, req.body)
         .then(profile => Profile.findById(profile.id))
         .then(profile => res.json(profile))

@@ -5,8 +5,6 @@ import { closeModal } from '../../actions/modal_actions';
 import { AiOutlineClose } from 'react-icons/ai'
 import '../profile/profile.css';
 
-// import "./profile.css";
-
 class EditProfileForm extends React.Component {
   constructor(props) {
     super(props);
@@ -16,17 +14,16 @@ class EditProfileForm extends React.Component {
       email: this.props.profile.email, 
       householdName: this.props.profile.householdName,
       householdSize: this.props.profile.householdSize,
-      phoneNumber: this.props.profile.phoneNumber
+      phoneNumber: this.props.profile.phoneNumber,
+      errors: []
     }
-    // this.state = this.props.profile;
     this.handleModal = this.handleModal.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
-
-
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
-  componentWillMount(){
-      
+  componentWillReceiveProps(nextProps) {
+    this.setState({ errors: nextProps.errors });
   }
 
   componentDidMount(){
@@ -36,7 +33,7 @@ class EditProfileForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.updateUserProfile(this.state)
-      .then(() => this.props.closeModal());
+      .then(() => this.state.errors.length === 0 ? this.props.closeModal() : null)
   }
 
   handleModal(e) {
@@ -51,6 +48,17 @@ class EditProfileForm extends React.Component {
     };
   }
 
+  renderErrors() {
+    return (
+      <ul className="errors">
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  
   render() {
     return (
       <div className="edit-form">
@@ -93,11 +101,13 @@ class EditProfileForm extends React.Component {
               Household Size:
               <input
                 onChange={this.update("householdSize")}
-                type="text"
+                type="number"
+                min="1"
                 value={this.state.householdSize}
               />
             </label>
           <button>Edit Profile</button>
+          <div className="error-container">{this.renderErrors()}</div>
           </form>
         </div>
       </div>
@@ -105,9 +115,10 @@ class EditProfileForm extends React.Component {
   }
 }
 
-const mSTP = ({ entities, session }) => {
+const mSTP = ({ entities, session, errors }) => {
   return {
     currentUser: session.user.id,
+    errors: errors.profile,
     profile: Object.values(entities.profile).filter(profile => profile.user === session.user.id)[0]
   };
 };
