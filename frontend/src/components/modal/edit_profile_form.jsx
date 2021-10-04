@@ -50,9 +50,9 @@ class EditProfileForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul className="errors">
+      <ul className="errors" id="edit-profile-errors">
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li id="profile-edit-error" key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
@@ -106,7 +106,7 @@ class EditProfileForm extends React.Component {
                 value={this.state.householdSize}
               />
             </label>
-          <button>Edit Profile</button>
+          <button id="edit-profile-btn">Edit Profile</button>
           <div className="error-container">{this.renderErrors()}</div>
           </form>
         </div>
