@@ -119,6 +119,7 @@ class DisasterPlanShow extends React.Component {
                               <option value="Tsunami">Tsunami</option>
                               <option value="Blizzard">Blizzard</option>
                               <option value="Volcano">Volcano</option>
+                              <option value="Pandemic">Pandemic</option>
                               <option value="Other">Other</option>
                             </select>
                           </label>
@@ -135,7 +136,7 @@ class DisasterPlanShow extends React.Component {
                           />
                         </label>
                         <div className="btn-cont">
-                            <button id="dis-btn">Update Plan</button>
+                          <button id="dis-btn">Update Plan</button>
                         </div>
                       </form>
                     </div>
