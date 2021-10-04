@@ -3,14 +3,20 @@ body {
     font-family: 'Prompt', sans-serif;
 }
 
-#plan-btn:hover, button:hover{
+#plan-btn:hover, button:hover, .btn-style-1:hover, #demo-user-btn:hover{
     color: rgb(220, 244, 244);
-    transition: all .15s;
+    transition: all .25s;
+    border: 1px solid black;
+}
+
+.btn-style-1-container{
+    height: 1rem;  
 }
 
 .plan-item:hover {
-    background-color: rgb(166, 182, 182);
+    background-color: rgb(232, 245, 245);
     color: rgb(204, 240, 240);
-    transition: all .15s;  
+    transition: all .25s;
+    border: 1px solid black;  
  }
 

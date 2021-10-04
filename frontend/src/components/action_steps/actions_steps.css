@@ -1,7 +1,7 @@
 .disaster-show-frame {
     width: 900px;
     height: 500px;
-    background-color: hsla(194, 66%, 77%, 0.85);
+    background-color: hsla(194, 66%, 77%, 0.70);
                                     /* was 44% ^^ */
     min-height: 600px;
     height: fit-content;
@@ -126,6 +126,7 @@
     width: 90%;
     margin: 12px auto;
     flex-direction: row-reverse;
+    margin-bottom: -2px;
 }
 
 .modal-child-task{  
@@ -213,4 +214,8 @@ h4#left-padding {
     border-bottom: 1px solid black;
     width: 868px;
     margin-left: 32px;
+}
+
+#new-action-btn {
+    width: 6rem;
 }

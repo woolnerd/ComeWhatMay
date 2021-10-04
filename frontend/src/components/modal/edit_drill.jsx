@@ -52,9 +52,7 @@ class EditDrillForm extends React.Component {
             </div>
             <form onSubmit={(e) => this.handleSubmit(e)}>
               <div className="review">
-              <label>
-                Review:
-             </label>
+                <label>Review:</label>
                 <textarea
                   onChange={this.update("reviewNote")}
                   value={this.state.reviewNote}
@@ -72,7 +70,12 @@ class EditDrillForm extends React.Component {
                 />
               </label>
 
-              <button onClick={this.handleSubmit}>Submit</button>
+              <button
+                id="review-submit-btn"
+                onClick={this.handleSubmit}
+              >
+                Submit
+              </button>
             </form>
           </div>
         );
