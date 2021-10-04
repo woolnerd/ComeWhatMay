@@ -26,9 +26,9 @@ class CreateProfileForm extends React.Component {
 
     renderErrors() {
       return (
-        <ul className="errors">
+        <ul className="errors" id="create-profile-errors">
           {Object.keys(this.state.errors).map((error, i) => (
-            <li key={`error-${i}`}>{this.state.errors[error]}</li>
+            <li id="create-profile-error" key={`error-${i}`}>{this.state.errors[error]}</li>
           ))}
         </ul>
       );

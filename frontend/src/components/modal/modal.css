@@ -142,3 +142,17 @@
     cursor: pointer;
     height: 30px;
 }
+
+#edit-profile-errors{
+    margin-top: 15px;
+    margin-left: 40px;
+
+}
+
+#edit-profile-btn{
+    margin-top: 20px;
+}
+
+#profile-edit-error{
+    width: 300px;
+}
