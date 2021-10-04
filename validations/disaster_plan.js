@@ -15,9 +15,17 @@ module.exports = function validateDisasterPlanInput(data) {
     errors.targetTime = 'Target time field is required';
   }
 
+  if (!Validator.isNumeric(data.targetTime.toString())) {
+    errors.targetTime = 'Target time must be a number';
+  }
+
   if (Validator.isEmpty(data.disasterType)) {
     errors.disasterType = 'Disaster type selection is required.';
   }
+
+  // if (Validator.match(data.disasterType)) {
+  //   errors.disasterType = 'Disaster type selection is required.';
+  // }
 
   return {
     errors,

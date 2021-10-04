@@ -40,10 +40,27 @@
     text-align: right;
 }
 
+.plan-error-container{
+    height: 50px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 .dis-plan-form {
     display: grid;
     font-size: 20px;
     text-align: center;
+}
+
+.plan-errors{
+    color: red;
+    list-style-type: disc;
+    text-align: center;
+}
+
+.plan-errors li{
+    margin-bottom: 5px;
 }
 
 

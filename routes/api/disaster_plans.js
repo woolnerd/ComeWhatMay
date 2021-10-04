@@ -1,4 +1,4 @@
-const { response } = require("express");
+// const { response } = require("express");
 const express = require("express");
 const router = express.Router();
 const DisasterPlan = require('../../models/DisasterPlan')
@@ -40,12 +40,16 @@ router.get('/index/:profileId', (req, res) => {
 })
 
 router.put('/update/:disasterId', (req, res) => {
+    const {errors, isValid} = validateDisasterPlanInput(req.body);
+
+    if(!isValid) {
+        return res.status(400).json(errors);
+    }
+    
     DisasterPlan.findByIdAndUpdate(req.params.disasterId, req.body)
      .then(disaster => DisasterPlan.findById(disaster.id))
         .then(updatedDis => res.json(updatedDis))
-     .catch(err =>
-      res.status(400).json({ error: 'Unable to update disaster plan' })
-     );
+        .catch(err => console.log(err));
 });
 
 router.delete('/delete/:disasterId', (req, res) => {

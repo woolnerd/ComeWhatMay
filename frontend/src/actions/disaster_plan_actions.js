@@ -3,6 +3,7 @@ import * as APIDisasterPlanUtil from '../util/disaster_plan_util'
 export const RECEIVE_ALL_PLANS = 'RECEIVE_ALL_PLANS';
 export const RECEIVE_PLAN = 'RECEIVE_PLAN';
 export const REMOVE_PLAN = 'REMOVE_PLAN';
+export const RECEIVE_PLAN_ERRORS = "RECEIVE_PLAN_ERRORS";
 
 export const receiveAllPlans = (plans) =>({
     type: RECEIVE_ALL_PLANS,
@@ -19,6 +20,11 @@ export const removePlan = (id) =>({
     id
 })
 
+export const receivePlanErrors = errors => ({
+    type: RECEIVE_PLAN_ERRORS,
+    errors
+});
+
 export const fetchDisasterPlan = (disasterId) => (dispatch) =>
 APIDisasterPlanUtil.fetchDisasterPlan(disasterId)
     .then((plan) => dispatch(receivePlan(plan)))
@@ -32,12 +38,16 @@ APIDisasterPlanUtil.fetchDisasterPlans(profileId)
 export const createDisasterPlan = (profileId, plan) => (dispatch) =>
 APIDisasterPlanUtil.createDisasterPlan(profileId, plan)
     .then((recPlan) => dispatch(receivePlan(recPlan)))
-    .catch((err) => console.log(err));
+    .catch(err => {
+        dispatch(receivePlanErrors(err.response.data));
+    })
 
 export const updateDisasterPlan = (plan) => (dispatch) =>
 APIDisasterPlanUtil.updateDisasterPlan(plan)
     .then((recPlan) => dispatch(receivePlan(recPlan)))
-    .catch((err) => console.log(err));
+    .catch(err => {
+        dispatch(receivePlanErrors(err.response.data));
+    })
 
 export const deleteDisasterPlan = (id) => (dispatch) =>
 APIDisasterPlanUtil.deleteDisasterPlan(id)
