@@ -47,9 +47,9 @@ class CreateRelative extends React.Component{
 
     renderErrors() {
       return (
-        <ul className="errors">
+        <ul className="errors" id="create-relative-errors">
           {Object.keys(this.state.errors).map((error, i) => (
-            <li key={`error-${i}`}>{this.state.errors[error]}</li>
+            <li id="relative-errors-create" key={`error-${i}`}>{this.state.errors[error]}</li>
           ))}
         </ul>
       );
