@@ -66,3 +66,19 @@
 .icon-btn {
     display: flex;
 }
+
+svg#edit-icon:hover{
+    background-color: rgb(175, 211, 255);
+    transition: all .15s;
+    border-radius: 5px;
+}
+#delete-icon:hover{
+    color: rgb(189, 38, 4);
+    transition: all .15s;
+    border-radius: 5px;
+}
+
+
+#user-icon {
+    cursor:inherit;
+}
