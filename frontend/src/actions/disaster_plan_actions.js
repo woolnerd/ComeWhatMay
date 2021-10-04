@@ -20,7 +20,7 @@ export const removePlan = (id) =>({
     id
 })
 
-export const receivePlanErrors = errors => ({
+export const receivePlanErrors = (errors) => ({
     type: RECEIVE_PLAN_ERRORS,
     errors
 });

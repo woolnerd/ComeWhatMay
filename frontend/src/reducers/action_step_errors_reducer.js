@@ -1,10 +1,12 @@
 import {
-    RECEIVE_ACTION_STEP_ERRORS,
     RECEIVE_PLAN,
   } from '../actions/disaster_plan_actions';
 import {
     RECEIVE_USER_SIGN_IN
 } from '../actions/session_actions'
+import {
+    RECEIVE_ACTION_STEP_ERRORS
+} from '../actions/action_step_actions'
   
   const _nullErrors = [];
   

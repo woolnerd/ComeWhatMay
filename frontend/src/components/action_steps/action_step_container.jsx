@@ -14,7 +14,8 @@ class ActionStep extends React.Component {
         this.state = {
             owner: this.props.action.owner, 
             task: this.props.action.task, 
-            modal: 0
+            modal: 0, 
+            errors: this.props.errors
         }
     }
 
@@ -34,6 +35,21 @@ class ActionStep extends React.Component {
         )
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({ errors: nextProps.errors });
+      }
+  
+      renderErrors() {
+        const errors = this.state.errors.map(
+            (error, i) => <li key={`error-${i}`}>{error}</li>
+          )
+        return (
+          <ul className="plan-errors">
+            {errors}
+          </ul>
+        );
+      }
+
     ActionStepModal(){
         switch (this.state.modal) {
             case 0:
@@ -49,7 +65,9 @@ class ActionStep extends React.Component {
                                     task: this.state.task, 
                                     _id: this.props.action._id
                                     })
-                                    .then(()=> this.setState({modal: 0}))}>
+                                    .then(()=> 
+                                    this.setState({
+                                        modal: !this.state.errors.length ? 0 : 1}))}>
 
                             <label>Action Owner</label>
                                 <input 
@@ -63,6 +81,7 @@ class ActionStep extends React.Component {
                                     value={this.state.task}
                                     onChange={this.handleChange('task')} />
                             <button>Update Action</button>
+                            <div className="plan-error-container">{this.renderErrors()}</div>
                         </form>
                     </div>
                 </div>
@@ -115,6 +134,7 @@ class ActionStep extends React.Component {
 
 const mSTP = (state, ownProps) => ({
     planId: ownProps.match.params.disasterId,
+    errors: Object.values(state.errors.actionSteps)
 })
 
 const mDTP = (dispatch) => ({

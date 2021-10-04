@@ -11,10 +11,26 @@ class CreateActionContainer extends React.Component {
         this.state = {
             owner: '',
             task: '',
-            modal: false
+            modal: false, 
+            errors: this.props.errors
         }
 
         this.handleChange = this.handleChange.bind(this)
+    }
+
+    componentWillReceiveProps(nextProps) {
+      this.setState({ errors: nextProps.errors });
+    }
+
+    renderErrors() {
+      const errors = this.state.errors.map(
+          (error, i) => <li key={`error-${i}`}>{error}</li>
+        )
+      return (
+        <ul className="plan-errors">
+          {errors}
+        </ul>
+      );
     }
 
     handleChange(field){
@@ -44,11 +60,11 @@ class CreateActionContainer extends React.Component {
                         task: this.state.task,
                       })
                       .then(() => this.setState({ 
-                        owner: '',
-                        task: '',
-                        modal: false }))
-                  }
-                >
+                        owner: !this.state.errors.length ?  "" : this.state.owner ,
+                        task: !this.state.errors.length ?  "" : this.state.task,
+                        modal: !this.state.errors.length ? false : true 
+                        })
+                      )}>
                   <label>Action Owner</label>
                   <input
                     type="text"
@@ -62,8 +78,8 @@ class CreateActionContainer extends React.Component {
                     type="text"
                     value={this.state.task}
                     placeholder="What's the task"
-                    onChange={this.handleChange("task")}
-                  />
+                    onChange={this.handleChange("task")}/>
+                  <div className="plan-error-container">{this.renderErrors()}</div>
                   <button>Confirm</button>
                 </form>
               </div>
@@ -84,7 +100,8 @@ class CreateActionContainer extends React.Component {
 }
 
 const mSTP = (state, ownProps) => ({
-    planId: ownProps.match.params.disasterId
+    planId: ownProps.match.params.disasterId,
+    errors: Object.values(state.errors.actionSteps)
 })
 
 const mDTP = (dispatch) => ({

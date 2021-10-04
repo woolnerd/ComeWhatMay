@@ -82,7 +82,6 @@ router.post('/:disasterId/action/create', (req, res) => {
 })
 
 router.put('/:disasterId/action/update/:actionId', (req, res) => {
-
     const {errors, isValid} = validateActionStepInput(req.body);
 
     if(!isValid) {
