@@ -14,25 +14,25 @@ export const Footer = () => {
                 <div>
                     <h4 className="team-member">David Woolner</h4>
                     <div className="footer-icons">
-                        <p><a className="footer-icon" href="https://www.linkedin.com/in/david-woolner"><GrLinkedin/></a></p>
-                        <p><a className="footer-icon" href="https://angel.co/u/david-woolner"><FaAngellist /></a></p>
-                        <p><a  className="footer-icon" href="http://www.github.com/DavidWoolner"><GoMarkGithub/></a></p>
+                            <p><a className="footer-icon" target="_blank" rel="noreferrer noopener" href="https://www.linkedin.com/in/david-woolner"><GrLinkedin/></a></p>
+                            <p><a className="footer-icon" target="_blank" rel="noreferrer noopener" href="https://angel.co/u/david-woolner"><FaAngellist /></a></p>
+                            <p><a className="footer-icon" target="_blank" rel="noreferrer noopener" href="http://www.github.com/DavidWoolner"><GoMarkGithub/></a></p>
                     </div>
                 </div>
                 <div>
                     <h4 className="team-member">Elsa Caballero</h4>
                     <div className="footer-icons">
-                        <p><a className="footer-icon" href="https://www.linkedin.com/in/elsa-caballero/"><GrLinkedin/></a></p>
-                            <p><a className="footer-icon" href="https://angel.co/u/elsa-caballero"><FaAngellist /></a></p>
-                        <p><a className="footer-icon" href="https://github.com/elsicab"><GoMarkGithub/></a></p>
+                            <p><a className="footer-icon" target="_blank" rel="noreferrer noopener" href="https://www.linkedin.com/in/elsa-caballero/"><GrLinkedin/></a></p>
+                            <p><a className="footer-icon" target="_blank" rel="noreferrer noopener" href="https://angel.co/u/elsa-caballero"><FaAngellist /></a></p>
+                            <p><a className="footer-icon" target="_blank" rel="noreferrer noopener" href="https://github.com/elsicab"><GoMarkGithub/></a></p>
                     </div>
                 </div>
                 <div>
                     <h4 className="team-member">Dustin Adler</h4>
                     <div className="footer-icons">
-                        <p><a className="footer-icon" href="https://www.linkedin.com/in/dustin-adler-software-engineer-web-developer/">< GrLinkedin/></a></p>
-                        <p><a className="footer-icon" href="https://angel.co/u/dustin-adler"><FaAngellist /></a></p>
-                        <p><a className="footer-icon" href="https://github.com/Dustin-Adler"><GoMarkGithub/></a></p>
+                            <p><a className="footer-icon" target="_blank" rel="noreferrer noopener" href="https://www.linkedin.com/in/dustin-adler-software-engineer-web-developer/">< GrLinkedin/></a></p>
+                            <p><a className="footer-icon" target="_blank" rel="noreferrer noopener" href="https://angel.co/u/dustin-adler"><FaAngellist /></a></p>
+                            <p><a className="footer-icon" target="_blank" rel="noreferrer noopener" href="https://github.com/Dustin-Adler"><GoMarkGithub/></a></p>
                     </div>
                 </div>
             </div>
