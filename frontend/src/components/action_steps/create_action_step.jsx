@@ -31,9 +31,6 @@ class CreateActionContainer extends React.Component {
       this.setState({ errors: this.props.errors });
     }
   }
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({ errors: nextProps.errors });
-  // }
 
   renderErrors() {
     const errors = this.state.errors.map((error, i) => (

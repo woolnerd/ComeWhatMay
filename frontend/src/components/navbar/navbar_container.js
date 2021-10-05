@@ -8,11 +8,11 @@ import { openModal } from '../../actions/modal_actions';
 import NavBar from "./navbar";
 
 const mSTP = ({ entities, session }, ownProps) => {
-
     return {
       loggedIn: session.isAuthenticated,
       currentUserId: session.user,
       profileId: ownProps.match.params.profileId,
+      household: ownProps.household
     };
 };
 

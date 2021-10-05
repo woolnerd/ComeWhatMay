@@ -1,7 +1,6 @@
 import React from "react";
 import RelativeIndexContainer from "./relative_index";
 import DisasterPlansIndexContainer from "../disaster_plans/disaster_plans_index_container";
-import NavBarContainer from "../navbar/navbar";
 import "./profile.css";
 
 class Profile extends React.Component {
@@ -14,13 +13,10 @@ class Profile extends React.Component {
     this.props
       .fetchUserProfile(this.props.currentUserId)
       .then((res) => this.setState({ profile: res }))
+      .then(()=> this.forceUpdate())
   }
 
-  componentDidUpdate(prevProps){
-    if (prevProps.profile !== this.props.profile) {
-      <NavBarContainer household={this.props.profile.householdName} />
-    }
-  }
+
 
   render() {
     if (!this.state.profile) {
@@ -30,10 +26,10 @@ class Profile extends React.Component {
     const phone = `(${profile.phoneNumber.toString().slice(0, 3)}) 
                     ${profile.phoneNumber.toString().slice(3, 6)}-${profile.phoneNumber.toString().slice(6)}`;
 
-    localStorage.setItem(
-      "userHousehold",
-      JSON.stringify(profile.householdName)
-    );
+    // localStorage.setItem(
+    //   "userHousehold",
+    //   JSON.stringify(profile.householdName)
+    // );
 
     return (
       <div className="profile-container-main">

@@ -30,10 +30,6 @@ class CreateProfileForm extends React.Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({ errors: nextProps.errors });
-  // }
-
   componentDidMount() {
     this.props.fetchUserProfile(this.props.currentUser.id);
   }
@@ -54,6 +50,9 @@ class CreateProfileForm extends React.Component {
     e.preventDefault();
     this.setState({ user: this.props.currentUser.id });
     this.props.createUserProfile(this.state);
+    // localStorage.setItem(
+    // "userHousehold",
+    // JSON.stringify(this.state.householdName))
   }
 
   update(field) {
@@ -63,8 +62,11 @@ class CreateProfileForm extends React.Component {
     };
   }
 
+  // componentWillUnmount(){
+  //   console.log("unmount")
+  // }
+
   render() {
-    console.log(this.state.errors);
     const show = this.props.profileId ? (
       <Redirect to={`/profile/${this.props.profileId._id}`} />
     ) : (
