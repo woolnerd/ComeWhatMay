@@ -69,8 +69,9 @@ class CreateActionContainer extends React.Component {
           >
             <div className="create-task-top">
               <div className="action-owner">
-                <h6>Action Owner</h6>
+                <h6>Action Owner:</h6>
                 <input
+                  id="action-task-owner"
                   type="text"
                   value={this.state.owner}
                   placeholder="Who's job is this?"
@@ -79,15 +80,17 @@ class CreateActionContainer extends React.Component {
               </div>
               <p
                 className="exit_edit"
-                onClick={
-                    () => this.setState({ modal: 0 }, 
-                    () => this.props.clearActionStepErrors())
-                }>
+                onClick={() =>
+                  this.setState({ modal: 0 }, () =>
+                    this.props.clearActionStepErrors()
+                  )
+                }
+              >
                 <AiOutlineClose className="close-x" />
               </p>
             </div>
             <div className="action-task-details">
-              <h6>Action Task</h6>
+              <h6>Action Task:</h6>
               <textarea
                 className="create-task-info-input"
                 value={this.state.task}

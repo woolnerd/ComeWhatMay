@@ -84,7 +84,7 @@ class ActionStep extends React.Component {
 
                 <div className='create-task-top'>
                     <div className='action-owner'>
-                    <h6>Action Owner</h6>
+                    <h6>Action Owner:</h6>
                     <input
                         type="text"
                         value={this.state.owner}
@@ -101,11 +101,11 @@ class ActionStep extends React.Component {
                     </p>
                 </div>
                 <div className='action-task-details'>
-                    <h6>Action Task</h6>
+                    <h6>Action Task:</h6>
                     <textarea
                     className="create-task-info-input"
                     value={this.state.task}
-                    placeholder="What's the task"
+                    placeholder="What's the task?"
                     onChange={this.handleChange("task")}>
                     </textarea>
                 </div>

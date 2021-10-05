@@ -24,10 +24,3 @@ body {
     color: black;
 }
 
-.logo img:hover {
-    background-color: rgba(249, 255, 255, 0.44);
-    /* color: rgb(204, 240, 240); */
-    /* border: 1px solid black;   */
-    border-radius: 5px;
-    transition: all .25s;
-}
