@@ -13,6 +13,7 @@ const mSTP = ({ entities, session }, ownProps) => {
       currentUserId: session.user,
       profileId: ownProps.match.params.profileId,
       household: ownProps.household
+      
     };
 };
 
