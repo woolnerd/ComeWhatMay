@@ -32,14 +32,6 @@ class LoginForm extends React.Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.currentUser === true) {
-  //     this.props.history.push("/profile/new");
-  //   }
-
-  //   this.setState({ errors: nextProps.errors });
-  // }
-
   update(field) {
     return (e) =>
       this.setState({
