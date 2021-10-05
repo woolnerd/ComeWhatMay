@@ -120,6 +120,7 @@ class EditProfileForm extends React.Component {
             <label>
               Household Size:
               <input
+                id="household-size-edit"
                 onChange={this.update("householdSize")}
                 type="number"
                 min="1"
