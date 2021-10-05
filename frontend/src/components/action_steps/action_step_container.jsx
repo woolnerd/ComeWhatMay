@@ -46,10 +46,6 @@ class ActionStep extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
-//   componentWillReceiveProps(nextProps) {
-//     this.setState({ errors: nextProps.errors });
-//   }
-
   renderErrors() {
     const errors = this.state.errors.map((error, i) => (
       <li key={`error-${i}`}>{error}</li>

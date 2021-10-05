@@ -65,10 +65,6 @@ class DisasterPlanShow extends React.Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({ errors: nextProps.errors });
-  // }
-
   renderErrors() {
     const errors = this.state.errors.map((error, i) => (
       <li key={`error-${i}`}>{error}</li>

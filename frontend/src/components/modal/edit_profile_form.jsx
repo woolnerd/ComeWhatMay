@@ -36,9 +36,6 @@ class EditProfileForm extends React.Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({ errors: nextProps.errors });
-  // }
 
   componentDidMount() {
     this.props

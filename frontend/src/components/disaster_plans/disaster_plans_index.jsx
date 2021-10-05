@@ -32,10 +32,6 @@ class DisasterPlans extends React.Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({ errors: nextProps.errors });
-  // }
-
   componentDidMount() {
     this.props.fetchDisasterPlans();
   }

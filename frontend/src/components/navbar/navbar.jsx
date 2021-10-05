@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import Household  from "./household";
+// import Household  from "./household";
 import "./navbar.css";
 
 class NavBar extends React.Component {
@@ -9,42 +9,25 @@ class NavBar extends React.Component {
     this.state = {
       modalOpen: false,
       household: "",
-      render: false,
     };
     this.getPlans = this.getPlans.bind(this);
     this.logoutUser = this.logoutUser.bind(this);
     this.handleClickHome = this.handleClickHome.bind(this);
-    this.householdRef = React.createRef();
   }
 
-  // getSnapshotBeforeUpdate(prevProps, prevState) {
-  //   if (prevState.household !== "") {
-  //     return this.householdRef.current;
-  //   }
-  //   return null;
+  // fetchHousehold() {
+  //   setTimeout(()=>
+  //     this.setState({
+  //       household: JSON.parse(localStorage.getItem("userHousehold")),
+  //     }), 300 );
   // }
-
-  // componentDidUpdate(prevProps, prevState, snapshot){
-  //   if (snapshot !== null) {
-  //     this.setState({household: this.householdRef.current})
-  //   }
-  // }
-
-  fetchHousehold() {
-    setTimeout(
-      this.setState({
-        household: JSON.parse(localStorage.getItem("userHousehold")),
-      }),
-      1000
-    );
-  }
 
   handleClick(e) {
     e.preventDefault();
     this.props.fetchUserProfile(this.props.currentUserId.id).then((res) => {
       let profileId = res.profile._id;
-      this.props.history.push(`/profile/${profileId}`);
-    });
+      this.props.history.push(`/profile/${profileId}`)
+    })
   }
 
   handleClickHome(e) {
@@ -55,17 +38,18 @@ class NavBar extends React.Component {
     e.preventDefault();
     this.props.logout();
     localStorage.removeItem("userEmail");
-    localStorage.removeItem("userHousehold");
+    // localStorage.removeItem("userHousehold");
+    // this.setState({household: ""});
   }
 
-  componentDidMount() {
-    this.setState({
-      household: JSON.parse(localStorage.getItem("userHousehold")),
-    });
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     household: JSON.parse(localStorage.getItem("userHousehold")),
+  //   });
+  // }
 
   getPlans() {
-    if (this.props.loggedIn && this.state.household) {
+    if (this.props.loggedIn) {
       return (
         <div className="navbar">
           <div className="flex-container">
@@ -80,15 +64,12 @@ class NavBar extends React.Component {
               <button className="btn-style-1" onClick={this.logoutUser}>
                 <p>Logout</p>
               </button>
-              {/* {localStorage.getItem("userHousehold") ? ( */}
-                <div>
-                  {/* <Household
+                {/* <div>
+                  <Household
                     household={this.state.household}
                     fetchHousehold={() => this.fetchHousehold()}
-                  /> */}
-                  The {this.state.household} Household
-                </div>
-                {/* ) : null}  */}
+                  />
+                </div> */}
             </label>
           </div>
         </div>
@@ -108,16 +89,6 @@ class NavBar extends React.Component {
       );
     }
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.household !== this.state.household) {
-  //     console.log(prevState)
-  //     console.log(this.state.household)
-  //     this.setState({
-  //       household: JSON.parse(localStorage.getItem("userHousehold")),
-  //     });
-  //   }
-  // }
 
   render() {
     return <div>{this.getPlans()}</div>;

@@ -28,10 +28,6 @@ class SignupForm extends React.Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-
-  //   this.setState({ errors: nextProps.errors });
-  // }
 
   update(field) {
     return (e) =>

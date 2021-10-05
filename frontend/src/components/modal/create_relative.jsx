@@ -37,10 +37,6 @@ class CreateRelative extends React.Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({ errors: nextProps.errors });
-  // }
-
   handleModal(e) {
     e.preventDefault();
     this.props.clearRelativeErrors();
