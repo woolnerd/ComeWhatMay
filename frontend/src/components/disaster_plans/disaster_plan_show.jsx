@@ -95,17 +95,17 @@ class DisasterPlanShow extends React.Component {
                       this.setState({
                         modal: !this.state.errors.length ? 0 : 1,
                       })
-                    )
-                }
-              >
+                    )}>
                 <div className="create-plan-modal-title-close">
                   <div className="plan-header">
                     <h2 className="make-plan">Update Your Plan</h2>
 
                     <p
                       className="exit_edit"
-                      onClick={() => this.setState({ modal: "false" })}
-                    >
+                      onClick={
+                          () => this.setState({ modal: "false" }, 
+                          () => this.props.clearPlanErrors()
+                        )}>
                       <AiOutlineClose id="close-x" />
                     </p>
                   </div>
@@ -129,11 +129,9 @@ class DisasterPlanShow extends React.Component {
                     Disaster Type
                     <select
                       value={this.state.disasterType}
-                      onChange={this.handleChange("disasterType")}
-                    >
-                      <option disabled value="">
-                        -Please select-
-                      </option>
+                      onChange={this.handleChange("disasterType")}>
+
+                      <option value="" disabled >-Please select-</option>
                       <option value="Tornado">Tornado</option>
                       <option value="Hurricane">Hurricane</option>
                       <option value="Flood">Flood</option>
@@ -177,8 +175,7 @@ class DisasterPlanShow extends React.Component {
                 <div className="delete-plan-buttons">
                   <button
                     id="plan-btn"
-                    onClick={() => this.setState({ modal: 0 })}
-                  >
+                    onClick={() => this.setState({ modal: 0 })}>
                     Cancel
                   </button>
                   <button
@@ -192,8 +189,7 @@ class DisasterPlanShow extends React.Component {
                           )
                         )
                         .then(() => this.setState({ modal: 0 }))
-                    }
-                  >
+                    }>
                     Confirm
                   </button>
                 </div>
@@ -234,7 +230,15 @@ class DisasterPlanShow extends React.Component {
             </div>
           </div>
           <div className="plan-crud-buttons">
-            <button onClick={() => this.setState({ modal: 1 })}>
+            <button onClick={
+              () => this.setState({ 
+                disasterType: plan.disasterType,
+                name: plan.name,
+                profileId: plan.profileId,
+                targetTime: plan.targetTime,
+                _id: plan._id,
+                modal: 1 
+              })}>
               Update Plan
             </button>
             <button onClick={() => this.setState({ modal: 2 })}>

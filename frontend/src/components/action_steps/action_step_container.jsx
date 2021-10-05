@@ -1,11 +1,16 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-import {updateActionStep, deleteActionStep} from '../../actions/action_step_actions'
+import {
+    updateActionStep, 
+    deleteActionStep,
+    clearActionStepErrors} from '../../actions/action_step_actions'
+import {fetchDisasterPlan} from '../../actions/disaster_plan_actions'
 import React from 'react'
 import { AiOutlineEdit } from "react-icons/ai";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import "./actions_steps.css";
 import { AiOutlineClose } from 'react-icons/ai'
+
 
 
 class ActionStep extends React.Component {
@@ -75,40 +80,39 @@ class ActionStep extends React.Component {
                         modal: !this.state.errors.length ? 0 : 1,
                       })
                     )
-                }
-              >
-                <div className="create-task-top">
-                  <div className="action-owner">
+                }>
+
+                <div className='create-task-top'>
+                    <div className='action-owner'>
                     <h6>Action Owner</h6>
                     <input
-                      type="text"
-                      value={this.state.owner}
-                      placeholder="Who's job is this?"
-                      onChange={this.handleChange("owner")}
-                    />
-                  </div>
-                  <p
+                        type="text"
+                        value={this.state.owner}
+                        placeholder="Who's job is this?"
+                        onChange={this.handleChange("owner")}/>
+                    </div>
+                    <p
                     className="exit_edit"
-                    onClick={() => this.setState({ modal: 0 })}
-                  >
+                    onClick={
+                        () => this.setState({ modal: 0 }, 
+                        () => this.props.clearActionStepErrors())
+                    }>
                     <AiOutlineClose className="close-x" />
-                  </p>
+                    </p>
                 </div>
-                <div className="action-task-details">
-                  <h6>Action Task</h6>
-                  <textarea
+                <div className='action-task-details'>
+                    <h6>Action Task</h6>
+                    <textarea
                     className="create-task-info-input"
                     value={this.state.task}
                     placeholder="What's the task"
-                    onChange={this.handleChange("task")}
-                  ></textarea>
-                </div>
-                <div className="plan-error-container">
-                  {this.renderErrors()}
+                    onChange={this.handleChange("task")}>
+                    </textarea>
                 </div>
                 <button>Update Action</button>
-              </form>
-            </div>
+                <div className="plan-error-container">{this.renderErrors()}</div>
+            </form>
+        </div>
           </div>
         );
       case 2:
@@ -128,8 +132,7 @@ class ActionStep extends React.Component {
                         this.props.action._id
                       )
                       .then(() => this.setState({ modal: 0 }))
-                  }
-                >
+                  }>
                   Confirm
                 </button>
               </div>
@@ -144,28 +147,32 @@ class ActionStep extends React.Component {
   render() {
     return (
       <div className="action-step-frame">
-        <div className="task">
-          <div className="owner-of-task">
-            <h6>Owner</h6>
-            <p>{this.state.owner}</p>
-          </div>
-          <div className="task-information">
-            <h6>Task</h6>
-            <p>{this.state.task}</p>
-          </div>
+      <div className="task">
+        <div className='owner-of-task'>
+          <h6>Owner</h6> 
+          <p>{this.props.action.owner}</p> 
         </div>
-        {this.ActionStepModal()}
-        <div className="task-btn">
-          <AiOutlineEdit
-            id="edit-icon"
-            onClick={() => this.setState({ modal: 1 })}
-          />
-          <RiDeleteBin2Line
-            id="delete-icon"
-            onClick={() => this.setState({ modal: 2 })}
-          />
+        <div className="task-information">
+          <h6>Task</h6> 
+          <p>{this.props.action.task}</p>
         </div>
       </div>
+      {this.ActionStepModal()}
+      <div className="task-btn">
+        <AiOutlineEdit
+          id="edit-icon"
+          onClick={  
+              () => this.setState({ 
+                  owner: this.props.action.owner, 
+                  task: this.props.action.task, 
+                  modal: 1 })
+          }/>
+        <RiDeleteBin2Line
+          id="delete-icon"
+          onClick={() => this.setState({ modal: 2 })}
+        />
+      </div>
+    </div>
     );
   }
 }
@@ -175,9 +182,11 @@ const mSTP = (state, ownProps) => ({
     errors: Object.values(state.errors.actionSteps)
 })
 
-const mDTP = (dispatch) => ({
+const mDTP = (dispatch, ownProps) => ({
     updateActionStep: (planId, actionStep) => dispatch(updateActionStep(planId, actionStep)),
-    deleteActionStep: (planId, actionStep) => dispatch(deleteActionStep(planId, actionStep))
+    deleteActionStep: (planId, actionStep) => dispatch(deleteActionStep(planId, actionStep)),
+    fetchDisasterPlan: () => dispatch(fetchDisasterPlan(ownProps.match.params.disasterId)),
+    clearActionStepErrors: () => dispatch(clearActionStepErrors())
 })
 
 export default withRouter(connect(mSTP, mDTP)(ActionStep));
