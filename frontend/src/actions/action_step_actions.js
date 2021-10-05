@@ -2,10 +2,15 @@ import { receivePlan } from './disaster_plan_actions'
 import * as APIActionStepUtil from '../util/action_step_util'
 
 export const RECEIVE_ACTION_STEP_ERRORS = "RECEIVE_ACTION_STEP_ERRORS"
+export const CLEAR_ACTION_STEP_ERRORS = "CLEAR_ACTION_STEP_ERRORS"
 
 export const receiveActionStepErrors = (errors) => ({
     type: RECEIVE_ACTION_STEP_ERRORS,
     errors
+});
+
+export const clearActionStepErrors = () => ({
+    type: CLEAR_ACTION_STEP_ERRORS,
 });
 
 export const createActionStep = (planId, actionStep) => (dispatch) =>

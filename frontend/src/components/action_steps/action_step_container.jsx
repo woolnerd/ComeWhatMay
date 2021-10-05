@@ -1,11 +1,16 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-import {updateActionStep, deleteActionStep} from '../../actions/action_step_actions'
+import {
+    updateActionStep, 
+    deleteActionStep,
+    clearActionStepErrors} from '../../actions/action_step_actions'
+import {fetchDisasterPlan} from '../../actions/disaster_plan_actions'
 import React from 'react'
 import { AiOutlineEdit } from "react-icons/ai";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import "./actions_steps.css";
 import { AiOutlineClose } from 'react-icons/ai'
+
 
 
 class ActionStep extends React.Component {
@@ -83,7 +88,10 @@ class ActionStep extends React.Component {
                                 </div>
                                 <p
                                 className="exit_edit"
-                                onClick={() => this.setState({ modal: 0 })}>
+                                onClick={
+                                    () => this.setState({ modal: 0 }, 
+                                    () => this.props.clearActionStepErrors())
+                                }>
                                 <AiOutlineClose className="close-x" />
                                 </p>
                             </div>
@@ -133,19 +141,23 @@ class ActionStep extends React.Component {
             <div className="task">
               <div className='owner-of-task'>
                 <h6>Owner</h6> 
-                <p>{this.state.owner}</p> 
+                <p>{this.props.action.owner}</p> 
               </div>
               <div className="task-information">
                 <h6>Task</h6> 
-                <p>{this.state.task}</p>
+                <p>{this.props.action.task}</p>
               </div>
             </div>
             {this.ActionStepModal()}
             <div className="task-btn">
               <AiOutlineEdit
                 id="edit-icon"
-                onClick={() => this.setState({ modal: 1 })}
-              />
+                onClick={  
+                    () => this.setState({ 
+                        owner: this.props.action.owner, 
+                        task: this.props.action.task, 
+                        modal: 1 })
+                }/>
               <RiDeleteBin2Line
                 id="delete-icon"
                 onClick={() => this.setState({ modal: 2 })}
@@ -161,9 +173,11 @@ const mSTP = (state, ownProps) => ({
     errors: Object.values(state.errors.actionSteps)
 })
 
-const mDTP = (dispatch) => ({
+const mDTP = (dispatch, ownProps) => ({
     updateActionStep: (planId, actionStep) => dispatch(updateActionStep(planId, actionStep)),
-    deleteActionStep: (planId, actionStep) => dispatch(deleteActionStep(planId, actionStep))
+    deleteActionStep: (planId, actionStep) => dispatch(deleteActionStep(planId, actionStep)),
+    fetchDisasterPlan: () => dispatch(fetchDisasterPlan(ownProps.match.params.disasterId)),
+    clearActionStepErrors: () => dispatch(clearActionStepErrors())
 })
 
 export default withRouter(connect(mSTP, mDTP)(ActionStep));

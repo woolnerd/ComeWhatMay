@@ -71,8 +71,10 @@ class DisasterPlans extends React.Component {
                   <h2 className="make-plan">Make a Plan</h2>
 
                   <p className="exit_edit"
-                    onClick={() => this.setState({ modal: "false" })}>
-                    <AiOutlineClose id="close-x" /></p>
+                    onClick={() => this.setState({ modal: "false" }, 
+                    () => this.props.clearPlanErrors())}>
+                    <AiOutlineClose id="close-x" />
+                  </p>
                 </div>
                 
               </div>

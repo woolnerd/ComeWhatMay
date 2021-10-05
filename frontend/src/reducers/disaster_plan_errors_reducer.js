@@ -1,6 +1,7 @@
 import {
     RECEIVE_PLAN_ERRORS,
     RECEIVE_PLAN,
+    CLEAR_PLAN_ERRORS
   } from '../actions/disaster_plan_actions';
 import {
     RECEIVE_USER_SIGN_IN
@@ -16,6 +17,8 @@ import {
       case RECEIVE_PLAN:
         return _nullErrors;
       case RECEIVE_USER_SIGN_IN:
+        return _nullErrors;
+      case CLEAR_PLAN_ERRORS:
         return _nullErrors;
       default:
         return state;
