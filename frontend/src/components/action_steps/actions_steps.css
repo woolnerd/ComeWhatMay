@@ -44,13 +44,19 @@
 .plan-info {
     font-weight: 200;
     padding: 6px 0;
-    margin-right: 228px;
+    margin-right: 6px;
+    width: 600px;
+}
+
+.plan-info-container {
+    margin-left: 3px;
+    display: flex;
 }
 
 .plan-info-and-actions {
     display: flex;
     justify-content: space-around;
-    flex-direction: row;
+    /* flex-direction: row; */
 }
 
 .plan-info-and-actions h4 {
@@ -127,13 +133,15 @@
 .task-information{
     width: 100%;
     margin-left: 8px;
-    /* border: thin solid fuchsia; */
 }
 
-/* .task-owner p{
-    padding-left: 2rem;
-    font-weight: 200;
-} */
+.task-information p {
+    padding-top: 8px;
+}
+
+.owner-of-task p{
+    padding-top: 8px;
+}
 .create-task-top{
     display: flex;
     justify-content: space-between;
@@ -256,13 +264,16 @@ textarea {
 .plan-header-info {
     display: flex;
     align-content: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     flex-direction: row;
     align-items: center;
 }
 
 .plan-header-info h4 {
     display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
 }
 
 .plan-header-info span {
