@@ -57,27 +57,8 @@ class LandingPage extends React.Component {
             <p class="icon-info">Put your preparation to the test! Run live drills and keep track of your history.</p>
           </div>
         </div>
+        <div className="blur"></div>
       </div>
-
-      // <div className="landing-container">
-      //   <div className="image-container">
-      //     <img src="https://come-what-may.s3.amazonaws.com/images/james-wheeler-RRZM3cwS1DU-unsplash.jpg" alt=""/>
-      //   </div>
-      //   <div className="info-container">
-      //     <div className="landing-banner">
-      //       <h1>Come What May</h1>
-      //       <h2>A Disaster Preparation App</h2>
-      //     </div>
-      //     <div className="landing-info">
-      //       <p>
-      //         Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui
-      //         provident illo distinctio architecto magni asperiores eaque suscipit
-      //         repudiandae maxime vitae labore delectus ipsam, aliquam expedita, ad
-      //         odio aut enim rerum.
-      //     </p>
-      //     </div>
-      //   </div>
-      // </div>
     );
   }
 }

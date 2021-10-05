@@ -1,12 +1,3 @@
-.landing-container {
-    width: 50rem;
-    height: 60rem;
-    background-color: hsla(194, 66%, 77%, 0.44);
-    margin: 0 auto;
-    border-radius: 20px;
-}
-
-
 .errors {
     color: rgb(191, 0, 0);
 }
@@ -19,32 +10,6 @@
 
 .error-container {
     height: 50px;
-}
-
-.landing-banner h1 {
-    font-size: 6rem;
-    text-align: center;
-    font-weight: 500;
-}
-
-.landing-banner h2 {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 100;
-}
-
-.landing-info {
-    width: 50%;
-    /* text-align: center; */
-    margin: 0 auto;
-    padding: 20px 0;
-    font-weight: 200;
-}
-
-
-.image-container > img{
-    max-width: 100%;
-    opacity: 0.8;
 }
 
 .hero-image{
@@ -109,6 +74,7 @@
     flex-wrap: wrap;
     background-color: hsla(194, 66%, 77%);
     max-width: 100vw;
+    border-bottom: hsla(194, 66%, 77%, 0.95);
 }
 
 .app-icon{
@@ -174,4 +140,10 @@
   content: "";
   border: 30px solid transparent;
   border-top-color: rgba(255, 255, 255, 0.70);
+}
+
+.blur{
+    height: 30px;
+    /* background-color: hsla(194, 66%, 77%); */
+    background-image: linear-gradient(to bottom, hsla(194, 66%, 77%, 0.95), hsla(194, 66%, 77%, 0.44));
 }
