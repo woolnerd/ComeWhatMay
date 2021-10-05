@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
 mongoose
     .connect(db, { useNewUrlParser: true })
     .then(() => ("Connected to MongoDB successfully"))
-    .catch(err => console.log(err));
+    // .catch(err => console.log(err));
 
 app.get("/", (req, res) => {
     res.send("Hello World");
@@ -44,5 +44,5 @@ app.use("/api/disaster_drills", disasterDrills)
 
 
 
-const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+// const port = process.env.PORT || 4000;
+// app.listen(port, () => console.log(`Server is running on port ${port}`));

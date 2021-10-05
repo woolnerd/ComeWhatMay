@@ -62,10 +62,6 @@ class CreateProfileForm extends React.Component {
     };
   }
 
-  // componentWillUnmount(){
-  //   console.log("unmount")
-  // }
-
   render() {
     const show = this.props.profileId ? (
       <Redirect to={`/profile/${this.props.profileId._id}`} />
@@ -134,7 +130,7 @@ const mSTP = (state) => {
       },
       errors: state.errors.profile,
       profileId: Object.values(state.entities.profile).filter(profile =>
-        profile.user == state.session.user.id)[0]
+        profile.user === state.session.user.id)[0]
     };
 }
 
