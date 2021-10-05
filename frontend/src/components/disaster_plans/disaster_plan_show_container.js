@@ -3,7 +3,8 @@ import DisasterPlanShow from './disaster_plan_show'
 import {
     fetchDisasterPlan, 
     updateDisasterPlan,
-    deleteDisasterPlan
+    deleteDisasterPlan, 
+    clearPlanErrors
 } from '../../actions/disaster_plan_actions'
 
 const mSTP = (state, ownProps) => {
@@ -23,6 +24,8 @@ const mDTP = (dispatch, ownProps) => ({
         dispatch(updateDisasterPlan(plan)),
     deleteDisasterPlan: () => 
         dispatch(deleteDisasterPlan(ownProps.match.params.disasterId)),
+    clearPlanErrors: () => dispatch(clearPlanErrors())
+        
 })
 
 export default connect(mSTP, mDTP)(DisasterPlanShow)

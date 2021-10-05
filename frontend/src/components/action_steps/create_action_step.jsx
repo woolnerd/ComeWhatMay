@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
-import { createActionStep } from '../../actions/action_step_actions'
+import { createActionStep, clearActionStepErrors } from '../../actions/action_step_actions'
 import { AiOutlineClose } from 'react-icons/ai'
 
 class CreateActionContainer extends React.Component {
@@ -79,8 +79,10 @@ class CreateActionContainer extends React.Component {
               </div>
               <p
                 className="exit_edit"
-                onClick={() => this.setState({ modal: 0 })}
-              >
+                onClick={
+                    () => this.setState({ modal: 0 }, 
+                    () => this.props.clearActionStepErrors())
+                }>
                 <AiOutlineClose className="close-x" />
               </p>
             </div>
@@ -147,7 +149,8 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = (dispatch) => ({
     createActionStep: (planId, actionStep) => 
-        dispatch(createActionStep(planId, actionStep))
+        dispatch(createActionStep(planId, actionStep)),
+    clearActionStepErrors: () => dispatch(clearActionStepErrors())
 })
 
 export default withRouter(connect(mSTP, mDTP)(CreateActionContainer))

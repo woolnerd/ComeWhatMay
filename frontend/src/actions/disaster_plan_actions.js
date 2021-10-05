@@ -4,6 +4,7 @@ export const RECEIVE_ALL_PLANS = 'RECEIVE_ALL_PLANS';
 export const RECEIVE_PLAN = 'RECEIVE_PLAN';
 export const REMOVE_PLAN = 'REMOVE_PLAN';
 export const RECEIVE_PLAN_ERRORS = "RECEIVE_PLAN_ERRORS";
+export const CLEAR_PLAN_ERRORS = "CLEAR_PLAN_ERRORS";
 
 export const receiveAllPlans = (plans) =>({
     type: RECEIVE_ALL_PLANS,
@@ -24,6 +25,10 @@ export const receivePlanErrors = (errors) => ({
     type: RECEIVE_PLAN_ERRORS,
     errors
 });
+
+export const clearPlanErrors = () => ({
+    type: CLEAR_PLAN_ERRORS
+})
 
 export const fetchDisasterPlan = (disasterId) => (dispatch) =>
 APIDisasterPlanUtil.fetchDisasterPlan(disasterId)
