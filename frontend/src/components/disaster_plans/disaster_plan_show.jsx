@@ -217,31 +217,31 @@ class DisasterPlanShow extends React.Component {
     return (
       <div className="disaster-show-frame">
         <div className="plan-info-and-actions">
-          <div className="plan-info">
-            <h2>
-              {/* <span>Plan Name: </span> */}
-              {plan.name}
-            </h2>
-            <div className="plan-header-info">
-              <h4>
-                <span>Drill Target </span>
-                {plan.targetTime}min
-              </h4>
-              <h4 id="left-padding">
-                <span>In the case of </span>
-                {plan.disasterType}
-              </h4>
+          <div className="plan-info-container">
+            <div className="plan-info">
+              <h2>
+                {plan.name}
+              </h2>
+              <div className="plan-header-info">
+                <h4>
+                  <span>Drill Target </span>
+                  {plan.targetTime}min
+                </h4>
+                <h4 id="left-padding">
+                  <span>In the case of </span>
+                  <h4>{plan.disasterType}</h4>
+                </h4>
+              </div>
+            </div>
+            <div className="plan-crud-buttons">
+              <button onClick={() => this.setState({ modal: 1 })}>
+                Update Plan
+              </button>
+              <button onClick={() => this.setState({ modal: 2 })}>
+                Delete Plan
+              </button>
             </div>
           </div>
-          <div className="plan-crud-buttons">
-            <button onClick={() => this.setState({ modal: 1 })}>
-              Update Plan
-            </button>
-            <button onClick={() => this.setState({ modal: 2 })}>
-              Delete Plan
-            </button>
-          </div>
-          {/* <div className="image-action"></div> */}
         </div>
         <div className="div-for-line"></div>
 
