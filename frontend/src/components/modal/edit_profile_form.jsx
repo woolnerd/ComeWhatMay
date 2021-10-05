@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateUserProfile, fetchUserProfile } from "../../actions/profile_actions";
+import { updateUserProfile, fetchUserProfile, clearProfileErrors } from "../../actions/profile_actions";
 import { closeModal } from '../../actions/modal_actions';
 import { AiOutlineClose } from 'react-icons/ai'
 import '../profile/profile.css';
@@ -54,7 +54,8 @@ class EditProfileForm extends React.Component {
 
   handleModal(e) {
     e.preventDefault();
-    this.props.closeModal();
+    this.props.clearProfileErrors();
+    setTimeout(() => this.props.closeModal(), 0)
   }
 
   update(field) {
@@ -145,7 +146,9 @@ const mDTP = (dispatch) => {
   return {
     updateUserProfile: (profile) => dispatch(updateUserProfile(profile)),
     fetchUserProfile: (userId) => dispatch(fetchUserProfile(userId)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    clearProfileErrors: () => dispatch(clearProfileErrors())
+
   };
 };
 
