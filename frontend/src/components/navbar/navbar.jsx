@@ -8,12 +8,35 @@ class NavBar extends React.Component {
     super(props);
     this.state = {
       modalOpen: false,
-      // household: "",
-      // render: this.props.render
+      household: "",
+      render: false,
     };
     this.getPlans = this.getPlans.bind(this);
     this.logoutUser = this.logoutUser.bind(this);
     this.handleClickHome = this.handleClickHome.bind(this);
+    this.householdRef = React.createRef();
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    if (prevState.household !== "") {
+      return this.householdRef.current;
+    }
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot){
+    if (snapshot !== null) {
+      this.setState({household: this.householdRef.current})
+    }
+  }
+
+  fetchHousehold() {
+    setTimeout(
+      this.setState({
+        household: JSON.parse(localStorage.getItem("userHousehold")),
+      }),
+      1000
+    );
   }
 
   handleClick(e) {
@@ -35,15 +58,14 @@ class NavBar extends React.Component {
     localStorage.removeItem("userHousehold");
   }
 
-  // componentDidMount(){
-  //   this.setState({
-  //     household: JSON.parse(localStorage.getItem("userHousehold")),
-  //   });
-  //   console.log(this.state)
-  // }
+  componentDidMount() {
+    this.setState({
+      household: JSON.parse(localStorage.getItem("userHousehold")),
+    });
+  }
 
   getPlans() {
-    if (this.props.loggedIn) {
+    if (this.props.loggedIn && this.state.household) {
       return (
         <div className="navbar">
           <div className="flex-container">
@@ -61,12 +83,12 @@ class NavBar extends React.Component {
               {localStorage.getItem("userHousehold") ? (
                 <div>
                   <Household
-                    household={JSON.parse(
-                      localStorage.getItem("userHousehold")
-                    )}
+                    household={this.state.household}
+                    fetchHousehold={() => this.fetchHousehold()}
                   />
+                  {/* {this.state.household} */}
                 </div>
-              ) : null}
+               ) : null} 
             </label>
           </div>
         </div>
@@ -98,7 +120,6 @@ class NavBar extends React.Component {
   // }
 
   render() {
-
     return <div>{this.getPlans()}</div>;
   }
 }
