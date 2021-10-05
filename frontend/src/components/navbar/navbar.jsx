@@ -17,18 +17,18 @@ class NavBar extends React.Component {
     this.householdRef = React.createRef();
   }
 
-  getSnapshotBeforeUpdate(prevProps, prevState) {
-    if (prevState.household !== "") {
-      return this.householdRef.current;
-    }
-    return null;
-  }
+  // getSnapshotBeforeUpdate(prevProps, prevState) {
+  //   if (prevState.household !== "") {
+  //     return this.householdRef.current;
+  //   }
+  //   return null;
+  // }
 
-  componentDidUpdate(prevProps, prevState, snapshot){
-    if (snapshot !== null) {
-      this.setState({household: this.householdRef.current})
-    }
-  }
+  // componentDidUpdate(prevProps, prevState, snapshot){
+  //   if (snapshot !== null) {
+  //     this.setState({household: this.householdRef.current})
+  //   }
+  // }
 
   fetchHousehold() {
     setTimeout(
@@ -80,15 +80,15 @@ class NavBar extends React.Component {
               <button className="btn-style-1" onClick={this.logoutUser}>
                 <p>Logout</p>
               </button>
-              {localStorage.getItem("userHousehold") ? (
+              {/* {localStorage.getItem("userHousehold") ? ( */}
                 <div>
-                  <Household
+                  {/* <Household
                     household={this.state.household}
                     fetchHousehold={() => this.fetchHousehold()}
-                  />
-                  {/* {this.state.household} */}
+                  /> */}
+                  The {this.state.household} Household
                 </div>
-               ) : null} 
+                {/* ) : null}  */}
             </label>
           </div>
         </div>
