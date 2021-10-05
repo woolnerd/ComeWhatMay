@@ -290,3 +290,19 @@ h4#left-padding {
 #new-action-btn {
     width: 6rem;
 }
+.action-step-frame button{
+    font-weight: 600;
+    width: 75%;
+    margin-top: 5px !important;
+    display: block;
+    border: 1px rgb(255, 255, 255) solid;
+    border-radius: 5px;
+    padding: 4px 10px;
+    margin: 0 auto;
+    background-color: rgb(175, 211, 255);
+    text-align: center;
+    box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
+    cursor: pointer;
+    height: 30px;
+}
+
