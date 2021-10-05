@@ -195,3 +195,20 @@
     text-align: left;
 }
 
+#household-size-edit{
+    margin: 20px 10px;
+    margin-top: 6px;
+    border: 1px black solid;
+    height: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px -3px rgb(0 0 0 / 35%);
+}
+
+#edit-relative-error-space{
+    padding-bottom: 40px;
+}
+
+#create-relative-error-space{
+    padding-bottom: 40px;
+}
+

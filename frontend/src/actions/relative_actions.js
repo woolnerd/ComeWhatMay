@@ -3,6 +3,7 @@ import * as APIRelativeUtil from "../util/relative_util";
 
 export const RECEIVE_ALL_RELATIVES = "RECEIVE_ALL_RELATIVES";
 export const RECEIVE_RELATIVE = "RECEIVE_RELATIVE";
+export const CLEAR_RELATIVE_ERRORS = "CLEAR_RELATIVE_ERRORS";
 export const REMOVE_RELATIVE = "REMOVE_RELATIVE";
 export const RECEIVE_RELATIVE_ERRORS = "RECEIVE_RELATIVE_ERRORS";
 
@@ -16,6 +17,10 @@ export const receiveAllRelatives = (relatives) => ({
     type: RECEIVE_ALL_RELATIVES,
     relatives
 });
+
+export const clearRelativeErrors = () => ({
+  type: CLEAR_RELATIVE_ERRORS
+})
 
 export const receiveErrors = errors => ({
   type: RECEIVE_RELATIVE_ERRORS,

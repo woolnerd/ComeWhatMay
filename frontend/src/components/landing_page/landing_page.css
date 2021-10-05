@@ -84,6 +84,8 @@
 .banner-info > h2{
     font-size: 80px;
     font-weight: 400;
+    color: white;
+    text-shadow: 0 0 15px hsla(194, 66%, 77%);
 }
 
 .banner-info > h4{
@@ -96,6 +98,80 @@
     margin-top: 77px;
     background-image: url(https://come-what-may.s3.amazonaws.com/images/roberto-nickson-smJ6XsYy8gA-unsplash.jpg);
     background-size: cover;
-    height: 100vh;
+    height: 80vh;
     opacity: 0.9;
+    position: relative;
+}
+
+.app-features{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: hsla(194, 66%, 77%);
+    max-width: 100vw;
+}
+
+.app-icon{
+    color: white
+}
+
+.app-icon-sec{
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 20vw;
+}
+
+.app-icon-sec h4{
+    color: rgb(62, 61, 61);
+    text-align: center;
+    font-size: 22px;
+}
+
+.icon-info{
+    color: rgb(62, 61, 61);
+    text-align: center;
+    font-size: 16px;
+    padding-top: 5px;
+}
+
+.app-icon-sec svg{
+    font-size: 60px;
+    padding: 20px;
+    color: rgba(255, 0, 0, 0.721);
+    border: 2px solid white;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    cursor: auto;
+}
+
+.container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.55);
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.container p{
+    color: red;
+    margin: 0 10px;
+}
+
+.icon-num{
+    color: white;
+    font-weight: 550;
+    font-size: 20px;
+}
+
+.container:before,
+.container:after {
+  position: absolute;
+  top: 100%;
+  left: 48%;
+  content: "";
+  border: 30px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.70);
 }
