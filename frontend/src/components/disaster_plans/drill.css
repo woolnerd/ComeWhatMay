@@ -78,3 +78,12 @@ input[type="date"] {
     width: 60%;
     margin-bottom: 8px;
 }
+
+
+
+.action-step-update-modal .plan-error-container {
+    height: 50px;
+    margin-left: 22.5%;
+    margin-right: 5%;
+    margin-top: 1%;
+}

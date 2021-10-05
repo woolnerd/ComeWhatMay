@@ -42,9 +42,9 @@
 
 .plan-error-container{
     height: 50px;
-    width: 90%;
-    margin-left: 5%;
+    margin-left: 21.5%;
     margin-right: 5%;
+    margin-top: 2%;
 }
 
 .dis-plan-form {
@@ -56,7 +56,7 @@
 .plan-errors{
     color: red;
     list-style-type: disc;
-    text-align: center;
+    text-align: initial;
 }
 
 .plan-errors li{
@@ -211,3 +211,4 @@
 #create-relative-error-space{
     padding-bottom: 40px;
 }
+
