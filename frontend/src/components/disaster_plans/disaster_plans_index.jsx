@@ -173,7 +173,7 @@ class DisasterPlans extends React.Component {
             id="plan-btn"
             onClick={() => this.setState({ modal: "true" })}
           >
-            Make a New Plan
+            Make a Plan
           </button>
           <div className="dist-plans">{plans}</div>
         </div>

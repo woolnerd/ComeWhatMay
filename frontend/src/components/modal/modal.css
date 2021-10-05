@@ -54,13 +54,15 @@
 }
 
 .plan-errors{
-    color: red;
+    color: #e50000;
     list-style-type: disc;
     text-align: initial;
 }
 
 .plan-errors li{
     margin-bottom: 5px;
+    margin-top: 14px;
+    color: #e50000;
 }
 
 

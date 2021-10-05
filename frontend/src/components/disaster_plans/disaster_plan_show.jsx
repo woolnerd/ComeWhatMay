@@ -145,7 +145,7 @@ class DisasterPlanShow extends React.Component {
                     </select>
                   </label>
                 </div>
-                <label>
+                <label className="how-fast-label">
                   How fast can you do it?
                   <h5 className="dis-info">please select in minutes</h5>
                   <input
@@ -157,7 +157,7 @@ class DisasterPlanShow extends React.Component {
                   />
                 </label>
                 <div className="btn-cont">
-                  <button id="dis-btn">Update Plan</button>
+                  <button id="dis-btn">Update Your Plan</button>
                 </div>
                 <div className="plan-error-container">
                   {this.renderErrors()}

@@ -84,7 +84,7 @@
 }
 
 
-.action-step-frame button{
+/* .action-step-frame button{
     margin: 16px;
     height: 37px;
 
@@ -95,7 +95,7 @@
     text-align: center;
     box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
     cursor: pointer;
-}
+} */
 
 .action-step-frame {
     display: flex;
@@ -149,6 +149,13 @@
     /* border: thin solid fuchsia; */
 }
 
+.create-task-top .action-owner input[type="text"] {
+    /* margin-left: 27px; */
+    width: 170px;
+    margin-left: 36px;
+
+}
+
 .action-step-form{
     width: 100%;
 }
@@ -159,23 +166,32 @@
     margin-top: 10px;
 }
 
+.action-owner input[type="text"] {
+    margin-left: 38px;
+    width: 170px;
+}
+
 .action-owner{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    align-items: baseline;
 }
 
 .action-task-details{
     display: flex;
     flex-direction: row;
+    align-content: flex-start;
+    align-items: baseline;
+    flex-wrap: wrap;
     justify-content: flex-start;
 }
+
 
 .create-task-info-input{
     height: 100%;
     width: 60%;
     border-radius: 5px;
-    margin-left: 7px;
+    margin-left: 25px;
 }
 
 .create-action-step-modal-information{
@@ -215,9 +231,9 @@
     transform: translate(-50%, -50%);
     background: #4CA1AF;
     background-color: hsla(193, 100%, 97%, 0.934);
-    padding: 50px 50px;
+    padding: 25px 30px;
     border-radius: 20px;
-    width: 500px;
+    width: 515px;
 }
 
 .create-drill{
@@ -304,7 +320,7 @@ h4#left-padding {
 .action-step-frame button{
     font-weight: 600;
     width: 75%;
-    margin-top: 5px !important;
+    margin-top: 14px !important;
     display: block;
     border: 1px rgb(255, 255, 255) solid;
     border-radius: 5px;
@@ -312,8 +328,37 @@ h4#left-padding {
     margin: 0 auto;
     background-color: rgb(175, 211, 255);
     text-align: center;
-    box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
+    box-shadow: 4px 4px 4px rgb(0 0 0 / 33%);
     cursor: pointer;
     height: 30px;
 }
 
+.action-step-update-modal .plan-error-container {
+    height: 50px;
+    margin-left: 16.5%;
+    margin-right: 5%;
+    margin-top: 1%;
+}
+
+.action-step-form .plan-error-container .plan-errors {
+    color: #e50000;
+    list-style-type: disc;
+    text-align: initial;
+    margin-left: 18px;
+}
+
+.action-step-update-modal .plan-error-container .plan-errors li {
+    margin-bottom: 5px;
+    margin-top: 14px;
+    margin-left: -33px;
+    color: #e50000;
+}
+
+#action-task-owner {
+    width: 170px;
+    margin-left: 26px;
+}
+
+.action-step-update-modal .create-task-top .action-owner input[type="text"]{
+    margin-left: 8px;
+}
