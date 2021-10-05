@@ -12,7 +12,7 @@ class CreateDrill extends React.Component {
         super(props)
         this.state = {
             disPlan: this.props.planId,
-            timeToStart: '',
+            timeToStart: new Date(),
         }
         this.handleInput = this.handleInput.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -44,6 +44,9 @@ class CreateDrill extends React.Component {
         let yyyy = date.getFullYear();
         date = yyyy + "-" + mm + "-" + dd;
 
+        console.log("Date and TimeStart")
+        console.log(date)
+        console.log(this.state.timeToStart)
         return (
             <div className="create-relative">
                 <div className="relative-header">
@@ -52,7 +55,7 @@ class CreateDrill extends React.Component {
                 </div>
                 <div className="start-drill">
                     <label>Start On:</label>
-                    <input value={this.state.timeToStart} onChange={this.handleInput('timeToStart')} type="date" min={date} />
+                    <input defaultValue={this.state.timeToStart} onChange={this.handleInput('timeToStart')} type="date" min={date}/>
                 </div>
                 <button className="save-button" onClick={this.handleSubmit}>Save</button>  
             </div>
@@ -62,6 +65,7 @@ class CreateDrill extends React.Component {
 
 const mSTP = (stat, ownProps) => ({
     planId: ownProps.planId
+    
 });
 
 const mDTP = dispatch => ({
