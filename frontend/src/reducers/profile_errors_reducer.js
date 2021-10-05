@@ -1,6 +1,7 @@
 import {
     RECEIVE_USER_PROFILE,
-    RECEIVE_PROFILE_ERRORS
+    RECEIVE_PROFILE_ERRORS, 
+    CLEAR_PROFILE_ERRORS
 } from '../actions/profile_actions';
 
 
@@ -12,6 +13,8 @@ const ProfileErrorsReducer = (state = _nullErrors, action) => {
         case RECEIVE_PROFILE_ERRORS:
             return action.errors;
         case RECEIVE_USER_PROFILE:
+            return _nullErrors;
+        case CLEAR_PROFILE_ERRORS: 
             return _nullErrors;
         default:
             return state;

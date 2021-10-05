@@ -6,6 +6,7 @@ module.exports = function validateProfileInput(data) {
 
   data.email = validText(data.email) ? data.email : '';
   data.phoneNumber = validText(data.phoneNumber.toString()) ? data.phoneNumber.toString() : '';
+  data.householdSize = validText(data.householdSize.toString()) ? data.householdSize.toString() : '1';
 
   if (!Validator.isEmail(data.email)) {
     errors.email = 'Email is invalid';
