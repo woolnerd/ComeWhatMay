@@ -14,7 +14,11 @@ class PlanIndex extends React.Component{
     render(){
         const showDrills = this.props.drills ? 
                 this.props.drills.map((drill, i) => {
-                    var date = new Date(drill.timeToStart);
+                    let date = new Date(drill.timeToStart);
+                    let dd = String(date.getDate() + 1).padStart(2, "0");
+                    let mm = String(date.getMonth()).padStart(2, "0");
+                    let yyyy = date.getFullYear();
+                    date = new Date(yyyy, mm, dd)
                     return (
                       <div key={`${i}`} className="single_drill">
                         <div>
