@@ -17,10 +17,14 @@ class NavBar extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    this.props.fetchUserProfile(this.props.currentUserId.id).then((res) => {
-      let profileId = res.profile._id;
-      this.props.history.push(`/profile/${profileId}`)
-    })
+    if (this.props.profileId) {
+      this.props.fetchUserProfile(this.props.currentUserId.id).then((res) => {
+        let profileId = res.profile._id;
+        this.props.history.push(`/profile/${profileId}`)
+      })
+    } else {
+      this.props.history.push(`/`);
+    }
   }
 
   handleClickHome(e) {

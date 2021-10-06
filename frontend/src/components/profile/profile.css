@@ -38,6 +38,7 @@ body {
     /* border-radius: 20px; */
     margin: 2rem auto;
     justify-content: space-evenly;
+    min-height: 70vh;
 }
 
 .profile-details {
