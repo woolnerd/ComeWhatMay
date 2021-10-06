@@ -10,7 +10,7 @@ class CreateProfileForm extends React.Component {
     super(props);
 
     this.state = {
-      ...this.props.profile,
+      ...this.props.profile
     };
     this.renderErrors = this.renderErrors.bind(this);
   }
@@ -30,7 +30,7 @@ class CreateProfileForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserProfile(this.props.currentUser.id)
+    this.props.fetchUserProfile(this.props.currentUser.id);
     this.setState({ email: this.props.currentUser.email});
   }
 
@@ -62,8 +62,12 @@ class CreateProfileForm extends React.Component {
     };
   }
 
+  // componentWillUnmount(){
+  //   console.log("unmount")
+  // }
+
   render() {
-    const show = this.props.profileId !== undefined ? (
+    const show = this.props.profileId ? (
       <Redirect to={`/profile/${this.props.profileId._id}`} />
     ) : (
       <div className="create-form-container">
