@@ -45,9 +45,9 @@ export const fetchAllRelatives = (profileId) => (dispatch) =>
 export const createRelative = (relative) => (dispatch) =>
   APIRelativeUtil.createRelative(relative)
     .then((relative) => dispatch(receiveRelative(relative)))
-    .catch(err => {
+    .catch((err) => {
       dispatch(receiveErrors(err.response.data));
-    })
+    });
 
 export const updateRelative = (relative) => (dispatch) =>
   APIRelativeUtil.updateRelative(relative)

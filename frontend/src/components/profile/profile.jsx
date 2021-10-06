@@ -13,7 +13,6 @@ class Profile extends React.Component {
     this.props
       .fetchUserProfile(this.props.currentUserId)
       .then((res) => this.setState({ profile: res }))
-      .then(()=> this.forceUpdate())
   }
 
 
