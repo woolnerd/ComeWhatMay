@@ -7,7 +7,7 @@ const validateDisasterDrillInput = require('../../validations/disaster_drill')
 router.get('/index/:planId', (req, res) => {
     DisasterDrill.find({disPlan: req.params.planId})
     .then(drills => res.json(drills))
-    // .catch(err => console.log(err));
+    .catch(err => console.log(err));
 }) 
 
 router.post('/create/:planId', (req, res) => {
@@ -21,7 +21,7 @@ router.post('/create/:planId', (req, res) => {
     })
     newDisasterDrill.save()
         .then(drill => res.json(drill))
-        // .catch(err => console.log(err));
+        .catch(err => console.log(err));
 }) 
 
 router.put('/update/:drillId', (req, res) => {

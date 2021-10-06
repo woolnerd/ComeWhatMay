@@ -11,10 +11,9 @@ class CreateProfileForm extends React.Component {
 
     this.state = {
       ...this.props.profile,
-      // email: JSON.parse(localStorage.getItem("userEmail")),
+      email: JSON.parse(localStorage.getItem("userEmail")),
     };
     this.renderErrors = this.renderErrors.bind(this);
-    debugger
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -32,8 +31,7 @@ class CreateProfileForm extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchUserProfile(this.props.currentUser.id);
-    this.setState({ email: JSON.parse(localStorage.getItem("userEmail"))});
+    this.props.fetchUserProfile(this.props.currentUser.id);
   }
 
   renderErrors() {
@@ -64,8 +62,12 @@ class CreateProfileForm extends React.Component {
     };
   }
 
+  // componentWillUnmount(){
+  //   console.log("unmount")
+  // }
+
   render() {
-    const show = this.props.profileId !== undefined ? (
+    const show = this.props.profileId ? (
       <Redirect to={`/profile/${this.props.profileId._id}`} />
     ) : (
       <div className="create-form-container">

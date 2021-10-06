@@ -44,6 +44,9 @@ class CreateDrill extends React.Component {
         let yyyy = date.getFullYear();
         date = yyyy + "-" + mm + "-" + dd;
 
+        console.log("Date and TimeStart")
+        console.log(date)
+        console.log(this.state.timeToStart)
         return (
             <div className="create-relative">
                 <div className="relative-header">
