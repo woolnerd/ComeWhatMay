@@ -90,7 +90,7 @@ const mSTP = (state, ownProps) => {
         profileId: ownProps.profileId,        
         household: Object.values(state.entities.relative).filter(
             member => {
-                return member.profile == ownProps.match.params.profileId
+                return member.profile === ownProps.match.params.profileId
             }
         )
     };

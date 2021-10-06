@@ -11,10 +11,8 @@ class CreateProfileForm extends React.Component {
 
     this.state = {
       ...this.props.profile,
-      // email: JSON.parse(localStorage.getItem("userEmail")),
     };
     this.renderErrors = this.renderErrors.bind(this);
-    debugger
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -32,8 +30,8 @@ class CreateProfileForm extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchUserProfile(this.props.currentUser.id);
-    this.setState({ email: JSON.parse(localStorage.getItem("userEmail"))});
+    this.props.fetchUserProfile(this.props.currentUser.id)
+    this.setState({ email: this.props.currentUser.email});
   }
 
   renderErrors() {
@@ -132,7 +130,7 @@ const mSTP = (state) => {
       },
       errors: state.errors.profile,
       profileId: Object.values(state.entities.profile).filter(profile =>
-        profile.user == state.session.user.id)[0]
+        profile.user === state.session.user.id)[0]
     };
 }
 
