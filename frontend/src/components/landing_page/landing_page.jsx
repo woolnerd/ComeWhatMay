@@ -30,31 +30,31 @@ class LandingPage extends React.Component {
             <h4>The Disaster Preparation App - When the unexpected happens, be prepared.</h4>
           </div>
         </div>
-        <div className="container">How <p> CWM </p> Works</div>
+        <div class="container">How <p> CWM </p> Works</div>
         <div className="app-features">
           <div className="app-icon-sec">
             <div className="app-icon"><BsPencilSquare /></div>
             <h4>Register</h4>
-            <p className="icon-num">- 1 -</p>
-            <p className="icon-info">Have access to all features.</p>
+            <p class="icon-num">- 1 -</p>
+            <p class="icon-info">Have access to all features.</p>
           </div>
           <div className="app-icon-sec">
             <div className="app-icon"><CgProfile /></div>
             <h4>Create a Profile</h4>
-            <p className="icon-num">- 2 -</p>
-            <p className="icon-info">Add household information to keep track of your loved ones and have a plan in place.</p>
+            <p class="icon-num">- 2 -</p>
+            <p class="icon-info">Add household information to keep track of your loved ones and have a plan in place.</p>
           </div>
           <div className="app-icon-sec">
             <div className="app-icon"><AiOutlineFire /></div>
             <h4>Create a Plan</h4>
-            <p className="icon-num">- 3 -</p>
-            <p className="icon-info">Personalize emergency plans for all situations.</p>
+            <p class="icon-num">- 3 -</p>
+            <p class="icon-info">Personalize emergency plans for all situations.</p>
           </div>
           <div className="app-icon-sec">
             <div className="app-icon"><GiWhistle /></div>
             <h4>Practice</h4>
-            <p className="icon-num">- 4 -</p>
-            <p className="icon-info">Put your preparation to the test! Run live drills and keep track of your history.</p>
+            <p class="icon-num">- 4 -</p>
+            <p class="icon-info">Put your preparation to the test! Run live drills and keep track of your history.</p>
           </div>
         </div>
         <div className="blur"></div>

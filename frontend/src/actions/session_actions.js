@@ -55,4 +55,4 @@ export const logout = () => dispatch => {
 export const fetchUser = userId => dispatch => 
     APIUtil.fetchUser(userId)
     .then(user => dispatch(receiveCurrentUser(user)))
-    //.catch((err) => console.log(err));
+    .catch((err) => console.log(err));
