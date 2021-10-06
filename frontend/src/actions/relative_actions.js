@@ -35,12 +35,12 @@ export const removeRelative = (relativeId) => ({
 export const fetchRelative = (relativeId) => (dispatch) =>
   APIRelativeUtil.fetchRelative(relativeId)
     .then((relative) => dispatch(receiveRelative(relative)))
-    .catch((err) => console.log(err));
+    //.catch((err) => console.log(err));
 
 export const fetchAllRelatives = (profileId) => (dispatch) =>
   APIRelativeUtil.fetchAllRelatives(profileId)
     .then((relatives) => dispatch(receiveAllRelatives(relatives)))
-    .catch((err) => console.log(err));
+    //.catch((err) => console.log(err));
 
 export const createRelative = (relative) => (dispatch) =>
   APIRelativeUtil.createRelative(relative)
@@ -59,4 +59,4 @@ export const updateRelative = (relative) => (dispatch) =>
 export const deleteRelative = (relativeId) => (dispatch) =>
   APIRelativeUtil.deleteRelative(relativeId)
     .then(() => dispatch(removeRelative(relativeId)))
-    .catch((err) => console.log(err));
+    //.catch((err) => console.log(err));
