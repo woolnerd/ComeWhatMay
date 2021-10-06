@@ -132,7 +132,6 @@ class ActionStep extends React.Component {
                         this.props.action._id
                       )
                       // .then(() => this.setState({ modal: 0 }))
-                  
                   }>
                   Confirm
                 </button>

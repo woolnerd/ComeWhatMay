@@ -33,12 +33,12 @@ export const clearPlanErrors = () => ({
 export const fetchDisasterPlan = (disasterId) => (dispatch) =>
 APIDisasterPlanUtil.fetchDisasterPlan(disasterId)
     .then((plan) => dispatch(receivePlan(plan)))
-    .catch((err) => console.log(err));
+    //.catch((err) => console.log(err));
 
 export const fetchDisasterPlans = (profileId) => (dispatch) =>
 APIDisasterPlanUtil.fetchDisasterPlans(profileId)
     .then((plans) => dispatch(receiveAllPlans(plans)))
-    .catch((err) => console.log(err));
+    //.catch((err) => console.log(err));
 
 export const createDisasterPlan = (profileId, plan) => (dispatch) =>
 APIDisasterPlanUtil.createDisasterPlan(profileId, plan)
@@ -57,4 +57,4 @@ APIDisasterPlanUtil.updateDisasterPlan(plan)
 export const deleteDisasterPlan = (id) => (dispatch) =>
 APIDisasterPlanUtil.deleteDisasterPlan(id)
   .then(() => dispatch(removePlan(id)))
-  .catch((err) => console.log(err));
+  //.catch((err) => console.log(err));

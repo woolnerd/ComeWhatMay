@@ -20,10 +20,6 @@ module.exports = function validateProfileInput(data) {
     errors.email = 'Household Name field is required';
   }
 
-  if (Validator.isEmpty(data.phoneNumber.toString())) {
-    errors.phoneNumber = 'Phone number field is required';
-  }
-
   if (!Validator.isNumeric(data.phoneNumber)) {
     errors.phoneNumber = 'Phone number is not a valid number';
   }
@@ -31,6 +27,10 @@ module.exports = function validateProfileInput(data) {
   if (!Validator.isLength(data.phoneNumber.toString(), 10, 10)){
     errors.phoneNumber = 'Phone number is not a valid number'
   }
+
+   if (Validator.isEmpty(data.phoneNumber.toString())) {
+     errors.phoneNumber = "Phone number field is required";
+   }
 
   return {
     errors,

@@ -12,11 +12,13 @@ module.exports = function validateRelativeInput(data) {
   if (Validator.isEmpty(data.name)) {
     errors.name = 'Name field is required';
   }
-
-  if (!Validator.isEmpty(data.phoneNumber.toString())) {
-     if (!Validator.isLength(data.phoneNumber.toString(), 10, 10)) {
-       errors.phoneNumber = "Phone number is not a valid number";
-     }
+  
+  if (!Validator.isLength(data.phoneNumber.toString(), 10, 10)) {
+    errors.phoneNumber = "Phone number is not a valid number";
+  }
+  
+  if (Validator.isEmpty(data.phoneNumber.toString())) {
+    errors.phoneNumber = "Phone number is required";
   }
 
   if (Validator.isEmpty(data.age.toString())) {

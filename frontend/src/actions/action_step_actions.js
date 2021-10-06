@@ -30,4 +30,4 @@ APIActionStepUtil.updateActionStep(planId, actionStep)
 export const deleteActionStep = (planId, stepId) => (dispatch) =>
 APIActionStepUtil.deleteActionStep(planId, stepId)
   .then((recPlan) => dispatch(receivePlan(recPlan)))
-  .catch((err) => console.log(err));
+  //.catch((err) => console.log(err));

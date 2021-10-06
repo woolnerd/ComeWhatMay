@@ -188,7 +188,7 @@ class DisasterPlanShow extends React.Component {
                             `/profile/${this.props.plan.profileId}`
                           )
                         )
-                        .then(() => this.setState({ modal: 0 }))
+                        // .then(() => this.setState({ modal: 0 }))
                     }>
                     Confirm
                   </button>

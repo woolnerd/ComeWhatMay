@@ -21,7 +21,7 @@ router.post('/create/:profileId', (req, res) => {
 
     newDisasterPlan.save()
         .then(disaster => res.json(disaster))
-        .catch(err => console.log(err));
+        //.catch(err => console.log(err));
 })
 
 router.get('/show/:disasterId', (req, res) => {
@@ -50,7 +50,7 @@ router.put('/update/:disasterId', (req, res) => {
     DisasterPlan.findByIdAndUpdate(req.params.disasterId, req.body)
      .then(disaster => DisasterPlan.findById(disaster.id))
         .then(updatedDis => res.json(updatedDis))
-        .catch(err => console.log(err));
+        //.catch(err => console.log(err));
 });
 
 router.delete('/delete/:disasterId', (req, res) => {
@@ -119,6 +119,7 @@ router.delete('/:disasterId/action/delete/:actionId', (req, res) => {
                 disaster.actions.pull({"_id": actionId })
             }
             disaster.save()
+            .then(() => DisasterPlan.findById(disasterId))
             .then(updatedDisaster => res.json(updatedDisaster))
             .catch(err =>
                 res.status(400).json({ error: 'Unable to delete action step' })
