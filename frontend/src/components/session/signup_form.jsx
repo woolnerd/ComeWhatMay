@@ -50,12 +50,6 @@ class SignupForm extends React.Component {
               email: this.state.email,
               password: this.state.password,
             })
-            .then(
-              localStorage.setItem(
-                "userEmail",
-                JSON.stringify(this.state.email)
-              )
-            )
         : null
     );
   }

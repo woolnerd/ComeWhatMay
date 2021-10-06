@@ -50,9 +50,6 @@ class CreateProfileForm extends React.Component {
     e.preventDefault();
     this.setState({ user: this.props.currentUser.id });
     this.props.createUserProfile(this.state);
-    // localStorage.setItem(
-    // "userHousehold",
-    // JSON.stringify(this.state.householdName))
   }
 
   update(field) {
@@ -61,10 +58,6 @@ class CreateProfileForm extends React.Component {
       this.setState({ [field]: value });
     };
   }
-
-  // componentWillUnmount(){
-  //   console.log("unmount")
-  // }
 
   render() {
     const show = this.props.profileId ? (
