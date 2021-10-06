@@ -150,12 +150,13 @@ class DisasterPlans extends React.Component {
   render() {
     const plans = this.props.disasterPlans.map((plan, i) => (
       <Link
+        key={"disaster-plan" + i}
         to={{
           pathname: `/disaster/${plan._id}`,
           currentPlan: { plan: plan },
         }}
       >
-        <div key={i} className="plan-item">
+        <div className="plan-item">
           <div className="plan-item-box">
             <BsAlarm className="alarm" />
             <h4 className="plan-title">

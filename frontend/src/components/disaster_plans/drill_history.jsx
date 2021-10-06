@@ -16,7 +16,7 @@ class DrillHistory extends React.Component {
 
         const showDrills = this.props.drills ? this.props.drills.map((drill, i) => {
             if(drill.timeToComplete){
-                var date = new Date(drill.timeToStart);
+                const date = new Date(drill.timeToStart);
             return (
                 <div key={`${i}`} className="drill-hist">
                     <div>Drill Date: {date.toDateString()} </div>
@@ -24,7 +24,9 @@ class DrillHistory extends React.Component {
                     <p>Notes: {drill.reviewNote} </p>
                     <br/>
                 </div>
-            )}
+            )} else {
+                return null;
+            }
         }) : null
 
 

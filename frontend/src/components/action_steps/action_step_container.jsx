@@ -131,7 +131,8 @@ class ActionStep extends React.Component {
                         this.props.planId,
                         this.props.action._id
                       )
-                      .then(() => this.setState({ modal: 0 }))
+                      // .then(() => this.setState({ modal: 0 }))
+                  
                   }>
                   Confirm
                 </button>

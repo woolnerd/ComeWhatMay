@@ -10,8 +10,7 @@ class CreateProfileForm extends React.Component {
     super(props);
 
     this.state = {
-      ...this.props.profile,
-      email: JSON.parse(localStorage.getItem("userEmail")),
+      ...this.props.profile
     };
     this.renderErrors = this.renderErrors.bind(this);
   }
@@ -32,6 +31,7 @@ class CreateProfileForm extends React.Component {
 
   componentDidMount() {
     this.props.fetchUserProfile(this.props.currentUser.id);
+    this.setState({ email: this.props.currentUser.email});
   }
 
   renderErrors() {
@@ -134,7 +134,7 @@ const mSTP = (state) => {
       },
       errors: state.errors.profile,
       profileId: Object.values(state.entities.profile).filter(profile =>
-        profile.user == state.session.user.id)[0]
+        profile.user === state.session.user.id)[0]
     };
 }
 
