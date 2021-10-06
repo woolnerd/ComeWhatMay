@@ -25,11 +25,6 @@ class Profile extends React.Component {
     const phone = `(${profile.phoneNumber.toString().slice(0, 3)}) 
                     ${profile.phoneNumber.toString().slice(3, 6)}-${profile.phoneNumber.toString().slice(6)}`;
 
-    // localStorage.setItem(
-    //   "userHousehold",
-    //   JSON.stringify(profile.householdName)
-    // );
-
     return (
       <div className="profile-container-main">
         <DisasterPlansIndexContainer />
