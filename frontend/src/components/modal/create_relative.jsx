@@ -15,14 +15,12 @@ class CreateRelative extends React.Component {
       age: "",
       relationship: "",
       phoneNumber: "",
-      showPhoneNumber: "",
       errors: [],
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleModal = this.handleModal.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-    this.parseNumber = this.parseNumber.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -47,22 +45,8 @@ class CreateRelative extends React.Component {
 
   handleInput(type) {
     return (e) => {
-      if (type === "phoneNumber") {
-        this.setState({showPhoneNumber: e.target.value});
-        this.parseNumber(e.target.value);
-      } else {
         this.setState({ [type]: e.target.value });
       }
-    };
-  }
-
-  parseNumber(num) {
-      num = num.split('')
-               .map(el=> parseInt(el))
-               .filter(n => !isNaN(n)).join('')
-      
-      num = parseInt(num)
-      this.setState({ phoneNumber: num });
   }
 
   handleSubmit(e) {
@@ -123,9 +107,8 @@ class CreateRelative extends React.Component {
           <div className="phone-number">
             <label>Phone Number</label>
             <input
-              value={this.state.showPhoneNumber}
+              value={this.state.phoneNumber}
               onChange={this.handleInput("phoneNumber")}
-              placeholder="(123) 555-1212"
               type="text"
             />
           </div>
