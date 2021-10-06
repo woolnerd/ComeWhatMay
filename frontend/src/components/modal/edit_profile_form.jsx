@@ -15,6 +15,7 @@ class EditProfileForm extends React.Component {
       householdName: this.props.profile.householdName,
       householdSize: this.props.profile.householdSize,
       phoneNumber: this.props.profile.phoneNumber,
+      showPhoneNumber: this.props.profile.phoneNumber,
       errors: [],
     };
     this.handleModal = this.handleModal.bind(this);
@@ -36,6 +37,16 @@ class EditProfileForm extends React.Component {
     }
   }
 
+  parseNumber(num) {
+    num = num
+      .split("")
+      .map((el) => parseInt(el))
+      .filter((n) => !isNaN(n))
+      .join("");
+
+    num = parseInt(num);
+    this.setState({ phoneNumber: num });
+  }
 
   componentDidMount() {
     this.props
@@ -55,13 +66,17 @@ class EditProfileForm extends React.Component {
   handleModal(e) {
     e.preventDefault();
     this.props.clearProfileErrors();
-    setTimeout(() => this.props.closeModal(), 0)
+    setTimeout(() => this.props.closeModal(), 0);
   }
 
-  update(field) {
+  update(type) {
     return (e) => {
-      let value = e.target.value;
-      this.setState({ [field]: value });
+      if (type === "phoneNumber") {
+        this.setState({ showPhoneNumber: e.target.value });
+        this.parseNumber(e.target.value);
+      } else {
+        this.setState({ [type]: e.target.value });
+      }
     };
   }
 
@@ -109,9 +124,10 @@ class EditProfileForm extends React.Component {
             <label>
               Phone Number:
               <input
+                value={this.state.showPhoneNumber}
                 onChange={this.update("phoneNumber")}
+                placeholder="(123) 555-1212"
                 type="text"
-                value={this.state.phoneNumber}
               />
             </label>
             <br />

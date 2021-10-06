@@ -9,10 +9,9 @@ class CreateProfileForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      ...this.props.profile
-    };
+    this.state = this.props.profile;
     this.renderErrors = this.renderErrors.bind(this);
+    this.parseNumber = this.parseNumber.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -23,6 +22,17 @@ class CreateProfileForm extends React.Component {
     }
   }
 
+  parseNumber(num) {
+    num = num
+      .split("")
+      .map((el) => parseInt(el))
+      .filter((n) => !isNaN(n))
+      .join("");
+
+    num = parseInt(num);
+    this.setState({ phoneNumber: num });
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.errors !== this.props.errors) {
       this.setState({ errors: this.props.errors });
@@ -31,7 +41,7 @@ class CreateProfileForm extends React.Component {
 
   componentDidMount() {
     this.props.fetchUserProfile(this.props.currentUser.id);
-    this.setState({ email: this.props.currentUser.email});
+    this.setState({ email: this.props.currentUser.email });
   }
 
   renderErrors() {
@@ -55,16 +65,16 @@ class CreateProfileForm extends React.Component {
     // JSON.stringify(this.state.householdName))
   }
 
-  update(field) {
+  update(type) {
     return (e) => {
-      let value = e.target.value;
-      this.setState({ [field]: value });
+      if (type === "phoneNumber") {
+        this.setState({ showPhoneNumber: e.target.value });
+        this.parseNumber(e.target.value);
+      } else {
+        this.setState({ [type]: e.target.value });
+      }
     };
   }
-
-  // componentWillUnmount(){
-  //   console.log("unmount")
-  // }
 
   render() {
     const show = this.props.profileId ? (
@@ -95,7 +105,8 @@ class CreateProfileForm extends React.Component {
             <input
               onChange={this.update("phoneNumber")}
               type="text"
-              value={this.state.phoneNumber}
+              value={this.state.showPhoneNumber}
+              placeholder="(123) 555-1212"
             />
           </label>
           <br />
@@ -130,6 +141,7 @@ const mSTP = (state) => {
         householdName: "",
         householdSize: 1,
         phoneNumber: "",
+        showPhoneNumber: "",
         errors: {}
       },
       errors: state.errors.profile,

@@ -37,7 +37,7 @@ class RelativeIndex extends React.Component {
         const showHousehold = this.props.household.map((member, i) => {
 
             
-           const phone = member.phoneNumber ? `(${member.phoneNumber.toString().slice(0, 3)}) 
+           const phone = member.phoneNumber !== null ? `(${member.phoneNumber.toString().slice(0, 3)}) 
                     ${member.phoneNumber
                       .toString()
                       .slice(3, 6)}-${member.phoneNumber.toString().slice(6)}`
