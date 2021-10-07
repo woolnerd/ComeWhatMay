@@ -4,7 +4,15 @@ Welcome to Come What May, a disaster preparation app fully customizable to the n
 
 Come check it out: [CWM](http://come-what-may.herokuapp.com/#/)
 
+
+## How To Install
+  * Clone repo usinf the command git clone 
+  * From root directory run the command npm install 
+  * From the frontend folder run the command npm install 
+  * From the root folder run the command npm run dev to access application on local host
+
 ![App Overview Gid](https://media.giphy.com/media/CcA4xCjJ50ce3HBI1h/giphy.gif)
+
 
 ## Technologies Used
 
