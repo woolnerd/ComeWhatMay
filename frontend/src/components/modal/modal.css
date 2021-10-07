@@ -54,7 +54,7 @@
 }
 
 .plan-errors{
-    color: #e50000;
+    color: #cc0000;
     list-style-type: disc;
     text-align: initial;
 }
@@ -62,7 +62,7 @@
 .plan-errors li{
     margin-bottom: 5px;
     margin-top: 14px;
-    color: #e50000;
+    color: #cc0000;
 }
 
 
@@ -172,7 +172,6 @@
 #edit-profile-errors{
     margin-top: 15px;
     margin-left: 40px;
-
 }
 
 #edit-profile-btn{
@@ -181,6 +180,7 @@
 
 #profile-edit-error{
     width: 300px;
+    padding-bottom: 0;
 }
 
 #create-relative-errors,

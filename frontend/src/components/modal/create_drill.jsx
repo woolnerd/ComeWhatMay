@@ -45,18 +45,28 @@ class CreateDrill extends React.Component {
         date = yyyy + "-" + mm + "-" + dd;
 
         return (
-            <div className="create-relative">
-                <div className="relative-header">
-                    <h2>Add Drill</h2>
-                    <p className="exit_edit" onClick={this.handleModal}><AiOutlineClose className="close-x" /></p>
-                </div>
-                <div className="start-drill">
-                    <label>Start On:</label>
-                    <input defaultValue={this.state.timeToStart} onChange={this.handleInput('timeToStart')} type="date" min={date}/>
-                </div>
-                <button className="save-button" onClick={this.handleSubmit}>Save</button>  
+          <div className="create-relative">
+            <div className="relative-header">
+              <h2>Add Drill</h2>
+              <p className="exit_edit" onClick={this.handleModal}>
+                <AiOutlineClose className="close-x" />
+              </p>
             </div>
-        )
+            <div className="start-drill">
+              <label>Start On:</label>
+              <input
+                defaultValue={this.state.timeToStart}
+                onChange={this.handleInput("timeToStart")}
+                type="date"
+                min={date}
+                onKeyDown={(e) => e.preventDefault()}
+              />
+            </div>
+            <button className="save-button" onClick={this.handleSubmit}>
+              Save
+            </button>
+          </div>
+        );
     }
 }
 
