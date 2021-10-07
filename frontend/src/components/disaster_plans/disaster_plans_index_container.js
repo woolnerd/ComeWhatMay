@@ -7,7 +7,7 @@ import {
     clearPlanErrors
  } from '../../actions/disaster_plan_actions'
 
-const mSTP = (state, ownProps) =>{
+const mSTP = (state, ownProps) => {
     return {
         disasterPlans: Object.values(state.entities.plans), 
         profileId: ownProps.match.params.profileId, 

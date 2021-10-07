@@ -12,10 +12,11 @@ class DisasterPlans extends React.Component {
       name: "",
       targetTime: 5,
       disasterType: "",
-      modal: "false",
+      modal: false,
       errors: [],
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -42,6 +43,34 @@ class DisasterPlans extends React.Component {
     };
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createDisasterPlan(
+      this.props.profileId,{
+        name: this.state.name,
+        targetTime: this.state.targetTime,
+        disasterType: this.state.disasterType,
+    })
+    .then( () => 
+        {if (!this.state.errors.length) {
+            this.setState({
+                name: '',
+                targetTime: '',
+                disasterType: '',
+                modal: false
+            })
+          } else {
+            this.setState({
+              name: this.state.name,
+              targetTime: this.state.targetTime,
+              disasterType: this.state.disasterType,
+              modal: true
+            })
+          }
+        }
+    )
+  }
+
   renderErrors() {
     const errors = this.state.errors.map((error, i) => (
       <li key={`error-${i}`}>{error}</li>
@@ -50,7 +79,7 @@ class DisasterPlans extends React.Component {
   }
 
   createPlanModal() {
-    if (this.state.modal === "false") {
+    if (!this.state.modal) {
       return null;
     } else {
       return (
@@ -58,33 +87,14 @@ class DisasterPlans extends React.Component {
           <div className="modal-child">
             <form
               className="dis-plan-form"
-              onSubmit={() =>
-                this.props
-                  .createDisasterPlan(this.props.profileId, {
-                    name: this.state.name,
-                    targetTime: this.state.targetTime,
-                    disasterType: this.state.disasterType,
-                  })
-                  .then(() =>
-                    this.setState({
-                      name: !this.state.errors.length ? "" : this.state.name,
-                      targetTime: !this.state.errors.length
-                        ? 5
-                        : this.state.targetTime,
-                      disasterType: !this.state.errors.length
-                        ? ""
-                        : this.state.disasterType,
-                      modal: !this.state.errors.length ? "false" : "true",
-                    })
-                  )
-              }
-            >
+              onSubmit={(e) => this.handleSubmit(e)}>
+
               <div className="create-plan-modal-title-close">
                 <div className="plan-header">
                   <h2 className="make-plan">Make a Plan</h2>
 
                   <p className="exit_edit"
-                    onClick={() => this.setState({ modal: "false" }, 
+                    onClick={() => this.setState({ modal: false }, 
                     () => this.props.clearPlanErrors())}>
                     <AiOutlineClose id="close-x" />
                   </p>
@@ -151,11 +161,8 @@ class DisasterPlans extends React.Component {
     const plans = this.props.disasterPlans.map((plan, i) => (
       <Link
         key={"disaster-plan" + i}
-        to={{
-          pathname: `/disaster/${plan._id}`,
-          currentPlan: { plan: plan },
-        }}
-      >
+        to={`/disaster/${plan._id}`}>
+
         <div className="plan-item">
           <div className="plan-item-box">
             <BsAlarm className="alarm" />
@@ -172,8 +179,7 @@ class DisasterPlans extends React.Component {
         <div className="dist-plan-container">
           <button
             id="plan-btn"
-            onClick={() => this.setState({ modal: "true" })}
-          >
+            onClick={() => this.setState({ modal: true })}>
             Make a Plan
           </button>
           <div className="dist-plans">{plans}</div>

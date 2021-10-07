@@ -15,8 +15,6 @@ class Profile extends React.Component {
       .then((res) => this.setState({ profile: res }))
   }
 
-
-
   render() {
     if (!this.state.profile) {
       return null;
