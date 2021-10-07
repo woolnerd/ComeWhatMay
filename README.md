@@ -34,7 +34,74 @@ Come check it out: [CWM](http://come-what-may.herokuapp.com/#/)
 ![Use Drill Timer](https://media.giphy.com/media/hxwcDUmHDhcCA18oT8/giphy.gif)
 
 ## Code Snippets
+* Modals handling of forms on the site 
+```javascript
+function Modal({modal, closeModal, id}){
+    if(!modal){
+        return null
+    }
+    let component; 
 
+    switch(modal.modal){
+      case 'createRelative':
+        component = <CreateRelativeContainer profileId={modal.id}/>
+        break;
+      case 'editRelative':
+        component = <EditRelativeContainer relativeId={modal.id} />
+        break;
+      case 'updateProfile':
+        component = <UpdateProfileContainer profileId={modal.id} />
+        break;
+      case 'editDrill':
+        component = <UpdateDrillContainer drillId={modal.id} />
+        break;
+      case 'createDrill':
+        component = <CreateDrillContainer planId={modal.id} />
+        break;
+      case 'startDrill':
+        component = <StartDrillContainer drillId={modal.id} />
+        break;
+      default: 
+        return null;
+    }
+
+    return (
+      <div className="modal-background" onClick={closeModal}>
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+          { component }
+        </div>
+      </div>
+  );
+}
+```
+* Visual timer with Start/ Stop functionality
+```javascript
+start() {
+        this.setState({ disabled: true })
+        const startTime = setInterval(() => {
+            this.setState({ milliseconds: this.state.milliseconds + 1 })
+            if (this.state.milliseconds > 99) {
+                this.setState({
+                    seconds: this.state.seconds + 1,
+                    milliseconds: 0
+                })
+            }
+            if (this.state.seconds > 59) {
+                this.setState({
+                    seconds: 0,
+                    minutes: this.state.minutes + 1
+                })
+            }
+        }, 10);
+        this.setState({start: startTime});
+    }
+
+    stop() {
+        clearInterval(this.state.start)
+        this.setState({ disabled: false })
+    }
+
+```
 
 ## Challenges
 ### A profile page as the epicenter
