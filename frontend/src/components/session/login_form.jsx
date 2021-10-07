@@ -47,7 +47,6 @@ class LoginForm extends React.Component {
     };
     this.props
       .login(user)
-      .then(localStorage.setItem("userEmail", JSON.stringify(user.email)));
   }
 
   demoLogin(e) {

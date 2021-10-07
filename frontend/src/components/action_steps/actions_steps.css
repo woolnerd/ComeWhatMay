@@ -304,7 +304,8 @@ textarea {
     padding-left: 10px;
 }
 
-h4#left-padding {
+div#case-of {
+    display: flex;
     padding: 10px;
 }
 

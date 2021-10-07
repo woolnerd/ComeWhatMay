@@ -14,7 +14,8 @@ class StartDrill extends React.Component {
             milliseconds: 0,
             seconds: 0,
             minutes: 0,
-            start: null
+            start: null,
+            disabled: false
         }
 
         this.start = this.start.bind(this);
@@ -30,7 +31,8 @@ class StartDrill extends React.Component {
     }
 
     start() {
-        this.state.start = setInterval(() => {
+        this.setState({ disabled: true })
+        const startTime = setInterval(() => {
             this.setState({ milliseconds: this.state.milliseconds + 1 })
             if (this.state.milliseconds > 99) {
                 this.setState({
@@ -44,8 +46,8 @@ class StartDrill extends React.Component {
                     minutes: this.state.minutes + 1
                 })
             }
-
         }, 10);
+        this.setState({start: startTime});
     }
 
     handleTime(e){
@@ -56,6 +58,7 @@ class StartDrill extends React.Component {
 
     stop() {
         clearInterval(this.state.start)
+        this.setState({disabled: false})
     }
 
     render() {
@@ -76,7 +79,7 @@ class StartDrill extends React.Component {
                     <div>{this.state.minutes}</div> */}
                 </div>
                 <div className="clock-button">
-                    <button className="clock-btn" onClick={() => this.start()}>Start</button>
+                    <button type="button" className="clock-btn" onClick={() => this.start()} disabled={this.state.disabled}>Start</button>
                     <button className="clock-btn" onClick={() => this.stop()}>Stop</button>
                     <button className="clock-btn" onClick={this.handleTime}>Save</button>
                 </div>

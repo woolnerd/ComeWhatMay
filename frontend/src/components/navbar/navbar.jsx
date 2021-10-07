@@ -15,19 +15,16 @@ class NavBar extends React.Component {
     this.handleClickHome = this.handleClickHome.bind(this);
   }
 
-  // fetchHousehold() {
-  //   setTimeout(()=>
-  //     this.setState({
-  //       household: JSON.parse(localStorage.getItem("userHousehold")),
-  //     }), 300 );
-  // }
-
   handleClick(e) {
     e.preventDefault();
-    this.props.fetchUserProfile(this.props.currentUserId.id).then((res) => {
-      let profileId = res.profile._id;
-      this.props.history.push(`/profile/${profileId}`)
-    })
+    if (this.props.profileId) {
+      this.props.fetchUserProfile(this.props.currentUserId.id).then((res) => {
+        let profileId = res.profile._id;
+        this.props.history.push(`/profile/${profileId}`)
+      })
+    } else {
+      this.props.history.push(`/`);
+    }
   }
 
   handleClickHome(e) {
@@ -37,16 +34,7 @@ class NavBar extends React.Component {
   logoutUser(e) {
     e.preventDefault();
     this.props.logout();
-    localStorage.removeItem("userEmail");
-    // localStorage.removeItem("userHousehold");
-    // this.setState({household: ""});
   }
-
-  // componentDidMount() {
-  //   this.setState({
-  //     household: JSON.parse(localStorage.getItem("userHousehold")),
-  //   });
-  // }
 
   getPlans() {
     if (this.props.loggedIn) {

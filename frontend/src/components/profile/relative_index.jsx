@@ -36,10 +36,12 @@ class RelativeIndex extends React.Component {
         
         const showHousehold = this.props.household.map((member, i) => {
 
+            
            const phone = `(${member.phoneNumber.toString().slice(0, 3)}) 
                     ${member.phoneNumber
                       .toString()
-                      .slice(3, 6)}-${member.phoneNumber.toString().slice(6)}`;
+                      .slice(3, 6)}-${member.phoneNumber.toString().slice(6)}`
+                      
 
             return (
               <div key={`${i}`} className="single-member">
@@ -90,7 +92,7 @@ const mSTP = (state, ownProps) => {
         profileId: ownProps.profileId,        
         household: Object.values(state.entities.relative).filter(
             member => {
-                return member.profile == ownProps.match.params.profileId
+                return member.profile === ownProps.match.params.profileId
             }
         )
     };

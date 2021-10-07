@@ -188,7 +188,7 @@ class DisasterPlanShow extends React.Component {
                             `/profile/${this.props.plan.profileId}`
                           )
                         )
-                        .then(() => this.setState({ modal: 0 }))
+                        // .then(() => this.setState({ modal: 0 }))
                     }>
                     Confirm
                   </button>
@@ -223,10 +223,10 @@ class DisasterPlanShow extends React.Component {
                   <span>Drill Target </span>
                   {plan.targetTime}min
                 </h4>
-                <h4 id="left-padding">
+                <div id="case-of">
                   <span>In the case of </span>
                   <h4>{plan.disasterType}</h4>
-                </h4>
+                </div>
               </div>
             </div>
             <div className="plan-crud-buttons">

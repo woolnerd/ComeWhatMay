@@ -41,13 +41,12 @@ class CreateRelative extends React.Component {
     e.preventDefault();
     this.props.clearRelativeErrors();
     setTimeout(() => this.props.closeModal(), 0)
-    
   }
 
   handleInput(type) {
     return (e) => {
-      this.setState({ [type]: e.target.value });
-    };
+        this.setState({ [type]: e.target.value });
+      }
   }
 
   handleSubmit(e) {

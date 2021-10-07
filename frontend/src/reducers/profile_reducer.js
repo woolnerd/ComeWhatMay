@@ -10,7 +10,11 @@ const profileReducer = (state = {}, action) => {
     let newState = {...state}
     switch(action.type) {
         case RECEIVE_USER_PROFILE:
-            return {...state, [action.profile._id]: action.profile}
+            if (action.profile) {
+                return {...state, [action.profile._id]: action.profile}
+            } else {
+                return state;
+            }
         case REMOVE_USER_PROFILE:
             delete newState[action.profileId]
             return newState;

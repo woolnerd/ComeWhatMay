@@ -13,7 +13,6 @@ class Profile extends React.Component {
     this.props
       .fetchUserProfile(this.props.currentUserId)
       .then((res) => this.setState({ profile: res }))
-      .then(()=> this.forceUpdate())
   }
 
 
@@ -25,11 +24,6 @@ class Profile extends React.Component {
     const profile = this.props.profile[this.props.profileId];
     const phone = `(${profile.phoneNumber.toString().slice(0, 3)}) 
                     ${profile.phoneNumber.toString().slice(3, 6)}-${profile.phoneNumber.toString().slice(6)}`;
-
-    // localStorage.setItem(
-    //   "userHousehold",
-    //   JSON.stringify(profile.householdName)
-    // );
 
     return (
       <div className="profile-container-main">
