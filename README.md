@@ -116,3 +116,7 @@ start() {
 ### Using a new technology for the back end of the project (MongoDB). 
 * While we did use Mongoose router to allow for an easier transition from the SQL tables that we were used to, we wanted to take full advantage of what MongoDB brings to the table. One of the most obvious differences is the use of embedded documents. Learning everything, all of the required syntax and functionality to properly manage CRUD on the embedded documents was one of the largest challenges that we faced during this project. The consistent rendering of our action steps i.e. the tasks that are created and point to our action plans, were depenendent on this relationship. However, we had a problem: our UI had a disconnect from the backend. If one was attempted to update or delete a task, the wrong task would be effected. We had a disconnect from the backend.
 
+### A Homemade Drill Timer 
+* Part of what makes CWM a different app then the others is how we hope to encourage our users to put their plans intro practice. For what good is a great plan without proper execution? That is why we implemented our very own drill timer. This way a plan can actually be implemented and practiced. The user gets the ability to save and view their drill times, and get a sense of their performance. To implement this timer feature we had to start from the ground up...
+
+
