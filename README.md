@@ -4,6 +4,8 @@ Welcome to Come What May, a disaster preparation app fully customizable to the n
 
 Come check it out: [CWM](http://come-what-may.herokuapp.com/#/)
 
+![App Overview Gid](https://media.giphy.com/media/CcA4xCjJ50ce3HBI1h/giphy.gif)
+
 ## Technologies Used
 
 * Frontend
@@ -22,8 +24,14 @@ Come check it out: [CWM](http://come-what-may.herokuapp.com/#/)
 * Create profile to represent your household including relative cards to represent each member of your family/household with useful emergency contact information.
 * Create different plans for different types of disasters.
 * Each plan has it's own user customized list of tasks associated to it. Each action can belong to a member of the household as well as details of the task itself.
+
+![Add Task to Disaster Plan](https://media.giphy.com/media/8UwACZGgQ3lp5OyIMa/giphy.gif)
+
+
 * Each plan has it's own Drills that are scheduled by the user so that they can put their new plan into action.
 * Drills that have been created for a Plan have a built in timer that can be used during the drill to make sure that a user is staying within the timeframe that was set during the creation of the plan.
+
+![Use Drill Timer](https://media.giphy.com/media/hxwcDUmHDhcCA18oT8/giphy.gif)
 
 ## Code Snippets
 
