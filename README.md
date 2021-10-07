@@ -4,11 +4,15 @@ Welcome to Come What May, a disaster preparation app fully customizable to the n
 
 Come check it out: [CWM](http://come-what-may.herokuapp.com/#/)
 
+
 ## How To Install
   * Clone repo usinf the command git clone 
   * From root directory run the command npm install 
   * From the frontend folder run the command npm install 
   * From the root folder run the command npm run dev to access application on local host
+
+![App Overview Gid](https://media.giphy.com/media/CcA4xCjJ50ce3HBI1h/giphy.gif)
+
 
 ## Technologies Used
 
@@ -28,11 +32,84 @@ Come check it out: [CWM](http://come-what-may.herokuapp.com/#/)
 * Create profile to represent your household including relative cards to represent each member of your family/household with useful emergency contact information.
 * Create different plans for different types of disasters.
 * Each plan has it's own user customized list of tasks associated to it. Each action can belong to a member of the household as well as details of the task itself.
+
+![Add Task to Disaster Plan](https://media.giphy.com/media/8UwACZGgQ3lp5OyIMa/giphy.gif)
+
+
 * Each plan has it's own Drills that are scheduled by the user so that they can put their new plan into action.
 * Drills that have been created for a Plan have a built in timer that can be used during the drill to make sure that a user is staying within the timeframe that was set during the creation of the plan.
 
-## Code Snippets
+![Use Drill Timer](https://media.giphy.com/media/hxwcDUmHDhcCA18oT8/giphy.gif)
 
+## Code Snippets
+* Modals handling of forms on the site 
+```javascript
+function Modal({modal, closeModal, id}){
+    if(!modal){
+        return null
+    }
+    let component; 
+
+    switch(modal.modal){
+      case 'createRelative':
+        component = <CreateRelativeContainer profileId={modal.id}/>
+        break;
+      case 'editRelative':
+        component = <EditRelativeContainer relativeId={modal.id} />
+        break;
+      case 'updateProfile':
+        component = <UpdateProfileContainer profileId={modal.id} />
+        break;
+      case 'editDrill':
+        component = <UpdateDrillContainer drillId={modal.id} />
+        break;
+      case 'createDrill':
+        component = <CreateDrillContainer planId={modal.id} />
+        break;
+      case 'startDrill':
+        component = <StartDrillContainer drillId={modal.id} />
+        break;
+      default: 
+        return null;
+    }
+
+    return (
+      <div className="modal-background" onClick={closeModal}>
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+          { component }
+        </div>
+      </div>
+  );
+}
+```
+* Visual timer with Start/ Stop functionality
+```javascript
+start() {
+        this.setState({ disabled: true })
+        const startTime = setInterval(() => {
+            this.setState({ milliseconds: this.state.milliseconds + 1 })
+            if (this.state.milliseconds > 99) {
+                this.setState({
+                    seconds: this.state.seconds + 1,
+                    milliseconds: 0
+                })
+            }
+            if (this.state.seconds > 59) {
+                this.setState({
+                    seconds: 0,
+                    minutes: this.state.minutes + 1
+                })
+            }
+        }, 10);
+        this.setState({start: startTime});
+    }
+
+    stop() {
+        clearInterval(this.state.start)
+        this.setState({ disabled: false })
+    }
+
+```
 
 ## Challenges
 ### A profile page as the epicenter
