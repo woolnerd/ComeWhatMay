@@ -24,6 +24,10 @@ Come check it out: [CWM](http://come-what-may.herokuapp.com/#/)
   * Mongoose
   * Node
   * Express
+* Utilities 
+  * Create-React-App
+    * Webpack  
+  * Google Fonts
 
 ## Features
 * Embedded documents to take advantage of MongoDb back and where it makes sense to do so.
@@ -110,13 +114,11 @@ start() {
 ```
 
 ## Challenges
-### A profile page as the epicenter
+### A Profile Page as the Epicenter
 * The heart of CWM is the profile page where a user can keep track of their disaster plans, their contact information for members of their household, as well as their profile information. Because everything stems from the profile page, it was imperative that new users are funneled into a create profile form on signup, and that repeat users get to skip this step and go straight to their profile. However, this would require some logic. First, it was necessary to identify the users who have a profile ID associated with their user ID. Upon logging in, the function hits a condition that renders a logged-in user with a profile ID to their profile page. If a user is able to successfully login but is not associated with a profile ID, the profile form will render on screen. 
 
-### Using a new technology for the back end of the project (MongoDB). 
-* While we did use Mongoose router to allow for an easier transition from the SQL tables that we were used to, we wanted to take full advantage of what MongoDB brings to the table. One of the most obvious differences is the use of embedded documents. Learning everything, all of the required syntax and functionality to properly manage CRUD on the embedded documents was one of the largest challenges that we faced during this project. The consistent rendering of our action steps i.e. the tasks that are created and point to our action plans, were depenendent on this relationship. However, we had a problem: our UI had a disconnect from the backend. If one was attempted to update or delete a task, the wrong task would be effected. We had a disconnect from the backend.
-
-### A Homemade Drill Timer 
-* Part of what makes CWM a different app then the others is how we hope to encourage our users to put their plans intro practice. For what good is a great plan without proper execution? That is why we implemented our very own drill timer. This way a plan can actually be implemented and practiced. The user gets the ability to save and view their drill times, and get a sense of their performance. To implement this timer feature we had to start from the ground up...
+### Using a New Technology for the Backend of the Project (MongoDB). 
+* While we did use Mongoose router to allow for an easier transition from the SQL tables that we were used to, we wanted to take full advantage of what MongoDB brings to the table. One of the most obvious differences is the use of embedded documents. Learning all of the required syntax and functionality to properly manage CRUD on the embedded documents was one of the largest challenges that we faced. The consistent rendering of our action steps i.e. the tasks that are created within an action plan are embedded documents. Through this process of learning MongoDB and the NoSQL approach to handling data, we had a chance to really dig into how best to fit our backend to the needs of our app. 
 
 
+## Stay Safe!
