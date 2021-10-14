@@ -70,7 +70,7 @@ class CreateDrill extends React.Component {
     }
 }
 
-const mSTP = (stat, ownProps) => ({
+const mSTP = (ownProps) => ({
     planId: ownProps.planId
     
 });

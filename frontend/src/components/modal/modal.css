@@ -167,6 +167,7 @@
     box-shadow:  4px 4px 4px rgba(0,0,0,0.33);
     cursor: pointer;
     height: 30px;
+    font-weight: 400;
 }
 
 #edit-profile-errors{
