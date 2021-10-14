@@ -332,6 +332,7 @@ div#case-of {
     box-shadow: 4px 4px 4px rgb(0 0 0 / 33%);
     cursor: pointer;
     height: 30px;
+    font-weight: 400;
 }
 
 .action-step-update-modal .plan-error-container {

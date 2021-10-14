@@ -109,7 +109,7 @@ class ActionStep extends React.Component {
                     onChange={this.handleChange("task")}>
                     </textarea>
                 </div>
-                <button>Update Action</button>
+                <button>Update</button>
                 <div className="plan-error-container">{this.renderErrors()}</div>
             </form>
         </div>

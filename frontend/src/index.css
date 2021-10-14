@@ -24,3 +24,6 @@ body {
     color: black;
 }
 
+button {
+    font-weight: 400;
+}

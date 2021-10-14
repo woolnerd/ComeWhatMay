@@ -103,6 +103,7 @@ class EditProfileForm extends React.Component {
                 onChange={this.update("email")}
                 type="text"
                 value={this.state.email}
+                disabled
               />
             </label>
             <br />
@@ -125,7 +126,7 @@ class EditProfileForm extends React.Component {
                 value={this.state.householdSize}
               />
             </label>
-            <button id="edit-profile-btn">Edit Profile</button>
+            <button id="edit-profile-btn">Update</button>
             <div className="error-container">{this.renderErrors()}</div>
           </form>
         </div>

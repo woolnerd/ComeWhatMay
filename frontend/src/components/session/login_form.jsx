@@ -108,7 +108,7 @@ class LoginForm extends React.Component {
               <br />
               <p className="or-submit">
                 or{" "}
-                <Link to="/signup">
+                <Link to="/signup" onClick={() => this.props.clearSessionErrors()}>
                   <span>Signup</span>
                 </Link>
               </p>

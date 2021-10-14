@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { login } from "../../actions/session_actions";
+import { login, clearSessionErrors } from "../../actions/session_actions";
 import { fetchUserProfile } from "../../actions/profile_actions";
 import LoginForm from "./login_form";
 import { openModal } from '../../actions/modal_actions';
@@ -17,7 +17,8 @@ const mDTP = (dispatch) => {
   return {
     login: (user) => dispatch(login(user)),
     fetchUserProfile: (userId) => dispatch(fetchUserProfile(userId)),
-    openModal: (modal, id) => dispatch(openModal(modal, id))
+    openModal: (modal, id) => dispatch(openModal(modal, id)),
+    clearSessionErrors: () => dispatch(clearSessionErrors())
   };
 };
 
