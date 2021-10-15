@@ -13,8 +13,15 @@ class DrillHistory extends React.Component {
 
     render() {
         if (!this.props.drills) return null
+          
+        let showDrills = this.props.drills.sort(
+            (a, b) =>
+              Date.parse(a.timeToStart.slice(0, 10)) -
+              Date.parse(b.timeToStart.slice(0, 10))
+          );
 
-        const showDrills = this.props.drills ? this.props.drills.map((drill, i) => {
+
+        showDrills = showDrills ? this.props.drills.map((drill, i) => {
             if(drill.timeToComplete){
                 let date = new Date(drill.timeToStart);
                 let dd = String(date.getDate() + 1).padStart(2, "0");
