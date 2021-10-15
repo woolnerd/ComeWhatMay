@@ -20,7 +20,7 @@ class DrillHistory extends React.Component {
               Date.parse(b.timeToStart.slice(0, 10))
           );
 
-        showDrills = showDrills ? this.props.drills.map((drill, i) => {
+        showDrills = showDrills.length ? this.props.drills.map((drill, i) => {
             if(drill.timeToComplete){
                 let date = new Date(drill.timeToStart);
                 let dd = String(date.getDate() + 1).padStart(2, "0");

@@ -17,7 +17,7 @@ class PlanIndex extends React.Component{
                                    Date.parse(a.timeToStart.slice(0,10)) - 
                                    Date.parse(b.timeToStart.slice(0,10)))
 
-         showDrills = showDrills ? 
+         showDrills = showDrills.length ? 
                 this.props.drills.map((drill, i) => {
                     let date = new Date(drill.timeToStart);
                     let dd = String(date.getDate() + 1).padStart(2, "0");
