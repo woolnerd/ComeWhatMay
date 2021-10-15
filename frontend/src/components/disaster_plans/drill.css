@@ -87,3 +87,13 @@ input[type="date"] {
     margin-right: 5%;
     margin-top: 1%;
 }
+
+.date-error {
+    color: rgb(172, 0, 0);
+    text-align: center;
+    padding: 6px 0;
+}
+
+.hide {
+    display: none;
+}
