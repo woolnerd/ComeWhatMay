@@ -28,9 +28,6 @@ class CreateDrill extends React.Component {
 
     handleInput(type) {
         return (e) => {
-            if (this.state.firstLoad){
-              console.log(e.target.value)
-            }
             this.setState({ [type]: e.target.value })
         };
     }

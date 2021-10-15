@@ -24,7 +24,6 @@ class PlanIndex extends React.Component{
                     let mm = String(date.getMonth()).padStart(2, "0");
                     let yyyy = date.getFullYear();
                     date = new Date(yyyy, mm, dd)
-                    console.log(date)
                     return (
                       <div key={`${i}`} className="single_drill">
                         <div>
