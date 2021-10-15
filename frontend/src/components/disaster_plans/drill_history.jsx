@@ -20,7 +20,6 @@ class DrillHistory extends React.Component {
               Date.parse(b.timeToStart.slice(0, 10))
           );
 
-
         showDrills = showDrills ? this.props.drills.map((drill, i) => {
             if(drill.timeToComplete){
                 let date = new Date(drill.timeToStart);
